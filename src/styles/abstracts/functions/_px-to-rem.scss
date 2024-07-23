@@ -1,6 +1,10 @@
 @use "./../settings/" as *;
 @use "strip-unit" as *;
 
+////
+/// @group functions/units
+////
+
 /// Converts a given value to rem units.
 /// @param {Number|String} $value - The value to convert. Can be unitless or with units.
 /// @return {String} - The value converted to rem units.

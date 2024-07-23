@@ -10,7 +10,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "prepare": "husky",
-    "docs": "sassdoc src/ && typedoc"
+    "docs": "sassdoc src/ && typedoc",
+    "build-docs":  "npm run test && npm run docs"
   },
   "dependencies": {
     "lodash": "^4.17.21",
