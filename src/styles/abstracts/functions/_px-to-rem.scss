@@ -1,0 +1,17 @@
+@use "./../settings/" as *;
+@use "strip-unit" as *;
+
+/// Converts a given value to rem units.
+/// @param {Number|String} $value - The value to convert. Can be unitless or with units.
+/// @return {String} - The value converted to rem units.
+@function rem($value) {
+  @if unitless($value) {
+    @return calc(($value / $font-root-size) * 1rem);
+  }
+
+  @if unit($value) != null {
+    @return calc((strip-unit($value) / $font-root-size) * 1rem);
+  }
+
+  @return value;
+}
