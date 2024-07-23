@@ -1,3 +1,5 @@
+@use "./../functions/" as *;
+
 ////
 /// @group settings/colours
 ///
@@ -151,7 +153,7 @@ $project-applied-colours: (
 /// @prop {Color} disabled[600] [hsla(0, 0%, 65%, 1)] - Dark shade of disabled color.
 /// @prop {Color} disabled[700] [hsla(0, 0%, 60%, 1)] - Darkest shade of disabled color.
 /// @prop {Color} disabled[800] [hsla(0, 0%, 55%, 1)] - Darkest shade of disabled color.
-$colours: (
+$project-colour-shades: (
   primary: (
     100: change-shade(map-get($project-applied-colours, "primary"), 85%),
     200: change-shade(map-get($project-applied-colours, "primary"), 75%),
@@ -183,23 +185,23 @@ $colours: (
   ),
 
   cream: (
-    100: change-shade(map-get($project-applied-colours, "light-chocolate"), 95%),
-    200: change-shade(map-get($project-applied-colours, "light-chocolate"), 90%),
-    300: change-shade(map-get($project-applied-colours, "light-chocolate"), 85%),
-    400: map-get($project-applied-colours, "light-chocolate"),
-    500: change-shade(map-get($project-applied-colours, "light-chocolate"), 70%),
-    600: change-shade(map-get($project-applied-colours, "light-chocolate"), 60%),
-    700: change-shade(map-get($project-applied-colours, "light-chocolate"), 50%),
+    100: change-shade(map-get($project-colours, "light-chocolate"), 95%),
+    200: change-shade(map-get($project-colours, "light-chocolate"), 90%),
+    300: change-shade(map-get($project-colours, "light-chocolate"), 85%),
+    400: map-get($project-colours, "light-chocolate"),
+    500: change-shade(map-get($project-colours, "light-chocolate"), 70%),
+    600: change-shade(map-get($project-colours, "light-chocolate"), 60%),
+    700: change-shade(map-get($project-colours, "light-chocolate"), 50%),
   ),
 
   beige: (
-    100: change-shade(map-get($project-applied-colours, "soft-apricot"), 99%),
-    200: change-shade(map-get($project-applied-colours, "soft-apricot"), 97%),
-    300: change-shade(map-get($project-applied-colours, "soft-apricot"), 92%),
-    400: map-get($project-applied-colours, "soft-apricot"),
-    500: change-shade(map-get($project-applied-colours, "soft-apricot"), 84%),
-    600: change-shade(map-get($project-applied-colours, "soft-apricot"), 74%),
-    700: change-shade(map-get($project-applied-colours, "soft-apricot"), 64%),
+    100: change-shade(map-get($project-colours, "soft-apricot"), 99%),
+    200: change-shade(map-get($project-colours, "soft-apricot"), 97%),
+    300: change-shade(map-get($project-colours, "soft-apricot"), 92%),
+    400: map-get($project-colours, "soft-apricot"),
+    500: change-shade(map-get($project-colours, "soft-apricot"), 84%),
+    600: change-shade(map-get($project-colours, "soft-apricot"), 74%),
+    700: change-shade(map-get($project-colours, "soft-apricot"), 64%),
   ),
 
   light: (

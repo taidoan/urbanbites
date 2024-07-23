@@ -1,0 +1,9 @@
+@use "./../abstracts/settings/colours" as c;
+
+:root {
+  @each $color, $shades in c.$project-colour-shades {
+    @each $shade, $value in $shades {
+      --clr-#{$color}-#{$shade}: #{$value};
+    }
+  }
+}

@@ -1,0 +1,21 @@
+:root {
+  --fs-display-base: clamp(3.75rem, 1.26vi + 3.5rem, 4.69rem);
+}
+
+body {
+  color: var(--clr-tertiary-400);
+  font-family: var(--font-body);
+  line-height: 1.3;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--clr-secondary-400);
+  font-family: var(--font-display);
+  font-size: var(--fs-display-base);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  text-transform: uppercase;
+}
