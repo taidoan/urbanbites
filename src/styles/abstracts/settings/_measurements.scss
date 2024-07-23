@@ -2,13 +2,22 @@
 /// @group settings/layout
 ////
 
-// =========================================================
-// Page layout
-// =========================================================
-
-/// Width of main container
-///
+/// Max width of the site layout in PX, we can strip the unit out later if needed
 /// @type Number
 /// @access public
+$project-max-width: 1512px;
 
-$project-max-width: 1512 !default;
+/// Max width of the content in PX, we can strip the unit out later if needed
+/// @type number
+/// @access public
+$content-max-width: 1363px;
+
+/// Max width of breakout content in PX, we can strip the unit out later if needed
+/// @type number
+/// @access public
+$breakout-max-width: 1488px;
+
+/// Width of the main border style in PX, we shouldn't really need to unit strip this
+/// @type number
+/// @access public
+$border-width: 12px;
