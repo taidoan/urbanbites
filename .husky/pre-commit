@@ -1,7 +1,7 @@
 npm test
 npm run docs
 
-git add ./../sassdoc
-git add ./../docs
+git add sassdoc
+git add docs
 
 exit 0
