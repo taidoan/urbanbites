@@ -5,7 +5,7 @@
 /// @param {variants} $variants [all] - The list of border variants to apply
 @mixin border(
   $width: m.$border-width,
-  $color: var(--clr-tertiary-400),
+  $color: map-get($map: $project-applied-colours, $key: tertiary),
   $variants: all
 ) {
   border: $width solid $color;
