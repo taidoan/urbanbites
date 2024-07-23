@@ -1,8 +1,13 @@
+@use "./../settings/measurements" as m;
 /// Border mixin, use this to apply the border to elements
-/// @param {width} $width - The width of the border
-/// @param {color} $color - The colour of the border
-/// @param {variants} $variants - The list of border variants to apply
-@mixin border($width, $color, $variants: all) {
+/// @param {width} $width [12px] - The width of the border
+/// @param {color} $color [var(--clr-tertiary-400)] - The colour of the border
+/// @param {variants} $variants [all] - The list of border variants to apply
+@mixin border(
+  $width: m.$border-width,
+  $color: var(--clr-tertiary-400),
+  $variants: all
+) {
   border: $width solid $color;
 
   @each $variant in $variants {
