@@ -48,7 +48,7 @@ $project-applied-colours: (
   "primary": map-get($project-colours, "light-orange"),
   "secondary": map-get($project-colours, "dark-chocolate"),
   "tertiary": map-get($project-colours, "milk-chocolate"),
-  "light": map-get($project-colors, "ivory"),
+  "light": map-get($project-colours, "ivory"),
   "danger": map-get($project-colours, "red"),
   "success": map-get($project-colours, "green"),
   "warning": map-get($project-colours, "yellow"),
