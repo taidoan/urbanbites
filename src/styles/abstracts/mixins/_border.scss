@@ -1,0 +1,25 @@
+/// Border mixin, use this to apply the border to elements
+/// @param {width} $width - The width of the border
+/// @param {color} $color - The colour of the border
+/// @param {variants} $variants - The list of border variants to apply
+@mixin border($width, $color, $variants: all) {
+  border: $width solid $color;
+
+  @each $variant in $variants {
+    @if $variant == "no-top" {
+      border-top: 0;
+    } @else if $variant == "no-bottom" {
+      border-bottom: 0;
+    } @else if $variant == "no-left" {
+      border-left: 0;
+    } @else if $variant == "no-right" {
+      border-right: 0;
+    } @else if $variant == "no-inline" {
+      border-left: 0;
+      border-right: 0;
+    } @else if $variant == "no-block" {
+      border-bottom: 0;
+      border-top: 0;
+    }
+  }
+}
