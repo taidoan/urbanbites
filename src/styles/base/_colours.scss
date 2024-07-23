@@ -3,16 +3,16 @@
 ////
 /// @group settings/colours
 ///
-
 /// Generates CSS custom properties (variables) for each color and its shades.
 /// This code iterates over the color shades map and creates CSS variables in the format
 /// `--clr-{color}-{shade}` where `{color}` is the color name and `{shade}` is the shade level.
 ///
 /// @type {void}
-///
+/// @require $project-colour-shades
 /// @access public
 /// @example
-/// // Given the following map:
+/// Given the following map:
+///
 /// $project-colour-shades: (
 ///   primary: (
 ///     100: #f0f0f0,
@@ -52,6 +52,8 @@
 ///   --clr-secondary-600: #e60000;
 ///   --clr-secondary-700: #cc0000;
 /// }
+///
+
 :root {
   @each $color, $shades in c.$project-colour-shades {
     @each $shade, $value in $shades {
