@@ -1,0 +1,27 @@
+////
+/// @group settings/overlays
+////
+
+/// Z-index map for managing stacking contexts and layering of UI elements.
+/// This map provides a hierarchical layering system to ensure proper stacking order
+/// for various elements in the UI.
+///
+/// @type map
+/// @access public
+/// @prop {Number} backdrop [10] - Z-index for backdrop elements, such as overlays behind modals.
+/// @prop {Number} tooltip [100] - Z-index for tooltips, which should appear above most UI elements but below modals.
+/// @prop {Number} menu [200] - Z-index for navigation menus, ensuring they appear above tooltips.
+/// @prop {Number} modal [300] - Z-index for modal dialogs, which should overlay everything else except for the highest layers.
+/// @prop {Number} alert [400] - Z-index for alert messages and popups, ensuring they appear above modals.
+/// @prop {Number} loading-screen [500] - Z-index for loading screens, which should be above all other elements during loading states.
+/// @prop {Number} highest [1000] - Reserved for the highest priority elements, if needed in the future.
+
+$z-index-map: (
+  backdrop: 10,
+  tooltip: 100,
+  menu: 200,
+  modal: 300,
+  alert: 400,
+  loading-screen: 500,
+  highest: 1000,
+);
