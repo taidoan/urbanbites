@@ -1,3 +1,269 @@
 ////
 /// @group settings/colours
-////
+///
+
+/// project-colours - A map of all project colours.
+/// @type map
+/// @prop {Color} blue [hsla(213, 80%, 63%, 1)] - Blue color.
+/// @prop {Color} dark-chocolate [hsla(24, 19%, 16%, 1)] - Dark chocolate color.
+/// @prop {Color} green [hsla(83, 77%, 45%, 1)] - Green color.
+/// @prop {Color} grey [hsla(0, 0%, 80%, 1)] - Grey color.
+/// @prop {Color} ivory [hsla(22, 26%, 92%, 1)] - Ivory color.
+/// @prop {Color} light-chocolate [hsla(20, 29%, 80%, 1)] - Light chocolate color.
+/// @prop {Color} light-orange [hsla(16, 75%, 55%, 1)] - Light orange color.
+/// @prop {Color} milk-chocolate [hsla(24, 16%, 33%, 1)] - Milk chocolate color.
+/// @prop {Color} pale [hsla(23, 31%, 89%, 1)] - Pale color.
+/// @prop {Color} red [hsla(4, 77%, 45%, 1)] - Red color.
+/// @prop {Color} soft-apricot [hsla(23, 31%, 89%, 1)] - Soft apricot color.
+/// @prop {Color} yellow [hsla(50, 86%, 57%, 1)] - Yellow color.
+/// @access public
+$project-colours: (
+  "blue": hsla(213, 80%, 63%, 1),
+  "dark-chocolate": hsla(24, 19%, 16%, 1),
+  "green": hsla(83, 77%, 45%, 1),
+  "grey": hsla(0, 0%, 80%, 1),
+  "ivory": hsla(22, 26%, 92%, 1),
+  "light-chocolate": hsla(20, 29%, 80%, 1),
+  "light-orange": hsla(16, 75%, 55%, 1),
+  "milk-chocolate": hsla(24, 16%, 33%, 1),
+  "pale": hsla(23, 31%, 89%, 1),
+  "red": hsla(4, 77%, 45%, 1),
+  "soft-apricot": hsla(23, 31%, 89%, 1),
+  "yellow": hsla(50, 86%, 57%, 1),
+);
+
+/// project-applied-colours - A map of applied project colors.
+/// @type map
+/// @prop {Color} primary [hsla(16, 75%, 55%, 1)] - Primary color from light-orange.
+/// @prop {Color} secondary [hsla(24, 19%, 16%, 1)] - Secondary color from dark-chocolate.
+/// @prop {Color} tertiary [hsla(24, 16%, 33%, 1)] - Tertiary color from milk-chocolate.
+/// @prop {Color} light [hsla(22, 26%, 92%, 1)] - Light color from ivory.
+/// @prop {Color} danger [hsla(4, 77%, 45%, 1)] - Danger color from red.
+/// @prop {Color} success [hsla(83, 77%, 45%, 1)] - Success color from green.
+/// @prop {Color} warning [hsla(50, 86%, 57%, 1)] - Warning color from yellow.
+/// @prop {Color} info [hsla(213, 80%, 63%, 1)] - Info color from blue.
+/// @prop {Color} disabled [hsla(0, 0%, 80%, 1)] - Disabled color from grey.
+/// @access public
+$project-applied-colours: (
+  "primary": map-get($project-colours, "light-orange"),
+  "secondary": map-get($project-colours, "dark-chocolate"),
+  "tertiary": map-get($project-colours, "milk-chocolate"),
+  "light": map-get($project-colors, "ivory"),
+  "danger": map-get($project-colours, "red"),
+  "success": map-get($project-colours, "green"),
+  "warning": map-get($project-colours, "yellow"),
+  "info": map-get($project-colours, "blue"),
+  "disabled": map-get($project-colours, "grey"),
+);
+
+/// Colour shade map with a further map inside for the different shades of said colour
+/// @type map
+/// @prop {Color} primary [ ] - Map containing shades of the primary color.
+/// @prop {Color} primary[100] [hsla(30, 70%, 85%, 1)] - Lightest shade of primary color.
+/// @prop {Color} primary[200] [hsla(30, 70%, 75%, 1)] - Lighter shade of primary color.
+/// @prop {Color} primary[300] [hsla(30, 70%, 65%, 1)] - Light shade of primary color.
+/// @prop {Color} primary[400] [hsla(30, 70%, 50%, 1)] - Default shade of primary color.
+/// @prop {Color} primary[500] [hsla(30, 70%, 45%, 1)] - Darker shade of primary color.
+/// @prop {Color} primary[600] [hsla(30, 70%, 35%, 1)] - Dark shade of primary color.
+/// @prop {Color} primary[700] [hsla(30, 70%, 25%, 1)] - Darkest shade of primary color.
+/// @prop {Color} secondary [ ] - Map containing shades of the secondary color.
+/// @prop {Color} secondary[100] [hsla(15, 70%, 46%, 1)] - Lightest shade of secondary color.
+/// @prop {Color} secondary[200] [hsla(15, 70%, 36%, 1)] - Lighter shade of secondary color.
+/// @prop {Color} secondary[300] [hsla(15, 70%, 26%, 1)] - Light shade of secondary color.
+/// @prop {Color} secondary[400] [hsla(15, 70%, 20%, 1)] - Default shade of secondary color.
+/// @prop {Color} secondary[500] [hsla(15, 70%, 13%, 1)] - Darker shade of secondary color.
+/// @prop {Color} secondary[600] [hsla(15, 70%, 10%, 1)] - Dark shade of secondary color.
+/// @prop {Color} secondary[700] [hsla(15, 70%, 6%, 1)] - Darkest shade of secondary color.
+/// @prop {Color} tertiary [ ] - Map containing shades of the tertiary color.
+/// @prop {Color} tertiary[100] [hsla(30, 50%, 63%, 1)] - Lightest shade of tertiary color.
+/// @prop {Color} tertiary[200] [hsla(30, 50%, 53%, 1)] - Lighter shade of tertiary color.
+/// @prop {Color} tertiary[300] [hsla(30, 50%, 43%, 1)] - Light shade of tertiary color.
+/// @prop {Color} tertiary[400] [hsla(30, 50%, 35%, 1)] - Default shade of tertiary color.
+/// @prop {Color} tertiary[500] [hsla(30, 50%, 23%, 1)] - Darker shade of tertiary color.
+/// @prop {Color} tertiary[600] [hsla(30, 50%, 13%, 1)] - Dark shade of tertiary color.
+/// @prop {Color} tertiary[700] [hsla(30, 50%, 10%, 1)] - Darkest shade of tertiary color.
+/// @prop {Color} cream [ ] - Map containing shades of the cream color.
+/// @prop {Color} cream[100] [hsla(30, 30%, 95%, 1)] - Lightest shade of cream color.
+/// @prop {Color} cream[200] [hsla(30, 30%, 90%, 1)] - Lighter shade of cream color.
+/// @prop {Color} cream[300] [hsla(30, 30%, 85%, 1)] - Light shade of cream color.
+/// @prop {Color} cream[400] [hsla(30, 30%, 70%, 1)] - Default shade of cream color.
+/// @prop {Color} cream[500] [hsla(30, 30%, 60%, 1)] - Darker shade of cream color.
+/// @prop {Color} cream[600] [hsla(30, 30%, 50%, 1)] - Dark shade of cream color.
+/// @prop {Color} cream[700] [hsla(30, 30%, 40%, 1)] - Darkest shade of cream color.
+/// @prop {Color} beige [ ] - Map containing shades of the beige color.
+/// @prop {Color} beige[100] [hsla(30, 70%, 99%, 1)] - Lightest shade of beige color.
+/// @prop {Color} beige[200] [hsla(30, 70%, 97%, 1)] - Lighter shade of beige color.
+/// @prop {Color} beige[300] [hsla(30, 70%, 92%, 1)] - Light shade of beige color.
+/// @prop {Color} beige[400] [hsla(30, 70%, 84%, 1)] - Default shade of beige color.
+/// @prop {Color} beige[500] [hsla(30, 70%, 74%, 1)] - Darker shade of beige color.
+/// @prop {Color} beige[600] [hsla(30, 70%, 64%, 1)] - Dark shade of beige color.
+/// @prop {Color} beige[700] [hsla(30, 70%, 54%, 1)] - Darkest shade of beige color.
+/// @prop {Color} light [ ] - Map containing shades of the light color.
+/// @prop {Color} light[100] [hsla(0, 0%, 98%, 1)] - Lightest shade of light color.
+/// @prop {Color} light[200] [hsla(0, 0%, 96%, 1)] - Lighter shade of light color.
+/// @prop {Color} light[300] [hsla(0, 0%, 95%, 1)] - Light shade of light color.
+/// @prop {Color} light[400] [hsla(0, 0%, 82%, 1)] - Default shade of light color.
+/// @prop {Color} light[500] [hsla(0, 0%, 72%, 1)] - Darker shade of light color.
+/// @prop {Color} light[600] [hsla(0, 0%, 62%, 1)] - Dark shade of light color.
+/// @prop {Color} light[700] [hsla(0, 0%, 52%, 1)] - Darkest shade of light color.
+/// @prop {Color} danger [ ] - Map containing shades of the danger color.
+/// @prop {Color} danger[100] [hsla(0, 80%, 60%, 1)] - Lightest shade of danger color.
+/// @prop {Color} danger[200] [hsla(0, 80%, 55%, 1)] - Lighter shade of danger color.
+/// @prop {Color} danger[300] [hsla(0, 80%, 50%, 1)] - Light shade of danger color.
+/// @prop {Color} danger[400] [hsla(0, 80%, 40%, 1)] - Default shade of danger color.
+/// @prop {Color} danger[500] [hsla(0, 80%, 35%, 1)] - Darker shade of danger color.
+/// @prop {Color} danger[600] [hsla(0, 80%, 30%, 1)] - Dark shade of danger color.
+/// @prop {Color} danger[700] [hsla(0, 80%, 25%, 1)] - Darkest shade of danger color.
+/// @prop {Color} danger[800] [hsla(0, 80%, 20%, 1)] - Darkest shade of danger color.
+/// @prop {Color} success [ ] - Map containing shades of the success color.
+/// @prop {Color} success[100] [hsla(120, 60%, 60%, 1)] - Lightest shade of success color.
+/// @prop {Color} success[200] [hsla(120, 60%, 55%, 1)] - Lighter shade of success color.
+/// @prop {Color} success[300] [hsla(120, 60%, 50%, 1)] - Light shade of success color.
+/// @prop {Color} success[400] [hsla(120, 60%, 40%, 1)] - Default shade of success color.
+/// @prop {Color} success[500] [hsla(120, 60%, 35%, 1)] - Darker shade of success color.
+/// @prop {Color} success[600] [hsla(120, 60%, 30%, 1)] - Dark shade of success color.
+/// @prop {Color} success[700] [hsla(120, 60%, 25%, 1)] - Darkest shade of success color.
+/// @prop {Color} success[800] [hsla(120, 60%, 20%, 1)] - Darkest shade of success color.
+/// @prop {Color} warning - Map containing shades of the warning color.
+/// @prop {Color} warning[100] [hsla(60, 100%, 72%, 1)] - Lightest shade of warning color.
+/// @prop {Color} warning[200] [hsla(60, 100%, 67%, 1)] - Lighter shade of warning color.
+/// @prop {Color} warning[300] [hsla(60, 100%, 62%, 1)] - Light shade of warning color.
+/// @prop {Color} warning[400] [hsla(60, 100%, 52%, 1)] - Default shade of warning color.
+/// @prop {Color} warning[500] [hsla(60, 100%, 47%, 1)] - Darker shade of warning color.
+/// @prop {Color} warning[600] [hsla(60, 100%, 42%, 1)] - Dark shade of warning color.
+/// @prop {Color} warning[700] [hsla(60, 100%, 37%, 1)] - Darkest shade of warning color.
+/// @prop {Color} warning[800] [hsla(60, 100%, 32%, 1)] - Darkest shade of warning color.
+/// @prop {Color} info [ ] - Map containing shades of the info color.
+/// @prop {Color} info[100] [hsla(210, 80%, 78%, 1)] - Lightest shade of info color.
+/// @prop {Color} info[200] [hsla(210, 80%, 73%, 1)] - Lighter shade of info color.
+/// @prop {Color} info[300] [hsla(210, 80%, 68%, 1)] - Light shade of info color.
+/// @prop {Color} info[400] [hsla(210, 80%, 58%, 1)] - Default shade of info color.
+/// @prop {Color} info[500] [hsla(210, 80%, 53%, 1)] - Darker shade of info color.
+/// @prop {Color} info[600] [hsla(210, 80%, 48%, 1)] - Dark shade of info color.
+/// @prop {Color} info[700] [hsla(210, 80%, 43%, 1)] - Darkest shade of info color.
+/// @prop {Color} info[800] [hsla(210, 80%, 38%, 1)] - Darkest shade of info color.
+/// @prop {Color} disabled [ ] - Map containing shades of the disabled color.
+/// @prop {Color} disabled[100] [hsla(0, 0%, 95%, 1)] - Lightest shade of disabled color.
+/// @prop {Color} disabled[200] [hsla(0, 0%, 90%, 1)] - Lighter shade of disabled color.
+/// @prop {Color} disabled[300] [hsla(0, 0%, 85%, 1)] - Light shade of disabled color.
+/// @prop {Color} disabled[400] [hsla(0, 0%, 75%, 1)] - Default shade of disabled color.
+/// @prop {Color} disabled[500] [hsla(0, 0%, 70%, 1)] - Darker shade of disabled color.
+/// @prop {Color} disabled[600] [hsla(0, 0%, 65%, 1)] - Dark shade of disabled color.
+/// @prop {Color} disabled[700] [hsla(0, 0%, 60%, 1)] - Darkest shade of disabled color.
+/// @prop {Color} disabled[800] [hsla(0, 0%, 55%, 1)] - Darkest shade of disabled color.
+$colours: (
+  primary: (
+    100: change-shade(map-get($project-applied-colours, "primary"), 85%),
+    200: change-shade(map-get($project-applied-colours, "primary"), 75%),
+    300: change-shade(map-get($project-applied-colours, "primary"), 65%),
+    400: map-get($project-applied-colours, "primary"),
+    500: change-shade(map-get($project-applied-colours, "primary"), 45%),
+    600: change-shade(map-get($project-applied-colours, "primary"), 35%),
+    700: change-shade(map-get($project-applied-colours, "primary"), 25%),
+  ),
+
+  secondary: (
+    100: change-shade(map-get($project-applied-colours, "secondary"), 46%),
+    200: change-shade(map-get($project-applied-colours, "secondary"), 36%),
+    300: change-shade(map-get($project-applied-colours, "secondary"), 26%),
+    400: map-get($project-applied-colours, "secondary"),
+    500: change-shade(map-get($project-applied-colours, "secondary"), 13%),
+    600: change-shade(map-get($project-applied-colours, "secondary"), 10%),
+    700: change-shade(map-get($project-applied-colours, "secondary"), 6%),
+  ),
+
+  tertiary: (
+    100: change-shade(map-get($project-applied-colours, "tertiary"), 63%),
+    200: change-shade(map-get($project-applied-colours, "tertiary"), 53%),
+    300: change-shade(map-get($project-applied-colours, "tertiary"), 43%),
+    400: map-get($project-applied-colours, "tertiary"),
+    500: change-shade(map-get($project-applied-colours, "tertiary"), 23%),
+    600: change-shade(map-get($project-applied-colours, "tertiary"), 13%),
+    700: change-shade(map-get($project-applied-colours, "tertiary"), 10%),
+  ),
+
+  cream: (
+    100: change-shade(map-get($project-applied-colours, "light-chocolate"), 95%),
+    200: change-shade(map-get($project-applied-colours, "light-chocolate"), 90%),
+    300: change-shade(map-get($project-applied-colours, "light-chocolate"), 85%),
+    400: map-get($project-applied-colours, "light-chocolate"),
+    500: change-shade(map-get($project-applied-colours, "light-chocolate"), 70%),
+    600: change-shade(map-get($project-applied-colours, "light-chocolate"), 60%),
+    700: change-shade(map-get($project-applied-colours, "light-chocolate"), 50%),
+  ),
+
+  beige: (
+    100: change-shade(map-get($project-applied-colours, "soft-apricot"), 99%),
+    200: change-shade(map-get($project-applied-colours, "soft-apricot"), 97%),
+    300: change-shade(map-get($project-applied-colours, "soft-apricot"), 92%),
+    400: map-get($project-applied-colours, "soft-apricot"),
+    500: change-shade(map-get($project-applied-colours, "soft-apricot"), 84%),
+    600: change-shade(map-get($project-applied-colours, "soft-apricot"), 74%),
+    700: change-shade(map-get($project-applied-colours, "soft-apricot"), 64%),
+  ),
+
+  light: (
+    100: change-shade(map-get($project-applied-colours, "light"), 98%),
+    200: change-shade(map-get($project-applied-colours, "light"), 96%),
+    300: change-shade(map-get($project-applied-colours, "light"), 95%),
+    400: map-get($project-applied-colours, "light"),
+    500: change-shade(map-get($project-applied-colours, "light"), 82%),
+    600: change-shade(map-get($project-applied-colours, "light"), 72%),
+    700: change-shade(map-get($project-applied-colours, "light"), 62%),
+  ),
+
+  danger: (
+    100: change-shade(map-get($project-applied-colours, "danger"), 60%),
+    200: change-shade(map-get($project-applied-colours, "danger"), 55%),
+    300: change-shade(map-get($project-applied-colours, "danger"), 50%),
+    400: map-get($project-applied-colours, "danger"),
+    500: change-shade(map-get($project-applied-colours, "danger"), 40%),
+    600: change-shade(map-get($project-applied-colours, "danger"), 35%),
+    700: change-shade(map-get($project-applied-colours, "danger"), 30%),
+    800: change-shade(map-get($project-applied-colours, "danger"), 25%),
+  ),
+
+  success: (
+    100: change-shade(map-get($project-applied-colours, "success"), 60%),
+    200: change-shade(map-get($project-applied-colours, "success"), 55%),
+    300: change-shade(map-get($project-applied-colours, "success"), 50%),
+    400: map-get($project-applied-colours, "success"),
+    500: change-shade(map-get($project-applied-colours, "success"), 40%),
+    600: change-shade(map-get($project-applied-colours, "success"), 35%),
+    700: change-shade(map-get($project-applied-colours, "success"), 30%),
+    800: change-shade(map-get($project-applied-colours, "success"), 25%),
+  ),
+
+  warning: (
+    100: change-shade(map-get($project-applied-colours, "warning"), 72%),
+    200: change-shade(map-get($project-applied-colours, "warning"), 67%),
+    300: change-shade(map-get($project-applied-colours, "warning"), 62%),
+    400: map-get($project-applied-colours, "warning"),
+    500: change-shade(map-get($project-applied-colours, "warning"), 52%),
+    600: change-shade(map-get($project-applied-colours, "warning"), 47%),
+    700: change-shade(map-get($project-applied-colours, "warning"), 42%),
+    800: change-shade(map-get($project-applied-colours, "warning"), 32%),
+  ),
+
+  info: (
+    100: change-shade(map-get($project-applied-colours, "info"), 78%),
+    200: change-shade(map-get($project-applied-colours, "info"), 73%),
+    300: change-shade(map-get($project-applied-colours, "info"), 68%),
+    400: map-get($project-applied-colours, "info"),
+    500: change-shade(map-get($project-applied-colours, "info"), 58%),
+    600: change-shade(map-get($project-applied-colours, "info"), 53%),
+    700: change-shade(map-get($project-applied-colours, "info"), 48%),
+    800: change-shade(map-get($project-applied-colours, "info"), 43%),
+  ),
+
+  disabled: (
+    100: change-shade(map-get($project-applied-colours, "disabled"), 95%),
+    200: change-shade(map-get($project-applied-colours, "disabled"), 90%),
+    300: change-shade(map-get($project-applied-colours, "disabled"), 85%),
+    400: map-get($project-applied-colours, "disabled"),
+    500: change-shade(map-get($project-applied-colours, "disabled"), 75%),
+    600: change-shade(map-get($project-applied-colours, "disabled"), 70%),
+    700: change-shade(map-get($project-applied-colours, "disabled"), 65%),
+    800: change-shade(map-get($project-applied-colours, "disabled"), 60%),
+  ),
+);
