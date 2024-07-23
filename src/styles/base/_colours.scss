@@ -1,5 +1,8 @@
 @use "./../abstracts/settings/colours" as c;
 
+////
+/// @group settings/colours
+///
 :root {
   @each $color, $shades in c.$project-colour-shades {
     @each $shade, $value in $shades {
