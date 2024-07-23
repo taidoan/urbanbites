@@ -1,5 +1,2 @@
-@use "./../abstracts" as *;
-
-body {
-  font-size: rem(100);
-}
+@forward "reset";
+@forward "typography";
