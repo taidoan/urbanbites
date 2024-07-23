@@ -18,7 +18,7 @@ describe("@function image-url", () => {
     await expect(compileSassString(sass)).resolves.toMatchObject({
       css: outdent`
         .foo {
-          background-image: url("./../../public/images/hero.webp");
+          background-image: url("./../../public/assets/images/hero.webp");
         }
       `,
     });
