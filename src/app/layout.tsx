@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Teko } from "next/font/google";
 import "./../styles/index.scss";
 
-export const poppins = Poppins({ 
+const poppins = Poppins({ 
   subsets: ["latin"], 
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'], 
   style: ['normal', 'italic'],
@@ -10,13 +10,13 @@ export const poppins = Poppins({
   variable: '--font-body',
 });
 
-export const teko = Teko({
+const teko = Teko({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-display',
 })
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: {
     template: '%s | Urban Bites',
     default: 'Urban Bites',
@@ -31,7 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${teko.variable}`}>{children}</body>
+      <body className={`${poppins.variable} ${teko.variable}`}>{children}
+
+    </body>
     </html>
   );
 }
