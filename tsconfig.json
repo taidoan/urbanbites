@@ -18,9 +18,15 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@config": ["./config"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "typedocOptions": {
+    "entryPoints": ["src"],
+    "entryPointStrategy": "expand",
+    "out": "docs"
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/**/*"],
   "exclude": ["node_modules"]
 }
