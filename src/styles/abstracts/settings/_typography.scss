@@ -19,6 +19,8 @@ $font-root-size: 16px !default;
 /// @access public
 $font-desktop-size: 24px !default;
 
+$font-desktop-size-small: 20px !default;
+
 /// Button font size
 ///
 /// This is the base font size for buttons
@@ -32,3 +34,13 @@ $button-font-base-size: $font-root-size;
 /// @type number
 /// @access public
 $button-font-desktop-size: 21px !default;
+
+/// Desktop navigation font size
+///
+/// This is the font size for the desktop navigation
+/// @type number
+/// @access public
+$navigation-font-desktop-size: 18px !default;
+
+$footer-font-size-small: $font-root-size;
+$footer-font-size-base: 20px !default;

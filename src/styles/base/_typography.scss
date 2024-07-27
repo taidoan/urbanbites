@@ -1,6 +1,6 @@
 @use "./../abstracts/settings/_index" as *;
 
-$font-body-size: map-get($project-typography-scale, body);
+$font-body-size: map-get(map-get($project-typography-scale, body), base);
 
 :root {
   --fs-display-base: clamp(3.75rem, 1.26vi + 3.5rem, 4.69rem);

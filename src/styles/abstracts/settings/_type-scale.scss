@@ -2,21 +2,59 @@
 @use "./typography" as *;
 @use "./../functions/__index" as *;
 
+////
+/// @group settings/typography
+////
+
+/// Defines the typography scale for the project.
+///
+/// This scale includes font size calculations for body text and buttons based on viewport width and other settings.
+///
+/// @type Map
+/// @access public
+
 $project-typography-scale: (
   body: (
-    font-clamp(
-      rem($project-min-width),
-      rem($project-max-width),
-      rem($font-root-size),
-      rem($font-desktop-size)
+    small: (
+      font-clamp(
+        rem($project-min-width),
+        rem($project-max-width),
+        rem($font-root-size),
+        rem($font-desktop-size-small)
+      ),
+    ),
+    base: (
+      font-clamp(
+        rem($project-min-width),
+        rem($project-max-width),
+        rem($font-root-size),
+        rem($font-desktop-size)
+      ),
     ),
   ),
+
   button: (
     font-clamp(
       rem($project-min-width),
       rem($project-max-width),
       rem($button-font-base-size),
       rem($button-font-desktop-size)
+    ),
+  ),
+
+  navigation: (
+    base: rem($navigation-font-desktop-size),
+  ),
+
+  footer: (
+    small: rem($footer-font-size-small),
+    base: (
+      font-clamp(
+        rem($project-min-width),
+        rem($project-max-width),
+        rem($footer-font-size-small),
+        rem($footer-font-size-base)
+      ),
     ),
   ),
 );
