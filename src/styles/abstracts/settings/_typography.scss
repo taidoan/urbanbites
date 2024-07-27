@@ -1,1 +1,34 @@
-$font-root-size: 16;
+@use "./measurements" as m;
+@use "./../functions/font-clamp" as fc;
+
+////
+/// @group settings/typography
+////
+
+/// Root font size
+///
+/// This is used to calculate rem sizes used across the project.
+/// @type number
+/// @access public
+$font-root-size: 16px !default;
+
+/// Desktop font size
+///
+/// This is the font size for desktop screens
+/// @type number
+/// @access public
+$font-desktop-size: 24px !default;
+
+/// Button font size
+///
+/// This is the base font size for buttons
+/// @type number
+/// @access public
+$button-font-base-size: $font-root-size;
+
+/// Desktop button font size
+///
+/// This is the font size for buttons on desktop screens
+/// @type number
+/// @access public
+$button-font-desktop-size: 21px !default;

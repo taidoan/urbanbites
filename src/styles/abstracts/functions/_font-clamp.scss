@@ -1,0 +1,38 @@
+////
+/// @group functions/typography
+////
+
+/// Generates a responsive `font-size` using the `clamp` function.
+///
+/// This function calculates a `font-size` that scales between a minimum and maximum value based on viewport width.
+///
+/// The `clamp` function ensures that the font size stays within the defined minimum and maximum values, and it adjusts dynamically based on viewport width. This is useful for creating responsive typography.
+///
+/// @param {Number} $min-vw - The minimum viewport width (in vw) at which the minimum value applies.
+/// @param {Number} $max-vw - The maximum viewport width (in vw) at which the maximum value applies.
+/// @param {Number} $min-value - The minimum font size (in px or any other unit) at the minimum viewport width.
+/// @param {Number} $max-value - The maximum font size (in px or any other unit) at the maximum viewport width.
+///
+/// @returns {String} - The responsive font size value in `clamp` format.
+///
+/// @example
+/// ```scss
+/// // Responsive font size between 16px and 24px as viewport width goes from 320px to 1200px
+/// .responsive-text {
+///   font-size: font-clamp(320, 1200, 16px, 24px);
+/// }
+/// ```
+///
+
+@function font-clamp($min-vw, $max-vw, $min-value, $max-value) {
+  $factor: 1 / ($max-vw - $min-vw) * ($max-value - $min-value);
+  $calc-value: unquote(
+    "#{ $min-value - ($min-vw * $factor) } + #{ 100vw * $factor }"
+  );
+
+  @return clamp(
+    #{if($min-value > $max-value, $max-value, $min-value)},
+    #{$calc-value},
+    #{if($min-value > $max-value, $min-value, $max-value)}
+  );
+}

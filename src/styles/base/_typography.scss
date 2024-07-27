@@ -1,10 +1,16 @@
+@use "./../abstracts/settings/_index" as *;
+
+$font-body-size: map-get($project-typography-scale, body);
+
 :root {
   --fs-display-base: clamp(3.75rem, 1.26vi + 3.5rem, 4.69rem);
+  --fs-body-base: #{$font-body-size};
 }
 
 body {
   color: var(--clr-tertiary-400);
-  font-family: var(--font-body);
+  font-family: var(--ff-body);
+  font-size: var(--fs-body-base);
   line-height: 1.3;
 }
 
@@ -12,7 +18,7 @@ h1,
 h2,
 h3 {
   color: var(--clr-secondary-400);
-  font-family: var(--font-display);
+  font-family: var(--ff-display);
   font-size: var(--fs-display-base);
   font-weight: 700;
   letter-spacing: -0.01em;

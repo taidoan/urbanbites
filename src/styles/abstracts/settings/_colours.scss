@@ -1,8 +1,7 @@
-@use "./../functions/" as *;
-
+@use "./../functions/change-shade" as *;
 ////
 /// @group settings/colours
-///
+////
 
 /// project-colours - A map of all project colours.
 /// @type map

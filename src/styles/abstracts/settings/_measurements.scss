@@ -7,6 +7,11 @@
 /// @access public
 $project-max-width: 1512px;
 
+/// Minimum width of the site layout in PX, we can strip the unit out later if needed
+/// @type Number
+/// @access public
+$project-min-width: 320px;
+
 /// Max width of the content in PX, we can strip the unit out later if needed
 /// @type number
 /// @access public
@@ -21,3 +26,4 @@ $breakout-max-width: 1488px;
 /// @type number
 /// @access public
 $border-width: 12px;
+$test: 16px;

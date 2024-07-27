@@ -1,0 +1,6 @@
+@use "./../../styles/abstracts" as *;
+
+$font-size: map-get($project-typography-scale, button);
+.btn {
+  --button-font-size: #{$font-size};
+}

@@ -1,13 +1,12 @@
-@use "./../abstracts/settings/colours" as c;
+@use "./../abstracts/settings/colours" as *;
 
 ////
 /// @group settings/colours
 ///
+
 /// Generates CSS custom properties (variables) for each color and its shades.
 /// This code iterates over the color shades map and creates CSS variables in the format
 /// `--clr-{color}-{shade}` where `{color}` is the color name and `{shade}` is the shade level.
-///
-/// @type {void}
 /// @require $project-colour-shades
 /// @access public
 /// @example
@@ -55,7 +54,7 @@
 ///
 
 :root {
-  @each $color, $shades in c.$project-colour-shades {
+  @each $color, $shades in $project-colour-shades {
     @each $shade, $value in $shades {
       --clr-#{$color}-#{$shade}: #{$value};
     }

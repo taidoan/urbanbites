@@ -1,0 +1,22 @@
+@use "./measurements" as *;
+@use "./typography" as *;
+@use "./../functions/__index" as *;
+
+$project-typography-scale: (
+  body: (
+    font-clamp(
+      rem($project-min-width),
+      rem($project-max-width),
+      rem($font-root-size),
+      rem($font-desktop-size)
+    ),
+  ),
+  button: (
+    font-clamp(
+      rem($project-min-width),
+      rem($project-max-width),
+      rem($button-font-base-size),
+      rem($button-font-desktop-size)
+    ),
+  ),
+);
