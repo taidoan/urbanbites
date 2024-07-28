@@ -1,0 +1,23 @@
+@use "./../../abstracts/_index" as *;
+
+.home__hero {
+  align-items: center;
+  background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(48, 39, 33, 0) 43%,
+      rgba(48, 39, 33, 0.1) 77.5%,
+      rgba(48, 39, 33, 0.2) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(219, 199, 189, 0.025),
+      rgba(219, 199, 189, 0.025)
+    ),
+    image-url("Hero.jpg") 17.5% 25% / cover no-repeat;
+  background-blend-mode: normal, screen, normal;
+  color: var(--clr-light-400);
+  display: flex;
+  height: 100dvh;
+  text-align: center;
+  @include border(12px, var(--clr-light-400));
+}

@@ -1,6 +1,6 @@
 @use "./measurements" as *;
 @use "./typography" as *;
-@use "./../functions/__index" as *;
+@use "./../functions/_index" as *;
 
 ////
 /// @group settings/typography
@@ -20,7 +20,7 @@ $project-typography-scale: (
         rem($project-min-width),
         rem($project-max-width),
         rem($font-root-size),
-        rem($font-desktop-size-small)
+        rem($body-font-desktop-size-small)
       ),
     ),
     base: (
@@ -28,11 +28,19 @@ $project-typography-scale: (
         rem($project-min-width),
         rem($project-max-width),
         rem($font-root-size),
-        rem($font-desktop-size)
+        rem($body-font-desktop-size)
       ),
     ),
   ),
 
+  heading: (
+    font-clamp(
+      rem($project-min-width),
+      rem($project-max-width),
+      rem($heading-font-base-size),
+      rem($heading-font-desktop-size)
+    ),
+  ),
   button: (
     font-clamp(
       rem($project-min-width),

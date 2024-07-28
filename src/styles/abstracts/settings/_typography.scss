@@ -17,14 +17,20 @@ $font-root-size: 16px !default;
 /// This is the font size for desktop screens
 /// @type number
 /// @access public
-$font-desktop-size: 24px !default;
+$body-font-desktop-size: 24px !default;
 
 /// Small desktop font size
 ///
 /// This is the smaller font size for desktop screens
 /// @type number
 /// @access public
-$font-desktop-size-small: 20px !default;
+$body-font-desktop-size-small: 20px !default;
+
+$heading-font-base-size: 56px !default;
+$heading-font-desktop-size: 80px !default;
+
+$hero-font-base-size: $heading-font-base-size;
+$hero-font-desktop-size: 114px !default;
 
 /// Button font size
 ///

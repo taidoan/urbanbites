@@ -1,4 +1,5 @@
-@use "vendors";
-@use "base";
-@use "components";
-@use "layouts";
+@forward "vendors/_index";
+@forward "base/_index";
+@forward "components/_index";
+@forward "layouts/_index";
+@forward "pages/_index";
