@@ -9,4 +9,5 @@
 /// @return {String} - The full URL of the image file
 @function image-url($filename) {
   @return url($image-path + $filename);
+  @error "#{$filename} does not exist.";
 }
