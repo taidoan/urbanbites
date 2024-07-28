@@ -1,0 +1,23 @@
+@use "./../abstracts/_index" as *;
+
+:root {
+  --grid-max-width: $grid-max-width;
+  --grid-padding-inline: #{padding-clamp(
+      rem($padding-inline-base),
+      rem($padding-inline-desktop)
+    )};
+}
+
+.content-grid {
+  margin: 0 auto;
+  max-width: var(--grid-max-width);
+  padding: 0 var(--grid-padding-inline);
+  width: 100%;
+
+  &--w-border {
+    --grid-padding-inline: #{padding-clamp(
+        rem($padding-inline-base-w-border),
+        rem($padding-inline-desktop-w-border)
+      )};
+  }
+}

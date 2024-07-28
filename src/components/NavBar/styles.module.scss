@@ -1,0 +1,132 @@
+@use "./../../styles/abstracts/_index" as *;
+.lock {
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.menuButton {
+  --front: var(--clr-primary-400);
+  --back: var(--clr-primary-400);
+  --icon: var(--clr-light-400);
+  cursor: pointer;
+  display: flex;
+  height: rem(48);
+  perspective: 600px;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  width: rem(48);
+  z-index: var(--z-index-modal);
+
+  input {
+    display: none;
+
+    &:checked + div {
+      span:first-child {
+        --rotateY: 0deg;
+        --background: var(--back);
+      }
+
+      span:last-child {
+        --rotateY: 180deg;
+        --background: var(--front);
+      }
+    }
+
+    & + div {
+      span {
+        --rotateY: 180deg;
+        --background: var(--front);
+        backface-visibility: hidden;
+        background: var(--background);
+        border-radius: 50%;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: rotateY(var(--rotateY));
+        transform-style: preserve-3d;
+        transition: transform 0.6s cubic-bezier(0.2, 0.64, 0.48, 1.24),
+          background 0.3s ease;
+        width: 100%;
+
+        &:before,
+        &:after {
+          --rotate: 0deg;
+          backface-visibility: hidden;
+          background: var(--icon);
+          border-radius: 1px;
+          content: "";
+          height: rem(2);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%) rotate(var(--rotate)) translateZ(6px);
+          width: rem(20);
+        }
+
+        &:first-child {
+          &:before {
+            --rotate: -45deg;
+          }
+          &:after {
+            --rotate: 45deg;
+          }
+        }
+
+        &:last-child {
+          --rotateY: 0deg;
+          &:before {
+            box-shadow: 0 -5px 0 var(--icon), 0 5px 0 var(--icon);
+          }
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.menuOverlay {
+  align-items: center;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: hsla(20, 29%, 80%, 0.9);
+  container-type: size;
+  display: flex;
+  height: 0;
+  justify-content: center;
+  left: 0;
+  overflow-y: auto;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  transition: height 0.5s ease, visibility 0.5s ease, opacity 0.5s ease !important;
+  width: 100%;
+  z-index: var(--z-index-menu);
+}
+
+.menuOverlayOpened {
+  height: 100dvh;
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  row-gap: rem(24);
+}
+
+.menuLink {
+  color: inherit;
+  font-family: var(--ff-display);
+  font-size: var(--fs-heading-base);
+  font-weight: bold;
+  line-height: 0.61;
+  text-decoration: none;
+  text-transform: uppercase;
+}

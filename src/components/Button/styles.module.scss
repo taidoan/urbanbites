@@ -4,10 +4,10 @@
   --fs-button: #{map-get($project-typography-scale, button)};
   --button-shadow: 0px 10px 15px -6px rgba(0, 0, 0, 0.17);
 
-  --padding-block: #{padding-clamp(rem(16), rem(18))};
-  --padding-inline: #{padding-clamp(rem(22), rem(24))};
-  --padding-block--hover: #{padding-clamp(rem(19), rem(22))};
-  --padding-inline--hover: #{padding-clamp(rem(25), rem(27))};
+  --btn-padding-block: #{padding-clamp(rem(16), rem(18))};
+  --btn-padding-inline: #{padding-clamp(rem(22), rem(24))};
+  --btn-padding-block--hover: #{padding-clamp(rem(19), rem(22))};
+  --btn-padding-inline--hover: #{padding-clamp(rem(25), rem(27))};
 
   align-items: center;
   border: none;
@@ -20,7 +20,7 @@
   justify-content: center;
   line-height: 1;
   overflow: hidden;
-  padding: var(--padding-block) var(--padding-inline);
+  padding: var(--btn-padding-block) var(--btn-padding-inline);
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
@@ -36,7 +36,7 @@
       -webkit-backdrop-filter: blur(6px);
       background-color: transparent;
       box-shadow: var(--button-shadow);
-      padding: var(--padding-block--hover) var(--padding-inline--hover);
+      padding: var(--btn-padding-block--hover) var(--btn-padding-inline--hover);
       transform: scale(1.1);
     }
 

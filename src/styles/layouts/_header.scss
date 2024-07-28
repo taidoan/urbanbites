@@ -1,5 +1,17 @@
+@use "./../abstracts/_index" as *;
+
 .site-header {
   color: var(--clr-secondary-400);
+  left: 0;
+  padding-block: rem(40);
+  position: fixed;
+  top: 0;
   width: 100%;
   z-index: var(--z-index-header);
+}
+
+.site-header__layout {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
