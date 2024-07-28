@@ -7,14 +7,14 @@ describe('Button Component', () => {
     render(<Button title="Click Me" />);
     const button = screen.getByText('Click Me');
     expect(button).toBeInTheDocument();
-    expect(button).toHaveClass('btn-primary');
+    expect(button).toHaveClass('primary');
     expect(button.tagName).toBe('BUTTON');
   })
 
   test('renders button with a specific variant', () => {
     render(<Button title="Click Me" variant="danger" />);
     const button = screen.getByText('Click Me');
-    expect(button).toHaveClass('btn-danger');
+    expect(button).toHaveClass('danger');
   });
 
   test('renders button as disabled when variant is "disabled"', () => {
@@ -28,7 +28,7 @@ describe('Button Component', () => {
     const link = screen.getByText('Go to Google');
     expect(link).toBeInTheDocument();
     expect(link.tagName).toBe('A');
-    expect(link).toHaveClass('btn-primary');
+    expect(link).toHaveClass('primary');
     expect(link.closest('a')).toHaveAttribute('href', 'https://www.google.com');
   });
 

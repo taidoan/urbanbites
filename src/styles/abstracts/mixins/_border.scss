@@ -1,11 +1,16 @@
 @use "./../settings/measurements" as m;
+@use "./../settings/colours-applied" as c;
+////
+/// @group mixins/styling
+////
+
 /// Border mixin, use this to apply the border to elements
 /// @param {width} $width [12px] - The width of the border
-/// @param {color} $color [var(--clr-tertiary-400)] - The colour of the border
+/// @param {color} $color [c.$border-colour] - The colour of the border
 /// @param {variants} $variants [all] - The list of border variants to apply
 @mixin border(
   $width: m.$border-width,
-  $color: var(--clr-tertiary-400),
+  $color: c.$border-colour,
   $variants: all
 ) {
   border: $width solid $color;

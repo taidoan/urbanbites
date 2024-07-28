@@ -48,7 +48,7 @@ type ButtonProps = {
  * ```
  */
 const Button = ({ title, variant = 'primary', href, className, type = 'button', onClick }: ButtonProps) => {
-  const buttonClass = classNames(s.btn, className, `btn-${variant}`);
+  const buttonClass = classNames(s.btn, className, s[variant]);
 
   if (!href) {
     return (

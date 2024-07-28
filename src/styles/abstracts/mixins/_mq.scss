@@ -13,9 +13,9 @@
 /// queries and allows for additional media feature flexibility, including orientation.
 ///
 /// @param {Number|String} $value - The breakpoint value or key from the map.
-/// @param {String} $type [min] - The type of media query, either `min` or `max`. Default is `min`.
-/// @param {String} $media-feature [width] - The media feature to use, default is `width`.
-/// @param {String} $orientation [null] - Optional. The device orientation (`portrait` or `landscape`). Default is `null`.
+/// @param {String} $type [min] - The type of media query, either `min` or `max`.
+/// @param {String} $media-feature [width] - The media feature to use.
+/// @param {String} $orientation [null] - Optional. The device orientation (`portrait` or `landscape`).
 /// @content - The styles to apply within the media query.
 ///
 /// @example scss

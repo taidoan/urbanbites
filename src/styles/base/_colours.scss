@@ -1,57 +1,5 @@
 @use "./../abstracts/settings/colours" as *;
-
-////
-/// @group settings/colours
-///
-
-/// Generates CSS custom properties (variables) for each color and its shades.
-/// This code iterates over the color shades map and creates CSS variables in the format
-/// `--clr-{color}-{shade}` where `{color}` is the color name and `{shade}` is the shade level.
-/// @require $project-colour-shades
-/// @access public
-/// @example
-/// Given the following map:
-///
-/// $project-colour-shades: (
-///   primary: (
-///     100: #f0f0f0,
-///     200: #d0d0d0,
-///     300: #b0b0b0,
-///     400: #909090,
-///     500: #707070,
-///     600: #505050,
-///     700: #303030,
-///   ),
-///   secondary: (
-///     100: #ffe0e0,
-///     200: #ffb0b0,
-///     300: #ff8080,
-///     400: #ff5050,
-///     500: #ff2020,
-///     600: #e60000,
-///     700: #cc0000,
-///   ),
-/// ).
-///
-/// The following CSS custom properties will be generated:
-///
-/// :root {
-///   --clr-primary-100: #f0f0f0;
-///   --clr-primary-200: #d0d0d0;
-///   --clr-primary-300: #b0b0b0;
-///   --clr-primary-400: #909090;
-///   --clr-primary-500: #707070;
-///   --clr-primary-600: #505050;
-///   --clr-primary-700: #303030;
-///   --clr-secondary-100: #ffe0e0;
-///   --clr-secondary-200: #ffb0b0;
-///   --clr-secondary-300: #ff8080;
-///   --clr-secondary-400: #ff5050;
-///   --clr-secondary-500: #ff2020;
-///   --clr-secondary-600: #e60000;
-///   --clr-secondary-700: #cc0000;
-/// }
-///
+@use "./../abstracts/settings/colours-applied" as c;
 
 :root {
   @each $color, $shades in $project-colour-shades {
@@ -59,4 +7,7 @@
       --clr-#{$color}-#{$shade}: #{$value};
     }
   }
+
+  --border-colour: c.$border-colour;
+  --body-text-color: c.$body-text-colour;
 }

@@ -12,7 +12,8 @@ export default function Home() {
           <Button variant='primary' title='Book A Table' href="/bookings" />
           <Button variant='tertiary' title='Tertiary Button' />
           <Button variant='danger' title='Danger Button' />
-          <Button variant='success' title='Warning Button' />
+          <Button variant='success' title='Success Button' />
+          <Button variant='warning' title='Warning Button' />
           <Button variant='disabled' title='Disabled' />
         </div>
       </section>
