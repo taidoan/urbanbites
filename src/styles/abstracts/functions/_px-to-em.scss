@@ -1,0 +1,20 @@
+@use "strip-unit" as *;
+@use "./../settings/typography" as t;
+@use "sass:math";
+
+////
+/// @group functions/units
+////
+
+/// Convert pixels to em
+///
+/// @param {Number} $value - Length in pixels
+/// @param {Number} $context-font-size - Font size of the element, defaults to the root font size
+/// @return {Number} Length in ems
+/// @access public
+
+@function em($value, $context-font-size: t.$font-root-size) {
+  $result: (strip-unit($value) / strip-unit($context-font-size)) * 1em;
+  $rounded-result: math.div(math.floor($result * 100 + 0.5), 100);
+  @return $rounded-result;
+}

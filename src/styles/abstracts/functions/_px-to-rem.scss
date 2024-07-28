@@ -1,5 +1,6 @@
 @use "strip-unit" as *;
 @use "./../settings/typography" as t;
+@use "sass:math";
 
 ////
 /// @group functions/units
@@ -9,14 +10,9 @@
 /// @param {Number|String} $value - The value to convert. Can be unitless or with units.
 /// @return {String} - The value converted to rem units.
 @function rem($value) {
-  // Assuming $font-root-size is defined globally or in a central settings file
-  @if unitless($value) {
-    @return calc(($value / strip-unit(t.$font-root-size)) * 1rem);
-  }
+  $result: (strip-unit($value) / strip-unit(t.$font-root-size)) * 1rem;
+  $rounded-result: math.div(math.floor($result * 100 + 0.5), 100);
 
-  @if unit($value) != null {
-    @return calc((strip-unit($value) / strip-unit(t.$font-root-size)) * 1rem);
-  }
-
+  @return $rounded-result;
   @error "Invalid value: #{$value}. Expected a unitless value or a value with units.";
 }
