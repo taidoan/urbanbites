@@ -19,6 +19,11 @@ $font-root-size: 16px !default;
 /// @access public
 $font-desktop-size: 24px !default;
 
+/// Small desktop font size
+///
+/// This is the smaller font size for desktop screens
+/// @type number
+/// @access public
 $font-desktop-size-small: 20px !default;
 
 /// Button font size
@@ -42,5 +47,16 @@ $button-font-desktop-size: 21px !default;
 /// @access public
 $navigation-font-desktop-size: 18px !default;
 
+/// Footer small font size
+///
+/// This is the font size for the smaller links in the footer
+/// @type number
+/// @access public
 $footer-font-size-small: $font-root-size;
+
+/// Footer base font size
+///
+/// This is the font size for the normal links in the footer
+/// @type number
+/// @access public
 $footer-font-size-base: 20px !default;
