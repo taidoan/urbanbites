@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins, Teko } from "next/font/google";
 import Header from "@/layout/Header";
+import SocialBar from "@/layout/SocialBar";
+import NewsletterBar from "@/layout/Newsletter";
+import Footer from "@/layout/Footer";
 
 const poppins = Poppins({ 
   subsets: ["latin"], 
@@ -31,8 +34,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${teko.variable}`}><Header />{children}
-
+      <body className={`${poppins.variable} ${teko.variable}`}>
+      <Header />
+      {children}
+      <SocialBar />
+      <NewsletterBar />
+      <Footer />
     </body>
     </html>
   );

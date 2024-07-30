@@ -8,13 +8,13 @@
 }
 
 .container {
-  --grid-padding-inline: #{padding-clamp(
+  --grid-padding-inline: #{size-clamp(
       rem($padding-inline-sm),
       rem($padding-inline-desktop)
     )};
 
   @include mq("base-sm") {
-    --grid-padding-inline: #{padding-clamp(
+    --grid-padding-inline: #{size-clamp(
         rem($padding-inline-base),
         rem($padding-inline-desktop)
       )};

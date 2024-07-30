@@ -1,16 +1,20 @@
 @use "./../abstracts/_index" as *;
 
+// * {
+//   outline: 1px solid palevioletred;
+// }
+
 section {
   container: grid / inline-size;
 }
 
 %grid-base {
-  --grid-padding-inline: #{padding-clamp(
+  --grid-padding-inline: #{size-clamp(
       rem($padding-inline-sm),
       rem($padding-inline-desktop)
     )};
   @include mq("base-sm") {
-    --grid-padding-inline: #{padding-clamp(
+    --grid-padding-inline: #{size-clamp(
         rem($padding-inline-base),
         rem($padding-inline-desktop)
       )};
@@ -22,7 +26,7 @@ section {
   width: 100%;
 
   @container grid (min-width: #{rem($content-max-width)}) {
-    --grid-padding-inline: #{padding-clamp(
+    --grid-padding-inline: #{size-clamp(
         rem($padding-inline-base-w-border),
         rem($padding-inline-desktop-w-border)
       )};
@@ -35,7 +39,7 @@ section {
 
 .content-grid {
   @extend %grid-base;
-  --grid-padding-block: #{padding-clamp(
+  --grid-padding-block: #{size-clamp(
       rem($padding-block-base),
       rem($padding-block-desktop)
     )};
@@ -43,7 +47,7 @@ section {
 
   &--inc-border {
     @include mq("base-sm") {
-      --grid-padding-inline: #{padding-clamp(
+      --grid-padding-inline: #{size-clamp(
           rem($padding-inline-base-w-border),
           rem($padding-inline-desktop-w-border)
         )};
@@ -56,7 +60,7 @@ section {
 
   &--half {
     @include mq("base-sm") {
-      --grid-padding-inline: #{padding-clamp(
+      --grid-padding-inline: #{size-clamp(
           rem($padding-inline-base-w-border),
           rem($padding-inline-desktop-w-border)
         )};

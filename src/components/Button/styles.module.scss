@@ -4,10 +4,10 @@
   --fs-button: #{map-get($project-typography-scale, button)};
   --button-shadow: 0px 10px 15px -6px rgba(0, 0, 0, 0.17);
 
-  --btn-padding-block: #{padding-clamp(rem(16), rem(18))};
-  --btn-padding-inline: #{padding-clamp(rem(22), rem(24))};
-  --btn-padding-block--hover: #{padding-clamp(rem(19), rem(22))};
-  --btn-padding-inline--hover: #{padding-clamp(rem(25), rem(27))};
+  --btn-padding-block: #{size-clamp(rem(16), rem(18))};
+  --btn-padding-inline: #{size-clamp(rem(22), rem(24))};
+  --btn-padding-block--hover: #{size-clamp(rem(19), rem(22))};
+  --btn-padding-inline--hover: #{size-clamp(rem(25), rem(27))};
 
   align-items: center;
   border: none;

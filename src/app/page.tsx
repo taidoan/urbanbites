@@ -68,12 +68,15 @@ export default function Home() {
         </div>
       </section>
       <section className={`home__about`}>
-        <div className={`content-grid`}>
+        <div className={`content-grid ${ab.container}`}>
         <h1 className={ab.title}>
-          The Love Behind <span className='nobr'>Urban Bites</span>
+          The Love Behind Urban&nbsp;Bites
         </h1>
         <Divider />
-          <p>Urban Bites began with a simple idea: to create a community-focused café where everyone feels at home. Our commitment to using fresh, locally sourced ingredients and providing a cozy, welcoming atmosphere has made us a favorite spot in the neighborhood. </p>
+          <p className={ab.paragraph}>Urban Bites began with a simple idea: to create a community-focused café where everyone feels at home. Our commitment to using fresh, locally sourced ingredients and providing a cozy, welcoming atmosphere has made us a favorite spot in the neighborhood. </p>
+          <div className={ab.ctaBlock}>
+          <Button variant='secondary' title='Our Story' href='/about' />
+        </div>
         </div>
       </section>
     </main>

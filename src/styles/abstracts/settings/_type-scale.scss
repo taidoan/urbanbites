@@ -16,41 +16,21 @@
 $project-typography-scale: (
   body: (
     small: (
-      font-clamp(
-        rem($project-min-width),
-        rem($project-max-width),
-        rem($font-root-size),
-        rem($body-font-desktop-size-small)
-      ),
+      size-clamp(rem($font-root-size), rem($body-font-desktop-size-small)),
     ),
     base: (
-      font-clamp(
-        rem($project-min-width),
-        rem($project-max-width),
-        rem($font-root-size),
-        rem($body-font-desktop-size)
-      ),
+      size-clamp(rem($font-root-size), rem($body-font-desktop-size)),
     ),
   ),
 
   heading: (
     base: (
-      font-clamp(
-        rem($project-min-width),
-        rem($project-max-width),
-        rem($heading-font-base-size),
-        rem($heading-font-desktop-size)
-      ),
+      size-clamp(rem($heading-font-base-size), rem($heading-font-desktop-size)),
     ),
   ),
 
   button: (
-    font-clamp(
-      rem($project-min-width),
-      rem($project-max-width),
-      rem($button-font-base-size),
-      rem($button-font-desktop-size)
-    ),
+    size-clamp(rem($button-font-base-size), rem($button-font-desktop-size)),
   ),
 
   navigation: (
@@ -60,12 +40,7 @@ $project-typography-scale: (
   footer: (
     small: rem($footer-font-size-small),
     base: (
-      font-clamp(
-        rem($project-min-width),
-        rem($project-max-width),
-        rem($footer-font-size-small),
-        rem($footer-font-size-base)
-      ),
+      size-clamp(rem($footer-font-size-small), rem($footer-font-size-base)),
     ),
   ),
 );

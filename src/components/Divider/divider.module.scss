@@ -4,11 +4,10 @@
   background-color: var(--clr-cream-400);
   display: block;
   height: rem(6);
-  margin-block: rem(18);
+  margin-block: size-clamp(rem(18), rem(24));
   width: 100%;
 
   @include mq("md") {
-    margin-block: rem(24);
     max-width: rem(265);
   }
 }

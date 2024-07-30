@@ -2,10 +2,18 @@
 
 .block {
   container-type: inline-size;
+
+  @include mq("md") {
+    max-width: 65ch;
+  }
 }
 
 .title {
   color: var(--clr-light-400);
+  font-size: size-clamp(
+    rem($heading-font-base-size),
+    rem($hero-font-desktop-size)
+  );
   text-shadow: 0.125rem 0.125rem 0.25rem rgba(48, 39, 33, 0.39);
 }
 

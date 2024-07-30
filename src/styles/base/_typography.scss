@@ -25,3 +25,7 @@ h3 {
   text-transform: uppercase;
   @include text-crop($line-height: 0.85);
 }
+
+.nobr {
+  white-space: nowrap;
+}
