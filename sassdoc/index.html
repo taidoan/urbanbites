@@ -311,13 +311,16 @@ is-px(1em) // false</code></pre></div><h3 class="item__sub-heading">Used by</h3>
   ),
 
   heading: (
-    font-clamp(
-      rem($project-min-width),
-      rem($project-max-width),
-      rem($heading-font-base-size),
-      rem($heading-font-desktop-size)
+    base: (
+      font-clamp(
+        rem($project-min-width),
+        rem($project-max-width),
+        rem($heading-font-base-size),
+        rem($heading-font-desktop-size)
+      ),
     ),
   ),
+
   button: (
     font-clamp(
       rem($project-min-width),

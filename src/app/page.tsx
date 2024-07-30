@@ -9,6 +9,7 @@ import drinksImage from "@images/home/drinks.png";
 import orderImage from "@images/home/order.png";
 import { aborted } from "util";
 import Divider from "@/components/Divider";
+import QuickLink from "@/components/QuickLinks";
 
 export default function Home() {
   return (
@@ -48,7 +49,7 @@ export default function Home() {
         </div>
         <div className={`${ft.container} ${ft.containerDark}`}>
           <div className="content-grid content-grid--half">
-            <h2 className={`${ft.title} ${ft.titleDark}`}>Order Online</h2>
+            <h2 className={`${ft.title} ${ft.titleDark}`}>Order</h2>
             <Divider variant="tertiary" />
             <p className={ft.paragraph}>Elevate your next event with Urban Bites. Whether at home or in the office, enjoy our delicious dishes and drinks with convenient delivery or pickup options.</p>
             <div className={ft.ctaBlock}>
@@ -61,7 +62,9 @@ export default function Home() {
       </section>
       <section className={`home__quick-links`}>
         <div>
-        <div className="content-grid content-grid--inc-border"><p>Quick links</p></div>
+          <QuickLink title="Locations" tagline="Visit" variant="locations" href="/locations" />
+          <QuickLink title="Events" tagline="Experience" variant="events" href="/events" />
+          <QuickLink title="Bookings" tagline="Reserve" variant="bookings" href="/bookings" />
         </div>
       </section>
       <section className={`home__about`}>

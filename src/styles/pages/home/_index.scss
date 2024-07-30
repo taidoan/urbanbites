@@ -95,10 +95,29 @@
 }
 
 .home__quick-links {
+  @include border(6px, var(--clr-light-400), "no-inline");
+
   @include mq("base-sm") {
     @include border(12px, var(--clr-light-400), "no-top");
   }
+
   background-color: var(--clr-light-400);
+
+  & > div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(6);
+
+    @include mq("base-sm") {
+      row-gap: rem(12);
+    }
+
+    @include mq("md") {
+      column-gap: rem(12);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 }
 
 .home__about {

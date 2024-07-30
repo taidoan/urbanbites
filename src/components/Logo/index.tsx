@@ -7,7 +7,7 @@ type LogoProps = {
   footer?: boolean,
 }
 
-const Logo: React.FC<LogoProps> = ({ active, action, footer }) => {
+const Logo = ({ active, action, footer }: LogoProps) => {
   // useEffect(() => {
   //   const logoElement = document.querySelector('.site-logo') as HTMLElement | null;
   //   if (!logoElement) return;

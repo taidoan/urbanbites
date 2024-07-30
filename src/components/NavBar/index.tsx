@@ -11,7 +11,7 @@ type NavBarProps = {
   active: boolean,
 }
 
-const NavBar: React.FC<NavBarProps> = ({active}) => {
+const NavBar = ({active}: NavBarProps) => {
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 64em");
 

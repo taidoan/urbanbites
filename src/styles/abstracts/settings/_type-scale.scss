@@ -34,13 +34,16 @@ $project-typography-scale: (
   ),
 
   heading: (
-    font-clamp(
-      rem($project-min-width),
-      rem($project-max-width),
-      rem($heading-font-base-size),
-      rem($heading-font-desktop-size)
+    base: (
+      font-clamp(
+        rem($project-min-width),
+        rem($project-max-width),
+        rem($heading-font-base-size),
+        rem($heading-font-desktop-size)
+      ),
     ),
   ),
+
   button: (
     font-clamp(
       rem($project-min-width),

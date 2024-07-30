@@ -1,7 +1,7 @@
 @use "./../abstracts/_index" as *;
 
 :root {
-  --fs-heading-base: #{map-get($project-typography-scale, "heading")};
+  --fs-heading-base: #{map-get($project-typography-scale, "heading", "base")};
   --fs-body-small: #{map-get($project-typography-scale, "body", "small")};
   --fs-body-base: #{map-get($project-typography-scale, "body", "base")};
   --fc-body: $body-text-colour;
