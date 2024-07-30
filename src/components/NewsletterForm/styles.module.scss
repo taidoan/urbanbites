@@ -1,7 +1,6 @@
 @use "./../../styles/abstracts/_index" as *;
 
 .form {
-  align-items: center;
   display: flex;
   flex-direction: column;
   gap: rem(20);
@@ -24,6 +23,7 @@
 }
 
 .submit {
+  align-self: start;
   background-color: var(--clr-tertiary-300);
   color: var(--clr-secondary-400);
   flex: 0 0 auto;

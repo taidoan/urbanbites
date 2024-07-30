@@ -13,11 +13,48 @@
   width: 100%;
   z-index: var(--z-index-header);
 
+  &::before {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background: hsla(22, 26%, 96%, 0.9);
+    content: "";
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: height 0.5s;
+    width: 100%;
+    z-index: -1;
+  }
+
   @include mq("base-sm") {
     --site-header-padding-block: #{rem($header-padding-block-base)};
     --site-header-padding-block-w-border: #{rem($header-padding-block-w-border)};
-    padding-block: var(--site-header-padding-block)
-      var(--site-header-padding-block-w-border);
+    padding-block: size-clamp(
+      rem($header-padding-block-base),
+      rem($header-padding-block-w-border)
+    );
+  }
+
+  &.active {
+    &::before {
+      height: 100%;
+    }
+    padding-block: size-clamp(rem($header-padding-block-active), rem(20));
+    .site-logo {
+      filter: none;
+    }
+  }
+
+  @include mq("md") {
+    &.active {
+      .site-header__layout {
+        display: block;
+      }
+      .site-logo {
+        width: 7.5rem;
+      }
+    }
   }
 }
 

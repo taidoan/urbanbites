@@ -92,6 +92,17 @@
       border: 0;
     }
   }
+
+  @include mq(calc($content-max-width - $border-width)) {
+    & > div > *:first-child {
+      grid-column: 2 / 13;
+      padding-inline: 0 $padding-inline-desktop;
+    }
+
+    & > div:nth-of-type(2) > *:first-child {
+      padding-inline: $padding-inline-desktop 0;
+    }
+  }
 }
 
 .home__quick-links {

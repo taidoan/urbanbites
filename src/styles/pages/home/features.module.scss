@@ -30,3 +30,11 @@
     height: 100%;
   }
 }
+
+@include mq("md") {
+  .container {
+    align-items: center;
+    display: flex;
+    justify-items: flex-end;
+  }
+}
