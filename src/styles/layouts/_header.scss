@@ -1,17 +1,30 @@
 @use "./../abstracts/_index" as *;
+@use "./../base/grid";
 
 .site-header {
+  --site-header-padding-block: #{rem($header-padding-block-sm)};
+
   color: var(--clr-secondary-400);
+  container: grid / inline-size;
   left: 0;
-  padding-block: rem(40);
+  padding-block: var(--site-header-padding-block);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: var(--z-index-header);
+
+  @include mq("base-sm") {
+    --site-header-padding-block: #{rem($header-padding-block-base)};
+    --site-header-padding-block-w-border: #{rem($header-padding-block-w-border)};
+    padding-block: var(--site-header-padding-block)
+      var(--site-header-padding-block-w-border);
+  }
 }
 
 .site-header__layout {
   align-items: center;
   display: flex;
+  gap: rem(40);
   justify-content: space-between;
+  @extend %grid-base;
 }

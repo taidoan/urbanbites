@@ -13,11 +13,94 @@
       rgba(219, 199, 189, 0.025),
       rgba(219, 199, 189, 0.025)
     ),
-    image-url("Hero.jpg") 17.5% 25% / cover no-repeat;
+    image-url("/home/Hero.webp") 17.5% 25% / cover no-repeat;
   background-blend-mode: normal, screen, normal;
+
   color: var(--clr-light-400);
   display: flex;
   height: 100dvh;
   text-align: center;
-  @include border(12px, var(--clr-light-400));
+
+  @include mq("base-sm") {
+    @include border(12px, var(--clr-light-400));
+  }
+}
+
+.home__features {
+  @include mq("base-sm") {
+    @include border(12px, var(--clr-light-400), "no-top");
+  }
+
+  @include mq("base-lg") {
+    & > div {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+
+      & > *:first-child {
+        grid-column: 1 / 9;
+      }
+
+      & > *:last-child {
+        grid-column: 9 /13;
+      }
+    }
+
+    & > div:nth-of-type(2) {
+      & > *:first-child {
+        grid-column: 5 / 13;
+      }
+
+      & > *:last-child {
+        grid-column: 1 / 5;
+        grid-row: 1 / 2;
+      }
+    }
+
+    & > div:not(:last-child) {
+      @include border(12px, var(--clr-light-400), ("no-top", "no-inline"));
+    }
+  }
+
+  @include mq("md") {
+    & > div {
+      grid-template-columns: repeat(24, 1fr);
+
+      & > *:first-child {
+        grid-column: 1 / 13;
+        justify-self: end;
+        margin: initial;
+      }
+
+      & > *:last-child {
+        grid-column: 13 / 25;
+      }
+    }
+
+    & > div:nth-of-type(2) {
+      & > *:first-child {
+        grid-column: 13 / 25;
+        justify-self: self-start;
+        margin: initial;
+      }
+
+      & > *:last-child {
+        grid-column: 1 / 13;
+      }
+    }
+
+    & > div:not(:last-child) {
+      border: 0;
+    }
+  }
+}
+
+.home__quick-links {
+  @include mq("base-sm") {
+    @include border(12px, var(--clr-light-400), "no-top");
+  }
+  background-color: var(--clr-light-400);
+}
+
+.home__about {
+  background-color: var(--clr-light-400);
 }

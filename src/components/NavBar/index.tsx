@@ -46,7 +46,7 @@ const NavBar: React.FC<NavBarProps> = ({active}) => {
   return(
     <nav>
       <MenuToggler toggle={toggle} isOpen={open} />
-      <MenuOverlay open={open} className="content-grid">
+      <MenuOverlay open={open} className={`${s.container}`}>
         <MenuList className={`${s.menuList} ${active ? s.menuListActive : ''}`} closeMenu={closeMenu}>
         {active && isDesktop ? <Logo active={active} /> : ''}
           <MenuItem>

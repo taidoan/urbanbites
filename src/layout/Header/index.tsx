@@ -7,7 +7,7 @@ const Header: React.FC = () => {
   const [active, setActive] = useState(false)
   return(
     <header className="site-header">
-      <div className="content-grid site-header__layout">
+      <div className="site-header__layout">
         <Logo />
         <NavBar active={active}/>
       </div>

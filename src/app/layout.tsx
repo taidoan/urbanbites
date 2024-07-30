@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Poppins, Teko } from "next/font/google";
-import "./../styles/index.scss";
 import Header from "@/layout/Header";
 
 const poppins = Poppins({ 

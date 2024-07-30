@@ -27,8 +27,37 @@ $breakout-max-width: 1488px;
 /// @access public
 $border-width: 12px;
 
+/// Padding with for very small screens
+/// @type number
+/// @access public
+$padding-inline-sm: 32px;
+
+/// Padding width for the base size, this is generally where most mobile devices are
+/// @type number
+/// @access public
 $padding-inline-base: 40px;
+
+/// Padding width for large & desktop sizes
+/// @type number
+/// @access public
 $padding-inline-desktop: 60px;
 
-$padding-inline-base-w-border: calc($padding-inline-base + $border-width);
-$padding-inline-desktop-w-border: calc($padding-inline-desktop + $border-width);
+/// Padding width for base size that also takes into account the border width
+/// @type number
+/// @access public
+$padding-inline-base-w-border: calc($padding-inline-base - $border-width);
+
+/// Padding width for large and desktop size that also takes into account the border width
+/// @type number
+/// @access public
+$padding-inline-desktop-w-border: calc($padding-inline-desktop - $border-width);
+
+$padding-block-base: 40px;
+$padding-block-desktop: 88px;
+
+$header-padding-block-sm: $padding-inline-sm;
+$header-padding-block-base: 40px;
+$header-padding-block-w-border: calc(
+  $header-padding-block-base - ($border-width / 2)
+);
+$header-padding-block-active: 16px;
