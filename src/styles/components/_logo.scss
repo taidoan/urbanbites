@@ -3,6 +3,6 @@
   display: block;
   filter: drop-shadow(2px 2px 4px rgba(#302721, 0.33));
   height: auto;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity var(--transition-speed) ease-in-out;
   width: rem(136);
 }

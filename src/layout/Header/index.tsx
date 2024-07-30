@@ -7,25 +7,8 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 
 const Header: React.FC = () => {
   const [active, setActive] = useState(false)
-  const [isLandscape, setIsLandscape] = useState(false)
   const pathname = usePathname()
   const isDesktop = useMediaQuery("(min-width: 64em)");
-
-  useEffect(() => {
-    if (typeof window !== 'undefined'){
-      setIsLandscape(window.matchMedia("(orientation: landscape)").matches);
-
-      const handleOrientationChange = () => {
-        setIsLandscape(window.matchMedia("(orientation: landscape)").matches);
-      };
-
-      window.addEventListener('resize', handleOrientationChange);
-
-      return () => {
-        window.removeEventListener('resize', handleOrientationChange);
-      };
-    }
-  }, [])
 
   useEffect(() => {
     const headerElement = document.querySelector('.site-header') as HTMLElement | null;
@@ -42,27 +25,16 @@ const Header: React.FC = () => {
       }
     };
   
-    const handleOrientationChange = () => {
-      setIsLandscape(window.matchMedia("(orientation: landscape)").matches);
-    };
-
-
-    if (!isDesktop && isLandscape) {
-      targetElement = document.querySelector("section:nth-of-type(2)") as HTMLElement | null;
-    } else {
-      targetElement = document.querySelector("section:first-of-type > :first-child") as HTMLElement | null;
-    }
+    targetElement = document.querySelector("section:first-of-type > :first-child") as HTMLElement | null;
   
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleOrientationChange);
     window.addEventListener('resize', handleScroll);
   
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleOrientationChange);
       window.removeEventListener('resize', handleScroll);
     };
-  }, [pathname, isDesktop, isLandscape]);
+  }, [pathname]);
 
   const handleResetActive = () => {
     setActive(false)

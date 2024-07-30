@@ -10,6 +10,7 @@
   padding-block: var(--site-header-padding-block);
   position: fixed;
   top: 0;
+  transition: padding 0.5s;
   width: 100%;
   z-index: var(--z-index-header);
 
@@ -27,9 +28,11 @@
     z-index: -1;
   }
 
+  .site-logo {
+    width: rem(120);
+  }
+
   @include mq("base-sm") {
-    --site-header-padding-block: #{rem($header-padding-block-base)};
-    --site-header-padding-block-w-border: #{rem($header-padding-block-w-border)};
     padding-block: size-clamp(
       rem($header-padding-block-base),
       rem($header-padding-block-w-border)
@@ -47,6 +50,8 @@
   }
 
   @include mq("md") {
+    padding-block: size-clamp(rem($header-padding-block-base), rem(56));
+
     &.active {
       .site-header__layout {
         display: block;
@@ -54,6 +59,10 @@
       .site-logo {
         width: 7.5rem;
       }
+    }
+
+    .site-logo {
+      width: calc(14.625rem * 0.75);
     }
   }
 }
@@ -64,4 +73,8 @@
   gap: rem(40);
   justify-content: space-between;
   @extend %grid-base;
+
+  @include mq("md") {
+    justify-content: center;
+  }
 }
