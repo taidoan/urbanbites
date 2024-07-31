@@ -4,6 +4,7 @@ import Header from "@/layout/Header";
 import SocialBar from "@/layout/SocialBar";
 import NewsletterBar from "@/layout/Newsletter";
 import Footer from "@/layout/Footer";
+import "../styles/index.scss"
 
 const poppins = Poppins({ 
   subsets: ["latin"], 
