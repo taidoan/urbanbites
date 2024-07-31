@@ -5,7 +5,7 @@
 /// @group functions/spacing
 ////
 
-/// @function padding-clamp
+/// Size Clamp
 /// @group functions/spacing
 /// Calculates a responsive padding value using the `clamp` function, which ensures that the padding value remains within the specified minimum and maximum values as the viewport width changes.
 /// @param {Number} $min-value - The minimum padding value (in px, em, rem, etc.) to be used when the viewport width is at or below the minimum width defined by the project.

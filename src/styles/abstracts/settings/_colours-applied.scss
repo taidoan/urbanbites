@@ -4,20 +4,23 @@
 /// @group settings/colours
 ////
 
-/// @variable $border-colour
+/// Border Colour
+///
+/// The border color derived from the project's applied colours map.
 /// @type Color
 /// @access public
-/// The border color derived from the project's applied colours map.
 $border-colour: map-get($project-applied-colours, light);
 
-/// @variable $body-text-colour
+/// Body Text Colour
+///
+/// The color for body text, sourced from the project's applied colours map
 /// @type Color
 /// @access public
-/// The color for body text, sourced from the project's applied colours map
 $body-text-colour: map-get($project-applied-colours, tertiary);
 
-/// @variable $print-text-colour
+/// Print Text Colour
+///
+/// The default color for text in print materials, set to black if not overridden.
 /// @type Color
 /// @access public
-/// The default color for text in print materials, set to black if not overridden.
 $print-text-colour: #000 !default;

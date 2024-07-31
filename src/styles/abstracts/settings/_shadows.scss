@@ -7,13 +7,20 @@
 /// Hero Title Shadow
 ///
 /// This is the text shadow used for titles in hero sections
-/// @type number
+/// @type string
 /// @access public
 $hero-title-shadow: rem(2) rem(2) rem(4) rgba(48, 39, 33, 0.39);
 
-/// Hero Body Shadow
+/// Hero Body Text Shadow
 ///
 /// This is the text shadow used for body text in hero sections
-/// @type number
+/// @type string
 /// @access public
 $hero-body-shadow: rem(1) rem(2) 0 rgba(48, 39, 33, 0.32);
+
+/// Button Shadow
+///
+/// This is the box shadow used on button hovers
+/// @type string
+/// @access public
+$button-hover-shadow: 0 rem(10) rem(15) rem(-6) rgba(0, 0, 0, 0.17);
