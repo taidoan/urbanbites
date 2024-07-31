@@ -10,6 +10,23 @@
   }
 
   background-color: var(--clr-light-400);
+
+  @include mq("md") {
+    & > div:nth-of-type(2) {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+
+      & > *:first-child {
+        grid-column: 1 / 7;
+        justify-self: end;
+        margin: initial;
+      }
+
+      & > *:last-child {
+        grid-column: 7 / 13;
+      }
+    }
+  }
 }
 
 .about__values {

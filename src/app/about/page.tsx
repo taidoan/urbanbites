@@ -6,6 +6,7 @@ import j from "@pages/about/journey.module.scss"
 import journeyImage from "@images/about/journey.jpg"
 import sustainableImage from "@images/about/sustainable.jpg"
 import communityImage from "@images/about/community.jpg"
+import Button from '@/components/Button'
 
 export const metadata: Metadata = {
   title: 'About Urban Bites',
@@ -44,6 +45,8 @@ const AboutPage = () => {
         <h2>Our Values</h2>
         <Divider />
         <p>At Urban Bites Cafe, we are driven by a commitment to excellence, community, and sustainability.</p>
+
+        <div>Values block here</div>
       </div>
     </section>
     <section className='about__values-expanded'>
@@ -73,17 +76,35 @@ const AboutPage = () => {
     </section>
     <section className='about__locations'>
       <div className='content-grid content-grid--inc-border'>
-        <p>Locations contenrt</p>
+        <h2>Where We Are</h2>
+        <Divider />
+        <p>Each Urban Bites offers a unique atmosphere while maintaining the warm and welcoming vibe we're known for. Find the nearest cafe to enjoy our delicious offerings and exceptional service.</p>
+
+        <div>
+          Locations block here
+        </div>
       </div>
     </section>
     <section className='about__events'>
       <div className='content-grid'>
-        <p>events contenrt</p>
+        <h2>Events</h2>
+        <Divider />
+        <p>From live music and art exhibitions to local meetups and workshops, there's always something happening at Urban Bites Cafe. Join us and be part of the excitement!</p>
+        <div>
+          <Button variant='primary' title="What's On" href='/events' />
+        </div>
       </div>
     </section>
     <section className='about__reviews'>
       <div className='content-grid content-grid--inc-border'>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure sunt optio, culpa ratione cumque vitae animi dicta? Nesciunt consequatur, quaerat necessitatibus deleniti optio ipsam dolorem similique ex delectus perferendis, eveniet sapiente odit cumque nemo sit expedita eaque exercitationem aliquam eius nisi</p>
+        <div>
+          <h2>Reviews</h2>
+          <Divider />
+          <p>Explore the rave reviews from our satisfied customers about their experiences at Urban Bites.</p>
+        </div>
+        <div>
+          Reveiw block here
+        </div>
       </div>
     </section>
   </main>
