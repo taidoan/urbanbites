@@ -213,6 +213,16 @@ $project-colour-shades: (
     700: change-shade(map-get($project-applied-colours, "light"), 62%),
   ),
 
+  pale: (
+    100: change-shade(map-get($project-colours, "pale"), 97%),
+    200: change-shade(map-get($project-colours, "pale"), 95%),
+    300: change-shade(map-get($project-colours, "pale"), 92%),
+    400: map-get($project-colours, "pale"),
+    500: change-shade(map-get($project-colours, "pale"), 86%),
+    600: change-shade(map-get($project-colours, "pale"), 83%),
+    700: change-shade(map-get($project-colours, "pale"), 80%),
+  ),
+
   danger: (
     100: change-shade(map-get($project-applied-colours, "danger"), 60%),
     200: change-shade(map-get($project-applied-colours, "danger"), 55%),
