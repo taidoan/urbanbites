@@ -7,22 +7,6 @@
   display: none;
 }
 
-.container {
-  --grid-padding-inline: #{size-clamp(
-      rem($padding-inline-sm),
-      rem($padding-inline-desktop)
-    )};
-
-  @include mq("base-sm") {
-    --grid-padding-inline: #{size-clamp(
-        rem($padding-inline-base),
-        rem($padding-inline-desktop)
-      )};
-  }
-
-  padding-inline: var(--grid-padding-inline);
-}
-
 .menuButton {
   --front: var(--clr-primary-400);
   --back: var(--clr-primary-400);
@@ -107,16 +91,29 @@
 }
 
 .menuOverlay {
+  --grid-padding-inline: #{size-clamp(
+      rem($padding-inline-sm),
+      rem($padding-inline-desktop)
+    )};
+
+  @include mq("base-sm") {
+    --grid-padding-inline: #{size-clamp(
+        rem($padding-inline-base),
+        rem($padding-inline-desktop)
+      )};
+  }
   align-items: center;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   background: hsla(20, 29%, 80%, 0.9);
-  container-type: size;
+  container: menu / size;
   display: flex;
   height: 0;
   justify-content: center;
   left: 0;
   overflow-y: auto;
+
+  padding-inline: var(--grid-padding-inline);
   position: fixed;
   text-align: center;
   top: 0;
@@ -135,6 +132,18 @@
   list-style-type: none;
   padding: 0;
   row-gap: rem(24);
+}
+
+@container menu (orientation: landscape) and (max-height: #{rem(500)}) {
+  .menuList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: rem(24);
+  }
+
+  .menuLink {
+    line-height: 1 !important;
+  }
 }
 
 .menuLink {
@@ -175,6 +184,7 @@
     display: block;
     height: auto;
     overflow: initial;
+    padding-inline: 0;
     position: static;
   }
 
@@ -192,7 +202,7 @@
   }
 
   .menuListActive {
-    column-gap: 3.5rem;
+    column-gap: rem(32);
 
     .menuLink {
       color: var(--clr-secondary-400);
@@ -209,6 +219,10 @@
     > *:first-child {
       margin-right: auto;
     }
+
+    .menuItem {
+      align-self: flex-end;
+    }
   }
 
   .menuLink {
@@ -216,6 +230,12 @@
     font-family: var(--ff-body);
     font-size: map-get($project-typography-scale, "navigation", "base");
     text-shadow: rem(2) rem(2) rem(4) #302721;
+  }
+}
+
+@include mq("md-lg") {
+  .menuListActive {
+    column-gap: rem(56);
   }
 }
 

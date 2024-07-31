@@ -57,12 +57,12 @@
         display: block;
       }
       .site-logo {
-        width: 7.5rem;
+        width: 7.5rem !important;
       }
     }
 
     .site-logo {
-      width: calc(14.625rem * 0.75);
+      width: calc(14.625rem * 0.75) !important;
     }
   }
 }
