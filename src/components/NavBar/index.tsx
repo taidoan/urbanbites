@@ -44,7 +44,7 @@ const NavBar = ({active}: NavBarProps) => {
   }, [isDesktop]);
 
   return(
-    <nav>
+    <nav role="navigation">
       <MenuToggler toggle={toggle} isOpen={open} />
       <MenuOverlay open={open} className={`${s.container}`}>
         <MenuList className={`${s.menuList} ${active ? s.menuListActive : ''}`} closeMenu={closeMenu}>

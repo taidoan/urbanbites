@@ -34,7 +34,7 @@ const Logo = ({ active, action, footer, className }: LogoProps) => {
 
   return (
     <Link href="/" onClick={action}>
-      <svg className={`site-logo ${className}`} viewBox="0 0 148 54">
+      <svg aria-label="Urban Bites Logo" className={`site-logo ${className}`} viewBox="0 0 148 54">
         <use xlinkHref={`/assets/images/logo-sprite.svg#${logoVariant}`} role="img"></use>
       </svg>
     </Link>

@@ -41,8 +41,8 @@ const Header: React.FC = () => {
   }
 
   return(
-    <header className={`site-header${active ? ' active' : ''}`}>
-      <div className="site-header__layout">
+    <header className={`site-header${active ? ' active' : ''}`} role="banner">
+      <div className="site-header__layout" >
       {isDesktop ? '' : 
           <Logo active={active} action={handleResetActive} />
         }
