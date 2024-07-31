@@ -2,8 +2,12 @@
 @use "./mq" as *;
 @use "./../functions/px-to-rem" as *;
 @use "./../functions/image-url" as *;
+@use "./../settings/shadows" as *;
 
 @mixin hero-section($url) {
+  --title-shadow: #{$hero-title-shadow};
+  --body-text-shadow: #{$hero-body-shadow};
+
   align-items: center;
   background: radial-gradient(
       50% 50% at 50% 50%,

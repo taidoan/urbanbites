@@ -1,0 +1,19 @@
+@use "./../functions/_index" as *;
+
+////
+/// @group settings/shadows
+////
+
+/// Hero Title Shadow
+///
+/// This is the text shadow used for titles in hero sections
+/// @type number
+/// @access public
+$hero-title-shadow: rem(2) rem(2) rem(4) rgba(48, 39, 33, 0.39);
+
+/// Hero Body Shadow
+///
+/// This is the text shadow used for body text in hero sections
+/// @type number
+/// @access public
+$hero-body-shadow: rem(1) rem(2) 0 rgba(48, 39, 33, 0.32);

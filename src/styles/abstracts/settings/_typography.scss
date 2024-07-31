@@ -25,11 +25,47 @@ $body-font-desktop-size: 24px !default;
 /// @access public
 $body-font-desktop-size-small: 20px !default;
 
+/// Heading base font size
+///
+/// The base size for heading text
+/// @type number
+/// @access public
 $heading-font-base-size: 56px !default;
+
+/// Heading desktop font size
+///
+/// The desktop size for heading text
+/// @type number
+/// @access public
 $heading-font-desktop-size: 80px !default;
 
-$hero-font-base-size: $heading-font-base-size;
-$hero-font-desktop-size: 114px !default;
+/// Hero title text base size
+///
+/// This is the base size for title text in hero sections
+/// @type number
+/// @access public
+$hero-title-base-size: $heading-font-base-size;
+
+/// Hero title text desktop size
+///
+/// This is the desktop size for title text in hero sections
+/// @type number
+/// @access public
+$hero-title-desktop-size: 114px !default;
+
+/// Hero body text font base size
+///
+/// This is the base font size for body text within hero sections
+/// @type number
+/// @access public
+$hero-body-text-base-size: 18px !default;
+
+/// Hero body text font desktop size
+///
+/// This is the desktop font size for body text within hero sections
+/// @type number
+/// @access public
+$hero-body-text-desktop-size: 32px !default;
 
 /// Button font size
 ///
