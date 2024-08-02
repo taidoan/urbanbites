@@ -77,6 +77,14 @@
   }
 
   background-color: var(--clr-light-400);
+
+  @include mq("md") {
+    text-align: center;
+
+    h2 + * {
+      margin-inline: auto;
+    }
+  }
 }
 
 .about__values-expanded {
@@ -159,10 +167,34 @@
   }
 
   background-color: var(--clr-pale-400);
+
+  @include mq("md") {
+    text-align: center;
+
+    h2 + * {
+      margin-inline: auto;
+    }
+  }
 }
 
 .about__events {
   background-color: var(--clr-light-400);
+
+  @include mq("md-lg") {
+    .content-grid {
+      display: grid;
+      gap: rem(32);
+      grid-template-columns: repeat(11, 1fr);
+
+      > div:first-of-type {
+        grid-column: 1 / 7;
+      }
+
+      > div:last-of-type {
+        grid-column: 7 / 12;
+      }
+    }
+  }
 }
 
 .about__reviews {
@@ -175,4 +207,12 @@
     hsl(22, 26%, 92%) 0%,
     hsl(20, 29%, 80%, 0.5) 100%
   );
+
+  @include mq("md") {
+    text-align: center;
+
+    h2 + * {
+      margin-inline: auto;
+    }
+  }
 }

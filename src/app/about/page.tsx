@@ -90,11 +90,14 @@ const AboutPage = () => {
     </section>
     <section className='about__events'>
       <div className='content-grid'>
+        <div>Events here</div>
+        <div>
         <h2>Events</h2>
         <Divider />
         <p>From live music and art exhibitions to local meetups and workshops, there's always something happening at Urban Bites Cafe. Join us and be part of the excitement!</p>
         <div>
           <Button variant='primary' title="What's On" href='/events' />
+        </div>
         </div>
       </div>
     </section>
