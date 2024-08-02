@@ -1,18 +1,48 @@
 @use "./../../abstracts/_index" as *;
 
+.about__intro-container {
+  display: grid;
+  grid-template-rows:
+    [hero-start] 100vh [overlap-start] rem(50) [ hero-end] rem(50)
+    [overlap-end] auto [journey-end];
+}
+
 .about__hero {
   @include hero-section("/about/Hero.jpg");
+  grid-column: 1 / -1;
+  grid-row: hero-start / hero-end;
+}
+
+.about__mission-statement {
+  align-self: center;
+  grid-column: 1 / -1;
+  grid-row: overlap-start / overlap-end;
+  z-index: 2;
+
+  > *:first-of-type {
+    padding-block: 0;
+  }
 }
 
 .about__journey {
+  background-color: var(--clr-light-400);
+  grid-column: 1 / -1;
+  grid-row: hero-end / span 2;
+
+  > *:first-of-type {
+    padding-block-start: rem(150);
+  }
+
   @include mq("base-sm") {
     @include border(12px, var(--clr-light-400), "no-top");
   }
 
-  background-color: var(--clr-light-400);
-
   @include mq("md") {
-    & > div:nth-of-type(2) {
+    > *:first-of-type {
+      padding-block-start: rem(0);
+    }
+
+    & > div:nth-of-type(1) {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
 
@@ -20,11 +50,20 @@
         grid-column: 1 / 7;
         justify-self: end;
         margin: initial;
+        padding-block-start: rem(225);
       }
 
       & > *:last-child {
         grid-column: 7 / 13;
+        height: 100%;
       }
+    }
+  }
+
+  @include mq(calc($content-max-width - $border-width)) {
+    & > div > *:first-child {
+      grid-column: 2 / 13;
+      padding-inline: 0 $padding-inline-desktop;
     }
   }
 }
