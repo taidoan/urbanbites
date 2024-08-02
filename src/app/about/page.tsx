@@ -3,10 +3,14 @@ import type { Metadata } from 'next'
 import ExportedImage from 'next-image-export-optimizer'
 import h from "@pages/about/hero.module.scss"
 import j from "@pages/about/journey.module.scss"
+import v from "@pages/about/values.module.scss"
+import e from "@pages/about/events.module.scss"
+import r from "@pages/about/reviews.module.scss"
 import journeyImage from "@images/about/journey4k.jpeg"
 import sustainableImage from "@images/about/sustainable4k.jpeg"
 import communityImage from "@images/about/community4k.jpeg"
 import Button from '@/components/Button'
+import Card from '@/components/Card'
 
 export const metadata: Metadata = {
   title: 'About Urban Bites',
@@ -49,7 +53,12 @@ const AboutPage = () => {
         <Divider />
         <p>At Urban Bites Cafe, we are driven by a commitment to excellence, community, and sustainability.</p>
 
-        <div>Values block here</div>
+        <div>Values block here
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
       </div>
     </section>
     <section className='about__values-expanded'>
@@ -84,13 +93,18 @@ const AboutPage = () => {
         <p>Each Urban Bites offers a unique atmosphere while maintaining the warm and welcoming vibe we're known for. Find the nearest cafe to enjoy our delicious offerings and exceptional service.</p>
 
         <div>
-          Locations block here
+          <Card />
+          <Card />
+          <Card />
         </div>
       </div>
     </section>
     <section className='about__events'>
       <div className='content-grid'>
-        <div>Events here</div>
+        <div>
+          <Card />
+          <Card />
+        </div>
         <div>
         <h2>Events</h2>
         <Divider />
@@ -104,12 +118,22 @@ const AboutPage = () => {
     <section className='about__reviews'>
       <div className='content-grid content-grid--inc-border'>
         <div>
-          <h2>Reviews</h2>
-          <Divider />
-          <p>Explore the rave reviews from our satisfied customers about their experiences at Urban Bites.</p>
+          <div className={r.header}>
+            <div>
+              <h2>Reviews</h2>
+              <Divider />
+              <p>Explore the rave reviews from our satisfied customers about their experiences at Urban Bites.</p>
+            </div>
+            <div>
+              Review component
+            </div>
+          </div>
         </div>
         <div>
-          Reveiw block here
+          <Card />
+          <Card />
+          <Card />
+          <Card />
         </div>
       </div>
     </section>

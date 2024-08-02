@@ -1,6 +1,11 @@
 @use "./../../abstracts/_index" as *;
 
 .about__intro-container {
+  background: linear-gradient(
+    0deg,
+    hsl(22, 26%, 92%) 0%,
+    hsl(20, 29%, 80%, 1) 100%
+  );
   display: grid;
   grid-template-rows:
     [hero-start] 100vh [overlap-start] rem(50) [ hero-end] rem(50)
@@ -28,7 +33,7 @@
   @include mq("base-sm") {
     @include border(12px, var(--clr-light-400), "no-top");
   }
-  background-color: var(--clr-light-400);
+  // background-color: var(--clr-light-400);
   grid-column: 1 / -1;
   grid-row: hero-end / span 2;
 
@@ -209,10 +214,5 @@
   );
 
   @include mq("md") {
-    text-align: center;
-
-    h2 + * {
-      margin-inline: auto;
-    }
   }
 }
