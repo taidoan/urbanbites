@@ -25,32 +25,32 @@
 }
 
 .about__journey {
+  @include mq("base-sm") {
+    @include border(12px, var(--clr-light-400), "no-top");
+  }
   background-color: var(--clr-light-400);
   grid-column: 1 / -1;
   grid-row: hero-end / span 2;
 
-  > *:first-of-type {
-    padding-block-start: rem(150);
+  > div:first-of-type {
+    padding-block-start: rem(175);
   }
 
-  @include mq("base-sm") {
-    @include border(12px, var(--clr-light-400), "no-top");
+  .content-grid--half {
+    padding-block-start: 0;
   }
 
   @include mq("md") {
-    > *:first-of-type {
-      padding-block-start: rem(0);
-    }
-
-    & > div:nth-of-type(1) {
+    > div:first-of-type {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
+      padding-block-start: rem(0);
 
-      & > *:first-child {
+      .content-grid--half {
         grid-column: 1 / 7;
         justify-self: end;
         margin: initial;
-        padding-block-start: rem(225);
+        padding-block-start: rem(175);
       }
 
       & > *:last-child {
@@ -61,9 +61,12 @@
   }
 
   @include mq(calc($content-max-width - $border-width)) {
-    & > div > *:first-child {
-      grid-column: 2 / 13;
-      padding-inline: 0 $padding-inline-desktop;
+    .content-grid--half {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-block-start: rem(200) !important;
+      padding-inline-start: 0;
     }
   }
 }
@@ -86,6 +89,60 @@
     hsl(22, 26%, 92%) 0%,
     hsl(20, 29%, 80%, 0.5) 100%
   );
+
+  @include mq("md") {
+    & > .about__values-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+
+      .content-grid {
+        display: flex;
+        flex-direction: column;
+        grid-column: 7 / 13;
+        justify-content: center;
+      }
+
+      > *:last-child {
+        grid-column: 1 / 7;
+        grid-row: 1 / -1;
+        height: 100%;
+      }
+    }
+
+    & > .about__values-grid:nth-of-type(1) {
+      .content-grid {
+        justify-self: start;
+        margin: initial;
+      }
+    }
+
+    & > .about__values-grid:nth-of-type(2) {
+      .content-grid {
+        grid-column: 1 / 7;
+        justify-self: end;
+        margin: initial;
+      }
+
+      > *:last-child {
+        grid-column: 7 / 13;
+        grid-row: 1 / -1;
+      }
+    }
+  }
+
+  @include mq(calc($content-max-width - $border-width)) {
+    & > .about__values-grid:nth-of-type(1) {
+      .content-grid--half {
+        padding-inline-end: 0;
+      }
+    }
+
+    & > .about__values-grid:nth-of-type(2) {
+      .content-grid--half {
+        padding-inline-start: 0;
+      }
+    }
+  }
 }
 
 .about__menu-items {

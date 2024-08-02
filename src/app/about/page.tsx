@@ -4,8 +4,8 @@ import ExportedImage from 'next-image-export-optimizer'
 import h from "@pages/about/hero.module.scss"
 import j from "@pages/about/journey.module.scss"
 import journeyImage from "@images/about/journey4k.jpeg"
-import sustainableImage from "@images/about/sustainable.jpg"
-import communityImage from "@images/about/community.jpg"
+import sustainableImage from "@images/about/sustainable4k.jpeg"
+import communityImage from "@images/about/community4k.jpeg"
 import Button from '@/components/Button'
 
 export const metadata: Metadata = {
@@ -53,7 +53,7 @@ const AboutPage = () => {
       </div>
     </section>
     <section className='about__values-expanded'>
-      <div>
+      <div className='about__values-grid'>
         <div className='content-grid content-grid--half'>
           <h2>Sustainable</h2>
           <Divider />
@@ -63,7 +63,7 @@ const AboutPage = () => {
         </div>
         <ExportedImage src={sustainableImage} alt="Sustainability" className={j.image} />
       </div>
-      <div>
+      <div  className='about__values-grid'>
         <div className='content-grid content-grid--half'>
           <h2>Community</h2>
           <Divider />
