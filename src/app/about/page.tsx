@@ -54,10 +54,10 @@ const AboutPage = () => {
         <p>At Urban Bites Cafe, we are driven by a commitment to excellence, community, and sustainability.</p>
 
         <div>Values block here
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <Card title="Quality"><p>We use only the finest, locally-sourced ingredients to ensure every bite is a delightful experience.</p></Card>
+          <Card title="Community"><p>We foster a warm, welcoming environment where everyone feels like family.</p></Card>
+          <Card title="Sustainable"><p>We are dedicated to eco-friendly practices, from sourcing to packaging, to help protect our planet.</p></Card>
+          <Card title="Innovative"><p>We constantly evolve our menu and services to offer fresh, exciting experiences for our customers.</p></Card>
         </div>
       </div>
     </section>

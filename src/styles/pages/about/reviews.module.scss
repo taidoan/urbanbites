@@ -4,15 +4,16 @@
   @include mq("md") {
     align-items: center;
     display: grid;
-    gap: rem(32);
+    gap: rem(40);
     grid-template-columns: repeat(12, 1fr);
 
     > div:first-of-type {
-      grid-column: span 9;
+      grid-column: 1 / 7;
     }
 
     > div:last-of-type {
-      grid-column: span 3;
+      grid-column: 8 / 13;
+      justify-self: end;
     }
   }
 }
