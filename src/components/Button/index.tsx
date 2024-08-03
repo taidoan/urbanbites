@@ -4,7 +4,7 @@ import s from './styles.module.scss'
 
 type ButtonProps = {
   title: string;
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'success' | 'warning' | 'info' | 'disabled';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'success' | 'warning' | 'info' | 'disabled' | 'beige';
   href?: string;
   className?: string;
   type?: 'button' | 'submit' | 'reset';
