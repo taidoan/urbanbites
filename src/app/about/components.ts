@@ -4,3 +4,6 @@ export { default as Card } from "@/components/Card";
 export { default as CardTitle } from "@/components/Card/CardTitle";
 export { default as CardBody } from "@/components/Card/CardBody";
 export { default as CardImage } from "@/components/Card/CardImage";
+export { default as CardCTA } from "@/components/Card/CardCTA";
+export { default as CardDate } from "@/components/Card/CardDate";
+export { default as Review } from "@/components/Reviews/Review";

@@ -13,6 +13,7 @@
     "docs": "sassdoc src/ && typedoc"
   },
   "dependencies": {
+    "date-fns": "^3.6.0",
     "lodash": "^4.17.21",
     "next": "14.2.5",
     "react": "^18",

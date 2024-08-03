@@ -35,12 +35,15 @@
 }
 
 .body {
-  padding-block-end: size-clamp(rem(16), rem(32));
-  padding-block-start: rem(16);
-  padding-inline: rem(16);
+  padding: size-clamp(rem(16), rem(24));
 
   .image {
     border-radius: rem(9);
+  }
+
+  &:has(.image) {
+    padding-block-end: size-clamp(rem(16), rem(32));
+    padding-block-start: size-clamp(rem(16), rem(24));
   }
 
   &:has(.image + *) {
@@ -82,9 +85,9 @@
   border-radius: rem(16);
   color: var(--clr-light-400);
   font-family: var(--ff-display);
-  font-size: size-clamp(rem(24), rem(40));
+  font-size: size-clamp(rem(24), rem(32));
   font-weight: 500;
-  height: size-clamp(rem(64), rem(88));
+  height: size-clamp(rem(64), rem(92));
   line-height: 1;
   padding: size-clamp(rem(8), rem(16));
   position: absolute;

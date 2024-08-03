@@ -6,6 +6,7 @@ import classNames from "classnames";
 type CardProps = {
   children?: React.ReactNode;
   event?: boolean
+  review?: boolean,
 }
 
 const Card = ({children, event = false}: CardProps) => {

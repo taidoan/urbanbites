@@ -2,7 +2,7 @@
 import type { Metadata } from 'next'
 import ExportedImage from 'next-image-export-optimizer'
 import { h, j, v, e, r } from "./styles"
-import { Divider, Button, Card, CardTitle, CardBody, CardImage } from "./components"
+import { Divider, Button, Card, CardTitle, CardBody, CardImage, CardCTA, CardDate, Review } from "./components"
 import {
   journeyImage,
   sustainableImage,
@@ -17,8 +17,6 @@ import {
   artsImage,
   jazzImage
 } from './images'
-import CardCTA from '@/components/Card/CardCTA'
-import CardDate from '@/components/Card/CardDate'
 
 export const metadata: Metadata = {
   title: 'About Urban Bites',
@@ -199,22 +197,30 @@ const AboutPage = () => {
         <div>
           <Card>
             <CardBody>
-              <p>&quot;Fantastic ambiance and delicious coffee! A perfect spot for catching up with friends or just enjoying some downtime.&quot;</p>
+              <Review rating={4} author="Arthur Morgan" date='2024-07-23'>
+                <p>&quot;Fantastic ambiance and delicious coffee! A perfect spot for catching up with friends or just enjoying some downtime.&quot;</p>
+              </Review>
             </CardBody>
           </Card>
           <Card>
             <CardBody>
-              <p>&quot;The food here is absolutely top-notch! Fresh ingredients and unique flavors make every visit a treat.&quot;</p>
+              <Review rating={5} author="Robb Stark" date="2024-08-02">
+                <p>&quot;The food here is absolutely top-notch! Fresh ingredients and unique flavors make every visit a treat.&quot;</p>
+              </Review>
             </CardBody>
           </Card>
           <Card>
             <CardBody>
-              <p>&quot;Love the community vibe here. Great place to unwind with a good book or catch up on work with a drink.&quot;</p>
+              <Review rating={5} author="Aloy Horizon" date="2024-08-01">
+                <p>&quot;Love the community vibe here. Great place to unwind with a good book or catch up on work with a drink.&quot;</p>
+              </Review>
             </CardBody>
           </Card>
           <Card>
             <CardBody>
-              <p>&quot;Excellent service and a warm, welcoming atmosphere. Urban Bites Cafe has become my go-to spot in town!&quot;</p>
+              <Review rating={4} author="Ellie Williams" date="2024-06-15">
+                <p>&quot;Excellent service and a warm, welcoming atmosphere. Urban Bites Cafe has become my go-to spot in town!&quot;</p>
+              </Review>
             </CardBody>
           </Card>
         </div>
