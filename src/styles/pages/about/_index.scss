@@ -33,7 +33,7 @@
   @include mq("base-sm") {
     @include border(12px, var(--clr-light-400), "no-top");
   }
-  // background-color: var(--clr-light-400);
+
   grid-column: 1 / -1;
   grid-row: hero-end / span 2;
 
@@ -89,6 +89,15 @@
     h2 + * {
       margin-inline: auto;
     }
+  }
+
+  .content-grid > .about__values-block > div:first-of-type {
+    overflow: visible;
+  }
+
+  .swiper-pagination {
+    margin-top: size-clamp(rem(16), rem(24));
+    position: static;
   }
 }
 

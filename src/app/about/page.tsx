@@ -1,8 +1,12 @@
-
-import type { Metadata } from 'next'
+"use client"
 import ExportedImage from 'next-image-export-optimizer'
 import { h, j, v, e, r } from "./styles"
 import { Divider, Button, Card, CardTitle, CardBody, CardImage, CardCTA, CardDate, Review } from "./components"
+import { Pagination } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
 import {
   journeyImage,
   sustainableImage,
@@ -18,9 +22,9 @@ import {
   jazzImage
 } from './images'
 
-export const metadata: Metadata = {
-  title: 'About Urban Bites',
-}
+// export const metadata: Metadata = {
+//   title: 'About Urban Bites',
+// }
 
 const AboutPage = () => {
  return(
@@ -59,35 +63,52 @@ const AboutPage = () => {
         <Divider />
         <p>At Urban Bites Cafe, we are driven by a commitment to excellence, community, and sustainability.</p>
 
-        <div>Values block here
-          <Card>
-            <CardBody textCentre>
-              <CardImage src={qualityCardImage} alt="Quality" />
-              <CardTitle title="Quality" />
-              <p>We use only the finest, locally-sourced ingredients to ensure every bite is a delightful experience.</p>
-            </CardBody>
-          </Card>
-          <Card>
-            <CardBody textCentre>
-              <CardImage src={communityCardImage} alt="Community" />
-              <CardTitle title="Community" />
-              <p>We foster a warm, welcoming environment where everyone feels like family.</p>
-            </CardBody>              
-          </Card>
-          <Card>
-            <CardBody textCentre>
-              <CardImage src={sustainableCardImage} alt="Sustainable" />
-              <CardTitle title="Sustainable" />
-              <p>We are dedicated to eco-friendly practices, from sourcing to packaging, to help protect our planet.</p>
-            </CardBody>
-          </Card>
-          <Card>
-            <CardBody textCentre>
-              <CardImage src={innovativeCardImage} alt="Innovation" />
-              <CardTitle title="Innovative"/>
-              <p>We constantly evolve our menu and services to offer fresh, exciting experiences for our customers.</p>
-            </CardBody>
-          </Card>
+        <div className="about__values-block">Values block here
+          <Swiper 
+            modules={[Pagination]}
+            spaceBetween={50}
+            slidesPerView={1}
+            pagination={{clickable: true}}
+            autoHeight={true}
+            breakpoints={{1024: {slidesPerView: 4}}}
+          >
+            <SwiperSlide>
+              <Card>
+                <CardBody textCentre>
+                  <CardImage src={qualityCardImage} alt="Quality" />
+                  <CardTitle title="Quality" />
+                  <p>We use only the finest, locally-sourced ingredients to ensure every bite is a delightful experience.</p>
+                </CardBody>
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card>
+                <CardBody textCentre>
+                  <CardImage src={communityCardImage} alt="Community" />
+                  <CardTitle title="Community" />
+                  <p>We foster a warm, welcoming environment where everyone feels like family.</p>
+                </CardBody>              
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card>
+                <CardBody textCentre>
+                  <CardImage src={sustainableCardImage} alt="Sustainable" />
+                  <CardTitle title="Sustainable" />
+                  <p>We are dedicated to eco-friendly practices, from sourcing to packaging, to help protect our planet.</p>
+                </CardBody>
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card>
+                <CardBody textCentre>
+                  <CardImage src={innovativeCardImage} alt="Innovation" />
+                  <CardTitle title="Innovative"/>
+                  <p>We constantly evolve our menu and services to offer fresh, exciting experiences for our customers.</p>
+                </CardBody>
+              </Card>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
     </section>

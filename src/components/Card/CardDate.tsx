@@ -8,7 +8,7 @@ type CardDateProps = {
 
 const getDaySuffix = (day: number): string => {
   if (day >= 11 && day <= 13) {
-    return 'th'; // Special case for 11th, 12th, 13th
+    return 'th';
   }
   switch (day % 10) {
     case 1: return 'st';
@@ -34,7 +34,7 @@ const getMonthAbbreviation = (month: string): string => {
     December: 'Dec'
   };
   const normalizedMonth = month.charAt(0).toUpperCase() + month.slice(1).toLowerCase();
-  return monthMap[normalizedMonth] || month; // Return abbreviation or full month if not found
+  return monthMap[normalizedMonth] || month;
 };
 
 const CardDate = ({day, month}: CardDateProps) => {
