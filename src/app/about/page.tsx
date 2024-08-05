@@ -1,32 +1,27 @@
-"use client"
 import ExportedImage from 'next-image-export-optimizer'
 import { h, j, v, e, r } from "./styles"
 import { Divider, Button, Card, CardTitle, CardBody, CardImage, CardCTA, CardDate, Review } from "./components"
-import { Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
+import SwiperSection from './swiper'
+import useMediaQuery from '@/hooks/useMediaQuery'
+import type { Metadata } from "next";
+import values from './values'
+import locations from './locations'
+import events from './events'
+import reviews from './reviews'
 
 import {
   journeyImage,
   sustainableImage,
   communityImage,
-  qualityCardImage,
-  communityCardImage,
-  sustainableCardImage,
-  innovativeCardImage,
-  digbethImage,
-  cityImage,
-  harbourneImage,
-  artsImage,
-  jazzImage
 } from './images'
 
-// export const metadata: Metadata = {
-//   title: 'About Urban Bites',
-// }
+
+export const metadata: Metadata = {
+  title: 'About Urban Bites',
+}
 
 const AboutPage = () => {
+
  return(
   <main>
     <section className='about__intro-container'>
@@ -64,51 +59,7 @@ const AboutPage = () => {
         <p>At Urban Bites Cafe, we are driven by a commitment to excellence, community, and sustainability.</p>
 
         <div className="about__values-block">Values block here
-          <Swiper 
-            modules={[Pagination]}
-            spaceBetween={50}
-            slidesPerView={1}
-            pagination={{clickable: true}}
-            autoHeight={true}
-            breakpoints={{1024: {slidesPerView: 4}}}
-          >
-            <SwiperSlide>
-              <Card>
-                <CardBody textCentre>
-                  <CardImage src={qualityCardImage} alt="Quality" />
-                  <CardTitle title="Quality" />
-                  <p>We use only the finest, locally-sourced ingredients to ensure every bite is a delightful experience.</p>
-                </CardBody>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card>
-                <CardBody textCentre>
-                  <CardImage src={communityCardImage} alt="Community" />
-                  <CardTitle title="Community" />
-                  <p>We foster a warm, welcoming environment where everyone feels like family.</p>
-                </CardBody>              
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card>
-                <CardBody textCentre>
-                  <CardImage src={sustainableCardImage} alt="Sustainable" />
-                  <CardTitle title="Sustainable" />
-                  <p>We are dedicated to eco-friendly practices, from sourcing to packaging, to help protect our planet.</p>
-                </CardBody>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card>
-                <CardBody textCentre>
-                  <CardImage src={innovativeCardImage} alt="Innovation" />
-                  <CardTitle title="Innovative"/>
-                  <p>We constantly evolve our menu and services to offer fresh, exciting experiences for our customers.</p>
-                </CardBody>
-              </Card>
-            </SwiperSlide>
-          </Swiper>
+          <SwiperSection slides={values} insideImage={true} centered={true} />
         </div>
       </div>
     </section>
@@ -143,54 +94,13 @@ const AboutPage = () => {
         <Divider />
         <p>Each Urban Bites offers a unique atmosphere while maintaining the warm and welcoming vibe we&apos;re known for. Find the nearest cafe to enjoy our delicious offerings and exceptional service.</p>
 
-        <div>
-          <Card>
-            <CardBody textCentre>
-              <CardImage src={digbethImage} alt="Digbeth Location" />
-              <CardTitle title='Digbeth' />
-              <p>115 Crag Ln, Birmingham, BG3 1UE</p>
-              <CardCTA title="Directions" />
-            </CardBody>
-          </Card>
-          <Card>
-            <CardBody textCentre>
-              <CardImage src={cityImage} alt="City Centre Location" />
-              <CardTitle title='City Centre' />
-              <p>86 Cannon St, Birmingham, B33 1JR</p>
-              <CardCTA title="Directions" />
-            </CardBody>
-          </Card>
-          <Card>
-            <CardBody textCentre>
-              <CardImage src={harbourneImage} alt="Harbourne Location" />
-              <CardTitle title='Harbourne' />
-              <p>165 London Rd, Birmingham, B2 4LH</p>
-              <CardCTA title="Directions" />
-            </CardBody>
-          </Card>
+        <div className='about__locations-block'>
+          <SwiperSection slides={locations} insideImage={true} centered={true} />
         </div>
       </div>
     </section>
     <section className='about__events'>
       <div className='content-grid'>
-        <div>
-          <Card event>
-            <CardDate day={21} month="April" />
-            <CardImage src={artsImage} alt="Arts & Wine Evening" />
-            <CardBody size="large">
-              <CardTitle title="Art & Wine Evening" size="small" />
-              <p>An enchanting evening of art and wine. Local artists will showcase their work. You&apos;ll have the opportunity to meet the creators...</p>
-            </CardBody>
-          </Card>
-          <Card event>
-            <CardDate day={28} month="April" />
-            <CardImage src={jazzImage} alt="Live Jazz Night" />
-            <CardBody size="large">
-              <CardTitle title="Live Jazz Night" size="small" />
-              <p>An evening of smooth jazz performed by local musicians. Enjoy our special menu and signature drinks while you unwind to live music.</p>
-            </CardBody>
-          </Card>
-        </div>
         <div>
         <h2>Events</h2>
         <Divider />
@@ -198,6 +108,9 @@ const AboutPage = () => {
         <div>
           <Button variant='primary' title="What's On" href='/events' />
         </div>
+        </div>
+        <div className='about__events-block'>
+          <SwiperSection slides={events} event={true} bodySize='large' insideImage={false}/>
         </div>
       </div>
     </section>
@@ -216,34 +129,7 @@ const AboutPage = () => {
           </div>
         </div>
         <div>
-          <Card>
-            <CardBody>
-              <Review rating={4} author="Arthur Morgan" date='2024-07-23'>
-                <p>&quot;Fantastic ambiance and delicious coffee! A perfect spot for catching up with friends or just enjoying some downtime.&quot;</p>
-              </Review>
-            </CardBody>
-          </Card>
-          <Card>
-            <CardBody>
-              <Review rating={5} author="Robb Stark" date="2024-08-02">
-                <p>&quot;The food here is absolutely top-notch! Fresh ingredients and unique flavors make every visit a treat.&quot;</p>
-              </Review>
-            </CardBody>
-          </Card>
-          <Card>
-            <CardBody>
-              <Review rating={5} author="Aloy Horizon" date="2024-08-01">
-                <p>&quot;Love the community vibe here. Great place to unwind with a good book or catch up on work with a drink.&quot;</p>
-              </Review>
-            </CardBody>
-          </Card>
-          <Card>
-            <CardBody>
-              <Review rating={4} author="Ellie Williams" date="2024-06-15">
-                <p>&quot;Excellent service and a warm, welcoming atmosphere. Urban Bites Cafe has become my go-to spot in town!&quot;</p>
-              </Review>
-            </CardBody>
-          </Card>
+        <SwiperSection slides={reviews} review={true}/>
         </div>
       </div>
     </section>

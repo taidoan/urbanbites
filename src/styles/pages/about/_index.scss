@@ -182,6 +182,15 @@
 
   background-color: var(--clr-pale-400);
 
+  .content-grid > .about__locations-block > div:first-of-type {
+    overflow: visible;
+  }
+
+  .swiper-pagination {
+    margin-top: size-clamp(rem(16), rem(24));
+    position: static;
+  }
+
   @include mq("md") {
     text-align: center;
 
@@ -193,6 +202,15 @@
 
 .about__events {
   background-color: var(--clr-light-400);
+
+  .content-grid > .about__events-block > div:first-of-type {
+    overflow: visible;
+  }
+
+  .swiper-pagination {
+    margin-top: size-clamp(rem(16), rem(24));
+    position: static;
+  }
 
   @include mq("md-lg") {
     .content-grid {
