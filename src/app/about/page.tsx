@@ -1,6 +1,6 @@
 import ExportedImage from 'next-image-export-optimizer'
 import { h, j, v, e, r } from "./styles"
-import { Divider, Button, Card, CardTitle, CardBody, CardImage, CardCTA, CardDate, Review } from "./components"
+import { Divider, Button } from "./components"
 import SwiperSection from './swiper'
 import useMediaQuery from '@/hooks/useMediaQuery'
 import type { Metadata } from "next";
@@ -21,7 +21,6 @@ export const metadata: Metadata = {
 }
 
 const AboutPage = () => {
-
  return(
   <main>
     <section className='about__intro-container'>
@@ -58,8 +57,8 @@ const AboutPage = () => {
         <Divider />
         <p>At Urban Bites Cafe, we are driven by a commitment to excellence, community, and sustainability.</p>
 
-        <div className="about__values-block">Values block here
-          <SwiperSection slides={values} insideImage={true} centered={true} />
+        <div className="about__values-block">
+          <SwiperSection name="values" slides={values} insideImage={true} centered={true} />
         </div>
       </div>
     </section>
@@ -95,7 +94,7 @@ const AboutPage = () => {
         <p>Each Urban Bites offers a unique atmosphere while maintaining the warm and welcoming vibe we&apos;re known for. Find the nearest cafe to enjoy our delicious offerings and exceptional service.</p>
 
         <div className='about__locations-block'>
-          <SwiperSection slides={locations} insideImage={true} centered={true} />
+          <SwiperSection name='locations' slides={locations} insideImage={true} centered={true} />
         </div>
       </div>
     </section>
@@ -110,7 +109,7 @@ const AboutPage = () => {
         </div>
         </div>
         <div className='about__events-block'>
-          <SwiperSection slides={events} event={true} bodySize='large' insideImage={false}/>
+          <SwiperSection name="events" slides={events} event={true} bodySize='large' insideImage={false}/>
         </div>
       </div>
     </section>
@@ -129,7 +128,7 @@ const AboutPage = () => {
           </div>
         </div>
         <div>
-        <SwiperSection slides={reviews} review={true}/>
+        <SwiperSection name="reviews" slides={reviews} review={true}/>
         </div>
       </div>
     </section>

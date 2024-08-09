@@ -1,0 +1,6 @@
+@use "./../abstracts/_index" as *;
+
+.swiper-pagination {
+  margin-top: size-clamp(rem(16), rem(24));
+  position: static !important;
+}
