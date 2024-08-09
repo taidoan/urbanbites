@@ -1,5 +1,5 @@
 import ExportedImage from 'next-image-export-optimizer'
-import { h, j, v, e, r } from "./styles"
+import { h, j, v, e, r, l } from "./styles"
 import { Divider, Button } from "./components"
 import SwiperSection from './swiper'
 import useMediaQuery from '@/hooks/useMediaQuery'
@@ -57,7 +57,7 @@ const AboutPage = () => {
         <Divider />
         <p>At Urban Bites Cafe, we are driven by a commitment to excellence, community, and sustainability.</p>
 
-        <div className="about__values-block">
+        <div className={v.swiperBlock}>
           <SwiperSection name="values" slides={values} insideImage={true} centered={true} />
         </div>
       </div>
@@ -93,7 +93,7 @@ const AboutPage = () => {
         <Divider />
         <p>Each Urban Bites offers a unique atmosphere while maintaining the warm and welcoming vibe we&apos;re known for. Find the nearest cafe to enjoy our delicious offerings and exceptional service.</p>
 
-        <div className='about__locations-block'>
+        <div className={l.swiperBlock}>
           <SwiperSection name='locations' slides={locations} insideImage={true} centered={true} />
         </div>
       </div>
@@ -104,11 +104,11 @@ const AboutPage = () => {
         <h2>Events</h2>
         <Divider />
         <p>From live music and art exhibitions to local meetups and workshops, there&apos;s always something happening at Urban Bites Cafe. Join us and be part of the excitement!</p>
-        <div>
+        <div className={e.ctaBlock}>
           <Button variant='primary' title="What's On" href='/events' />
         </div>
         </div>
-        <div className='about__events-block'>
+        <div className={e.swiperBlock}>
           <SwiperSection name="events" slides={events} event={true} bodySize='large' insideImage={false}/>
         </div>
       </div>
@@ -127,8 +127,8 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-        <div>
-        <SwiperSection name="reviews" slides={reviews} review={true}/>
+        <div className={r.swiperBlock}>
+          <SwiperSection name="reviews" slides={reviews} review={true}/>
         </div>
       </div>
     </section>

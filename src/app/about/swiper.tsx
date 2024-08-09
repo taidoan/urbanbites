@@ -70,11 +70,11 @@ const SwiperSection = ({slides, bodySize = 'normal', event = false, review = fal
 
 
   return(
-    <div>
+    <>
       {showSwiper ? (
         <Swiper 
           modules={[Pagination]}
-          spaceBetween={50}
+          spaceBetween={32}
           slidesPerView={1}
           pagination={{ clickable: true }}
           autoHeight={true}
@@ -181,7 +181,7 @@ const SwiperSection = ({slides, bodySize = 'normal', event = false, review = fal
           ))}
         </div>
       )}
-    </div>
+    </>
   )
 }
 

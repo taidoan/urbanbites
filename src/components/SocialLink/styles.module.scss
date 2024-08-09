@@ -16,8 +16,8 @@
   }
 
   display: block;
-  grid-column: 1 / 2;
   height: var(--icon-size);
+  object-fit: cover;
   width: var(--icon-size);
 }
 
