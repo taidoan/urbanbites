@@ -13,7 +13,7 @@
 }
 
 .about__hero {
-  @include hero-section("/about/Hero.jpg");
+  @include hero-section("/assets/images/about/Hero.jpg");
   grid-column: 1 / -1;
   grid-row: hero-start / hero-end;
 }
@@ -176,6 +176,22 @@
   }
 
   background-color: var(--clr-light-400);
+
+  & > div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(6);
+
+    @include mq("base-sm") {
+      row-gap: rem(12);
+    }
+
+    @include mq("md") {
+      column-gap: rem(12);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 }
 
 .about__locations {
@@ -255,4 +271,9 @@
       grid-template-columns: repeat(4, 1fr);
     }
   }
+}
+
+.about__image-filter {
+  border-image: fill 0
+    linear-gradient(0deg, rgba(219, 199, 189, 0.05), rgba(219, 199, 189, 0.05));
 }

@@ -3,7 +3,7 @@ import {
   sustainableCardImage,
   communityCardImage,
   innovativeCardImage,
-} from "./images";
+} from "./../images";
 const values = [
   {
     title: { title: "Quality" },

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev && test:watch",
     "build": "next build && next-image-export-optimizer",
+    "images": "next-image-export-optimizer",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",

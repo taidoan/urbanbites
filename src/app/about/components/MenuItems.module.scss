@@ -1,0 +1,93 @@
+@use "./../../../styles/abstracts/_index" as *;
+
+.menuItemBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: size-clamp(rem(236), rem(472));
+  padding-block: size-clamp(rem(32), rem(48));
+  padding-inline: size-clamp(rem(24), rem(48));
+  position: relative;
+}
+
+.image {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+
+  &::after {
+    border-image: fill 0
+      linear-gradient(0deg, rgba(#dbc7bd, 0.1), rgba(#dbc7bd, 0.1));
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  img {
+    filter: saturate(75%) contrast(115%);
+  }
+}
+
+.bottom {
+  align-items: center;
+  display: flex;
+  gap: rem(32);
+  justify-content: space-between;
+  position: relative;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.end {
+  display: block;
+  justify-self: flex-end;
+}
+
+.linkButton {
+  --shadow: #{$deep-text-shadow};
+  fill: var(--clr-cream-400);
+  filter: drop-shadow(2px 2px 4px rgba(#302721, 0.33));
+  height: size-clamp(rem(32), rem(48));
+  justify-self: flex-end;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all $animation-transition;
+  width: size-clamp(rem(32), rem(50));
+
+  &:hover {
+    fill: var(--clr-primary-400);
+  }
+}
+
+.title {
+  --shadow: #{$deep-text-shadow};
+  color: var(--clr-light-400);
+  font-size: size-clamp(rem($heading-font-base-size), rem(72));
+  text-shadow: var(--shadow);
+}
+
+.category {
+  --shadow: #{$small-text-shadow};
+  background-color: rgba(#000, 0.48);
+  border-radius: rem(8);
+  color: var(--clr-cream-400);
+  display: inline-block;
+  font-family: var(--ff-display);
+  font-size: size-clamp(rem(24), rem(28));
+  font-weight: 500;
+  padding: rem(16);
+  text-shadow: var(--shadow);
+  text-transform: uppercase;
+  @include text-crop($line-height: 1);
+}

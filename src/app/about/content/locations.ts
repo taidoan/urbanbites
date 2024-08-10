@@ -1,4 +1,4 @@
-import { digbethImage, cityImage, harbourneImage } from "./images";
+import { digbethImage, cityImage, harbourneImage } from "./../images";
 
 const locations = [
   {

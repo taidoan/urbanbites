@@ -7,3 +7,5 @@ export { default as CardImage } from "@/components/Card/CardImage";
 export { default as CardCTA } from "@/components/Card/CardCTA";
 export { default as CardDate } from "@/components/Card/CardDate";
 export { default as Review } from "@/components/Reviews/Review";
+export { default as SwiperSection } from "./swiper";
+export { default as MenuItem } from "./MenuItems";

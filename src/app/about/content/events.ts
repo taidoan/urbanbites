@@ -1,4 +1,4 @@
-import { artsImage, jazzImage } from "./images";
+import { artsImage, jazzImage } from "./../images";
 
 const events = [
   {

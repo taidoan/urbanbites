@@ -1,13 +1,5 @@
 @use "./../../abstracts/_index" as *;
 
-.missionBlock {
-  // margin-top: -22.5dvh;
-
-  // @include mq("md") {
-  //   margin-top: -10dvh;
-  // }
-}
-
 .missionCard {
   --shadow: #{$card-box-shadow};
 

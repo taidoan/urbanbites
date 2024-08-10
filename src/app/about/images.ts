@@ -10,3 +10,6 @@ export { default as cityImage } from "@images/about/city.jpg";
 export { default as harbourneImage } from "@images/about/harbourne.jpg";
 export { default as artsImage } from "@images/about/art.jpg";
 export { default as jazzImage } from "@images/about/jazz.jpg";
+export { default as crispycalamari } from "@images/about/menu/crispycalamari.jpg";
+export { default as risotto } from "@images/about/menu/risotto.jpg";
+export { default as orchardbliss } from "@images/about/menu/orchardbliss.jpg";

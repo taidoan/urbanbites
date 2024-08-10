@@ -6,7 +6,7 @@ import { Pagination } from 'swiper/modules'
 import 'swiper/css';
 import 'swiper/css/pagination';
 import useMediaQuery from '@/hooks/useMediaQuery'
-import {Card, CardTitle, CardBody, CardImage, CardCTA, CardDate, Review } from "./components"
+import {Card, CardTitle, CardBody, CardImage, CardCTA, CardDate, Review } from "./index"
 import { useEffect, useState } from "react";
 
 type Slide = {

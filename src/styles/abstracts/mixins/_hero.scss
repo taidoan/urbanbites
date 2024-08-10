@@ -20,7 +20,7 @@
       rgba(219, 199, 189, 0.025),
       rgba(219, 199, 189, 0.025)
     ),
-    image-url("#{$url}") 17.5% 25% / cover no-repeat;
+    url("#{$url}") 17.5% 25% / cover no-repeat;
   background-blend-mode: normal, screen, normal;
   color: var(--clr-light-400);
   display: flex;

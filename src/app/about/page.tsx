@@ -1,18 +1,16 @@
 import ExportedImage from 'next-image-export-optimizer'
 import { h, j, v, e, r, l } from "./styles"
-import { Divider, Button } from "./components"
-import SwiperSection from './swiper'
-import useMediaQuery from '@/hooks/useMediaQuery'
+import { Divider, Button, SwiperSection, MenuItem } from "./components"
 import type { Metadata } from "next";
-import values from './values'
-import locations from './locations'
-import events from './events'
-import reviews from './reviews'
+import { events, locations, reviews, values } from './content'
 
 import {
   journeyImage,
   sustainableImage,
   communityImage,
+  risotto,
+  crispycalamari,
+  orchardbliss
 } from './images'
 
 
@@ -85,7 +83,11 @@ const AboutPage = () => {
       </div>
     </section>
     <section className='about__menu-items'>
-      <p>menu items here</p>
+      <div>
+      <MenuItem title="Mushroom Risotto" href="/menus/food#risotto" image={risotto} category="food" />
+      <MenuItem title="Orchard Bliss" href="/menus/drinks#orchardbliss" image={orchardbliss} category="drinks" />
+      <MenuItem title="Crispy Calamari" href="/menus/food#calamari" image={crispycalamari} category="food" />
+      </div>
     </section>
     <section className='about__locations'>
       <div className='content-grid content-grid--inc-border'>
