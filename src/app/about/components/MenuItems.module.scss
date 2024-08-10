@@ -58,15 +58,11 @@
   filter: drop-shadow(2px 2px 4px rgba(#302721, 0.33));
   height: size-clamp(rem(32), rem(48));
   justify-self: flex-end;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
   transition: all $animation-transition;
   width: size-clamp(rem(32), rem(50));
 
   &:hover {
-    fill: var(--clr-primary-400);
+    fill: var(--clr-cream-100);
   }
 }
 
