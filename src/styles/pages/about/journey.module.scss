@@ -1,0 +1,39 @@
+@use "./../../abstracts/_index" as *;
+
+.missionCard {
+  --shadow: #{$card-box-shadow};
+
+  background-color: palevioletred;
+  background-color: var(--clr-pale-400);
+  border-radius: rem(26);
+  box-shadow: var(--shadow);
+  color: var(--clr-tertiary-400);
+  font-size: size-clamp(rem(18), rem(32));
+  padding-block: size-clamp(rem(32), rem(64));
+  padding-inline: size-clamp(rem(32), rem(64));
+  position: relative;
+  text-align: center;
+
+  &::before {
+    border: rem(12) solid var(--clr-light-400);
+    border-radius: rem(26);
+    bottom: 0;
+    content: "";
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.image {
+  height: rem(240);
+  max-height: rem(800);
+  object-fit: cover;
+  width: 100%;
+
+  @include mq("md") {
+    height: auto;
+  }
+}

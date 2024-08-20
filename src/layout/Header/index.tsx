@@ -24,8 +24,12 @@ const Header: React.FC = () => {
           : setActive(false);
       }
     };
-  
-    targetElement = document.querySelector("section:first-of-type > :first-child") as HTMLElement | null;
+
+    targetElement = document.querySelector('.site-header__trigger') as HTMLElement | null;
+
+    if (!targetElement) {
+      targetElement = document.querySelector("section:first-of-type > :first-child") as HTMLElement | null
+    }
   
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleScroll);

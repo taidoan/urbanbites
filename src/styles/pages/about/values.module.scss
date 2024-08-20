@@ -1,0 +1,5 @@
+@use "./../../abstracts/_index" as *;
+
+.swiperBlock {
+  margin-top: size-clamp(rem(32), rem(64));
+}

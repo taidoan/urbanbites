@@ -11,10 +11,10 @@
 .title {
   color: var(--clr-light-400);
   font-size: size-clamp(
-    rem($heading-font-base-size),
-    rem($hero-font-desktop-size)
+    rem($hero-title-base-size),
+    rem($hero-title-desktop-size)
   );
-  text-shadow: 0.125rem 0.125rem 0.25rem rgba(48, 39, 33, 0.39);
+  text-shadow: var(--title-shadow);
 }
 
 .tagline {

@@ -16,9 +16,8 @@
   }
 
   display: block;
-  grid-column: 1 / 2;
-  height: var(--icon-size);
-  width: var(--icon-size);
+  height: auto;
+  width: auto;
 }
 
 .text {
