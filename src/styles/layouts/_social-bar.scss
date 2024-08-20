@@ -1,0 +1,38 @@
+@use "./../abstracts/_index" as *;
+@use "./../base/grid";
+
+.social-bar {
+  background-color: var(--clr-primary-400);
+  color: var(--clr-light-400);
+}
+
+.social-bar__container {
+  @extend %grid-base;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-block: size-clamp(rem($padding-block-base), rem(72));
+  row-gap: rem(24);
+
+  *:not(:first-of-type) {
+    border-top: 3px solid rgba(#000, 0.075);
+    padding-top: rem(24);
+  }
+
+  @include mq("base-lg") {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: rem(48);
+    justify-content: center;
+
+    *:not(:first-of-type) {
+      border-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  @include mq("md-lg") {
+    gap: rem(24);
+    justify-content: space-between;
+  }
+}

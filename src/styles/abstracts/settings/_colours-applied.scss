@@ -1,0 +1,26 @@
+@use "./colours" as *;
+
+////
+/// @group settings/colours
+////
+
+/// Border Colour
+///
+/// The border color derived from the project's applied colours map.
+/// @type Color
+/// @access public
+$border-colour: map-get($project-applied-colours, light);
+
+/// Body Text Colour
+///
+/// The color for body text, sourced from the project's applied colours map
+/// @type Color
+/// @access public
+$body-text-colour: map-get($project-applied-colours, tertiary);
+
+/// Print Text Colour
+///
+/// The default color for text in print materials, set to black if not overridden.
+/// @type Color
+/// @access public
+$print-text-colour: #000 !default;

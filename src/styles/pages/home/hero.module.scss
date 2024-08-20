@@ -1,0 +1,44 @@
+@use "./../../abstracts/_index" as *;
+
+.block {
+  container-type: inline-size;
+
+  @include mq("md") {
+    max-width: 65ch;
+  }
+}
+
+.title {
+  color: var(--clr-light-400);
+  font-size: size-clamp(
+    rem($hero-title-base-size),
+    rem($hero-title-desktop-size)
+  );
+  text-shadow: var(--title-shadow);
+}
+
+.tagline {
+  color: var(--clr-primary-100);
+  display: block;
+  font-style: italic;
+  font-weight: 700;
+  margin-top: rem(20);
+  text-shadow: 0.0625rem 0.125rem 0 rgba(48, 39, 33, 0.32);
+  text-transform: uppercase;
+}
+
+.ctaBlock {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: rem(24);
+  row-gap: rem(12);
+}
+
+@container (min-width: #{rem(457)}) {
+  .ctaBlock {
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+  }
+}

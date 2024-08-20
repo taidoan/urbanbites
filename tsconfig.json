@@ -19,7 +19,10 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@config": ["./config"]
+      "@config": ["./config"],
+      "@images/*": ["./public/assets/images/*"],
+      "@pages/*": ["./src/styles/pages/*"],
+      "@styles/*": ["./src/styles/*"],
     }
   },
   "typedocOptions": {

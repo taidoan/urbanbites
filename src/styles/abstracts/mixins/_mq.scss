@@ -1,0 +1,63 @@
+@use "./../settings/breakpoints" as bp;
+@use "./../functions/px-to-em" as *;
+@use "./../functions/check-if-unit" as *;
+
+////
+/// @group mixins/layout
+////
+
+/// Media query mixin to handle various breakpoint units and types.
+///
+/// This mixin supports breakpoints defined in `em`, `rem`, `px`, or as keys
+/// in a predefined breakpoints map. It can create `min-width` or `max-width` or even `min-height` or `max-height`
+/// queries and allows for additional media feature flexibility, including orientation.
+///
+/// @param {Number|String} $value - The breakpoint value or key from the map.
+/// @param {String} $type [min] - The type of media query, either `min` or `max`.
+/// @param {String} $media-feature [width] - The media feature to use.
+/// @param {String} $orientation [null] - Optional. The device orientation (`portrait` or `landscape`).
+/// @content - The styles to apply within the media query.
+///
+/// @example scss
+///   // Using a named key from the breakpoints map, defaulting to min-width
+///   @include mq('medium') {
+///     .example { color: blue; }
+///   }
+///
+///   // Explicit max-width query
+///   @include mq('medium', 'max') {
+///     .example { color: red; }
+///   }
+///
+///   // Including an orientation condition
+///   @include mq('medium', $orientation: 'landscape') {
+///     .example { color: green; }
+///   }
+///
+////
+
+@mixin mq($value, $type: "min", $media-feature: "width", $orientation: null) {
+  $type-feature: $type + "-" + $media-feature;
+  $breakpoint-value: null;
+
+  @if map-has-key(bp.$breakpoints-map, $value) {
+    $breakpoint: map-get(bp.$breakpoints-map, $value);
+    $breakpoint-value: em($breakpoint);
+  } @else if is-em($value) or is-rem($value) or is-px($value) {
+    $breakpoint-value: $value;
+  } @else if $value != null and $value != "" {
+    $breakpoint-value: em($value);
+  } @else {
+    @error 'Invalid or missing breakpoint value provided.';
+  }
+
+  @if $orientation != null {
+    @media screen and (#{$type-feature}: #{$breakpoint-value}) and (orientation: #{$orientation}) {
+      @content;
+    }
+  } @else {
+    @media screen and (#{$type-feature}: #{$breakpoint-value}) {
+      @content;
+    }
+  }
+}

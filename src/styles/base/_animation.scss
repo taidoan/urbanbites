@@ -1,0 +1,12 @@
+@use "./../abstracts/settings/animation" as *;
+
+:root {
+  --transition-speed: #{$animation-transition};
+}
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}

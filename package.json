@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev && test:watch",
     "build": "next build && next-image-export-optimizer",
+    "images": "next-image-export-optimizer",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
@@ -13,10 +14,13 @@
     "docs": "sassdoc src/ && typedoc"
   },
   "dependencies": {
+    "date-fns": "^3.6.0",
     "lodash": "^4.17.21",
     "next": "14.2.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sharp": "^0.33.4",
+    "swiper": "^11.1.9"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.7",

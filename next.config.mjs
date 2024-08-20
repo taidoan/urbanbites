@@ -1,5 +1,7 @@
+import path from "path";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // basePath: "/out",
   output: "export",
   images: {
     loader: "custom",
@@ -8,7 +10,7 @@ const nextConfig = {
   },
   transpilePackages: ["next-image-export-optimizer"],
   env: {
-    nextImageExportOptimizer_imageFolderPath: "public/images",
+    nextImageExportOptimizer_imageFolderPath: "public/assets/images",
     nextImageExportOptimizer_exportFolderPath: "out",
     nextImageExportOptimizer_quality: "75",
     nextImageExportOptimizer_storePicturesInWEBP: "true",

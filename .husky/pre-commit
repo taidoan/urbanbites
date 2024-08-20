@@ -1,2 +1,4 @@
-npm run test
+npm test
 npm run docs
+
+exit 0
