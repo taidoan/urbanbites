@@ -16,7 +16,7 @@ import ReviewPill from '@/components/Reviews/Pill';
 
 
 export const metadata: Metadata = {
-  title: 'About Urban Bites',
+  title: 'Urban Bites | About',
 }
 
 const AboutPage = () => {

@@ -1,4 +1,3 @@
-
 import Button from "@/components/Button";
 import hero from "@pages/home/hero.module.scss"
 import ft from "@pages/home/features.module.scss"
@@ -9,6 +8,11 @@ import drinksImage from "@images/home/drinks.png";
 import orderImage from "@images/home/order.png";
 import Divider from "@/components/Divider";
 import QuickLink from "@/components/QuickLinks";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Urban Bites',
+}
 
 export default function Home() {
   return (
