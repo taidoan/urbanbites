@@ -24,7 +24,7 @@ const AboutPage = () => {
     <section className='about__intro-container'>
       <section className='about__hero'>
         <div className={`content-grid content-grid--inc-border`}>
-          <h1 className={h.title}>About Us</h1>
+          <h1 className={`${h.title} site-header__trigger`}>About Us</h1>
           <Divider variant='primary' hero/>
           <p className={h.intro}>Welcome to Urban Bites Cafe! Discover our story and explore the heart of our community-focused cafe.</p>
         </div>
