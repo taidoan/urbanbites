@@ -8,7 +8,3 @@ export const source: string = join(root, "src");
 
 // Joining the source path with the 'styles' directory to get the styles path
 export const styles: string = join(source, "styles");
-
-export const assets: string = join(root, "public/assets");
-
-export const images: string = join(assets, "images");

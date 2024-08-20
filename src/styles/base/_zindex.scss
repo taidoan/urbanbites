@@ -1,7 +1,0 @@
-@use "./../abstracts/settings/zindex" as *;
-
-:root {
-  @each $layer, $value in $z-index-map {
-    --z-index-#{$layer}: #{$value};
-  }
-}

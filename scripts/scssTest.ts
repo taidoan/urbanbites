@@ -11,20 +11,20 @@ const sassPaths = [config.stylesPath, join(config.rootPath, "node_modules")];
  * @param options - Additional options for the compilation process
  * @returns A Promise that resolves with the compiled CSS code
  */
-export const compileSassString = async (source: string, options = {}) => {
+export const compileSassString = (source: string, options = {}) => {
   try {
-    const result = await compileStringAsync(source, {
+    return compileStringAsync(source, {
       loadPaths: sassPaths,
       silenceDeprecations: ["slash-div"],
-      quietDeps: false,
+      quietDeps: true,
       ...options,
     });
-    return result;
   } catch (error) {
     console.error("Error compiling Sass string:", error);
     throw error;
   }
 };
+
 /**
  * Compiles a Sass file asynchronously.
  *
