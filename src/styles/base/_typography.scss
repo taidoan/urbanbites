@@ -5,6 +5,7 @@
   --fs-body-small: #{map-get($project-typography-scale, "body", "small")};
   --fs-body-base: #{map-get($project-typography-scale, "body", "base")};
   --fc-body: $body-text-colour;
+  --p-width: #{$max-paragraph-width};
 }
 
 body {
@@ -22,7 +23,7 @@ h3 {
   font-size: var(--fs-heading-base);
   font-weight: 700;
   letter-spacing: -0.01em;
-  text-overflow: ellipsis; /* Adds ellipsis when text overflows */
+  text-overflow: ellipsis;
   text-transform: uppercase;
   @include text-crop($line-height: 0.85);
 }

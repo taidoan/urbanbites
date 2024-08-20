@@ -6,7 +6,7 @@ const events = [
     image: { src: artsImage, alt: "Art & Wine Evening" },
     date: { day: 21, month: "April" },
     content:
-      "An enchanting evening of art and wine. Local artists will showcase their work. You&apos;ll have the opportunity to meet the creators...",
+      "An enchanting evening of art and wine. Local artists will showcase their work. You'll have the opportunity to meet the creators...",
   },
   {
     title: { title: "Live Jazz Night", size: "small" as "small" },

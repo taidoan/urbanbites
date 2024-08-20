@@ -89,10 +89,11 @@
     h2 + * {
       margin-inline: auto;
     }
-  }
 
-  .swiper {
-    overflow: visible;
+    p:first-child {
+      margin-inline: auto;
+      width: var(--p-width);
+    }
   }
 
   @include mq(em(calc($content-max-width - 1px))) {
@@ -186,7 +187,7 @@
       row-gap: rem(12);
     }
 
-    @include mq("md") {
+    @include mq(1200) {
       column-gap: rem(12);
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -201,10 +202,6 @@
 
   background-color: var(--clr-pale-400);
 
-  .swiper {
-    overflow: visible;
-  }
-
   @include mq("md") {
     text-align: center;
 
@@ -217,14 +214,21 @@
       gap: rem(32);
       grid-template-columns: repeat(3, 1fr);
     }
+
+    p:first-child {
+      margin-inline: auto;
+      width: var(--p-width);
+    }
   }
 }
 
 .about__events {
   background-color: var(--clr-light-400);
 
-  .swiper {
-    overflow: visible;
+  @include mq(md) {
+    p:first-child {
+      width: var(--p-width);
+    }
   }
 
   @include mq(1200) {

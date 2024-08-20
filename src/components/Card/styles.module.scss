@@ -2,7 +2,6 @@
 
 .card {
   --shadow: #{$card-box-shadow};
-
   background-color: #f7f6f6;
   border-radius: rem(16);
   box-shadow: var(--shadow);
@@ -14,7 +13,7 @@
   font-size: size-clamp(rem(40), rem(48));
 
   & + * {
-    margin-top: size-clamp(rem(16), rem(20));
+    margin-top: rem(16);
   }
 }
 
@@ -35,6 +34,7 @@
 }
 
 .body {
+  font-size: size-clamp(rem(16), rem(20));
   padding: size-clamp(rem(16), rem(24));
 
   .image {
@@ -43,7 +43,8 @@
 
   &:has(.image) {
     padding-block-end: size-clamp(rem(16), rem(32));
-    padding-block-start: size-clamp(rem(16), rem(24));
+    padding-block-start: size-clamp(rem(16), rem(20));
+    padding-inline: rem(20);
   }
 
   &:has(.image + *) {
@@ -54,20 +55,19 @@
 
   &:has(* + .cta) {
     *:nth-last-child(2) {
-      margin-block-end: size-clamp(rem(16), rem(32));
+      margin-block-end: size-clamp(rem(16), rem(24));
     }
   }
 }
 
-.bodyPaddingLarge {
-  padding: size-clamp(rem(16), rem(24));
-}
-
 .image {
   border-radius: rem(9) rem(9) 0 0;
-  height: auto;
   max-height: rem(202);
   object-fit: cover;
+}
+
+.imageLarge {
+  max-height: rem(300);
 }
 
 .card:has(.image + .body) {

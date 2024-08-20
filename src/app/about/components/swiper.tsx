@@ -39,15 +39,15 @@ type Slide = {
 
 type SwiperSectionProps = {
   slides: Slide[],
-  bodySize?: 'normal' | 'large',
   event?: boolean,
   review?: boolean,
   insideImage?: boolean,
+  imageSize?: string,
   centered?: boolean,
   name?: string,
 }
 
-const SwiperSection = ({slides, bodySize = 'normal', event = false, review = false, insideImage = true, centered = false, name}: SwiperSectionProps) => {
+const SwiperSection = ({slides, event = false, review = false, insideImage = true, imageSize = 'normal', centered = false, name}: SwiperSectionProps) => {
   const isDesktop = useMediaQuery("(min-width: 85.1875em)")
   const isSmaller = useMediaQuery("(min-width: 75rem)")
   const [showSwiper, setShowSwiper] = useState(true)
@@ -91,9 +91,9 @@ const SwiperSection = ({slides, bodySize = 'normal', event = false, review = fal
                   <CardDate day={slide.date.day} month={slide.date.month} />
                 )}
                 {slide.image && insideImage && !review ? (
-                  <CardBody size={bodySize} textCentre={centered}>
+                  <CardBody textCentre={centered}>
                     {slide.image && slide.image.src && (
-                      <CardImage src={slide.image.src} alt={slide.image.alt} />
+                      <CardImage src={slide.image.src} alt={slide.image.alt} imageSize={imageSize} />
                     )}
                     {slide.title && (
                       <CardTitle title={slide.title.title} size={slide.title.size} />
@@ -114,9 +114,9 @@ const SwiperSection = ({slides, bodySize = 'normal', event = false, review = fal
                 ) : (
                   <>
                     {slide.image && slide.image.src && (
-                      <CardImage src={slide.image.src} alt={slide.image.alt} />
+                      <CardImage src={slide.image.src} alt={slide.image.alt} imageSize={imageSize} />
                     )}
-                    <CardBody size={bodySize}>
+                    <CardBody  textCentre={centered}>
                       {slide.title && (
                         <CardTitle title={slide.title.title} size={slide.title.size} />
                       )}
@@ -140,9 +140,9 @@ const SwiperSection = ({slides, bodySize = 'normal', event = false, review = fal
                   <CardDate day={slide.date.day} month={slide.date.month} />
                 )}
                 {slide.image && insideImage && !review ? (
-                  <CardBody size={bodySize} textCentre={centered}>
+                  <CardBody textCentre={centered}>
                     {slide.image && slide.image.src && (
-                      <CardImage src={slide.image.src} alt={slide.image.alt} />
+                      <CardImage src={slide.image.src} alt={slide.image.alt} imageSize={imageSize} />
                     )}
                     {slide.title && (
                       <CardTitle title={slide.title.title} size={slide.title.size} />
@@ -163,9 +163,9 @@ const SwiperSection = ({slides, bodySize = 'normal', event = false, review = fal
                 ) : (
                   <>
                     {slide.image && slide.image.src && (
-                      <CardImage src={slide.image.src} alt={slide.image.alt} />
+                      <CardImage src={slide.image.src} alt={slide.image.alt} imageSize={imageSize} />
                     )}
-                    <CardBody size={bodySize}>
+                    <CardBody>
                       {slide.title && (
                         <CardTitle title={slide.title.title} size={slide.title.size} />
                       )}

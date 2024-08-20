@@ -7,10 +7,11 @@ type CardImageProps = {
   src: string | StaticImageData;
   alt: string;
   classes?: string;
-};
+  imageSize?: string;
+}; 
 
-const CardImage = ({ src, alt, classes }: CardImageProps) => {
-  const imageClasses = classNames(s.image, classes || '');
+const CardImage = ({ src, alt, classes, imageSize }: CardImageProps) => {
+  const imageClasses = classNames(s.image, classes || '', { [s.imageLarge]: imageSize === "large" });
   
   return (
     <ExportedImage src={src} alt={alt} className={imageClasses} />

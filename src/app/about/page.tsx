@@ -12,6 +12,7 @@ import {
   crispycalamari,
   orchardbliss
 } from './images'
+import ReviewPill from '@/components/Reviews/Pill';
 
 
 export const metadata: Metadata = {
@@ -96,7 +97,7 @@ const AboutPage = () => {
         <p>Each Urban Bites offers a unique atmosphere while maintaining the warm and welcoming vibe we&apos;re known for. Find the nearest cafe to enjoy our delicious offerings and exceptional service.</p>
 
         <div className={l.swiperBlock}>
-          <SwiperSection name='locations' slides={locations} insideImage={true} centered={true} />
+          <SwiperSection name='locations' slides={locations} insideImage={false} centered={true} imageSize='large' />
         </div>
       </div>
     </section>
@@ -107,11 +108,11 @@ const AboutPage = () => {
         <Divider />
         <p>From live music and art exhibitions to local meetups and workshops, there&apos;s always something happening at Urban Bites Cafe. Join us and be part of the excitement!</p>
         <div className={e.ctaBlock}>
-          <Button variant='primary' title="What's On" href='/events' />
+          <Button variant='beige' title="What's On" href='/events' />
         </div>
         </div>
         <div className={e.swiperBlock}>
-          <SwiperSection name="events" slides={events} event={true} bodySize='large' insideImage={false}/>
+          <SwiperSection name="events" slides={events} event={true} insideImage={false}/>
         </div>
       </div>
     </section>
@@ -125,7 +126,7 @@ const AboutPage = () => {
               <p>Explore the rave reviews from our satisfied customers about their experiences at Urban Bites.</p>
             </div>
             <div>
-              Review component
+              <ReviewPill rating={4.2} reviews={100} />
             </div>
           </div>
         </div>

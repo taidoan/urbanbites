@@ -10,6 +10,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -22,6 +23,7 @@ picture,
 video,
 canvas,
 svg {
+  border-style: none;
   display: block;
   max-width: 100%;
 }
@@ -31,6 +33,24 @@ button,
 textarea,
 select {
   font: inherit;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
 }
 
 p,
@@ -41,6 +61,22 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+small {
+  font-size: 80%;
 }
 
 #root,

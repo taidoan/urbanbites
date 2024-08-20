@@ -101,3 +101,10 @@ $footer-font-size-small: $font-root-size;
 /// @type number
 /// @access public
 $footer-font-size-base: 20px !default;
+
+/// Paragraph Max Width
+///
+/// This is the max width for paragraphs to maintain legibility
+/// @type number
+/// @access public
+$max-paragraph-width: 60ch !default;
