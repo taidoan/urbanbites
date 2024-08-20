@@ -10,24 +10,34 @@
   position: relative;
   transition: 0.5s;
 
-  &:hover::after {
-    opacity: 0.1;
-  }
-
   &::after {
     background: linear-gradient(
-      0deg,
-      rgba(219, 199, 189, 0.2),
-      rgba(219, 199, 189, 0.2)
+      00deg,
+      rgba(219, 199, 189, 0.05),
+      rgba(219, 199, 189, 0.05)
     );
     content: "";
     height: 100%;
     left: 0;
     position: absolute;
     top: 0;
-    transition: opacity 0.3s ease-in-out;
     width: 100%;
     z-index: -1;
+  }
+
+  @media (hover: hover) {
+    &:hover::after {
+      opacity: 0.1;
+    }
+
+    &::after {
+      background: linear-gradient(
+        0deg,
+        rgba(219, 199, 189, 0.2),
+        rgba(219, 199, 189, 0.2)
+      );
+      transition: opacity 0.3s ease-in-out;
+    }
   }
 }
 
