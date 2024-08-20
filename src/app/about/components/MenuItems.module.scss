@@ -20,7 +20,11 @@
 
   &::after {
     border-image: fill 0
-      linear-gradient(0deg, rgba(#dbc7bd, 0.1), rgba(#dbc7bd, 0.1));
+      linear-gradient(
+        00deg,
+        rgba(219, 199, 189, 0.05),
+        rgba(219, 199, 189, 0.05)
+      );
     content: "";
     height: 100%;
     left: 0;
@@ -31,7 +35,7 @@
   }
 
   img {
-    filter: saturate(75%) contrast(115%);
+    filter: saturate(66%) contrast(110%) sepia(0.1);
   }
 }
 

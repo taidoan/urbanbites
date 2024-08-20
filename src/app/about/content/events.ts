@@ -2,14 +2,22 @@ import { artsImage, jazzImage } from "./../images";
 
 const events = [
   {
-    title: { title: "Art & Wine Evening", size: "small" as "small" },
+    title: {
+      title: "Art & Wine Evening",
+      size: "small" as "small",
+    },
     image: { src: artsImage, alt: "Art & Wine Evening" },
     date: { day: 21, month: "April" },
+    url: "/events/210424",
     content:
       "An enchanting evening of art and wine. Local artists will showcase their work. You'll have the opportunity to meet the creators...",
   },
   {
-    title: { title: "Live Jazz Night", size: "small" as "small" },
+    title: {
+      title: "Live Jazz Night",
+      size: "small" as "small",
+    },
+    url: "/events/210424",
     image: { src: jazzImage, alt: "Live Jazz Night" },
     date: { day: 28, month: "April" },
     content:

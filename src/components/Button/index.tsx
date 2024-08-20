@@ -9,6 +9,7 @@ type ButtonProps = {
   className?: string;
   type?: 'button' | 'submit' | 'reset';
   onClick?: () => void;
+  target?: string;
 }
 
 /**
@@ -47,7 +48,7 @@ type ButtonProps = {
  * />
  * ```
  */
-const Button = ({ title, variant = 'primary', href, className, type = 'button', onClick }: ButtonProps) => {
+const Button = ({ title, variant = 'primary', href, className, type = 'button', onClick, target }: ButtonProps) => {
   const buttonClass = classNames(s.btn, className, s[variant]);
 
   if (!href) {
@@ -60,7 +61,7 @@ const Button = ({ title, variant = 'primary', href, className, type = 'button', 
 
   return (
     <Link href={href} passHref legacyBehavior>
-      <a className={buttonClass}>
+      <a className={buttonClass} target={target} rel={target === '_blank' ? 'noopener noreferrer' : undefined}>
         {title}
       </a>
     </Link>

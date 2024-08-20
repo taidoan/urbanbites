@@ -37,6 +37,22 @@
   font-size: size-clamp(rem(16), rem(20));
   padding: size-clamp(rem(16), rem(24));
 
+  a {
+    text-decoration: none;
+  }
+
+  a:has(.title) {
+    & + * {
+      margin-top: rem(16);
+    }
+  }
+
+  a:has(.titleSmall) {
+    & + * {
+      margin-top: size-clamp(rem(12), rem(16));
+    }
+  }
+
   .image {
     border-radius: rem(9);
   }

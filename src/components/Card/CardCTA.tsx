@@ -10,13 +10,14 @@ type CardCTAProps = {
   title: string,
   variant?: 'primary' | 'secondary' | 'tertiary' | 'beige' | 'disabled',
   className?: string
+  target?: string,
 }
 
-const CardCTA = ({href, title, variant = 'beige', className}: CardCTAProps) => {
+const CardCTA = ({href, title, variant = 'beige', className, target}: CardCTAProps) => {
   const {textCentre} = useCardContext();
   const ctaClasses = classNames(className, s.cta, (textCentre ? s.centre : ''))
   return(
-    <Button title={title} href={href} variant={variant} className={ctaClasses} />
+    <Button title={title} href={href} variant={variant} className={ctaClasses} target={target} />
   )
 }
 
