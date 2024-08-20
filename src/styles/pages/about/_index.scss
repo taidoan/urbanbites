@@ -90,7 +90,7 @@
       margin-inline: auto;
     }
 
-    p:first-child {
+    h2 ~ p {
       margin-inline: auto;
       width: var(--p-width);
     }
@@ -215,7 +215,7 @@
       grid-template-columns: repeat(3, 1fr);
     }
 
-    p:first-child {
+    h2 ~ p {
       margin-inline: auto;
       width: var(--p-width);
     }
@@ -226,8 +226,8 @@
   background-color: var(--clr-light-400);
 
   @include mq(md) {
-    p:first-child {
-      width: var(--p-width);
+    h2 ~ p {
+      max-width: var(--p-width);
     }
   }
 

@@ -4,7 +4,7 @@
   --fs-heading-base: #{map-get($project-typography-scale, "heading", "base")};
   --fs-body-small: #{map-get($project-typography-scale, "body", "small")};
   --fs-body-base: #{map-get($project-typography-scale, "body", "base")};
-  --fc-body: $body-text-colour;
+  --fc-body: #{$body-text-colour};
   --p-width: #{$max-paragraph-width};
 }
 
