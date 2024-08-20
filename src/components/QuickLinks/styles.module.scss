@@ -39,10 +39,6 @@
     z-index: -1;
   }
 
-  &:hover::before {
-    opacity: 0.1;
-  }
-
   &--locations {
     background: url("/assets/images/home/locations.jpg") no-repeat center;
     background-size: cover;
