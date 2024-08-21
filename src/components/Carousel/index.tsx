@@ -1,33 +1,40 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import type { StaticImageData } from "next/image";
+import styles from './styles.module.scss'
 
 type CarouselProps = {
   target: string,
   slides: StaticImageData[],
   children: React.ReactNode;
+  duration: number,
 }
 
-const Carousel = ({target, slides, children}: CarouselProps) => {
-  let nextImage: number = 0;
+const Carousel = ({target, slides, children, duration}: CarouselProps) => {
+  const [currentImage, setCurrentImage] = useState<number>(0);
 
   useEffect(() => {
     const hero = document.querySelector(`.${target}`) as HTMLElement;
+    if (!hero) return;
 
-    const initCarousel = (): void => {
-      if (nextImage >= slides.length) {
-        nextImage = 0;
-      }
-      hero.style.backgroundImage = `url("${slides[nextImage++].src}")`;
+    hero.style.setProperty('--dynamic-background-image', `url("${slides[currentImage].src}")`);
+
+
+    const updateBackgroundImage = (): void => {
+      hero.classList.remove(styles.fadeIn);
+
+      setTimeout(() => {
+        setCurrentImage(prev => (prev + 1) % slides.length);
+        hero.classList.add(styles.fadeIn);
+      }, 2500);
     };
-
-    const intervalId = setInterval(initCarousel, 3000);
+    const intervalId = setInterval(updateBackgroundImage, duration);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [currentImage, slides, target]);
 
   return (
     <>
-    {children}
+      {children}
     </>
   );
 };

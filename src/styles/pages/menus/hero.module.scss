@@ -1,0 +1,73 @@
+@use "./../../abstracts/_index" as *;
+
+.hero {
+  --title-shadow: #{$hero-title-shadow};
+  --body-text-shadow: #{$hero-body-shadow};
+  --dynamic-background-image: url("/assets/images/menus/carousel/1.jpg");
+  align-items: center;
+  color: var(--clr-light-400);
+  display: flex;
+  height: auto;
+  min-height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+
+  &::before,
+  &::after {
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &::before {
+    background-image: var(--dynamic-background-image);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;
+    z-index: -1;
+  }
+
+  &::after {
+    background: radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(48, 39, 33, 0.74) 0%,
+        rgba(48, 39, 33, 0.481) 35.5%,
+        rgba(48, 39, 33, 0.3996) 69.5%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(219, 199, 189, 0.15),
+        rgba(219, 199, 189, 0.15)
+      );
+    z-index: -1;
+  }
+
+  @include mq("md") {
+    min-height: 75dvh;
+  }
+}
+
+.title {
+  color: var(--clr-light-400);
+  font-size: size-clamp(
+    rem($hero-title-base-size),
+    rem($hero-title-desktop-size)
+  );
+  margin-bottom: rem(24);
+  text-shadow: var(--title-shadow);
+}
+
+.intro {
+  color: var(--clr-primary-100);
+  font-size: size-clamp(
+    rem($hero-body-text-base-size),
+    rem($hero-body-text-desktop-size)
+  );
+  font-weight: 500;
+  text-shadow: var(--body-text-shadow);
+}

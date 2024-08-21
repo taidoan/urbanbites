@@ -1,0 +1,21 @@
+@use "./../../abstracts/_index" as *;
+
+.menus__hero {
+  background-color: var(--clr-tertiary-500);
+  @include mq("base-sm") {
+    @include border(12px, var(--clr-light-400));
+  }
+
+  @include mq(rem(500), "max", "height", "landscape") {
+    min-height: auto;
+    .content-grid {
+      margin-block: rem(125);
+      padding-block: 0;
+    }
+  }
+
+  &::before,
+  &::after {
+    transition: opacity 2.5s ease-in-out;
+  }
+}
