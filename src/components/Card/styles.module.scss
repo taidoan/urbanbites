@@ -19,7 +19,7 @@
 }
 
 .titleSmall {
-  font-size: size-clamp(rem(32), rem(40));
+  font-size: size-clamp(rem(32), rem(36));
 
   & + * {
     margin-top: size-clamp(rem(12), rem(16));
