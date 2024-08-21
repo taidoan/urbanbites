@@ -19,3 +19,19 @@
     transition: opacity 2.5s ease-in-out;
   }
 }
+
+.menus__filter {
+  background-color: var(--clr-light-400);
+}
+
+.menus__content {
+  @include mq("base-sm") {
+    @include border(12px, var(--clr-light-400), "no-top");
+  }
+
+  background: linear-gradient(
+    180deg,
+    var(--clr-beige-400) 0%,
+    var(--clr-light-400) 100%
+  );
+}

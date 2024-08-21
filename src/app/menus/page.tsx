@@ -3,9 +3,10 @@ import {h, c} from './styles'
 import Carousel from "@/components/Carousel";
 import { firstImage, secondImage, thirdImage, fourthImage, fifthImage, sixthImage } from "./images";
 import Divider from "@/components/Divider";
+import MenuSection from "./menu";
 
 export const metadata: Metadata = {
-  title: 'Urban Bites | Menu',
+  title: 'Urban Bites | Menus',
 }
 
 const MenusPage = () => {
@@ -22,16 +23,7 @@ const MenusPage = () => {
           </div>
         </Carousel>
       </section>
-      <section className="menus__filter">
-        <div className='content-grid'>
-          Menu Filter here
-        </div>
-      </section>
-      <section className="menus__content">
-        <div className="content-grid content-grid--inc-border">
-          Menu items here
-        </div>
-      </section>
+      <MenuSection />
     </main>
   )
  }
