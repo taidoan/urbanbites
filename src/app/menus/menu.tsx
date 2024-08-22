@@ -1,5 +1,4 @@
-'use client'; // Only for this component
-
+'use client';
 import { useState } from "react";
 import Filter, { FilterItems } from "@/components/Filter";
 import { Categories } from "./content/categories";

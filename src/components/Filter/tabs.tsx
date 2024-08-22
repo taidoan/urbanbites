@@ -1,5 +1,6 @@
 import { Tab } from "./types";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import styles from './styles.module.scss'
 
 type TabsProps = {
   tabs: Tab[];
@@ -15,12 +16,12 @@ const Tabs = ({ tabs, onSelect }: TabsProps) => {
   };
 
   return (
-    <ul>
+    <ul className={styles.filter}>
       {tabs.map((tab) => (
         <li key={tab.id}>
           <button
             onClick={() => handleSelect(tab.id)}
-            className={`tab ${selectedTab === tab.id ? "active" : ""}`}
+            className={`${styles.tab} ${selectedTab === tab.id ? `${styles.tabActive}` : ""}`}
           >
             {tab.label}
           </button>

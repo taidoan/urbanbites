@@ -16,7 +16,6 @@ type ItemProps = {
 }
 
 const Filter = ({tabs, onTabSelect}: FilterProps) => {
-
   return(
     <Tabs tabs={tabs} onSelect={onTabSelect} />
   )

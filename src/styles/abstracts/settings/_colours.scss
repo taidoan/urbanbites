@@ -31,6 +31,8 @@ $project-colours: (
   "red": hsla(4, 77%, 45%, 1),
   "soft-apricot": hsla(23, 31%, 89%, 1),
   "yellow": hsla(50, 86%, 57%, 1),
+  "taupe": hsla(24, 16%, 42%, 1),
+  "pale-almond": hsla(25, 20%, 83%, 1),
 );
 
 /// project-applied-colours - A map of applied project colors.
@@ -55,6 +57,7 @@ $project-applied-colours: (
   "warning": map-get($project-colours, "yellow"),
   "info": map-get($project-colours, "blue"),
   "disabled": map-get($project-colours, "grey"),
+  "tab": map-get($project-colours, "pale-almond"),
 );
 
 /// Colour shade map with a further map inside for the different shades of said colour

@@ -24,3 +24,10 @@ $body-text-colour: map-get($project-applied-colours, tertiary);
 /// @type Color
 /// @access public
 $print-text-colour: #000 !default;
+
+/// Tab Colour
+///
+/// Default colour for tabs in a filter component
+/// @type color
+/// @access public
+$tab-background-color: map-get($project-applied-colours, tab);
