@@ -9,6 +9,10 @@
   position: relative;
 }
 
+.softShadow {
+  --shadow: #{$card-box-shadow-soft};
+}
+
 .title {
   font-size: size-clamp(rem(40), rem(48));
   font-weight: 600;
@@ -129,4 +133,49 @@
 
 .showOverflow {
   overflow: visible;
+}
+
+.meta {
+  --border-color: #{$thin-border-color};
+  align-items: center;
+  display: flex;
+  gap: size-clamp(rem(24), rem(32));
+  line-height: 1;
+  margin-block-start: size-clamp(rem(16), rem(20));
+
+  &BorderTop {
+    border-top: 1px solid var(--border-color);
+    padding-block-start: size-clamp(rem(16), rem(20));
+  }
+
+  &BorderBottom {
+    border-bottom: 1px solid var(--border-color);
+    margin-block-end: size-clamp(rem(16), rem(20));
+    padding-block-end: size-clamp(rem(16), rem(20));
+  }
+
+  &JustifyFlexStart {
+    justify-content: flex-start;
+  }
+
+  &JustifySpaceBetween {
+    justify-content: space-between;
+  }
+
+  &JustifyCenter {
+    justify-content: center;
+  }
+
+  &JustifyFlexEnd {
+    justify-content: flex-end;
+  }
+
+  &SmallText {
+    font-size: size-clamp(rem(16), rem(18));
+    font-weight: 300;
+  }
+
+  &LargeText {
+    font-size: size-clamp(rem(16), rem(20));
+  }
 }

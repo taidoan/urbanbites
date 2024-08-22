@@ -32,6 +32,13 @@ $button-hover-shadow: 0 rem(10) rem(15) rem(-6) rgba(0, 0, 0, 0.17);
 /// @access public
 $card-box-shadow: 0 rem(7) rem(9) rgba(48, 39, 33, 0.09);
 
+/// Card Soft Shadow
+///
+/// This is a softer shadow used on cards
+/// @type string
+/// @access public
+$card-box-shadow-soft: rem(0) rem(4) rem(6) rgba(48, 39, 33, 0.05);
+
 /// Small Text Shadow
 ///
 /// This is a tight shadow used for small text

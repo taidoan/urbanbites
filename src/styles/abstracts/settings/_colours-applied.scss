@@ -11,6 +11,13 @@
 /// @access public
 $border-colour: map-get($project-applied-colours, light);
 
+/// Thin Border Colour
+///
+/// The border colour for thin (1px) lines
+/// @type Color
+/// @access public
+$thin-border-color: map-get($project-applied-colours, light-grey);
+
 /// Body Text Colour
 ///
 /// The color for body text, sourced from the project's applied colours map

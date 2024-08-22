@@ -1,0 +1,15 @@
+@use "./../../abstracts/_index" as *;
+.menuItems {
+  display: flex;
+  flex-direction: column;
+  gap: rem(32);
+
+  @include mq("md") {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    > * {
+      grid-column: span 6;
+    }
+  }
+}
