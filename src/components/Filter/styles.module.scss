@@ -5,40 +5,133 @@
   padding: 0;
 }
 
-.tab {
-  --background-clr: #{$tab-background-color};
-  --font-clr: var(--clr-tertiary-400);
-  --fs-button: #{map-get($project-typography-scale, button)};
-  --button-shadow: #{$button-hover-shadow};
-  --btn-padding-block: #{size-clamp(rem(16), rem(18))};
-  --btn-padding-inline: #{size-clamp(rem(22), rem(24))};
+@include mq("md", "max", "width") {
+  .filter {
+    li:nth-child(odd) .tab {
+      background-color: var(--clr-light-400);
+    }
 
-  align-items: center;
-  background: var(--background-clr);
-  border: none;
-  border-radius: rem(12);
-  color: var(--font-clr);
-  cursor: pointer;
-  display: flex;
-  font-family: var(--ff-body);
-  font-size: var(--fs-button);
-  font-weight: 600;
-  justify-content: center;
-  line-height: 1;
-  overflow: hidden;
-  padding: var(--btn-padding-block) var(--btn-padding-inline);
-  transition: all 0.2s ease;
+    li:nth-child(even) .tab {
+      background-color: var(--clr-light-300);
+    }
+  }
+
+  .tab {
+    --font-clr: var(--clr-tertiary-300);
+    border: 0;
+    color: var(--font-clr);
+    display: block;
+    padding-block: rem(18);
+    padding-inline: size-clamp(
+      rem($padding-inline-base),
+      rem($padding-inline-desktop)
+    );
+    position: relative;
+    text-align: left;
+    width: 100%;
+
+    &::after {
+      color: var(--clr-light-500);
+      content: "▸";
+      font-size: rem(24);
+      position: absolute;
+      right: size-clamp(
+        rem($padding-inline-base),
+        rem($padding-inline-desktop)
+      );
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &Active {
+      font-weight: 600;
+      &::after {
+        content: "";
+      }
+    }
+  }
+
+  .dropdown {
+    background-color: var(--clr-secondary-100);
+    color: var(--clr-light-400);
+    cursor: pointer;
+    display: block;
+    font-size: size-clamp(rem(18), rem(24));
+    font-weight: 700;
+    padding-block: rem(24);
+    padding-inline: size-clamp(
+      rem($padding-inline-base),
+      rem($padding-inline-desktop)
+    );
+    position: relative;
+    width: 100%;
+
+    &::after {
+      content: "▼";
+      font-size: size-clamp(rem(16), rem(18));
+      position: absolute;
+      right: size-clamp(
+        rem($padding-inline-base),
+        rem($padding-inline-desktop)
+      );
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &Open::after {
+      content: "▲";
+    }
+  }
 }
 
-.tabActive {
-  --background-clr: var(--clr-secondary-400);
-  --font-clr: var(--clr-light-400);
-  cursor: default;
-}
+@include mq("md") {
+  .filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: size-clamp(rem(20), rem(24));
+    justify-content: center;
+    padding-inline: 0;
+  }
 
-@media (hover: hover) {
-  .tab:hover:not(.tabActive) {
-    --background-clr: var(--clr-primary-400);
+  .dropdown {
+    display: none;
+  }
+
+  .tab {
+    --background-clr: #{$tab-background-color};
+    --font-clr: var(--clr-tertiary-400);
+    --fs-button: #{map-get($project-typography-scale, button)};
+    --button-shadow: #{$button-hover-shadow};
+    --btn-padding-block: #{size-clamp(rem(16), rem(18))};
+    --btn-padding-inline: #{size-clamp(rem(22), rem(24))};
+
+    align-items: center;
+    background: var(--background-clr);
+    border: none;
+    border-radius: rem(12);
+    color: var(--font-clr);
+    cursor: pointer;
+    display: flex;
+    font-family: var(--ff-body);
+    font-size: var(--fs-button);
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1;
+    overflow: hidden;
+    padding: var(--btn-padding-block) var(--btn-padding-inline);
+    transition: all 0.2s ease;
+  }
+
+  .tabActive {
+    --background-clr: var(--clr-secondary-400);
     --font-clr: var(--clr-light-400);
+    cursor: default;
+  }
+
+  @media (hover: hover) {
+    .tab:hover:not(.tabActive) {
+      --background-clr: var(--clr-primary-400);
+      --font-clr: var(--clr-light-400);
+    }
   }
 }
