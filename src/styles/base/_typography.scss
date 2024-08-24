@@ -2,6 +2,10 @@
 
 :root {
   --fs-heading-base: #{map-get($project-typography-scale, "heading", "base")};
+  --fs-heading-sm: #{map-get($project-typography-scale, "heading", "sm")};
+  --fs-heading-lg: #{map-get($project-typography-scale, "heading", "lg")};
+  --fs-hero-title: #{map-get($project-typography-scale, "hero", "title")};
+  --fs-hero-body: #{map-get($project-typography-scale, "hero", "body")};
   --fs-body-small: #{map-get($project-typography-scale, "body", "small")};
   --fs-body-base: #{map-get($project-typography-scale, "body", "base")};
   --fc-body: #{$body-text-colour};

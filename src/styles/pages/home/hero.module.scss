@@ -10,10 +10,7 @@
 
 .title {
   color: var(--clr-light-400);
-  font-size: size-clamp(
-    rem($hero-title-base-size),
-    rem($hero-title-desktop-size)
-  );
+  font-size: var(--fs-hero-title);
   text-shadow: var(--title-shadow);
 }
 

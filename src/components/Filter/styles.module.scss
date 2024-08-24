@@ -15,7 +15,6 @@
       background-color: var(--clr-light-300);
     }
   }
-
   .tab {
     --font-clr: var(--clr-tertiary-300);
     border: 0;
@@ -56,9 +55,7 @@
     color: var(--clr-light-400);
     cursor: pointer;
     display: block;
-    font-size: size-clamp(rem(18), rem(24));
-    font-weight: 700;
-    padding-block: rem(24);
+    padding-block: rem(32);
     padding-inline: size-clamp(
       rem($padding-inline-base),
       rem($padding-inline-desktop)
@@ -74,6 +71,7 @@
         rem($padding-inline-base),
         rem($padding-inline-desktop)
       );
+
       top: 50%;
       transform: translateY(-50%);
     }
@@ -81,6 +79,19 @@
     &Open::after {
       content: "▲";
     }
+  }
+
+  .selectedDesc {
+    display: block;
+    font-weight: normal;
+    margin-top: rem(8);
+    width: 80%;
+  }
+
+  .selectedLabel {
+    display: block;
+    font-size: size-clamp(rem(24), rem(24));
+    font-weight: 700;
   }
 }
 

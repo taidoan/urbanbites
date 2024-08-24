@@ -1,4 +1,12 @@
 @use "./../../abstracts/_index" as *;
+.title {
+  font-size: var(--fs-heading-lg);
+}
+
+.description {
+  width: var(--p-width);
+}
+
 .menuItems {
   display: flex;
   flex-direction: column;

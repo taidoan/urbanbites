@@ -52,7 +52,7 @@ const AboutPage = () => {
     </section>
     <section className='about__values'>  
       <div className='content-grid content-grid--inc-border'>
-        <h2>Our Values</h2>
+        <h2 className={v.title}>Our Values</h2>
         <Divider />
         <p>At Urban Bites Cafe, we are driven by a commitment to excellence, community, and sustainability.</p>
 
@@ -64,7 +64,7 @@ const AboutPage = () => {
     <section className='about__values-expanded'>
       <div className='about__values-grid'>
         <div className='content-grid content-grid--half'>
-          <h2>Sustainable</h2>
+          <h2 className={v.titleMd}>Sustainable</h2>
           <Divider />
           <p>We are dedicated to eco-friendly practices, from sourcing to packaging, to help protect our planet. Our cafe partners with local farmers who use sustainable farming methods, ensuring that our ingredients are fresh and responsibly sourced. </p>
 
@@ -74,7 +74,7 @@ const AboutPage = () => {
       </div>
       <div  className='about__values-grid'>
         <div className='content-grid content-grid--half'>
-          <h2>Community</h2>
+          <h2 className={v.titleMd}>Community</h2>
           <Divider />
           <p>At Urban Bites Cafe, we value community and actively contribute to its well-being. Our cafe hosts local events like live music, art showcases, and community meetings, creating a space for people to connect and engage. </p>
 
@@ -92,7 +92,7 @@ const AboutPage = () => {
     </section>
     <section className='about__locations'>
       <div className='content-grid content-grid--inc-border'>
-        <h2>Where We Are</h2>
+        <h2 className={l.title}>Where We Are</h2>
         <Divider />
         <p>Each Urban Bites offers a unique atmosphere while maintaining the warm and welcoming vibe we&apos;re known for. Find the nearest cafe to enjoy our delicious offerings and exceptional service.</p>
 
@@ -104,7 +104,7 @@ const AboutPage = () => {
     <section className='about__events'>
       <div className='content-grid'>
         <div>
-        <h2>Events</h2>
+        <h2 className={e.title}>Events</h2>
         <Divider />
         <p>From live music and art exhibitions to local meetups and workshops, there&apos;s always something happening at Urban Bites Cafe. Join us and be part of the excitement!</p>
         <div className={e.ctaBlock}>
@@ -121,7 +121,7 @@ const AboutPage = () => {
         <div>
           <div className={r.header}>
             <div>
-              <h2>Reviews</h2>
+              <h2 className={r.title}>Reviews</h2>
               <Divider />
               <p>Explore the rave reviews from our satisfied customers about their experiences at Urban Bites.</p>
             </div>
