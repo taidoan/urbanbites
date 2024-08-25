@@ -53,6 +53,7 @@ $padding-inline-base-w-border: calc($padding-inline-base - $border-width);
 $padding-inline-desktop-w-border: calc($padding-inline-desktop - $border-width);
 
 $padding-block-base: 40px;
+$padding-block-md: 72px !default;
 $padding-block-desktop: 88px;
 
 $header-padding-block-sm: $padding-inline-sm;

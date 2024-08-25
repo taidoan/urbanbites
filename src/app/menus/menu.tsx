@@ -31,10 +31,10 @@ const MenuSection = () => {
   console.log("Current Tab:", currentTab)
   console.log("Current Desc:", currentDesc)
   
-  const categoryHeadingDesktop =  isDesktop ? (
+  const categoryHeading =  isDesktop ? (
     <>
       <h2 className={styles.title}>{currentTab}</h2>
-      <Divider />
+      <Divider center={true}/>
       <p className={styles.description}>{currentDesc}</p>
     </>
   ) : '';
@@ -53,7 +53,7 @@ const MenuSection = () => {
       </section>
       <section className="menus__content">
         <div className={`content-grid content-grid--inc-border`}>
-          {categoryHeadingDesktop}
+          {categoryHeading}
           <div className={`${styles.menuItems}`}>
             <FilterItems items={MenuItems} currentTab={currentTab} />
           </div>

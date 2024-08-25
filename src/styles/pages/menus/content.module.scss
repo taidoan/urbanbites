@@ -1,23 +1,30 @@
 @use "./../../abstracts/_index" as *;
-.title {
-  font-size: var(--fs-heading-lg);
-}
-
-.description {
-  width: var(--p-width);
-}
 
 .menuItems {
   display: flex;
   flex-direction: column;
   gap: rem(32);
+}
 
-  @include mq("md") {
+@include mq("md") {
+  .title {
+    font-size: var(--fs-heading-lg);
+    text-align: center;
+  }
+
+  .description {
+    margin-inline: auto;
+    text-align: center;
+    width: var(--p-width);
+  }
+
+  .menuItems {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    margin-top: size-clamp(rem($padding-block-base), rem($padding-block-md));
+  }
 
-    > * {
-      grid-column: span 6;
-    }
+  .menuItems > * {
+    grid-column: span 6;
   }
 }
