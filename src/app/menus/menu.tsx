@@ -14,12 +14,51 @@ type ItemProps = {
   currentTab: string,
 }
 
+const drinkCategoryDescriptions: Record<string, string> = {
+  "chocolate": "Indulge in our rich and creamy chocolate drinks, crafted to perfection.",
+  "tea": "Explore a variety of fine teas, each brewed to bring out the unique flavors.",
+  "coffee": "Savor our expertly brewed coffee, made from the finest roasted beans.",
+  "soft drinks": "Refresh yourself with our selection of chilled, carbonated beverages.",
+  "fruit juice": "Enjoy the natural sweetness of freshly squeezed fruit juices.",
+  "beer & cider": "Discover our handpicked selection of craft beers and ciders.",
+  "wine": "Curated wines to complement your meal, perfect for any occasion.",
+  "smoothies": "A refreshing blend of fruits and yogurt, perfect for a healthy treat."
+};
+
 const FilterItems = ({ items, currentTab }: ItemProps) => {
   const filteredItems = items.filter(item => item.category === currentTab);
 
-  return(
-    <MenuItemCard items={filteredItems}/>
-  )
+  const groupedItems = filteredItems.reduce((groups, item) => {
+    const drinkCategory = item.drinkCategory || 'Unknown Category';
+    if (!groups[drinkCategory]) {
+      groups[drinkCategory] = [];
+    }
+    groups[drinkCategory].push(item);
+    return groups;
+  }, {} as Record<string, Item[]>);
+
+  if(currentTab === 'drinks'){
+    return (
+      <>
+        {Object.keys(groupedItems).map((drinkCategory) => (
+          <div key={drinkCategory} className={styles.subCategory}>
+            <div>
+              <h2 className={`${styles.title} ${styles.titleSmall}`}>{drinkCategory}</h2>
+              <Divider />
+              <p>{drinkCategoryDescriptions[drinkCategory] || "No description available."}</p>
+            </div>
+            <MenuItemCard items={groupedItems[drinkCategory]} />
+          </div>
+        ))}
+      </>
+    );
+  } else {
+    return(
+      <MenuItemCard items={filteredItems}/>
+    )
+  }
+
+  
 }
 
 const MenuSection = () => {
@@ -27,10 +66,6 @@ const MenuSection = () => {
   const [currentDesc, setCurrentDesc] = useState<string>(Categories[0].description || '');
 
   const isDesktop = useMediaQuery("(min-width: 64em)");
-
-  console.log("Current Tab:", currentTab)
-  console.log("Current Desc:", currentDesc)
-  
   const categoryHeading =  isDesktop ? (
     <>
       <h2 className={styles.title}>{currentTab}</h2>

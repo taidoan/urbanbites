@@ -11,4 +11,5 @@ export type Item = {
   calories?: string;
   description?: string;
   price?: string;
+  drinkCategory?: string;
 };
