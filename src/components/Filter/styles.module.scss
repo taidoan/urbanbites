@@ -15,10 +15,12 @@
       background-color: var(--clr-light-300);
     }
   }
+
   .tab {
     --font-clr: var(--clr-tertiary-300);
     border: 0;
     color: var(--font-clr);
+    cursor: pointer;
     display: block;
     padding-block: rem(18);
     padding-inline: size-clamp(
@@ -55,7 +57,7 @@
     color: var(--clr-light-400);
     cursor: pointer;
     display: block;
-    padding-block: rem(32);
+    padding-block: rem(48);
     padding-inline: size-clamp(
       rem($padding-inline-base),
       rem($padding-inline-desktop)
@@ -84,14 +86,17 @@
   .selectedDesc {
     display: block;
     font-weight: normal;
-    margin-top: rem(8);
+    margin-top: rem(12);
     width: 80%;
   }
 
   .selectedLabel {
     display: block;
-    font-size: size-clamp(rem(24), rem(24));
+    font-family: var(--ff-display);
+    font-size: rem(48);
     font-weight: 700;
+    text-transform: uppercase;
+    @include text-crop();
   }
 }
 
