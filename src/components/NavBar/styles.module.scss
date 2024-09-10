@@ -158,25 +158,6 @@
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-
-  @media (hover: hover) {
-    &::before {
-      background-color: var(--clr-primary-400);
-      bottom: -0.4rem;
-      content: "";
-      display: block;
-      height: 0.1875rem;
-      left: 0;
-      position: absolute;
-      transform: scaleX(0);
-      transition: transform var(--transition-speed) ease-in-out;
-      width: 100%;
-    }
-
-    &:hover::before {
-      transform: scaleX(1);
-    }
-  }
 }
 
 @include mq("md") {
@@ -224,7 +205,7 @@
       @media (hover: hover) {
         &::before {
           background-color: var(--clr-primary-400);
-          bottom: -0.1875rem;
+          bottom: -0.6rem;
         }
       }
     }
@@ -234,7 +215,27 @@
     color: var(--clr-light-400);
     font-family: var(--ff-body);
     font-size: map-get($project-typography-scale, "navigation", "base");
+    position: relative;
     text-shadow: rem(2) rem(2) rem(4) #302721;
+
+    @media (hover: hover) {
+      &::before {
+        background-color: var(--clr-primary-400);
+        bottom: -0.8rem;
+        content: "";
+        display: block;
+        height: 0.1875rem;
+        left: 0;
+        position: absolute;
+        transform: scaleX(0);
+        transition: transform var(--transition-speed) ease-in-out;
+        width: 100%;
+      }
+
+      &:hover::before {
+        transform: scaleX(1);
+      }
+    }
   }
 }
 
