@@ -56,7 +56,7 @@ const NavBar = ({active}: NavBarProps) => {
         {!isDesktop || isDesktop && active ? (
           <>
             {navItems.map(item => (
-              <MenuItem key={item.href} href={item.href} closeMenu={closeMenu}>
+              <MenuItem key={item.href} href={item.href} closeMenu={closeMenu} isHidden={item.isHidden}>
               {item.label}
             </MenuItem>
             ))}
@@ -155,7 +155,7 @@ const Menu = ({children, open, className, active}: MenuProps) => {
 
   return(
     <nav className={menuClasses} role="navigation">
-      <div className={`${s.menuList} ${active ? 'active' : 'not-active'}`}>
+      <div className={`${s.menuList} ${active ? s.menuListActive : ''}`}>
         {children}
       </div>
     </nav>

@@ -1,10 +1,14 @@
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/menus", label: "Menus" },
-  { href: "/bookings", label: "Bookings" },
-  { href: "/events", label: "Events" },
-  { href: "/locations", label: "Locations" },
+  { href: "/", label: "Home", isHidden: false },
+  { href: "/about", label: "About", isHidden: false },
+  { href: "/menus", label: "Menus", isHidden: false },
+  {
+    href: "/bookings",
+    label: "Bookings",
+    isHidden: true,
+  },
+  { href: "/events", label: "Events", isHidden: false },
+  { href: "/locations", label: "Locations", isHidden: false },
 ];
 
 export default navItems;
