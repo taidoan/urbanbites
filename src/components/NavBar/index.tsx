@@ -1,5 +1,5 @@
 'use client'
-import {useState, useRef, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import Link from "next/link"
 import classNames from "classnames"
 import Button from "../Button"
@@ -7,7 +7,6 @@ import Logo from "../Logo"
 import useMediaQuery from '@/hooks/useMediaQuery'
 import s from "./styles.module.scss"
 import navItems from './navItems'
-import { first } from 'lodash'
 
 type NavBarProps = {
   active: boolean,
@@ -83,7 +82,7 @@ const NavBar = ({active}: NavBarProps) => {
 
         {(!isDesktop || (isDesktop && active)) && (
           <MenuItem closeMenu={closeMenu}>
-            <Button variant='primary' title='Book A Table' href="/bookings" className={s.buttonActiveNav} />
+            <Button variant='primary' title='Reservations' href="/reservations" className={s.buttonActiveNav} />
           </MenuItem>
         )}
       </Menu>
