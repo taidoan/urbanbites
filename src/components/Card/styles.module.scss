@@ -9,8 +9,13 @@
   position: relative;
 }
 
+.softShadow {
+  --shadow: #{$card-box-shadow-soft};
+}
+
 .title {
   font-size: size-clamp(rem(40), rem(48));
+  font-weight: 600;
 
   & + * {
     margin-top: rem(16);
@@ -18,7 +23,7 @@
 }
 
 .titleSmall {
-  font-size: size-clamp(rem(32), rem(40));
+  font-size: size-clamp(rem(32), rem(36));
 
   & + * {
     margin-top: size-clamp(rem(12), rem(16));
@@ -48,6 +53,8 @@
   }
 
   a:has(.titleSmall) {
+    margin-top: 0;
+
     & + * {
       margin-top: size-clamp(rem(12), rem(16));
     }
@@ -76,6 +83,18 @@
   }
 }
 
+.card:has(.image + .body, a + .body) {
+  .body {
+    padding-block-start: size-clamp(rem(24), rem(32));
+  }
+}
+
+.card:has(.image + .body, .titleSmall) {
+  .body {
+    padding-block-start: rem(24);
+  }
+}
+
 .image {
   border-radius: rem(9) rem(9) 0 0;
   max-height: rem(202);
@@ -84,16 +103,6 @@
 
 .imageLarge {
   max-height: rem(300);
-}
-
-.card:has(.image + .body) {
-  .image {
-    margin-block-end: size-clamp(rem(24), rem(32));
-  }
-
-  .body {
-    padding-top: 0;
-  }
 }
 
 .eventDate {
@@ -124,4 +133,49 @@
 
 .showOverflow {
   overflow: visible;
+}
+
+.meta {
+  --border-color: #{$thin-border-color};
+  align-items: center;
+  display: flex;
+  gap: size-clamp(rem(24), rem(32));
+  line-height: 1;
+  margin-block-start: size-clamp(rem(16), rem(20));
+
+  &BorderTop {
+    border-top: 1px solid var(--border-color);
+    padding-block-start: size-clamp(rem(16), rem(20));
+  }
+
+  &BorderBottom {
+    border-bottom: 1px solid var(--border-color);
+    margin-block-end: size-clamp(rem(16), rem(20));
+    padding-block-end: size-clamp(rem(16), rem(20));
+  }
+
+  &JustifyFlexStart {
+    justify-content: flex-start;
+  }
+
+  &JustifySpaceBetween {
+    justify-content: space-between;
+  }
+
+  &JustifyCenter {
+    justify-content: center;
+  }
+
+  &JustifyFlexEnd {
+    justify-content: flex-end;
+  }
+
+  &SmallText {
+    font-size: size-clamp(rem(16), rem(18));
+    font-weight: 300;
+  }
+
+  &LargeText {
+    font-size: size-clamp(rem(16), rem(20));
+  }
 }

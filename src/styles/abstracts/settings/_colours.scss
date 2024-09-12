@@ -23,6 +23,7 @@ $project-colours: (
   "dark-chocolate": hsla(24, 19%, 14%, 1),
   "green": hsla(83, 77%, 45%, 1),
   "grey": hsla(0, 0%, 80%, 1),
+  "light-grey": hsla(22, 19%, 85%, 1),
   "ivory": hsla(22, 26%, 92%, 1),
   "light-chocolate": hsla(20, 29%, 80%, 1),
   "light-orange": hsla(16, 75%, 55%, 1),
@@ -31,6 +32,8 @@ $project-colours: (
   "red": hsla(4, 77%, 45%, 1),
   "soft-apricot": hsla(23, 31%, 89%, 1),
   "yellow": hsla(50, 86%, 57%, 1),
+  "taupe": hsla(24, 16%, 42%, 1),
+  "pale-almond": hsla(25, 20%, 83%, 1),
 );
 
 /// project-applied-colours - A map of applied project colors.
@@ -50,11 +53,13 @@ $project-applied-colours: (
   "secondary": map-get($project-colours, "dark-chocolate"),
   "tertiary": map-get($project-colours, "milk-chocolate"),
   "light": map-get($project-colours, "ivory"),
+  "light-grey": map-get($project-colours, "light-grey"),
   "danger": map-get($project-colours, "red"),
   "success": map-get($project-colours, "green"),
   "warning": map-get($project-colours, "yellow"),
   "info": map-get($project-colours, "blue"),
   "disabled": map-get($project-colours, "grey"),
+  "tab": map-get($project-colours, "pale-almond"),
 );
 
 /// Colour shade map with a further map inside for the different shades of said colour

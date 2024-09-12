@@ -3,3 +3,7 @@
 .swiperBlock {
   margin-top: size-clamp(rem(32), rem(64));
 }
+
+.title {
+  font-size: var(--fs-heading-lg);
+}

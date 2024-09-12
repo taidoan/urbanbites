@@ -88,6 +88,10 @@
       }
     }
   }
+
+  @include mq("md") {
+    display: none;
+  }
 }
 
 .menuOverlay {
@@ -102,6 +106,7 @@
         rem($padding-inline-desktop)
       )};
   }
+
   align-items: center;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -112,7 +117,6 @@
   justify-content: center;
   left: 0;
   overflow-y: auto;
-
   padding-inline: var(--grid-padding-inline);
   position: fixed;
   text-align: center;
@@ -122,16 +126,15 @@
   z-index: var(--z-index-menu);
 }
 
-.menuOverlayOpened {
+.menuOverlayActive {
   height: 100dvh;
 }
 
 .menuList {
+  --gap: #{rem(24)};
   display: flex;
   flex-direction: column;
-  list-style-type: none;
-  padding: 0;
-  row-gap: rem(24);
+  row-gap: var(--gap);
 }
 
 @container menu (orientation: landscape) and (max-height: #{rem(500)}) {
@@ -155,54 +158,45 @@
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-
-  @media (hover: hover) {
-    &::before {
-      background-color: var(--clr-primary-400);
-      bottom: -0.4rem;
-      content: "";
-      display: block;
-      height: 0.1875rem;
-      left: 0;
-      position: absolute;
-      transform: scaleX(0);
-      transition: transform var(--transition-speed) ease-in-out;
-      width: 100%;
-    }
-
-    &:hover::before {
-      transform: scaleX(1);
-    }
-  }
 }
 
 @include mq("md") {
-  .menuOverlay {
-    backdrop-filter: initial;
-    background: none;
-    container-type: normal;
-    display: block;
-    height: auto;
-    overflow: initial;
-    padding-inline: 0;
-    position: static;
-  }
-
-  .menuButton {
-    display: none;
+  .menuDesktop {
+    --grid-padding-inline: #{size-clamp(
+        rem($padding-inline-base),
+        rem($padding-inline-desktop)
+      )};
+    width: 100%;
+    --column-gap: #{rem(56)};
   }
 
   .menuList {
     align-items: center;
-    column-gap: rem(56);
+    column-gap: var(--column-gap);
     display: flex;
     flex-direction: row;
-    row-gap: 0;
+    justify-content: space-between;
     z-index: var(--z-index-menu);
+  }
+
+  .menuLeft,
+  .menuRight {
+    column-gap: var(--column-gap);
+    display: flex;
+    flex: 1;
+  }
+
+  .menuLeft {
+    justify-content: flex-end;
+  }
+
+  .menuRight {
+    justify-content: flex-start;
   }
 
   .menuListActive {
     column-gap: rem(32);
+    justify-content: flex-end;
 
     .menuLink {
       color: var(--clr-secondary-400);
@@ -211,17 +205,9 @@
       @media (hover: hover) {
         &::before {
           background-color: var(--clr-primary-400);
-          bottom: -0.1875rem;
+          bottom: -0.6rem;
         }
       }
-    }
-
-    > *:first-child {
-      margin-right: auto;
-    }
-
-    .menuItem {
-      align-self: flex-end;
     }
   }
 
@@ -229,18 +215,32 @@
     color: var(--clr-light-400);
     font-family: var(--ff-body);
     font-size: map-get($project-typography-scale, "navigation", "base");
+    position: relative;
     text-shadow: rem(2) rem(2) rem(4) #302721;
+
+    @media (hover: hover) {
+      &::before {
+        background-color: var(--clr-primary-400);
+        bottom: -0.8rem;
+        content: "";
+        display: block;
+        height: 0.1875rem;
+        left: 0;
+        position: absolute;
+        transform: scaleX(0);
+        transition: transform var(--transition-speed) ease-in-out;
+        width: 100%;
+      }
+
+      &:hover::before {
+        transform: scaleX(1);
+      }
+    }
   }
 }
 
 @include mq("md-lg") {
   .menuListActive {
-    column-gap: rem(56);
-  }
-}
-
-@include mq($content-max-width) {
-  .menuOverlay {
-    padding-inline: 0;
+    column-gap: var(--column-gap);
   }
 }

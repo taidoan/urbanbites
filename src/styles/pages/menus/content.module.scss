@@ -1,0 +1,67 @@
+@use "./../../abstracts/_index" as *;
+
+.menuItems {
+  display: flex;
+  flex-direction: column;
+  gap: rem(32);
+}
+
+.subCategory {
+  display: flex;
+  flex-direction: column;
+  gap: rem(32);
+
+  & + & {
+    margin-top: rem(32);
+  }
+}
+
+@include mq("md") {
+  .title {
+    font-size: var(--fs-heading-lg);
+    text-align: center;
+  }
+
+  .titleSmall {
+    font-size: var(--fs-heading-sm);
+  }
+
+  .description {
+    margin-inline: auto;
+    text-align: center;
+    width: var(--p-width);
+  }
+
+  .menuItems {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin-top: size-clamp(rem($padding-block-base), rem($padding-block-md));
+
+    > * {
+      grid-column: span 6;
+    }
+
+    &:has(.subCategory) {
+      @supports (grid-template-rows: masonry) {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: masonry;
+      }
+
+      column-count: 2;
+      display: block;
+
+      > * {
+        break-inside: avoid;
+      }
+
+      .subCategory + .subCategory {
+        margin-top: rem(64);
+      }
+
+      .title {
+        text-align: left;
+      }
+    }
+  }
+}

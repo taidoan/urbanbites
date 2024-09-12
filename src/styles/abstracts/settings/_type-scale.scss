@@ -24,8 +24,26 @@ $project-typography-scale: (
   ),
 
   heading: (
+    sm: (
+      size-clamp(rem($heading-font-base-size), rem($heading-font-sm-size)),
+    ),
     base: (
-      size-clamp(rem($heading-font-base-size), rem($heading-font-desktop-size)),
+      size-clamp(rem($heading-font-base-size), rem($heading-font-md-size)),
+    ),
+    lg: (
+      size-clamp(rem($heading-font-base-size), rem($heading-font-lg-size)),
+    ),
+  ),
+
+  hero: (
+    title: (
+      size-clamp(rem($hero-title-base-size), rem($hero-title-desktop-size)),
+    ),
+    body: (
+      size-clamp(
+        rem($hero-body-text-base-size),
+        rem($hero-body-text-desktop-size)
+      ),
     ),
   ),
 

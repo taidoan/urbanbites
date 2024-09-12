@@ -32,12 +32,26 @@ $body-font-desktop-size-small: 20px !default;
 /// @access public
 $heading-font-base-size: 56px !default;
 
-/// Heading desktop font size
+/// Heading small font size
 ///
-/// The desktop size for heading text
+/// The small size for heading text
 /// @type number
 /// @access public
-$heading-font-desktop-size: 80px !default;
+$heading-font-sm-size: 68px !default;
+
+/// Heading medium font size
+///
+/// The medium size for heading text
+/// @type number
+/// @access public
+$heading-font-md-size: 72px !default;
+
+/// Heading large font size
+///
+/// The large size for heading text
+/// @type number
+/// @access public
+$heading-font-lg-size: 88px !default;
 
 /// Hero title text base size
 ///

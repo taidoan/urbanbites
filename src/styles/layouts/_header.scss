@@ -53,16 +53,13 @@
     padding-block: size-clamp(rem($header-padding-block-base), rem(56));
 
     &.active {
-      .site-header__layout {
-        display: block;
-      }
       .site-logo {
         width: 7.5rem !important;
       }
     }
 
     .site-logo {
-      width: calc(14.625rem * 0.75) !important;
+      width: rem(234) !important;
     }
   }
 }
@@ -76,5 +73,10 @@
 
   @include mq("md") {
     justify-content: center;
+  }
+
+  &--active {
+    display: flex;
+    flex-direction: row;
   }
 }
