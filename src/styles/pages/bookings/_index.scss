@@ -1,0 +1,5 @@
+@use "./../../abstracts/_index" as *;
+
+.bookings__hero {
+  @include hero-section("/assets/images/bookings/Hero.jpg");
+}

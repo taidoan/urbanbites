@@ -1,5 +1,5 @@
 import ExportedImage from 'next-image-export-optimizer'
-import { h, j, v, e, r, l } from "./styles"
+import { j, v, e, r, l } from "./styles"
 import { Divider, Button, SwiperSection, MenuItem } from "./components"
 import type { Metadata } from "next";
 import { events, locations, reviews, values } from './content'
@@ -25,9 +25,9 @@ const AboutPage = () => {
     <section className='about__intro-container'>
       <section className='about__hero'>
         <div className={`content-grid content-grid--inc-border`}>
-          <h1 className={`${h.title} site-header__trigger`}>About Us</h1>
+          <h1 className={`site-header__trigger`}>About Us</h1>
           <Divider variant='primary' hero/>
-          <p className={h.intro}>Welcome to Urban Bites Cafe! Discover our story and explore the heart of our community-focused cafe.</p>
+          <p>Welcome to Urban Bites Cafe! Discover our story and explore the heart of our community-focused cafe.</p>
         </div>
       </section>
       <section className='about__mission-statement'>

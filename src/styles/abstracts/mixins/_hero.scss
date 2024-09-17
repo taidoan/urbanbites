@@ -39,4 +39,18 @@
       padding-block: 0;
     }
   }
+
+  h1 {
+    color: var(--clr-light-400);
+    font-size: var(--fs-hero-title);
+    margin-bottom: rem(24);
+    text-shadow: var(--title-shadow);
+  }
+
+  p {
+    color: var(--clr-primary-100);
+    font-size: var(--fs-hero-body);
+    font-weight: 500;
+    text-shadow: var(--body-text-shadow);
+  }
 }
