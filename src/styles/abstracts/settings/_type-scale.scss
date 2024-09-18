@@ -47,6 +47,10 @@ $project-typography-scale: (
     ),
   ),
 
+  form: (
+    label: size-clamp(rem($form-label-size-sm), rem($form-label-size)),
+  ),
+
   button: (
     size-clamp(rem($button-font-base-size), rem($button-font-desktop-size)),
   ),

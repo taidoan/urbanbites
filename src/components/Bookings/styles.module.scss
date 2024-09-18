@@ -1,0 +1,25 @@
+@use "./../../styles/abstracts/_index" as *;
+.bookingsForm {
+  --fs-label: #{map-get($project-typography-scale, "form", "label")};
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(16);
+
+  input,
+  select {
+    background-color: #f0ece9;
+    color: rgba(#302721, 0.5);
+    font-size: rem(16);
+    line-height: 1;
+    width: 100%;
+  }
+
+  label {
+    display: block;
+    font-family: var(--ff-display);
+    font-size: var(--fs-label);
+    font-weight: 600;
+    margin-bottom: size-clamp(rem(8), rem(16));
+    text-transform: uppercase;
+  }
+}

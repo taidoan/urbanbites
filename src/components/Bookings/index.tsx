@@ -30,8 +30,7 @@ const BookingsBar = () => {
   return(
     <Card>
       <CardBody>
-        <form action="#">
-          <fieldset>
+        <form action="#" className={style.bookingsForm}>
             <div className={`field_location`}>
               <label>Location:</label>
               <select name="location" onChange={handleLocationChange} defaultValue="">
@@ -54,7 +53,6 @@ const BookingsBar = () => {
               <GuestsSelect maxGuests={9} />
             </div>
             <Button title="confirm" type="submit"/>
-          </fieldset>
         </form>
       </CardBody>
     </Card>
