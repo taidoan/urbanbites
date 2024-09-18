@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Divider from "@/components/Divider";
+import BookingsBar from "@/components/Bookings";
 
 export const metadata: Metadata = {
   title: 'Urban Bites | Bookings',
@@ -18,9 +19,10 @@ const BookingsPage = () => {
     <section className={`bookings__standard`}>
       <div className={`content-grid`}>
         <h2>Standard Booking</h2>
-        <span>(Up To 9 Guests)</span>
+        <span className={``}>(Up To 9 Guests)</span>
         <Divider />
         <p>Reserve your table using the form below, or feel free to walk in. Either way, we’ve got you. We look forward to welcoming you!</p>
+        <BookingsBar />
       </div>
     </section>
     <section className={`bookings__group`}>

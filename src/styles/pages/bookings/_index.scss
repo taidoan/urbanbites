@@ -3,3 +3,38 @@
 .bookings__hero {
   @include hero-section("/assets/images/bookings/Hero.jpg");
 }
+
+.bookings__standard {
+  background-color: var(--clr-light-400);
+}
+
+.bookings__group {
+  background: linear-gradient(
+    180deg,
+    var(--clr-beige-400) 0%,
+    var(--clr-light-400) 100%
+  );
+
+  @include mq("base-sm") {
+    @include border(12px, var(--clr-light-400));
+  }
+}
+
+.bookings__standard,
+.bookings__group {
+  --fs-parenthetical: #{$heading-paranthetical-size};
+
+  h2 {
+    font-size: var(--fs-heading-sm);
+  }
+
+  h2 + span {
+    color: #b7a89e;
+    display: block;
+    font-family: var(--ff-display);
+    font-size: var(--fs-parenthetical);
+    font-weight: 500;
+    margin-top: size-clamp(rem(8), rem(16));
+    text-transform: uppercase;
+  }
+}

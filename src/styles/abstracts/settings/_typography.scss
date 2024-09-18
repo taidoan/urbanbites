@@ -53,6 +53,13 @@ $heading-font-md-size: 72px !default;
 /// @access public
 $heading-font-lg-size: 88px !default;
 
+/// Heading parenthetical font size
+///
+/// The size for heading parentheticals (clarifying statements)
+/// @type number
+/// @access public
+$heading-paranthetical-size: 36px !default;
+
 /// Hero title text base size
 ///
 /// This is the base size for title text in hero sections

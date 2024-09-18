@@ -23,6 +23,7 @@
       "@images/*": ["./public/assets/images/*"],
       "@pages/*": ["./src/styles/pages/*"],
       "@styles/*": ["./src/styles/*"],
+      "@utlities/": ["./src/utlities/*"]
     }
   },
   "typedocOptions": {
