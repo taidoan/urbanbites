@@ -2,14 +2,9 @@
 import style from "./styles.module.scss"
 import Card from "../Card"
 import CardBody from "../Card/CardBody"
-import { Locations } from "@/content/locations"
 import { FormEvent, useState } from "react"
-import DatePicker from "./date"
-import TimePicker from "./time"
 import { Location } from "@/content/types"
-import GuestsSelect from "./guests"
-import Button from "../Button"
-import LocationSelect from "./location"
+import BookingForm from "./form"
 
 const BookingsBar = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -17,11 +12,11 @@ const BookingsBar = () => {
   const [selectedTime, setSelectedTime] = useState<string | null>(null)
   const [selectedGuests, setSelectedGuests] = useState<number>(1)
   const [expandedForm, setExpandedForm] = useState(false)
-
-    // Additional fields for expanded form
-    const [name, setName] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
-    const [phone, setPhone] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [submittedForm, setSubmittedForm] = useState(false);
+  const [formData, setFormData] = useState<any>(null);
 
 
   const handleDateChange = (date: Date | null) => {
@@ -47,65 +42,74 @@ const BookingsBar = () => {
     }
 
     setExpandedForm(true)
-    console.log("Form Expanded:", expandedForm)
   }
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    if (!selectedLocation) {
-      console.log("Please select a location.");
-      return;
-    }
-
-    if (expandedForm && (!name || !email || !phone)) {
-      console.log("Please fill in all fields in the expanded form.");
-      return; // Prevent submission until all fields are filled
-    }
-
     const formData = {
       location: selectedLocation,
-      phone: selectedLocation.phone,
-      date: selectedDate,
+      locationName: selectedLocation?.name,
+      locationPhone: selectedLocation?.phone,
+      locationAddress: selectedLocation?.address,
+      locationCity: selectedLocation?.city,
+      locationPostcode: selectedLocation?.postcode,
+      locationEmail: selectedLocation?.email,
+      date: selectedDate?.toLocaleDateString(),
       time: selectedTime,
-      guests: selectedGuests
+      guests: selectedGuests,
+      name: name,
+      email: email,
+      phone: phone
     }
+
+    setFormData(formData)
     
     console.log("Form Data:", formData)
+    setSubmittedForm(true);
   }
-  
 
+  
   return(
     <Card>
       <CardBody>
-        <form onSubmit={handleSubmit} className={style.bookingsForm}>
-            <div className={`field_location`}>
-              <label>Location:</label>
-              <LocationSelect onLocationChange={handleLocationChange} />
-            </div>
-            <div className={`field_date`}>
-              <label>Date:</label>
-              <DatePicker onDateChange={handleDateChange} selectedLocation={selectedLocation} disabled={!selectedLocation} />
-            </div>
-            <div className={`field_time`}>
-              <label>Time:</label>
-              <TimePicker selectedLocation={selectedLocation} selectedDate={selectedDate} disabled={!selectedLocation || !selectedDate} onTimeChange={handleTimeChange} />
-            </div>
-            <div className={`field_guests`}>
-              <label>Guests:</label>
-              <GuestsSelect maxGuests={9} onGuestsChange={handleGuestsChange}/>
-            </div>
-            {expandedForm && (
-              <div>
-       <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
-              <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-              <input type="tel" placeholder="Phone number" value={phone} onChange={(e) => setPhone(e.target.value)} required />
-              </div>
-            )}
-            {!expandedForm ? (
-              <Button title="Next" onClick={handleNextStep} type="button"/>
-            ) : ( <Button title="Confirm" type="submit"/> )}
-        </form>
+        {!submittedForm ? (
+          <BookingForm
+            selectedLocation={selectedLocation}
+            selectedDate={selectedDate}
+            selectedTime={selectedTime}
+            selectedGuests={selectedGuests}
+            expandedForm={expandedForm}
+            name={name}
+            email={email}
+            phone={phone}
+            onDateChange={handleDateChange}
+            onLocationChange={handleLocationChange}
+            onTimeChange={handleTimeChange}
+            onGuestsChange={handleGuestsChange}
+            onNextStep={handleNextStep}
+            onSubmit={handleSubmit}
+            onNameChange={setName} 
+            onEmailChange={setEmail} 
+            onPhoneChange={setPhone} 
+          />
+        ) : (
+        <>
+          <h4 className={style.confirmedTitle}>Booking Confirmed</h4>
+          <p>Thank you, {formData.name}!</p>
+          <p>Your reservation has been successfully confirmed and an email confirmation has been sent.</p>
+          <div className={style.confirmedDetails}>
+            <span><strong>Date:</strong> {formData.date}</span>
+            <span><strong>Time:</strong> {formData.time}</span>
+            <span><strong>Guests:</strong> {formData.guests}</span>
+            <span><strong>Location:</strong> {formData.locationName}</span>
+            <span><strong>Address:</strong> {formData.locationAddress}, {formData.locationCity}, {formData.locationPostcode}</span>
+            <span><strong>Phone:</strong> {formData.locationPhone}</span>
+            <span><strong>Email:</strong> {formData.locationEmail}</span>
+          </div>
+          <p>We look forward to welcoming you soon!</p>
+        </>
+        )}
       </CardBody>
     </Card>
   )

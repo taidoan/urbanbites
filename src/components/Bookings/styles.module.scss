@@ -1,5 +1,5 @@
 @use "./../../styles/abstracts/_index" as *;
-.bookingsForm {
+.bookingForm {
   --fs-label: #{map-get($project-typography-scale, "form", "label")};
   display: flex;
   flex-direction: column;
@@ -21,5 +21,16 @@
     font-weight: 600;
     margin-bottom: size-clamp(rem(8), rem(16));
     text-transform: uppercase;
+  }
+}
+
+.confirmedDetails {
+  background-color: var(--clr-light-400);
+  border-radius: rem(16);
+  margin-block: size-clamp(rem(16), rem(24));
+  padding: size-clamp(rem(16), rem(24));
+
+  span {
+    display: block;
   }
 }
