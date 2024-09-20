@@ -1,24 +1,32 @@
 "use client"
 import { useEffect, useState } from "react";
 import { Location } from "@/content/types";
+import { tooltips } from "./messages";
 import { parseTime, formatTime, generateTimes } from "@/utilities/time";
 
 interface TimePickerProps {
-  location: Location | undefined;
+  selectedLocation: Location | null;
   selectedDate: Date | null;
+  disabled: boolean,
+  onTimeChange: (time: string | null) => void
 }
 
-const TimePicker = ({ location, selectedDate }: TimePickerProps) => {
+const TimePicker = ({ selectedLocation, selectedDate, disabled, onTimeChange }: TimePickerProps) => {
   const [timeOptions, setTimeOptions] = useState<string[]>([]);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const handleTimeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const time = e.target.value;
+    onTimeChange(time);
+  };
 
   useEffect(() => {
     const updateTimeOptions = () => {
-      if (!location || !selectedDate) return [];
+      if (!selectedLocation || !selectedDate) return [];
 
-      const { lastBooking, weekdayHours, weekendHours } = location;
+      const { lastBooking, weekdayHours, weekendHours } = selectedLocation;
       const hours: string[] = [];
       
-      const isWeekend = [0, 6].includes(selectedDate.getDay()); // 0 = Sunday, 6 = Saturday
+      const isWeekend = [0, 6].includes(selectedDate.getDay());
       const timeRange = isWeekend ? weekendHours : weekdayHours;
 
       const addTimes = (timeRange: string) => {
@@ -54,11 +62,11 @@ const TimePicker = ({ location, selectedDate }: TimePickerProps) => {
       
       if (selectedDate && selectedDate.toDateString() === new Date().toDateString()) {
         const now = new Date();
-        const currentTime = now.getHours() * 100 + now.getMinutes(); // Convert to minutes for easier comparison
+        const currentTime = now.getHours() * 100 + now.getMinutes(); 
         
         return options.filter(option => {
           const [hours, minutes] = option.split(':').map(Number);
-          const timeInMinutes = hours * 100 + minutes; // Convert to minutes
+          const timeInMinutes = hours * 100 + minutes;
           return timeInMinutes >= currentTime;
         });
       }
@@ -67,20 +75,33 @@ const TimePicker = ({ location, selectedDate }: TimePickerProps) => {
     };
 
     setTimeOptions(getFilteredTimeOptions());
-  }, [location, selectedDate]);
+  }, [selectedLocation, selectedDate]);
 
   const parseTimeRange = (timeRange: string) => {
     const [start, end] = timeRange.split('-').map(time => time.trim());
     return { start, end };
   };
 
+  const getTooltipMessage = () => {
+    if(!selectedLocation) {
+      return tooltips.chooseLocation()
+    } else if (!selectedDate) {
+      return tooltips.chooseDate()
+    }
+  }
+
   return (
-    <select>
-      <option>Choose a time</option>
-      {timeOptions.map((time, index) => (
-        <option key={index} value={time}>{time}</option>
-      ))}
-    </select>
+    <div className="tooltip__wrapper" onMouseEnter={() => disabled && setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
+      <select disabled={disabled} onChange={handleTimeChange} required>
+        <option>Choose a time</option>
+        {timeOptions.map((time, index) => (
+          <option key={index} value={time}>{time}</option>
+        ))}
+      </select>
+      {disabled && showTooltip && (
+        <div>{getTooltipMessage()}</div>
+      )}
+    </div>
   );
 };
 

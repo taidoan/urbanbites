@@ -1,13 +1,18 @@
 "use client"
 import { useState, useEffect } from "react";
+import { Location } from "@/content/types";
+import { tooltips } from "./messages";
 
 interface DatePickerProps {
   onDateChange: (date: Date | null) => void;
+  disabled: boolean,
+  selectedLocation: Location | null;
 }
 
-const DatePicker = ({ onDateChange }: DatePickerProps) => {
+const DatePicker = ({ disabled, onDateChange, selectedLocation }: DatePickerProps) => {
   const [inputType, setInputType] = useState('text');
   const [date, setDate] = useState<string>('');
+  const [showTooltip, setShowTooltip] = useState(false);
 
   const todaysDate = new Date().toISOString().split('T')[0];
   const maxDate = new Date();
@@ -31,17 +36,30 @@ const DatePicker = ({ onDateChange }: DatePickerProps) => {
     setDate(e.target.value);
   };
 
+  const getTooltipMessage = () => {
+    if(!selectedLocation) {
+      return tooltips.chooseLocation()
+    }
+  }
+
   return (
-    <input
-      type={inputType}
-      name="booking-date"
-      placeholder="Choose a date"
-      onFocus={() => setInputType('date')}
-      onBlur={() => setInputType('text')}
-      min={todaysDate}
-      max={maxBookingDate}
-      onChange={handleDateChange}
-    />
+    <div className="tooltip__wrapper" onMouseEnter={() => disabled && setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
+      <input
+        type={inputType}
+        name="booking-date"
+        placeholder="Choose a date"
+        onFocus={() => setInputType('date')}
+        onBlur={() => setInputType('text')}
+        min={todaysDate}
+        max={maxBookingDate}
+        onChange={handleDateChange}
+        disabled={disabled}
+        required
+      />
+      {disabled && showTooltip && (
+        <div>{getTooltipMessage()}</div>
+      )}
+    </div>
   );
 };
 
