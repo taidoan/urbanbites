@@ -23,13 +23,13 @@ select {
 
   &:disabled {
     --color: var(--clr-disabled-900);
-    background-color: var(--clr-disabled-300) !important;
-    border: 1px solid var(--clr-disabled-500) !important;
-    color: var(--color) !important;
+    background-color: var(--clr-disabled-300);
+    border: 1px solid var(--clr-disabled-500);
+    color: var(--color);
     opacity: 1;
 
     &::placeholder {
-      color: var(--color) !important;
+      color: var(--color);
     }
   }
 

@@ -15,9 +15,16 @@
   select {
     --color: #{rgba(#302721, 0.5)};
     background-color: #f0ece9;
+    border: 1px solid rgba(#302721, 0.075);
     color: var(--color);
     font-size: rem(16);
     width: 100%;
+
+    &:disabled {
+      --color: #9d9897;
+      background-color: #dfdbd9;
+      border-color: #cecac9;
+    }
   }
 
   label {
@@ -27,6 +34,10 @@
     font-weight: 600;
     margin-bottom: size-clamp(rem(8), rem(16));
     text-transform: uppercase;
+  }
+
+  button {
+    margin-top: rem(8);
   }
 }
 
