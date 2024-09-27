@@ -7,13 +7,14 @@ type CardBodyProps = {
   size?: 'normal' | 'large',
   children?: React.ReactNode;
   textCentre?: boolean
+  className?: string,
 }
 
-const CardBody = ({size = 'normal', children, textCentre = false}: CardBodyProps) => {
+const CardBody = ({size = 'normal', children, textCentre = false, className}: CardBodyProps) => {
   const bodyClass = classNames(s.body, {
     [s.bodyPaddingLarge]: size === 'large',
     [s.textCentre]: textCentre,
-  });
+  }, className);
   
   return(
     <CardProvider textCentre={textCentre}>

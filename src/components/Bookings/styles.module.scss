@@ -8,6 +8,7 @@
   --fs-label: #{map-get($project-typography-scale, "form", "label")};
   display: flex;
   flex-direction: column;
+  overflow: visible;
   row-gap: rem(16);
 
   input,

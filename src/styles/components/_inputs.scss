@@ -32,6 +32,10 @@ select {
       color: var(--color) !important;
     }
   }
+
+  &:focus {
+    outline: 2px solid var(--clr-primary-300);
+  }
 }
 
 select {

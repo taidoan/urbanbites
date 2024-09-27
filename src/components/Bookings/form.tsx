@@ -88,7 +88,7 @@ const BookingForm = ({
           </>
         )}
         {!expandedForm ? (
-          <Button title="Next" onClick={onNextStep} type="button" />
+          <Button title="Next" onClick={onNextStep} type="button" hover="background" variant="tertiary" />
         ) : (
           <Button title="Confirm" type="submit" />
         )}
