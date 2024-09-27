@@ -12,10 +12,10 @@
 
   input,
   select {
+    --color: #{rgba(#302721, 0.5)};
     background-color: #f0ece9;
-    color: rgba(#302721, 0.5);
+    color: var(--color);
     font-size: rem(16);
-    line-height: 1;
     width: 100%;
   }
 

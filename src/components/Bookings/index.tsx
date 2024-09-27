@@ -108,7 +108,7 @@ const BookingsBar = () => {
             <p><span><strong>Email:</strong> {formData.locationEmail}</span></p>
           </div>
           <p>We look forward to welcoming you soon!</p>
-          <Button type="button" title="Make Another Booking" onClick={() => {setSubmittedForm(false)}} className={style.anotherBookingButton} />
+          <Button type="button" title="Make Another Booking" variant="beige" onClick={() => {setSubmittedForm(false)}} className={style.anotherBookingButton} />
         </>
         )}
       </CardBody>

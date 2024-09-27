@@ -281,5 +281,6 @@ $project-colour-shades: (
     600: change-shade(map-get($project-applied-colours, "disabled"), 70%),
     700: change-shade(map-get($project-applied-colours, "disabled"), 65%),
     800: change-shade(map-get($project-applied-colours, "disabled"), 60%),
+    900: change-shade(map-get($project-applied-colours, "disabled"), 45%),
   ),
 );
