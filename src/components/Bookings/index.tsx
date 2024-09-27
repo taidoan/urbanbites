@@ -5,6 +5,7 @@ import CardBody from "../Card/CardBody"
 import { FormEvent, useState } from "react"
 import { Location } from "@/content/types"
 import BookingForm from "./form"
+import Button from "../Button"
 
 const BookingsBar = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -71,7 +72,7 @@ const BookingsBar = () => {
 
   
   return(
-    <Card>
+    <Card className={style.bookingCard}>
       <CardBody>
         {!submittedForm ? (
           <BookingForm
@@ -97,17 +98,17 @@ const BookingsBar = () => {
         <>
           <h4 className={style.confirmedTitle}>Booking Confirmed</h4>
           <p>Thank you, {formData.name}!</p>
-          <p>Your reservation has been successfully confirmed and an email confirmation has been sent.</p>
-          <div className={style.confirmedDetails}>
-            <span><strong>Date:</strong> {formData.date}</span>
-            <span><strong>Time:</strong> {formData.time}</span>
-            <span><strong>Guests:</strong> {formData.guests}</span>
-            <span><strong>Location:</strong> {formData.locationName}</span>
-            <span><strong>Address:</strong> {formData.locationAddress}, {formData.locationCity}, {formData.locationPostcode}</span>
-            <span><strong>Phone:</strong> {formData.locationPhone}</span>
-            <span><strong>Email:</strong> {formData.locationEmail}</span>
+          <p>Your booking at <strong>Urban Bites {formData.locationName}</strong> has been confirmed and an email confirmation has been sent to {formData.email}</p>
+          <p><strong>{formData.date}</strong> - <strong>{formData.time}</strong> - <strong>{formData.guests} Guests</strong></p>
+          <div className={style.divider}></div>
+          <h4 className={style.locationDetailsTitle}>Location Details</h4>
+          <div className={style.locationDetails}>
+            <p><span><strong>Address:</strong> {formData.locationAddress}, {formData.locationCity}, {formData.locationPostcode}</span></p>
+            <p><span><strong>Phone:</strong> {formData.locationPhone}</span></p>
+            <p><span><strong>Email:</strong> {formData.locationEmail}</span></p>
           </div>
           <p>We look forward to welcoming you soon!</p>
+          <Button type="button" title="Make Another Booking" onClick={() => {setSubmittedForm(false)}} className={style.anotherBookingButton} />
         </>
         )}
       </CardBody>

@@ -1,4 +1,9 @@
 @use "./../../styles/abstracts/_index" as *;
+
+.bookingCard {
+  margin-top: size-clamp(rem(24), rem(32));
+}
+
 .bookingForm {
   --fs-label: #{map-get($project-typography-scale, "form", "label")};
   display: flex;
@@ -24,13 +29,32 @@
   }
 }
 
-.confirmedDetails {
-  background-color: var(--clr-light-400);
-  border-radius: rem(16);
-  margin-block: size-clamp(rem(16), rem(24));
-  padding: size-clamp(rem(16), rem(24));
+.confirmedTitle {
+  font-size: size-clamp(rem(18), rem(28));
+}
 
-  span {
-    display: block;
+.divider {
+  background-color: var(--clr-cream-300);
+  display: block;
+  height: rem(1);
+  margin-block: size-clamp(rem(18), rem(24));
+  width: 100%;
+}
+
+.locationDetailsTitle {
+  font-size: size-clamp(rem(18), rem(24));
+}
+
+.locationDetails {
+  margin-block-end: rem(16);
+  margin-block-start: rem(8);
+
+  p + p {
+    margin-top: rem(8);
   }
+}
+
+.anotherBookingButton {
+  margin-top: size-clamp(rem(18), rem(24));
+  width: 100%;
 }
