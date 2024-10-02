@@ -51,6 +51,8 @@
     color: var(--clr-primary-100);
     font-size: var(--fs-hero-body);
     font-weight: 500;
+    margin-inline: auto;
+    max-width: 50ch;
     text-shadow: var(--body-text-shadow);
   }
 }

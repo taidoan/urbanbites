@@ -11,7 +11,7 @@ const GuestsSelect = ({maxGuests, selectedGuests, onGuestsChange}: GuestsSelectP
   }
 
   return(
-    <select name="bookings-guest" value={selectedGuests} onChange={handleGuestsChange}>
+    <select name="bookings-guest" value={selectedGuests} onChange={handleGuestsChange} required>
       {guestOptions.map(guestNumber => (
         <option key={guestNumber} value={guestNumber}>
           {guestNumber}

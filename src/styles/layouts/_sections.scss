@@ -1,0 +1,23 @@
+@use "./../abstracts/_index" as *;
+
+.section-intro {
+  h2 {
+    font-size: var(--fs-heading-sm);
+  }
+
+  h2 + .paranthetical {
+    margin-top: size-clamp(rem(8), rem(16));
+  }
+
+  p {
+    max-width: 60ch;
+  }
+
+  @include mq("md") {
+    text-align: center;
+
+    p {
+      margin-inline: auto;
+    }
+  }
+}

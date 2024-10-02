@@ -7,6 +7,7 @@ import GuestsSelect from "./guests";
 import { EmailField, NameField, PhoneField } from "./details";
 import Button from "../Button";
 import style from "./styles.module.scss"
+import { error } from "./messages";
 
 type BookingFormProps = {
   selectedLocation: Location | null,
@@ -24,6 +25,8 @@ type BookingFormProps = {
   onNextStep: () => void,
   expandedForm: boolean,
 
+  errorMessage: string | null;
+  setErrorMessage: (message: string | null) => void;
   name: string,
   onNameChange: (name: string) => void;
   email: string,
@@ -51,49 +54,56 @@ const BookingForm = ({
   onSubmit,
   onNameChange,
   onEmailChange,
-  onPhoneChange
+  onPhoneChange,
+  errorMessage,
+  setErrorMessage,
 }: BookingFormProps) => {
-    return(
-      <form onSubmit={onSubmit} className={style.bookingForm}>
-        <div className={`form_field form_field--location`}>
-          <label>Location:</label>
-          <LocationSelect onLocationChange={onLocationChange} />
+
+  return (
+    <form onSubmit={onSubmit} className={style.bookingForm}>
+      <div className={`${style.field} ${style.location}`}>
+        <label>Location:</label>
+        <LocationSelect onLocationChange={onLocationChange} />
+      </div>
+      <div className={`${style.field} ${style.date}`}>
+        <label>Date:</label>
+        <DatePicker onDateChange={onDateChange} selectedLocation={selectedLocation} disabled={!selectedLocation} />
+      </div>
+      <div className={`${style.field} ${style.time}`}>
+        <label>Time:</label>
+        <TimePicker selectedLocation={selectedLocation} selectedDate={selectedDate} disabled={!selectedLocation || !selectedDate} onTimeChange={onTimeChange} />
+      </div>
+      <div className={`${style.field} ${style.guests}`}>
+        <label>Guests:</label>
+        <GuestsSelect maxGuests={9} selectedGuests={selectedGuests} onGuestsChange={onGuestsChange} />
+      </div>
+      {expandedForm && (
+        <div className={style.expandedFields}>
+          <div className={`${style.field} ${style.name}`}>
+            <label>Name:</label>
+            <NameField name={name} onNameChange={onNameChange} />
+          </div>
+          <div className={`${style.field} ${style.email}`}>
+            <label>Email:</label>
+            <EmailField email={email} onEmailChange={onEmailChange} />
+          </div>
+          <div className={`${style.field} ${style.phone}`}>
+            <label>Phone Number:</label>
+            <PhoneField phone={phone} onPhoneChange={onPhoneChange} />
+          </div>
         </div>
-        <div className={`form_field form_field--date`}>
-          <label>Date:</label>
-          <DatePicker onDateChange={onDateChange} selectedLocation={selectedLocation} disabled={!selectedLocation} />
+      )}
+      {!expandedForm ? (
+        <Button title="Next" onClick={onNextStep} type="button" hover="background" variant="tertiary" className={style.nextForm} />
+      ) : (
+        <div className={style.buttonGroup}>
+          <Button title="Confirm" type="submit" hover="background" className={style.submitForm} />
+          <Button title="reset" type="reset" hover="background" variant="tertiary" className={style.resetForm} />
         </div>
-        <div className={`form_field form_field--time`}>
-          <label>Time:</label>
-          <TimePicker selectedLocation={selectedLocation} selectedDate={selectedDate} disabled={!selectedLocation || !selectedDate} onTimeChange={onTimeChange} />
-        </div>
-        <div className={`form_field form_field--guests`}>
-          <label>Guests:</label>
-          <GuestsSelect maxGuests={9} selectedGuests={selectedGuests} onGuestsChange={onGuestsChange} />
-        </div>
-        {expandedForm && (
-          <>
-            <div className={`form_field form_field--name`}>
-              <label>Name:</label>
-              <NameField name={name} onNameChange={onNameChange} />
-            </div>
-            <div className={`form_field form_field--email`}>
-              <label>Email:</label>
-              <EmailField email={email} onEmailChange={onEmailChange} />
-            </div>
-            <div className={`form_field form_field--phone`}>
-              <label>Phone Number:</label>
-              <PhoneField phone={phone} onPhoneChange={onPhoneChange} />
-            </div>
-          </>
-        )}
-        {!expandedForm ? (
-          <Button title="Next" onClick={onNextStep} type="button" hover="background" variant="tertiary" />
-        ) : (
-          <Button title="Confirm" type="submit" hover="background" />
-        )}
-      </form>
-    )
+      )}
+
+    </form>
+  )
 }
 
 export default BookingForm

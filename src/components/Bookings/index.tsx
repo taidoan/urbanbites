@@ -6,8 +6,14 @@ import { FormEvent, useState } from "react"
 import { Location } from "@/content/types"
 import BookingForm from "./form"
 import Button from "../Button"
+import { error } from "./messages";
+import classNames from "classnames"
 
-const BookingsBar = () => {
+type BookingsBarProps = {
+  className?: string,
+}
+
+const BookingsBar = ({className}: BookingsBarProps) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null)
@@ -18,7 +24,8 @@ const BookingsBar = () => {
   const [phone, setPhone] = useState<string>("");
   const [submittedForm, setSubmittedForm] = useState(false);
   const [formData, setFormData] = useState<any>(null);
-
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [submitting, setSubmitting] = useState(false)
 
   const handleDateChange = (date: Date | null) => {
     setSelectedDate(date);
@@ -31,23 +38,38 @@ const BookingsBar = () => {
   const handleTimeChange = (time: string | null) => {
     setSelectedTime(time)
   }
+  
 
   const handleGuestsChange = (guests: number) => {
     setSelectedGuests(guests)
   }
 
   const handleNextStep = () => {
-    if(!selectedLocation || !selectedDate || !selectedTime || !selectedGuests) {
-      console.log('Please fill in all required fields')
-      return
+    const hasRequiredFields = selectedLocation && selectedDate && selectedTime && selectedGuests > 0;
+  
+    if (!hasRequiredFields && !expandedForm) {
+      setErrorMessage(error.requiredFields);
+      return;
     }
 
-    setExpandedForm(true)
-  }
+    setErrorMessage(null);
+    setExpandedForm(true);
+  };
+  
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
+    const hasRequiredFields = selectedLocation && selectedDate && selectedTime && selectedGuests > 0 && name && email && phone;
+
+    console.log(submitting)
+
+      if (!hasRequiredFields) {
+        setErrorMessage(error.requiredFields);
+        return;
+      }
+  
+    
     const formData = {
       location: selectedLocation,
       locationName: selectedLocation?.name,
@@ -63,24 +85,26 @@ const BookingsBar = () => {
       email: email,
       phone: phone
     }
-
-    setFormData(formData)
     
-    console.log("Form Data:", formData)
+    setFormData(formData)
     setSubmittedForm(true);
   }
 
-  
+  const BookingCardClasses = classNames(style.bookingCard, className)
+
   return(
-    <Card className={style.bookingCard}>
+    <Card className={BookingCardClasses}>
       <CardBody>
         {!submittedForm ? (
+          <>
           <BookingForm
             selectedLocation={selectedLocation}
             selectedDate={selectedDate}
             selectedTime={selectedTime}
             selectedGuests={selectedGuests}
             expandedForm={expandedForm}
+            errorMessage={errorMessage}
+            setErrorMessage={setErrorMessage} 
             name={name}
             email={email}
             phone={phone}
@@ -94,6 +118,7 @@ const BookingsBar = () => {
             onEmailChange={setEmail} 
             onPhoneChange={setPhone} 
           />
+          {errorMessage && <p className={style.error}>{errorMessage}</p>}</>
         ) : (
         <>
           <h4 className={style.confirmedTitle}>Booking Confirmed</h4>
@@ -108,7 +133,7 @@ const BookingsBar = () => {
             <p><span><strong>Email:</strong> {formData.locationEmail}</span></p>
           </div>
           <p>We look forward to welcoming you soon!</p>
-          <Button type="button" title="Make Another Booking" variant="beige" onClick={() => {setSubmittedForm(false)}} className={style.anotherBookingButton} />
+          <Button type="button" title="Make Another Booking" variant="beige" onClick={() => {setSubmittedForm(false)}} className={style.anotherBookingButton} hover="background" />
         </>
         )}
       </CardBody>

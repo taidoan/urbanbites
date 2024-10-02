@@ -20,21 +20,29 @@
   }
 }
 
-.bookings__standard,
-.bookings__group {
-  --fs-parenthetical: #{$heading-paranthetical-size};
+@include mq("md-lg") {
+  .bookings__standard {
+    > .content-grid {
+      display: grid;
+      grid-template-columns: repeat(16, 1fr);
+    }
 
-  h2 {
-    font-size: var(--fs-heading-sm);
+    .section-intro {
+      grid-column: span 16;
+      grid-row: 1 / 2;
+    }
+
+    .bookings-bar {
+      grid-column: 2 / 16;
+      grid-row: 2 / 3;
+    }
   }
+}
 
-  h2 + span {
-    color: #b7a89e;
-    display: block;
-    font-family: var(--ff-display);
-    font-size: var(--fs-parenthetical);
-    font-weight: 500;
-    margin-top: size-clamp(rem(8), rem(16));
-    text-transform: uppercase;
+@include mq("lg") {
+  .bookings__standard {
+    .bookings-bar {
+      grid-column: 3 / 15;
+    }
   }
 }

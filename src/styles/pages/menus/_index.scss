@@ -18,6 +18,22 @@
   &::after {
     transition: opacity 2.5s ease-in-out;
   }
+
+  h1 {
+    color: var(--clr-light-400);
+    font-size: var(--fs-hero-title);
+    margin-bottom: rem(24);
+    text-shadow: var(--title-shadow);
+  }
+
+  p {
+    color: var(--clr-primary-100);
+    font-size: var(--fs-hero-body);
+    font-weight: 500;
+    margin-inline: auto;
+    max-width: 50ch;
+    text-shadow: var(--body-text-shadow);
+  }
 }
 
 .menus__filter {

@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Location } from "@/content/types";
 import { tooltips } from "./messages";
+import Tooltip from "../Tooltip";
 
 interface DatePickerProps {
   onDateChange: (date: Date | null) => void;
@@ -57,7 +58,7 @@ const DatePicker = ({ disabled, onDateChange, selectedLocation }: DatePickerProp
         required
       />
       {disabled && showTooltip && (
-        <div>{getTooltipMessage()}</div>
+        <Tooltip position="left">{getTooltipMessage()}</Tooltip>
       )}
     </div>
   );

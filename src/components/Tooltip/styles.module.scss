@@ -1,0 +1,30 @@
+@use "./../../styles/abstracts/_index" as *;
+
+.tooltip {
+  background-color: rgba(#000, 0.66);
+  border-radius: rem(8);
+  color: #fff;
+  font-size: rem(16);
+  padding: size-clamp(rem(4), rem(8));
+  position: absolute;
+  width: rem(250);
+  z-index: 10;
+}
+
+.top {
+  top: 0;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.left {
+  right: 100%; // Position the tooltip to the left
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right {
+  right: 0;
+}

@@ -18,19 +18,23 @@ const BookingsPage = () => {
     </section>
     <section className={`bookings__standard`}>
       <div className={`content-grid`}>
-        <h2>Standard Booking</h2>
-        <span className={``}>(Up To 9 Guests)</span>
-        <Divider />
-        <p>Reserve your table using the form below, or feel free to walk in. Either way, we’ve got you. We look forward to welcoming you!</p>
-        <BookingsBar />
+        <div className={`section-intro`}>
+          <h2>Standard Booking</h2>
+          <span className={`paranthetical`}>(Up To 9 Guests)</span>
+          <Divider center />
+          <p>Reserve your table using the form below, or feel free to walk in. Either way, we’ve got you. We look forward to welcoming you!</p>
+        </div>
+        <BookingsBar className={`bookings-bar`} />
       </div>
     </section>
     <section className={`bookings__group`}>
       <div className={`content-grid content-grid--inc-border`}>
-        <h2>Group Booking</h2>
-        <span>(10 or more guests)</span>
-        <Divider />
-        <p>For group bookings of 10 or more guests, please reach out to us directly via phone or email. We’ll work with you to ensure your gathering is just right. We look forward to hosting your group!</p>
+        <div className={`section-intro`}>
+          <h2>Group Booking</h2>
+          <span className={`paranthetical`}>(10 or more guests)</span>
+          <Divider center />
+          <p>For group bookings of 10 or more guests, please reach out to us directly via phone or email. We’ll work with you to ensure your gathering is just right. We look forward to hosting your group!</p>
+        </div>
       </div>
     </section>
    </main>
