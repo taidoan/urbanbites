@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Location } from "@/content/types";
 import { tooltips } from "./messages";
 import { parseTime, formatTime, generateTimes } from "@/utilities/time";
+import Tooltip from "../Tooltip";
 
 interface TimePickerProps {
   selectedLocation: Location | null;
@@ -99,7 +100,7 @@ const TimePicker = ({ selectedLocation, selectedDate, disabled, onTimeChange }: 
         ))}
       </select>
       {disabled && showTooltip && (
-        <div>{getTooltipMessage()}</div>
+        <Tooltip position="bottom">{getTooltipMessage()}</Tooltip>
       )}
     </div>
   );

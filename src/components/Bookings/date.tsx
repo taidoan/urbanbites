@@ -58,7 +58,7 @@ const DatePicker = ({ disabled, onDateChange, selectedLocation }: DatePickerProp
         required
       />
       {disabled && showTooltip && (
-        <Tooltip position="left">{getTooltipMessage()}</Tooltip>
+        <Tooltip position="bottom">{getTooltipMessage()}</Tooltip>
       )}
     </div>
   );
