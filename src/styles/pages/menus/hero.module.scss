@@ -12,6 +12,7 @@
   overflow: hidden;
   position: relative;
   text-align: center;
+  z-index: 0;
 
   &::before,
   &::after {
