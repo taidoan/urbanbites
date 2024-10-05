@@ -4,6 +4,8 @@ import { Location } from "@/content/types";
 import { tooltips } from "./messages";
 import { parseTime, formatTime, generateTimes } from "@/utilities/time";
 import Tooltip from "../Tooltip";
+import tooltipStyle from "../Tooltip/styles.module.scss"
+import classNames from "classnames";
 
 interface TimePickerProps {
   selectedLocation: Location | null;
@@ -15,6 +17,11 @@ interface TimePickerProps {
 const TimePicker = ({ selectedLocation, selectedDate, disabled, onTimeChange }: TimePickerProps) => {
   const [timeOptions, setTimeOptions] = useState<string[]>([]);
   const [showTooltip, setShowTooltip] = useState(false);
+
+  const [isActive, setIsActive] = useState(false);
+  const handleMouseEnter = () => setIsActive(true);
+  const handleMouseLeave = () => setIsActive(false);
+
   const handleTimeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const time = e.target.value;
     onTimeChange(time);
@@ -93,14 +100,15 @@ const TimePicker = ({ selectedLocation, selectedDate, disabled, onTimeChange }: 
 
   return (
     <div className="tooltip__wrapper" onMouseEnter={() => disabled && setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
-      <select disabled={disabled} onChange={handleTimeChange} required>
+      <select disabled={disabled} onChange={handleTimeChange} required        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
         <option>Choose a time</option>
         {timeOptions.map((time, index) => (
           <option key={index} value={time}>{time}</option>
         ))}
       </select>
       {disabled && showTooltip && (
-        <Tooltip position="bottom">{getTooltipMessage()}</Tooltip>
+        <Tooltip position="bottom" className={classNames({ [tooltipStyle.active]: !isActive })}>{getTooltipMessage()}</Tooltip>
       )}
     </div>
   );

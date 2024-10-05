@@ -6,8 +6,10 @@
   border-radius: rem(8);
   color: #fff;
   font-size: rem(16);
+  opacity: 0;
   padding: size-clamp(rem(8), rem(12));
   position: absolute;
+  transition: opacity 2s;
   width: max-content;
   z-index: var(--z-index-tooltip);
 
@@ -17,6 +19,10 @@
     content: "";
     position: absolute;
   }
+}
+
+.active {
+  opacity: 1;
 }
 
 .top {

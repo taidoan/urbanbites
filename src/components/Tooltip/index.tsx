@@ -9,6 +9,7 @@ type TooltipProps = {
 }
 
 const Tooltip = ({children, position = 'top', className}: TooltipProps) => {
+
   const TooltipClasses = classNames(style.tooltip, className, style[position])
 
   return (

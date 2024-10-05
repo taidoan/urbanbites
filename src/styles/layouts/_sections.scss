@@ -6,11 +6,11 @@
   }
 
   h2 + .paranthetical {
-    margin-top: size-clamp(rem(8), rem(16));
+    margin-top: rem(16);
   }
 
   p {
-    max-width: 60ch;
+    max-width: var(--p-width);
   }
 
   @include mq("md") {

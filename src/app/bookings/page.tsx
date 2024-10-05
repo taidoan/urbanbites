@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Divider from "@/components/Divider";
 import BookingsBar from "@/components/Bookings";
+import ContactButton from "./components/ContactButtons";
 
 export const metadata: Metadata = {
   title: 'Urban Bites | Bookings',
@@ -34,6 +35,10 @@ const BookingsPage = () => {
           <span className={`paranthetical`}>(10 or more guests)</span>
           <Divider center />
           <p>For group bookings of 10 or more guests, please reach out to us directly via phone or email. We’ll work with you to ensure your gathering is just right. We look forward to hosting your group!</p>
+        </div>
+        <div>
+          <ContactButton method="email" href="mailto:contact@urbanbites.com" content="contact@urbanbites.com" />
+          <ContactButton method="phone" content="0121 234 4567" href="tel:01212454567" />
         </div>
       </div>
     </section>

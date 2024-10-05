@@ -10,6 +10,8 @@
   --fs-body-base: #{map-get($project-typography-scale, "body", "base")};
   --fs-parenthetical: #{$heading-paranthetical-size};
   --fc-body: #{$body-text-colour};
+  --f-shadow-sm: #{$small-text-shadow};
+  --f-shadow-lg: #{$deep-text-shadow};
   --p-width: #{$max-paragraph-width};
 }
 
