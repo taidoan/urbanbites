@@ -12,9 +12,9 @@ const BookingsPage = () => {
    <main>
     <section className={`bookings__hero`}>
         <div className={`content-grid content-grid--inc-border`}>
-          <h1 className={``}>Bookings</h1>
+          <h1>Bookings</h1>
           <Divider variant='primary' hero/>
-          <p className={``}>Reserving a table online at Urban Bites is quick and easy. Secure your spot in just a few clicks and let us take care of the rest!</p>
+          <p>Reserving a table online at Urban Bites is quick and easy. Secure your spot in just a few clicks and let us take care of the rest!</p>
         </div>
     </section>
     <section className={`bookings__standard`}>

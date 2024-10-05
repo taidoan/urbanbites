@@ -1,0 +1,13 @@
+@use "./../../abstracts/_index" as *;
+
+.locations__hero {
+  @include hero-section("/assets/images/locations/hero.jpg");
+}
+
+.locations__body {
+  background-color: var(--clr-beige-400);
+
+  @include mq("base-sm") {
+    @include border(12px, var(--clr-light-400), "no-top");
+  }
+}
