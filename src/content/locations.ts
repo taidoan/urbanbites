@@ -1,4 +1,7 @@
 import { Location } from "./types";
+import { default as digbethImage } from "@images/locations/digbeth.jpg";
+import { default as cityImage } from "@images/locations/city.jpg";
+import { default as harborneImage } from "@images/locations/harbourne.jpg";
 
 export const Locations: Location[] = [
   {
@@ -15,6 +18,7 @@ export const Locations: Location[] = [
     weekendHours: "9am-10pm",
     description:
       "Located in the heart of Digbeth, Urban Bites offers a vibrant space to enjoy fresh, locally sourced meals and crafted drinks.",
+    image: digbethImage,
   },
   {
     id: 2,
@@ -30,6 +34,7 @@ export const Locations: Location[] = [
     weekendHours: "9am-11pm",
     description:
       "Right in the bustling City Centre, Urban Bites is your go-to spot for fresh, flavorful dishes and hand-crafted drinks.",
+    image: cityImage,
   },
   {
     id: 3,
@@ -45,5 +50,6 @@ export const Locations: Location[] = [
     weekendHours: "9am-9pm",
     description:
       "Tucked in the charming streets of Harborne, Urban Bites serves up local flavors with a warm and welcoming atmosphere.",
+    image: harborneImage,
   },
 ];

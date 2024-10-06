@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 export type Location = {
   id: number;
   name: string;
@@ -11,4 +12,5 @@ export type Location = {
   lastBooking: string;
   weekdayHours: string;
   weekendHours: string;
+  image?: string | StaticImageData;
 };

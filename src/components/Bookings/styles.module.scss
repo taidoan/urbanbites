@@ -42,6 +42,12 @@
     margin-top: rem(8);
   }
 
+  .expandedFields {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(16);
+  }
+
   @include mq("md") {
     column-gap: rem(24);
     display: grid;
