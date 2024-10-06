@@ -1,9 +1,7 @@
 import Divider from "@/components/Divider"
 import type { Metadata } from "next";
-import Card from "@/components/Card";
-import CardImage from "@/components/Card/CardImage"
-import CardBody from "@/components/Card/CardBody"
 import { Locations } from "@/content/locations";
+import LocationCard from "./components/LocationCard";
 
 export const metadata: Metadata = {
   title: 'Urban Bites | Bookings'
@@ -28,10 +26,7 @@ const LocationsPage = () => {
         </div>
         <div>
           {Locations.map(location => (
-            <Card key={location.id}>
-              {location.name}
-              <CardImage src={location.image} alt="Alt texty" imageSize="large"/>
-            </Card>
+              <LocationCard location={location} key={location.id} />
           ))}
         </div>
       </div>

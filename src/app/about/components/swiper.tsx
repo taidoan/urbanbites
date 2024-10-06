@@ -12,7 +12,7 @@ import Link from "next/link";
 type Slide = {
   content: string;
   image?: {
-    src: string | StaticImageData;
+    src: string | StaticImageData | undefined;
     alt: string;
   };
   cta?: {
@@ -50,7 +50,7 @@ type SwiperSectionProps = {
   name?: string;
 };
 
-const ImageLink = ({ src, alt, url, imageSize }: { src: string | StaticImageData, alt: string, url?: string, imageSize?: string }) => (
+const ImageLink = ({ src, alt, url, imageSize }: { src: string | StaticImageData | undefined, alt: string, url?: string, imageSize?: string }) => (
   url ? (
     <Link href={url}>
       <CardImage src={src} alt={alt} imageSize={imageSize} />

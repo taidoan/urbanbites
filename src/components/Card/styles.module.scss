@@ -9,6 +9,25 @@
   position: relative;
 }
 
+@include mq("md") {
+  .imageLeft {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    height: auto;
+
+    img {
+      border-radius: rem(9) 0 0 rem(9);
+      grid-column: span 3;
+      max-height: 100%;
+      width: 100%;
+    }
+
+    .body {
+      grid-column: span 6;
+    }
+  }
+}
+
 .softShadow {
   --shadow: #{$card-box-shadow-soft};
 }

@@ -13,4 +13,5 @@ export type Location = {
   weekdayHours: string;
   weekendHours: string;
   image?: string | StaticImageData;
+  mapLink?: string;
 };
