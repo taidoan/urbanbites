@@ -46,7 +46,7 @@ const LocationCard = ({location, className}: LocationCardProps) => {
           </div>
           <div className={`${style.subBlock} ${style.ctaBlock}`}>
             <Button title="Directions" variant="beige" hover="background" href={location.mapLink} target="_blank" />
-            <Button title="Book A Table" variant="beige" hover="background"/>
+            <Button title="Book A Table" variant="beige" hover="background" href={`/bookings?locationId=${location.id}`} />
           </div>
         </div>
       </CardBody>

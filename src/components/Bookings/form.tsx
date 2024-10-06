@@ -7,7 +7,6 @@ import GuestsSelect from "./guests";
 import { EmailField, NameField, PhoneField } from "./details";
 import Button from "../Button";
 import style from "./styles.module.scss"
-import { error } from "./messages";
 
 type BookingFormProps = {
   selectedLocation: Location | null,
@@ -55,15 +54,13 @@ const BookingForm = ({
   onNameChange,
   onEmailChange,
   onPhoneChange,
-  errorMessage,
-  setErrorMessage,
 }: BookingFormProps) => {
 
   return (
     <form onSubmit={onSubmit} className={style.bookingForm}>
       <div className={`${style.field} ${style.location}`}>
         <label>Location:</label>
-        <LocationSelect onLocationChange={onLocationChange} />
+        <LocationSelect onLocationChange={onLocationChange}  selectedLocation={selectedLocation} />
       </div>
       <div className={`${style.field} ${style.date}`}>
         <label>Date:</label>

@@ -2,12 +2,14 @@
 import style from "./styles.module.scss"
 import Card from "../Card"
 import CardBody from "../Card/CardBody"
-import { FormEvent, useState } from "react"
 import { Location } from "@/content/types"
 import BookingForm from "./form"
 import Button from "../Button"
 import { error } from "./messages";
 import classNames from "classnames"
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState, FormEvent} from 'react';
+import { Locations } from "@/content/locations"
 
 type BookingsBarProps = {
   className?: string,
@@ -91,6 +93,18 @@ const BookingsBar = ({className}: BookingsBarProps) => {
   }
 
   const BookingCardClasses = classNames(style.bookingCard, className)
+
+  const searchParams = useSearchParams();
+  const locationId = searchParams.get('locationId');
+
+  console.log(locationId)
+
+  useEffect(() => {
+    if (locationId) {
+      const location = Locations.find(loc => loc.id === parseInt(locationId));
+      setSelectedLocation(location || null);
+    }
+  }, [locationId]);
 
   return(
     <Card className={BookingCardClasses}>
