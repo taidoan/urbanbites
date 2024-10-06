@@ -52,7 +52,7 @@ type SwiperSectionProps = {
 
 const ImageLink = ({ src, alt, url, imageSize }: { src: string | StaticImageData | undefined, alt: string, url?: string, imageSize?: string }) => (
   url ? (
-    <Link href={url}>
+    <Link href={url} className="imageLink">
       <CardImage src={src} alt={alt} imageSize={imageSize} />
     </Link>
   ) : (
@@ -62,7 +62,7 @@ const ImageLink = ({ src, alt, url, imageSize }: { src: string | StaticImageData
 
 const TitleLink = ({ title, size, url }: { title: string, size?: "large" | "small", url?: string }) => (
   url ? (
-    <Link href={url}>
+    <Link href={url} className="titleLink">
       <CardTitle title={title} size={size} />
     </Link>
   ) : (

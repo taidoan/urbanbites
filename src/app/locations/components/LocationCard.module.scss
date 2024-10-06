@@ -6,7 +6,8 @@
   row-gap: rem(24);
 }
 
-.infoBlock {
+.infoBlock p {
+  font-size: size-clamp(rem(16), rem(24));
 }
 
 .detailsBlock {
@@ -32,6 +33,14 @@
     color: var(--clr-tertiary-400);
     opacity: 0.35;
     width: rem(25);
+
+    @include mq("md") {
+      width: rem(20);
+    }
+  }
+
+  a {
+    color: inherit;
   }
 
   & + & {
@@ -58,8 +67,24 @@
 
   .detailsBlock {
     column-gap: rem(40);
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     row-gap: rem(24);
+
+    .ctaBlock {
+      grid-column: span 2;
+    }
+  }
+}
+
+@include mq("md") {
+  .ctaBlock {
+    column-gap: rem(20);
+  }
+}
+
+@include mq("md-lg") {
+  .detailsBlock {
+    column-gap: rem(44);
   }
 }

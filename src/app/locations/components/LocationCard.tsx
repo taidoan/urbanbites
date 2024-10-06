@@ -11,15 +11,16 @@ import { faPhone, faEnvelope, faClock } from "@fortawesome/free-solid-svg-icons"
 
 type LocationCardProps = {
   location: Location;
+  className: string,
 }
 
-const LocationCard = ({location}: LocationCardProps) => {
+const LocationCard = ({location, className}: LocationCardProps) => {
   return(
-    <Card id={`${location.id}`} imagePosition="left">
+    <Card id={`${location.id}`} imagePosition="left" className={className}>
       <CardImage src={location.image} alt={location.name} />
       <CardBody className={style.body}>
         <div className={style.infoBlock}>
-          <CardTitle title={location.name}></CardTitle>
+          <CardTitle title={location.name} size="large"></CardTitle>
           <Divider />
           <p>{location.description}</p>
         </div>
@@ -32,8 +33,8 @@ const LocationCard = ({location}: LocationCardProps) => {
               <span>{location.address}</span>
               <span>{location.city}, {location.postcode}</span>
             </div>
-            <span className={style.field}><FontAwesomeIcon icon={faPhone} /> {location.phone}</span>
-            <span className={style.field}><FontAwesomeIcon icon={faEnvelope} /> {location.email}</span>
+            <span className={style.field}><FontAwesomeIcon icon={faPhone} /> <a href={`tel:${location.phone}`}>{location.phone}</a></span>
+            <span className={style.field}><FontAwesomeIcon icon={faEnvelope} /> <a href={`mailto:${location.email}`}>{location.email}</a></span>
           </div>
           <div className={`${style.subBlock} hours`}>
             <CardTitle title="Opening Hours" size="small" />
@@ -44,7 +45,7 @@ const LocationCard = ({location}: LocationCardProps) => {
             <span className={style.field}>Last booking at {location.lastBooking}</span>
           </div>
           <div className={`${style.subBlock} ${style.ctaBlock}`}>
-            <Button title="Directions" variant="beige" hover="background"/>
+            <Button title="Directions" variant="beige" hover="background" href={location.mapLink} target="_blank" />
             <Button title="Book A Table" variant="beige" hover="background"/>
           </div>
         </div>

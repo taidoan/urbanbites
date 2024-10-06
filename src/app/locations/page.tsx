@@ -24,9 +24,9 @@ const LocationsPage = () => {
           <Divider center={true} />
           <p>Each Urban Bites offers a unique yet welcoming atmosphere—find your nearest café to enjoy our delicious offerings and exceptional service.</p>
         </div>
-        <div>
+        <div className={`locations__content`}>
           {Locations.map(location => (
-              <LocationCard location={location} key={location.id} />
+              <LocationCard location={location} key={location.id} className="locations-entry" />
           ))}
         </div>
       </div>

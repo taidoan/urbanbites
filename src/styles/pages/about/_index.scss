@@ -82,6 +82,7 @@
   }
 
   background-color: var(--clr-light-400);
+  overflow: hidden;
 
   @include mq("md") {
     text-align: center;
@@ -201,6 +202,7 @@
   }
 
   background-color: var(--clr-pale-400);
+  overflow: hidden;
 
   @include mq("md") {
     text-align: center;
@@ -224,6 +226,7 @@
 
 .about__events {
   background-color: var(--clr-light-400);
+  overflow: hidden;
 
   @include mq(md) {
     h2 ~ p {
@@ -267,6 +270,7 @@
     hsl(22, 26%, 92%) 0%,
     hsl(20, 29%, 80%, 0.5) 100%
   );
+  overflow: hidden;
 
   @include mq($content-max-width) {
     .reviews__swiper {

@@ -11,3 +11,11 @@
     @include border(12px, var(--clr-light-400), "no-top");
   }
 }
+
+.locations__content {
+  margin-block-start: size-clamp(rem(32), rem(64));
+
+  .locations-entry + .locations-entry {
+    margin-block-start: size-clamp(rem(32), rem(64));
+  }
+}
