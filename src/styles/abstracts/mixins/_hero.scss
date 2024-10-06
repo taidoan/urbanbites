@@ -40,6 +40,10 @@
     }
   }
 
+  @include mq("lg-xl") {
+    min-height: 85dvh;
+  }
+
   h1 {
     color: var(--clr-light-400);
     font-size: var(--fs-hero-title);
