@@ -121,7 +121,7 @@ a.btn {
   color: var(--clr-light-400);
 
   @media (hover: hover) {
-    @include insetHover(--clr-secondary-400);
+    @include insetHover(var(--clr-secondary-400));
     @include backgroundHover(--clr-primary-400);
   }
 }
