@@ -5,7 +5,7 @@ import { Location } from "@/content/types";
 import CardTitle from "@/components/Card/CardTitle";
 import Divider from "@/components/Divider";
 import Button from "@/components/Button";
-import style from ".//LocationCard.module.scss"
+import style from "./styles.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPhone, faEnvelope, faClock } from "@fortawesome/free-solid-svg-icons";
 
