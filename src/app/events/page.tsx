@@ -1,5 +1,6 @@
 import Divider from "@/components/Divider";
 import type { Metadata } from "next";
+import { Events } from "@/content/events";
 
 export const metadata: Metadata = {
   title: 'Urban Bites | Events'
@@ -23,7 +24,9 @@ const EventsPage = () => {
             <p>Here are our exciting themed nights and special events at Urban Bites, don’t miss out on the fun!</p>
           </div>
           <div className={`events__content`}>
-            content here
+            {Events.map(event => (
+                <div>{event.id}</div>
+            ))}
           </div>
         </div>
       </section>
