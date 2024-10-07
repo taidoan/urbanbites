@@ -1,11 +1,6 @@
 import { Location } from "./types";
-import { default as digbethImage } from "@images/locations/digbeth.jpg";
-import { default as cityImage } from "@images/locations/city.jpg";
-import { default as harborneImage } from "@images/locations/harbourne.jpg";
-
-let nextId = 1;
-
-const generateId = () => nextId++;
+import { digbethImage, cityImage, harborneImage } from "@/content/images";
+import { generateId } from "@/utilities/generateId";
 
 export const Locations: Location[] = [
   {

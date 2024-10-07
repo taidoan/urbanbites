@@ -4,7 +4,7 @@ import { Locations } from "@/content/locations";
 import LocationCard from "./components/LocationCard";
 
 export const metadata: Metadata = {
-  title: 'Urban Bites | Bookings'
+  title: 'Urban Bites | Locations'
 }
 
 const LocationsPage = () => {
