@@ -229,8 +229,8 @@ $project-colour-shades: (
   ),
 
   danger: (
-    100: change-shade(map-get($project-applied-colours, "danger"), 60%),
-    200: change-shade(map-get($project-applied-colours, "danger"), 55%),
+    100: change-shade(map-get($project-applied-colours, "danger"), 67.5%),
+    200: change-shade(map-get($project-applied-colours, "danger"), 65%),
     300: change-shade(map-get($project-applied-colours, "danger"), 50%),
     400: map-get($project-applied-colours, "danger"),
     500: change-shade(map-get($project-applied-colours, "danger"), 40%),
@@ -281,5 +281,6 @@ $project-colour-shades: (
     600: change-shade(map-get($project-applied-colours, "disabled"), 70%),
     700: change-shade(map-get($project-applied-colours, "disabled"), 65%),
     800: change-shade(map-get($project-applied-colours, "disabled"), 60%),
+    900: change-shade(map-get($project-applied-colours, "disabled"), 45%),
   ),
 );

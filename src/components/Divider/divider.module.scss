@@ -12,6 +12,12 @@
   }
 }
 
+.thin {
+  height: rem(2);
+  margin-block: size-clamp(rem(12), rem(20));
+  opacity: 0.4;
+}
+
 .primary {
   background-color: var(--clr-primary-400);
 }
@@ -31,4 +37,10 @@
 
 .center {
   margin-inline: auto;
+}
+
+.fullWidth {
+  @include mq("md") {
+    max-width: 100%;
+  }
 }

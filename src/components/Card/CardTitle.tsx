@@ -7,8 +7,12 @@ type CardTitleProps = {
   size?: 'large' | 'small'
 }
 
-const CardTitle = ({title, classes, size = 'large'}: CardTitleProps) => {
-  const titleClass = classNames(s.title, {[s.titleSmall]: size === 'small'}, classes)
+const CardTitle = ({title, classes, size}: CardTitleProps) => {
+  const titleClass = classNames(
+    s.title, 
+    {[s.titleSmall]: size === 'small'}, 
+    {[s.titleLarge]: size === 'large'},
+    classes)
   return(
     <h3 className={titleClass}>{title}</h3>
   )

@@ -1,0 +1,90 @@
+@use "./../../../styles/abstracts/_index" as *;
+
+.body {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(24);
+}
+
+.infoBlock p {
+  font-size: size-clamp(rem(16), rem(24));
+}
+
+.detailsBlock {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(18);
+}
+
+.ctaBlock {
+  column-gap: rem(16);
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: rem(12);
+}
+
+.field {
+  align-items: center;
+  column-gap: rem(8);
+  display: flex;
+  flex-wrap: wrap;
+
+  svg {
+    color: var(--clr-tertiary-400);
+    opacity: 0.35;
+    width: rem(25);
+
+    @include mq("md") {
+      width: rem(20);
+    }
+  }
+
+  a {
+    color: inherit;
+  }
+
+  & + & {
+    margin-top: rem(12);
+  }
+}
+
+.address {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  row-gap: rem(4);
+
+  & + .field {
+    margin-block-start: rem(12);
+  }
+}
+
+@include mq("base-lg") {
+  .body {
+    row-gap: rem(32);
+  }
+
+  .detailsBlock {
+    column-gap: rem(40);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: rem(24);
+
+    .ctaBlock {
+      grid-column: span 2;
+    }
+  }
+}
+
+@include mq("md") {
+  .ctaBlock {
+    column-gap: rem(20);
+  }
+}
+
+@include mq("md-lg") {
+  .detailsBlock {
+    column-gap: rem(44);
+  }
+}

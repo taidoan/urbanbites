@@ -7,6 +7,42 @@
   box-shadow: var(--shadow);
   overflow: hidden;
   position: relative;
+
+  &:not(.imageLeft):not(.imageRight) {
+    &:has(.image + .body) {
+      .body {
+        padding-block-start: size-clamp(rem(24), rem(32));
+      }
+    }
+
+    a:has(.image) + .body {
+      padding-block-start: size-clamp(rem(24), rem(32));
+    }
+
+    a:has(.image) + .body:has(.titleSmall) {
+      padding-block-start: rem(24);
+    }
+  }
+}
+
+@include mq("md") {
+  .imageLeft {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    height: auto;
+
+    img {
+      border-radius: rem(9) 0 0 rem(9);
+      grid-column: span 3;
+      height: 100%;
+      max-height: 100%;
+    }
+
+    .body {
+      grid-column: span 6;
+      padding: rem(40);
+    }
+  }
 }
 
 .softShadow {
@@ -18,15 +54,23 @@
   font-weight: 600;
 
   & + * {
-    margin-top: rem(16);
+    margin-block-start: rem(16);
   }
-}
 
-.titleSmall {
-  font-size: size-clamp(rem(32), rem(36));
+  &.titleSmall {
+    font-size: size-clamp(rem(32), rem(36));
 
-  & + * {
-    margin-top: size-clamp(rem(12), rem(16));
+    & + * {
+      margin-block-start: size-clamp(rem(12), rem(16));
+    }
+  }
+
+  &.titleLarge {
+    font-size: size-clamp(rem(40), rem(68));
+
+    & + * {
+      margin-block-start: size-clamp(rem(16), rem(24));
+    }
   }
 }
 
@@ -83,26 +127,14 @@
   }
 }
 
-.card:has(.image + .body, a + .body) {
-  .body {
-    padding-block-start: size-clamp(rem(24), rem(32));
-  }
-}
-
-.card:has(.image + .body, .titleSmall) {
-  .body {
-    padding-block-start: rem(24);
-  }
-}
-
 .image {
   border-radius: rem(9) rem(9) 0 0;
   max-height: rem(202);
   object-fit: cover;
-}
 
-.imageLarge {
-  max-height: rem(300);
+  &.imageLarge {
+    max-height: rem(300);
+  }
 }
 
 .eventDate {

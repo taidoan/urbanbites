@@ -4,7 +4,7 @@ import ExportedImage from "next-image-export-optimizer";
 import type { StaticImageData } from "next/image";
 
 type CardImageProps = {
-  src: string | StaticImageData;
+  src?: string | StaticImageData;
   alt: string;
   classes?: string;
   imageSize?: string;

@@ -53,6 +53,13 @@ $heading-font-md-size: 72px !default;
 /// @access public
 $heading-font-lg-size: 88px !default;
 
+/// Heading parenthetical font size
+///
+/// The size for heading parentheticals (clarifying statements)
+/// @type number
+/// @access public
+$heading-paranthetical-size: 36px !default;
+
 /// Hero title text base size
 ///
 /// This is the base size for title text in hero sections
@@ -80,6 +87,19 @@ $hero-body-text-base-size: 18px !default;
 /// @type number
 /// @access public
 $hero-body-text-desktop-size: 32px !default;
+
+/// Label font size
+///
+/// Font size for form labels
+/// @type number
+/// @access public
+$form-label-size: 24px !default;
+
+/// Label small font sioze
+///
+/// Small font size for form labels
+/// @type number
+$form-label-size-sm: 20px !default;
 
 /// Button font size
 ///

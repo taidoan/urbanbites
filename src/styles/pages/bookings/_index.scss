@@ -1,0 +1,61 @@
+@use "./../../abstracts/_index" as *;
+
+.bookings__hero {
+  @include hero-section("/assets/images/bookings/Hero.jpg");
+}
+
+.bookings__standard {
+  background-color: var(--clr-light-400);
+}
+
+.bookings__group {
+  background: linear-gradient(
+    180deg,
+    var(--clr-beige-400) 0%,
+    var(--clr-light-400) 100%
+  );
+
+  @include mq("base-sm") {
+    @include border(12px, var(--clr-light-400));
+  }
+
+  & > .content-grid > div:nth-of-type(2) {
+    column-gap: rem(24);
+    display: flex;
+    flex-wrap: wrap;
+    margin-block-start: size-clamp(rem(24), rem(72));
+    row-gap: rem(16);
+
+    @include mq("md") {
+      column-gap: rem(32);
+      justify-content: center;
+    }
+  }
+}
+
+@include mq("md-lg") {
+  .bookings__standard {
+    > .content-grid {
+      display: grid;
+      grid-template-columns: repeat(16, 1fr);
+    }
+
+    .section-intro {
+      grid-column: span 16;
+      grid-row: 1 / 2;
+    }
+
+    .bookings-bar {
+      grid-column: 2 / 16;
+      grid-row: 2 / 3;
+    }
+  }
+}
+
+@include mq("lg") {
+  .bookings__standard {
+    .bookings-bar {
+      grid-column: 3 / 15;
+    }
+  }
+}

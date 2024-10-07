@@ -8,7 +8,10 @@
   --fs-hero-body: #{map-get($project-typography-scale, "hero", "body")};
   --fs-body-small: #{map-get($project-typography-scale, "body", "small")};
   --fs-body-base: #{map-get($project-typography-scale, "body", "base")};
+  --fs-parenthetical: #{$heading-paranthetical-size};
   --fc-body: #{$body-text-colour};
+  --f-shadow-sm: #{$small-text-shadow};
+  --f-shadow-lg: #{$deep-text-shadow};
   --p-width: #{$max-paragraph-width};
 }
 
@@ -34,6 +37,16 @@ h3 {
 
 p + p {
   margin-top: size-clamp(rem(16), rem(32));
+}
+
+.paranthetical {
+  color: #b7a89e;
+  display: block;
+  font-family: var(--ff-display);
+  font-size: var(--fs-parenthetical);
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .nobr {

@@ -82,7 +82,7 @@ const NavBar = ({active}: NavBarProps) => {
 
         {(!isDesktop || (isDesktop && active)) && (
           <MenuItem closeMenu={closeMenu}>
-            <Button variant='primary' title='Reservations' href="/reservations" className={s.buttonActiveNav} />
+            <Button variant='primary' title='Bookings' href="/bookings" className={s.buttonActiveNav} />
           </MenuItem>
         )}
       </Menu>
@@ -196,6 +196,6 @@ const MenuItem = ({children, className, isHidden, closeMenu, href}: MenuItemProp
   }
 
   return(
-    <>{children}</>
+    <div onClick={closeMenu}>{children}</div>
   )
 }

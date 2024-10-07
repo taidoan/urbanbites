@@ -1,5 +1,25 @@
 @use "./../../styles/abstracts/_index" as *;
 
+@mixin insetHover($color) {
+  &:not(.backgroundHover) {
+    &:hover {
+      &::before {
+        box-shadow: inset 0 0 0 0.1875rem $color;
+      }
+
+      &::after {
+        background-color: $color;
+      }
+    }
+  }
+}
+
+@mixin backgroundHover($color) {
+  &.backgroundHover:hover {
+    background-color: $color;
+  }
+}
+
 .btn {
   --fs-button: #{map-get($project-typography-scale, button)};
   --button-shadow: #{$button-hover-shadow};
@@ -32,38 +52,42 @@
 .tertiary,
 .beige {
   @media (hover: hover) {
-    &:hover {
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      background-color: transparent;
-      box-shadow: var(--button-shadow);
-      padding: var(--btn-padding-block--hover) var(--btn-padding-inline--hover);
-      transform: scale(1.1);
-    }
+    &:not(.backgroundHover) {
+      &:hover {
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        background-color: transparent;
+        box-shadow: var(--button-shadow);
+        padding: var(--btn-padding-block--hover)
+          var(--btn-padding-inline--hover);
+        transform: scale(1.1);
+        z-index: 100;
+      }
 
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      transition: all var(--animation-transition) ease;
-      z-index: -1;
-    }
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        transition: all var(--animation-transition) ease;
+        z-index: -1;
+      }
 
-    &::before {
-      background-color: transparent;
-      border-radius: 0.75rem;
-      height: 100%;
-      left: 0;
-      top: 0;
-      width: 100%;
-    }
+      &::before {
+        background-color: transparent;
+        border-radius: 0.75rem;
+        height: 100%;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
 
-    &::after {
-      border-radius: 0.375rem;
-      bottom: 0.375rem;
-      left: 0.375rem;
-      right: 0.375rem;
-      top: 0.375rem;
+      &::after {
+        border-radius: 0.375rem;
+        bottom: 0.375rem;
+        left: 0.375rem;
+        right: 0.375rem;
+        top: 0.375rem;
+      }
     }
   }
 }
@@ -77,15 +101,8 @@ a.btn {
   color: var(--clr-light-400);
 
   @media (hover: hover) {
-    &:hover {
-      &::before {
-        box-shadow: inset 0 0 0 0.1875rem var(--clr-primary-400);
-      }
-
-      &::after {
-        background-color: var(--clr-primary-400);
-      }
-    }
+    @include insetHover(var(--clr-primary-400));
+    @include backgroundHover(var(--clr-tertiary-400));
   }
 }
 
@@ -94,15 +111,8 @@ a.btn {
   color: var(--clr-light-300);
 
   @media (hover: hover) {
-    &:hover {
-      &::before {
-        box-shadow: inset 0 0 0 0.1875rem #afa097;
-      }
-
-      &::after {
-        background-color: #afa097;
-      }
-    }
+    @include insetHover(#afa097);
+    @include backgroundHover(var(--clr-tertiary-400));
   }
 }
 
@@ -111,15 +121,8 @@ a.btn {
   color: var(--clr-light-400);
 
   @media (hover: hover) {
-    &:hover {
-      &::before {
-        box-shadow: inset 0 0 0 0.1875rem var(--clr-secondary-400);
-      }
-
-      &::after {
-        background-color: var(--clr-secondary-400);
-      }
-    }
+    @include insetHover(var(--clr-secondary-400));
+    @include backgroundHover(--clr-primary-400);
   }
 }
 
@@ -128,15 +131,8 @@ a.btn {
   color: var(--clr-light-400);
 
   @media (hover: hover) {
-    &:hover {
-      &::before {
-        box-shadow: inset 0 0 0 0.1875rem var(--clr-tertiary-400);
-      }
-
-      &::after {
-        background-color: var(--clr-tertiary-400);
-      }
-    }
+    @include insetHover(var(--clr-tertiary-400));
+    @include backgroundHover(var(--clr-primary-400));
   }
 }
 

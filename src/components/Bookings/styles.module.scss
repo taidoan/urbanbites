@@ -1,0 +1,120 @@
+@use "./../../styles/abstracts/_index" as *;
+
+.bookingCard {
+  margin-top: size-clamp(rem(24), rem(32));
+  overflow: visible !important;
+}
+
+.bookingForm {
+  --fs-label: #{map-get($project-typography-scale, "form", "label")};
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  row-gap: rem(16);
+
+  input,
+  select {
+    --color: #{rgba(#302721, 0.5)};
+    background-color: #f0ece9;
+    border: 1px solid rgba(#302721, 0.075);
+    color: var(--color);
+    font-size: rem(16);
+    width: 100%;
+
+    &:disabled {
+      --color: #9d9897;
+      background-color: #dfdbd9;
+      border-color: #cecac9;
+    }
+  }
+
+  label {
+    display: block;
+    font-family: var(--ff-display);
+    font-size: var(--fs-label);
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: size-clamp(rem(8), rem(12));
+    text-transform: uppercase;
+  }
+
+  button {
+    margin-top: rem(8);
+  }
+
+  .expandedFields {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(16);
+  }
+
+  @include mq("md") {
+    column-gap: rem(24);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr auto;
+
+    button.nextForm {
+      align-self: self-end;
+      margin: 0;
+      width: fit-content;
+    }
+
+    .expandedFields {
+      column-gap: rem(24);
+      display: grid;
+      grid-column: span 4;
+      grid-row: 2 / 3;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &:has(.expandedFields) {
+      grid-template-columns: repeat(4, 1fr);
+
+      .buttonGroup {
+        display: flex;
+        gap: rem(16);
+        grid-column: span 4;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.confirmedTitle {
+  font-size: size-clamp(rem(18), rem(28));
+}
+
+.divider {
+  background-color: var(--clr-cream-300);
+  display: block;
+  height: rem(1);
+  margin-block: size-clamp(rem(18), rem(24));
+  width: 100%;
+}
+
+.locationDetailsTitle {
+  font-size: size-clamp(rem(18), rem(24));
+}
+
+.locationDetails {
+  margin-block-end: rem(16);
+  margin-block-start: rem(8);
+
+  p + p {
+    margin-top: rem(8);
+  }
+}
+
+.anotherBookingButton {
+  margin-top: size-clamp(rem(18), rem(24));
+  width: 100%;
+}
+
+.error {
+  @include errorMessage();
+  margin-top: rem(16);
+}
+
+.field {
+  position: relative;
+}

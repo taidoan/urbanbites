@@ -10,6 +10,12 @@
   grid-template-rows:
     [hero-start] 100vh [overlap-start] rem(50) [ hero-end] rem(50)
     [overlap-end] auto [journey-end];
+
+  @include mq("lg-xl") {
+    grid-template-rows:
+      [hero-start] 85vh [overlap-start] rem(50) [ hero-end] rem(50)
+      [overlap-end] auto [journey-end];
+  }
 }
 
 .about__hero {
@@ -82,6 +88,7 @@
   }
 
   background-color: var(--clr-light-400);
+  overflow: hidden;
 
   @include mq("md") {
     text-align: center;
@@ -201,6 +208,7 @@
   }
 
   background-color: var(--clr-pale-400);
+  overflow: hidden;
 
   @include mq("md") {
     text-align: center;
@@ -224,6 +232,7 @@
 
 .about__events {
   background-color: var(--clr-light-400);
+  overflow: hidden;
 
   @include mq(md) {
     h2 ~ p {
@@ -267,6 +276,7 @@
     hsl(22, 26%, 92%) 0%,
     hsl(20, 29%, 80%, 0.5) 100%
   );
+  overflow: hidden;
 
   @include mq($content-max-width) {
     .reviews__swiper {

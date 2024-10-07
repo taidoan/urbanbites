@@ -1,0 +1,23 @@
+@use "./../functions/px-to-rem" as *;
+@use "./../functions/size-clamp" as *;
+
+@mixin messageBody {
+  --border-clr: var(--clr-disabled-500);
+  --background-clr: var(--clr-disabled-300);
+  --text-clr: var(--clr-disabled-900);
+
+  background-color: var(--background-clr);
+  border: 1px solid var(--border-clr);
+  border-radius: rem(8);
+  color: var(--text-clr);
+  font-size: rem(16);
+  padding-block: size-clamp(rem(8), rem(12));
+  padding-inline: size-clamp(rem(12), rem(16));
+}
+
+@mixin errorMessage {
+  @include messageBody();
+  --border-clr: var(--clr-danger-300);
+  --background-clr: var(--clr-danger-200);
+  --text-clr: var(--clr-light-100);
+}

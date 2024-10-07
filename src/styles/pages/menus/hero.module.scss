@@ -12,6 +12,7 @@
   overflow: hidden;
   position: relative;
   text-align: center;
+  z-index: 0;
 
   &::before,
   &::after {
@@ -47,21 +48,7 @@
     z-index: -1;
   }
 
-  @include mq("md") {
-    min-height: 80dvh;
+  @include mq("lg-xl") {
+    min-height: 85dvh;
   }
-}
-
-.title {
-  color: var(--clr-light-400);
-  font-size: var(--fs-hero-title);
-  margin-bottom: rem(24);
-  text-shadow: var(--title-shadow);
-}
-
-.intro {
-  color: var(--clr-primary-100);
-  font-size: var(--fs-hero-body);
-  font-weight: 500;
-  text-shadow: var(--body-text-shadow);
 }

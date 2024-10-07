@@ -1,9 +1,19 @@
 import CardTitle from "./CardTitle";
 import CardImage from "./CardImage";
 import CardMeta from "./CardMeta";
+import Card from "./index"
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import s from './styles.module.scss';
+
+describe('Card', () => {
+  test('applies classname to Card element', () => {
+    const className = 'custom-classname';
+    const { container } = render(<Card className={className}>Card Content</Card>);
+
+    expect(container.firstChild).toHaveClass(className)
+  })
+})
 
 describe('CardTitle', () => {
   test('renders title with default class', () => {

@@ -10,6 +10,7 @@ type ButtonProps = {
   type?: 'button' | 'submit' | 'reset';
   onClick?: () => void;
   target?: string;
+  hover?: 'normal' | 'background';
 }
 
 /**
@@ -48,8 +49,8 @@ type ButtonProps = {
  * />
  * ```
  */
-const Button = ({ title, variant = 'primary', href, className, type = 'button', onClick, target }: ButtonProps) => {
-  const buttonClass = classNames(s.btn, className, s[variant]);
+const Button = ({ title, variant = 'primary', href, className, type = 'button', onClick, target, hover = 'normal' }: ButtonProps) => {
+  const buttonClass = classNames(s.btn, className, s[variant], {[s.backgroundHover]: hover === 'background'});
 
   if (!href) {
     return (
