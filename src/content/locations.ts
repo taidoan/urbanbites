@@ -3,9 +3,13 @@ import { default as digbethImage } from "@images/locations/digbeth.jpg";
 import { default as cityImage } from "@images/locations/city.jpg";
 import { default as harborneImage } from "@images/locations/harbourne.jpg";
 
+let nextId = 1;
+
+const generateId = () => nextId++;
+
 export const Locations: Location[] = [
   {
-    id: 1,
+    id: generateId(),
     name: "Digbeth",
     address: "115 Crag Lane",
     city: "Birmingham",
@@ -23,7 +27,7 @@ export const Locations: Location[] = [
       "https://www.google.com/maps/place/Digbeth,+Birmingham/@52.4739655,-1.8914279,2357m/data=!3m2!1e3!4b1!4m6!3m5!1s0x4870bc862960b825:0x922a326b32168ca7!8m2!3d52.4754938!4d-1.8881111!16zL20vMDM3NHRt?entry=ttu",
   },
   {
-    id: 2,
+    id: generateId(),
     name: "City Centre",
     address: "88 Cannon Street",
     city: "Birmingham",
@@ -41,7 +45,7 @@ export const Locations: Location[] = [
       "https://www.google.com/maps/place/City+Centre,+Birmingham/@52.4739655,-1.8914279,2357m/data=!3m1!1e3!4m6!3m5!1s0x4870bc8dea5a590b:0xf5a8185ddef9e97c!8m2!3d52.4820274!4d-1.8964356!16s%2Fm%2F03hkcc3?entry=ttu",
   },
   {
-    id: 3,
+    id: generateId(),
     name: "Harborne",
     address: "165 London Road",
     city: "Birmingham",

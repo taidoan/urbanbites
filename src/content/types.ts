@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+
 export type Location = {
   id: number;
   name: string;
@@ -14,4 +15,14 @@ export type Location = {
   weekendHours: string;
   image?: string | StaticImageData;
   mapLink?: string;
+};
+
+export type Event = {
+  id: number;
+  name: string;
+  date: string;
+  time: string;
+  location: string;
+  description: string;
+  image?: string | StaticImageData;
 };
