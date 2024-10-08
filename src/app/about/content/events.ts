@@ -1,6 +1,6 @@
 import { Events } from "@/content/events";
 import { truncate } from "@/utilities/text";
-
+import { splitDate } from "@/utilities/date";
 const events = Events.map((event) => ({
   title: {
     title: event.name,
@@ -14,7 +14,7 @@ const events = Events.map((event) => ({
   time: event.time,
   location: event.location,
   url: `/events?eventId=${event.id}`,
-  date: { day: 21, month: "April" },
+  date: splitDate(event.date),
 }));
 
 export default events;
