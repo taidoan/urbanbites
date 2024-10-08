@@ -1,12 +1,13 @@
 import { Event } from "./types";
 import { generateId } from "@/utilities/generateId";
 import { artAndWineNight, jazzNight, triviaNight } from "./images";
+import { splitDate } from "@/utilities/date";
 
 export const Events: Event[] = [
   {
     id: generateId(),
     name: "Art & Wine Night",
-    date: "21/04/2024",
+    date: splitDate("21/04/2024"),
     time: "6pm",
     location: "Harborne",
     description:
@@ -16,7 +17,7 @@ export const Events: Event[] = [
   {
     id: generateId(),
     name: "Live Jazz Night",
-    date: "28/04/2024",
+    date: splitDate("28/04/2024"),
     time: "8pm",
     location: "Digbeth",
     description:
@@ -26,7 +27,7 @@ export const Events: Event[] = [
   {
     id: generateId(),
     name: "Trivia Night",
-    date: "03/05/2024",
+    date: splitDate("03/05/2024"),
     time: "7:30pm",
     location: "City Centre",
     description:

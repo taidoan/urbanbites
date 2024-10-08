@@ -31,6 +31,7 @@ export const splitDate = (dateString: string) => {
   const monthText = months[monthNumber - 1];
 
   return {
+    fullDate: dateString,
     day,
     month: monthNumber,
     monthText: monthText,
@@ -84,7 +85,7 @@ export const getDaySuffix = (day: number): string => {
  * getMonthAbbreviation("Unknown"); // Returns "Unknown"
  * ```
  */
-export const getMonthAbbreviation = (month: string): string => {
+export const getMonthAbbreviation = (month: any): string => {
   const monthMap: { [key: string]: string } = {
     January: "Jan",
     February: "Feb",

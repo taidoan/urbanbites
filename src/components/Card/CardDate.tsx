@@ -3,7 +3,7 @@ import { getDaySuffix, getMonthAbbreviation } from '@/utilities/date';
 
 type CardDateProps = {
   day: number,
-  month: string,
+  month: string | number,
 }
 
 const CardDate = ({day, month}: CardDateProps) => {
