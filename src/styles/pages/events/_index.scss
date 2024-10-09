@@ -1,5 +1,9 @@
 @use "./../../abstracts/_index" as *;
 
+.events__hero {
+  @include hero-section("/assets/images/events/hero.jpg");
+}
+
 .events__body {
   background-color: var(--clr-beige-400);
 }
