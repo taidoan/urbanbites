@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Filter from "@/components/Filter";
 import { Categories } from "./content/categories";
 import { MenuItems } from "./content/items";
@@ -8,7 +8,6 @@ import MenuItemCard from "./MenuItemCard"
 import styles from "@/styles/pages/menus/content.module.scss"
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Divider from "@/components/Divider";
-
 type ItemProps = {
   items: Item[],
   currentTab: string,
@@ -62,6 +61,8 @@ const FilterItems = ({ items, currentTab }: ItemProps) => {
 }
 
 const MenuSection = () => {
+
+
   const [currentTab, setCurrentTab] = useState<string>(Categories[0].id);
   const [currentDesc, setCurrentDesc] = useState<string>(Categories[0].description || '');
 
@@ -77,7 +78,23 @@ const MenuSection = () => {
   const handleTabSelect = (id: string, description: string) => {
     setCurrentTab(id);
     setCurrentDesc(description);
+
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.searchParams.set('tab', id);
+      window.history.pushState({}, '', url);
+    }
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const queryParams = new URLSearchParams(window.location.search);
+      const tab = queryParams.get('tab') || Categories[0].id; // Default to first category if no param
+      setCurrentTab(tab);
+      const description = Categories.find(category => category.id === tab)?.description || '';
+      setCurrentDesc(description);
+    }
+  }, []);
 
   return (
     <>

@@ -13,7 +13,7 @@ const MenuItemCard = ({items}: ItemsProps) => {
   return(
     <>
       {items.map(item => (
-        <Card key={item.id} shadow='soft'>
+        <Card key={item.id} shadow='soft' id={item.name}>
           <CardBody>
             <CardTitle title={item.name} size='small' />
             <p>{item.description}</p>
