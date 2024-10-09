@@ -2,7 +2,7 @@ import styles from './divider.module.scss';
 import classNames from 'classnames';
 
 type DividerProps = {
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'default';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'default' | 'grey';
   className?: string;
   hero?: boolean;
   center?: boolean;

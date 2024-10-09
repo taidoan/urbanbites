@@ -26,10 +26,10 @@ const EventInfo = ({type, children}: EventInfoProps) => {
 
 
   return (
-    <div>
-      {icon && <span>{icon}</span>}
-      <span>{label}: </span>
-      <span>{children}</span>
+    <div className={style.eventInfoPill}>
+      {icon && <span className={style.eventInfoIcon}>{icon}</span>}
+      <span className={style.eventInfoLabel}>{label}: </span>
+      <span className={style.eventInfoChildren}>{children}</span>
     </div>
   )
 }

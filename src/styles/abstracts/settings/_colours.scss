@@ -54,11 +54,11 @@ $project-applied-colours: (
   "tertiary": map-get($project-colours, "milk-chocolate"),
   "light": map-get($project-colours, "ivory"),
   "light-grey": map-get($project-colours, "light-grey"),
+  "grey": map-get($project-colours, "grey"),
   "danger": map-get($project-colours, "red"),
   "success": map-get($project-colours, "green"),
   "warning": map-get($project-colours, "yellow"),
   "info": map-get($project-colours, "blue"),
-  "disabled": map-get($project-colours, "grey"),
   "tab": map-get($project-colours, "pale-almond"),
 );
 
@@ -190,6 +190,7 @@ $project-colour-shades: (
 
   cream: (
     100: change-shade(map-get($project-colours, "light-chocolate"), 95%),
+    150: change-shade(map-get($project-colours, "light-chocolate"), 94%),
     200: change-shade(map-get($project-colours, "light-chocolate"), 90%),
     300: change-shade(map-get($project-colours, "light-chocolate"), 85%),
     400: map-get($project-colours, "light-chocolate"),
@@ -273,14 +274,15 @@ $project-colour-shades: (
   ),
 
   disabled: (
-    100: change-shade(map-get($project-applied-colours, "disabled"), 95%),
-    200: change-shade(map-get($project-applied-colours, "disabled"), 90%),
-    300: change-shade(map-get($project-applied-colours, "disabled"), 85%),
-    400: map-get($project-applied-colours, "disabled"),
-    500: change-shade(map-get($project-applied-colours, "disabled"), 75%),
-    600: change-shade(map-get($project-applied-colours, "disabled"), 70%),
-    700: change-shade(map-get($project-applied-colours, "disabled"), 65%),
-    800: change-shade(map-get($project-applied-colours, "disabled"), 60%),
-    900: change-shade(map-get($project-applied-colours, "disabled"), 45%),
+    100: change-shade(map-get($project-applied-colours, "grey"), 95%),
+    150: change-shade(map-get($project-applied-colours, "grey"), 92.5%),
+    200: change-shade(map-get($project-applied-colours, "grey"), 90%),
+    300: change-shade(map-get($project-applied-colours, "grey"), 85%),
+    400: map-get($project-applied-colours, "grey"),
+    500: change-shade(map-get($project-applied-colours, "grey"), 75%),
+    600: change-shade(map-get($project-applied-colours, "grey"), 70%),
+    700: change-shade(map-get($project-applied-colours, "grey"), 65%),
+    800: change-shade(map-get($project-applied-colours, "grey"), 60%),
+    900: change-shade(map-get($project-applied-colours, "grey"), 45%),
   ),
 );

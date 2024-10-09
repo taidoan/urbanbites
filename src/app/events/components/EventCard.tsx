@@ -7,6 +7,7 @@ import CardBody from '@/components/Card/CardBody'
 import CardDate from '@/components/Card/CardDate'
 import Divider from '@/components/Divider'
 import EventInfo from './EventInfo'
+import classNames from 'classnames'
 
 type EventCardProps = {
   className?: string;
@@ -14,19 +15,25 @@ type EventCardProps = {
 }
 
 const EventCard = ({className, entry}: EventCardProps) => {
+  const eventCardClasses = classNames(style.eventCard, className);
+
   return(
-    <Card id={`${entry.id}`} event={true}>
+    <Card id={`${entry.id}`} event={true} className={eventCardClasses}>
       {typeof entry.date === 'object' ? (
         <CardDate day={entry.date.day} month={entry.date.monthText} />
       ) : (<></>)}
-      <CardBody>
-        <CardImage src={entry.image} alt={entry.name} />
-        <CardTitle title={entry.name} />
-        <Divider weight="thin" />
-        <EventInfo type="date">{entry.date.fullDate}</EventInfo>
-        <EventInfo type="time">{entry.time}</EventInfo>
-        <EventInfo type="location">{entry.location}</EventInfo>
-        <p>{entry.description}</p>
+      <CardBody className={style.eventCardBody}>
+        <CardImage src={entry.image} alt={entry.name} classes={style.eventImage} />
+        <div className={style.eventCardContent}>
+          <CardTitle title={entry.name} />
+          <Divider weight="thin" variant="grey" width="full-width" />
+          <div className={style.eventInfo}>
+            <EventInfo type="date">{entry.date.fullDate}</EventInfo>
+            <EventInfo type="time">{entry.time}</EventInfo>
+            <EventInfo type="location">{entry.location}</EventInfo>
+          </div>
+          <p>{entry.description}</p>
+        </div>
       </CardBody>
     </Card>
   )

@@ -26,7 +26,7 @@ const EventsPage = () => {
           </div>
           <div className={`events__content`}>
             {Events.map(event => (
-                <EventCard entry={event} key={event.id} />
+                <EventCard entry={event} key={event.id} className={`events-entry`} />
             ))}
           </div>
         </div>
