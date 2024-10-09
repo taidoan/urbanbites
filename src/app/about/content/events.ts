@@ -14,7 +14,7 @@ const events = Events.map((event) => ({
   time: event.time,
   location: event.location,
   url: `/events?eventId=${event.id}`,
-  date: splitDate(event.date),
+  date: event.date,
 }));
 
 export default events;
