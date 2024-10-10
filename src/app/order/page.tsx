@@ -1,4 +1,4 @@
-import OrderBar from "@/components/Order";
+import OrderBar, { OrderLocation, OrderMethod } from "@/components/Order";
 import Divider from "@/components/Divider";
 import type { Metadata } from "next";
 
@@ -16,7 +16,14 @@ const OrderPage = () => {
           <p>Indulge in our culinary delights, crafted just for you. Order now to experience the taste of perfection delivered to your doorstep!</p>
         </div>
       </section>
-      <OrderBar />
+      
+      <section className="order__body">
+        <div className={`content-grid content-grid--inc-border`}>
+          <OrderLocation />
+          <OrderMethod />
+        </div>
+        <OrderBar />
+      </section>
     </div>
   )
 }

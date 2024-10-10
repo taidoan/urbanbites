@@ -4,7 +4,7 @@
 @use "./../functions/image-url" as *;
 @use "./../settings/shadows" as *;
 
-@mixin hero-section($url) {
+@mixin hero-section($url, $height: 100dvh) {
   --title-shadow: #{$hero-title-shadow};
   --body-text-shadow: #{$hero-body-shadow};
 
@@ -25,7 +25,7 @@
   color: var(--clr-light-400);
   display: flex;
   height: auto;
-  min-height: 100dvh;
+  min-height: $height;
   text-align: center;
 
   @include mq("base-sm") {

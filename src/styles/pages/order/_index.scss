@@ -1,5 +1,18 @@
 @use "./../../abstracts/_index" as *;
 
 .order__hero {
-  @include hero-section("/assets/images/order/hero.jpg");
+  @include hero-section("/assets/images/order/hero.jpg", 75dvh);
+}
+
+.order__body {
+  // background: linear-gradient(
+  //   180deg,
+  //   var(--clr-beige-400) 0%,
+  //   var(--clr-light-400) 100%
+  // );
+  background-color: var(--clr-beige-400);
+  container: initial;
+  @include mq("base-sm") {
+    @include border(12px, var(--clr-light-400), "no-top");
+  }
 }
