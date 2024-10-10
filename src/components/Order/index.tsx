@@ -6,6 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBasketShopping, faCircleDown, faCircleUp, faBicycle, faBagShopping } from "@fortawesome/free-solid-svg-icons"
 import { Locations } from "@/content/locations"
 import { useState, useEffect } from "react"
+import { Categories, MenuItems } from "@/content/menu"
+import { capitaliseFirstLetter } from "@/utilities/letters"
+import MenuItemCard from "@/app/menus/components/MenuItemCard"
 
 const OrderBar = () => {
   return (
@@ -92,5 +95,35 @@ export const OrderMethod = () => {
     </div>
   );
 };
+
+export const OrderMenu = () => {
+  const [currentCategory, setCurrentCategory] = useState<string>(Categories[0].id)
+
+  console.log("Current Category:", currentCategory)
+
+  const menuItems = MenuItems.filter(item => item.category === currentCategory);
+
+  return (
+    <div>
+      <OrderMenuCategories currentCategory={currentCategory} onCategoryChange={setCurrentCategory} />
+
+      <MenuItemCard items={menuItems} />
+    </div>
+
+  )
+}
+
+const OrderMenuCategories = ({ currentCategory, onCategoryChange }: { currentCategory: string, onCategoryChange: (id: string) => void }) => {
+
+  return (
+    <ul className={style.orderCategoryList}>
+      {Categories.map((cat) => (
+        <li key={cat.id}>
+          <button onClick={() => onCategoryChange(cat.id)}>{capitaliseFirstLetter(cat.id)}</button>
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 export default OrderBar

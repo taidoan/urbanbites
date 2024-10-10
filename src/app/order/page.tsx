@@ -1,12 +1,15 @@
-import OrderBar, { OrderLocation, OrderMethod } from "@/components/Order";
+import OrderBar, { OrderLocation, OrderMenu, OrderMethod } from "@/components/Order";
 import Divider from "@/components/Divider";
 import type { Metadata } from "next";
+import Filter from "@/components/Filter";
+import { Categories } from "@/content/menu";
 
 export const metadata: Metadata = {
   title: 'Urban Bites | Order'
 }
 
 const OrderPage = () => {
+  
   return(
     <div>
       <section className="order__hero">
@@ -21,6 +24,7 @@ const OrderPage = () => {
         <div className={`content-grid content-grid--inc-border`}>
           <OrderLocation />
           <OrderMethod />
+          <OrderMenu />
         </div>
         <OrderBar />
       </section>
