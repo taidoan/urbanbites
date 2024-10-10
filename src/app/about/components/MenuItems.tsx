@@ -13,7 +13,7 @@ type MenuItemProps = {
 const MenuItem = ({title, category, image, href}: MenuItemProps) => {
   return(
       <div className={s.menuItemBlock}>
-        <Link href={`/menus/${category}`}><span className={s.category}>{category}</span></Link>
+        <Link href={`/menus?tab=${category}`}><span className={s.category}>{category}</span></Link>
         <Link href={href} passHref className={s.link}>
             <h3 className={s.title}>{title}</h3>
           </Link>

@@ -56,12 +56,9 @@ const FilterItems = ({ items, currentTab }: ItemProps) => {
       <MenuItemCard items={filteredItems}/>
     )
   }
-
-  
 }
 
 const MenuSection = () => {
-
 
   const [currentTab, setCurrentTab] = useState<string>(Categories[0].id);
   const [currentDesc, setCurrentDesc] = useState<string>(Categories[0].description || '');
@@ -89,7 +86,7 @@ const MenuSection = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const queryParams = new URLSearchParams(window.location.search);
-      const tab = queryParams.get('tab') || Categories[0].id; // Default to first category if no param
+      const tab = queryParams.get('tab') || Categories[0].id;
       setCurrentTab(tab);
       const description = Categories.find(category => category.id === tab)?.description || '';
       setCurrentDesc(description);
