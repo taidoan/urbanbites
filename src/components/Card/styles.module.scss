@@ -84,7 +84,7 @@
 
 .body {
   font-size: size-clamp(rem(16), rem(20));
-  padding: size-clamp(rem(16), rem(24));
+  padding: size-clamp(rem(20), rem(24));
 
   a {
     text-decoration: none;
@@ -109,8 +109,8 @@
   }
 
   &:has(.image) {
-    padding-block-end: size-clamp(rem(16), rem(32));
-    padding-block-start: size-clamp(rem(16), rem(20));
+    padding-block-end: size-clamp(rem(20), rem(32));
+    padding-block-start: rem(20);
     padding-inline: rem(20);
   }
 

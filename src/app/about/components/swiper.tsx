@@ -30,7 +30,8 @@ type Slide = {
   };
   date?: {
     day: number;
-    month: string;
+    month: number;
+    monthText: string;
   };
   review?: {
     author: string;
@@ -72,7 +73,7 @@ const TitleLink = ({ title, size, url }: { title: string, size?: "large" | "smal
 
 const CardContent = ({ slide, event, review, insideImage, imageSize, centered }: { slide: Slide, event: boolean, review: boolean, insideImage: boolean, imageSize: string, centered: boolean }) => (
   <Card event={event} review={review}>
-    {event && slide.date && <CardDate day={slide.date.day} month={slide.date.month} />}
+    {event && slide.date && <CardDate day={slide.date.day} month={slide.date.monthText} />}
     {insideImage && slide.image && !review ? (
       <CardBody textCentre={centered}>
         <ImageLink src={slide.image.src} alt={slide.image.alt} url={slide.url} imageSize={imageSize} />

@@ -30,6 +30,11 @@
   background-color: var(--clr-tertiary-400);
 }
 
+.grey {
+  background-color: var(--clr-disabled-200);
+  opacity: 1 !important;
+}
+
 .hero {
   margin-inline: auto;
   max-width: 15rem;

@@ -5,15 +5,12 @@ import CardTitle from '@/components/Card/CardTitle'
 import CardMeta from '@/components/Card/CardMeta'
 import styles from "@/components/Card/styles.module.scss"
 
-type ItemsProps = {
-  items: Item[]
-}
+const MenuItemCard = ({items}: { items: Item[] }) => {
 
-const MenuItemCard = ({items}: ItemsProps) => {
   return(
     <>
       {items.map(item => (
-        <Card key={item.id} shadow='soft'>
+        <Card key={item.id} shadow='soft' id={item.name.replace(/\s/g, '%20')}>
           <CardBody>
             <CardTitle title={item.name} size='small' />
             <p>{item.description}</p>

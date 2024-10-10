@@ -1,28 +1,19 @@
-import { artsImage, jazzImage } from "./../images";
-
-const events = [
-  {
-    title: {
-      title: "Art & Wine Evening",
-      size: "small" as "small",
-    },
-    image: { src: artsImage, alt: "Art & Wine Evening" },
-    date: { day: 21, month: "April" },
-    url: "/events/210424",
-    content:
-      "An enchanting evening of art and wine. Local artists will showcase their work. You'll have the opportunity to meet the creators...",
+import { Events } from "@/content/events";
+import { truncate } from "@/utilities/text";
+const events = Events.map((event) => ({
+  title: {
+    title: event.name,
+    size: "small" as "small",
   },
-  {
-    title: {
-      title: "Live Jazz Night",
-      size: "small" as "small",
-    },
-    url: "/events/210424",
-    image: { src: jazzImage, alt: "Live Jazz Night" },
-    date: { day: 28, month: "April" },
-    content:
-      "An evening of smooth jazz performed by local musicians. Enjoy our special menu and signature drinks while you unwind to live music.",
+  content: truncate(event.description, 18),
+  image: {
+    src: event.image,
+    alt: event.name,
   },
-];
+  time: event.time,
+  location: event.location,
+  url: `/events?eventId=${event.id}`,
+  date: event.date,
+}));
 
 export default events;

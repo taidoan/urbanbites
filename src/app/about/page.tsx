@@ -85,9 +85,10 @@ const AboutPage = () => {
     </section>
     <section className='about__menu-items'>
       <div>
-      <MenuItem title="Mushroom Risotto" href="/menus/food#risotto" image={risotto} category="food" />
-      <MenuItem title="Orchard Bliss" href="/menus/drinks#orchardbliss" image={orchardbliss} category="drinks" />
-      <MenuItem title="Crispy Calamari" href="/menus/food#calamari" image={crispycalamari} category="food" />
+      <MenuItem title="Mushroom Risotto" href="/menus?tab=mains#Mushroom%20Risotto" image={risotto} category="food" />
+
+      <MenuItem title="Orchard Bliss" href="/menus?tab=drinks#Orchard%20Bliss" image={orchardbliss} category="drinks" />
+      <MenuItem title="Crispy Calamari" href="/menus?tab=starters#Crispy%20Calamari" image={crispycalamari} category="food" />
       </div>
     </section>
     <section className='about__locations'>
@@ -112,7 +113,7 @@ const AboutPage = () => {
         </div>
         </div>
         <div className={e.swiperBlock}>
-          <SwiperSection name="events" slides={events} event={true} insideImage={false}/>
+          <SwiperSection name="events" slides={events.slice(0, 2)} event={true} insideImage={false}/>
         </div>
       </div>
     </section>
