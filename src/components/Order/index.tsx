@@ -3,7 +3,7 @@
 import Button from "../Button"
 import style from "./styles.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBasketShopping, faCircleDown, faCircleUp, faBicycle, faBagShopping } from "@fortawesome/free-solid-svg-icons"
+import { faBasketShopping, faCircleDown, faCircleUp, faBicycle, faBagShopping, faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons"
 import { Locations } from "@/content/locations"
 import { useState, useEffect } from "react"
 import { Categories, MenuItems } from "@/content/menu"
@@ -99,8 +99,6 @@ export const OrderMethod = () => {
 export const OrderMenu = () => {
   const [currentCategory, setCurrentCategory] = useState<string>(Categories[0].id)
 
-  console.log("Current Category:", currentCategory)
-
   const menuItems = MenuItems.filter(item => item.category === currentCategory);
 
   return (
@@ -114,15 +112,30 @@ export const OrderMenu = () => {
 }
 
 const OrderMenuCategories = ({ currentCategory, onCategoryChange }: { currentCategory: string, onCategoryChange: (id: string) => void }) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const handleDropdownClick = () => {
+    setDropdownOpen((prev) => !prev);
+  }
+
+  const icon = dropdownOpen ? faChevronUp : faChevronDown;
 
   return (
-    <ul className={style.orderCategoryList}>
-      {Categories.map((cat) => (
-        <li key={cat.id}>
-          <button onClick={() => onCategoryChange(cat.id)}>{capitaliseFirstLetter(cat.id)}</button>
-        </li>
-      ))}
-    </ul>
+    <div className={style.orderCategory}>
+      <div className={style.currentCategory} onClick={() => handleDropdownClick()}>
+        <span className={style.currentCategoryText}>{capitaliseFirstLetter(currentCategory)}</span>
+        <FontAwesomeIcon icon={icon} />
+      </div>
+      {dropdownOpen && 
+        <ul className={style.orderCategoryList}>
+          {Categories.map((cat) => (
+            <li key={cat.id}>
+              <button className={style.orderCategoryOption} onClick={() => {onCategoryChange(cat.id); setDropdownOpen(false)}}>{capitaliseFirstLetter(cat.id)}</button>
+            </li>
+          ))}
+        </ul>
+      }
+    </div>
   )
 }
 
