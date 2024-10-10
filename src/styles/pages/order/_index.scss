@@ -1,0 +1,5 @@
+@use "./../../abstracts/_index" as *;
+
+.order__hero {
+  @include hero-section("/assets/images/order/hero.jpg");
+}

@@ -167,7 +167,7 @@
         rem($padding-inline-desktop)
       )};
     width: 100%;
-    --column-gap: #{rem(56)};
+    --column-gap: #{rem(40)};
   }
 
   .menuList {
@@ -240,6 +240,10 @@
 }
 
 @include mq("md-lg") {
+  .menuDesktop {
+    --column-gap: #{rem(56)};
+  }
+
   .menuListActive {
     column-gap: var(--column-gap);
   }

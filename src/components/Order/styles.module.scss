@@ -1,0 +1,76 @@
+@use "./../../styles/abstracts/_index" as *;
+
+.orderBar {
+  background-color: var(--clr-light-400);
+  bottom: 0;
+  padding-block: rem(24);
+  padding-inline: size-clamp(rem(24), rem(32));
+  position: fixed;
+  width: 100%;
+  z-index: var(--z-index-header);
+
+  &::before {
+    box-shadow: 0 0 rem(15) var(--clr-secondary-500);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1100;
+  }
+}
+
+.basketButton {
+  align-items: center;
+  background-color: var(--clr-primary-400);
+  border-radius: rem(16);
+  color: var(--clr-light-400);
+  display: flex;
+  justify-content: space-between;
+  padding-block: size-clamp(rem(20), rem(24));
+  padding-inline: rem(24);
+  width: 100%;
+}
+
+.basketButtonText {
+  column-gap: rem(8);
+  display: flex;
+
+  .basketLabel {
+    font-weight: 700;
+  }
+}
+
+.basketButtonIcon {
+  --size: #{size-clamp(rem(32), rem(40))};
+  align-items: center;
+  background-color: var(--clr-light-400);
+  border-radius: 50%;
+  display: flex;
+  height: var(--size);
+  justify-content: center;
+  position: relative;
+  width: var(--size);
+
+  svg {
+    color: var(--clr-primary-400);
+    width: size-clamp(rem(16), rem(24));
+  }
+
+  .basketItemCount {
+    --size: #{size-clamp(rem(18), rem(22))};
+    align-items: center;
+    background-color: var(--clr-secondary-400);
+    border-radius: rem(8);
+    display: flex;
+    font-size: rem(12);
+    font-weight: bold;
+    height: var(--size);
+    justify-content: center;
+    left: size-clamp(rem(-6), rem(-10));
+    position: absolute;
+    top: size-clamp(rem(-3), rem(-7));
+    width: var(--size);
+  }
+}
