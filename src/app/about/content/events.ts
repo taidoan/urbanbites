@@ -1,6 +1,5 @@
 import { Events } from "@/content/events";
 import { truncate } from "@/utilities/text";
-import { splitDate } from "@/utilities/date";
 const events = Events.map((event) => ({
   title: {
     title: event.name,

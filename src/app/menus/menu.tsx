@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Filter from "@/components/Filter";
 import { Categories, MenuItems, DrinkCategories } from "@/content/menu";
 import { Item } from "@/components/Filter/types";
-import MenuItemCard from "./MenuItemCard"
+import MenuItemCard from "./components/MenuItemCard"
 import styles from "@/styles/pages/menus/content.module.scss"
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Divider from "@/components/Divider";
