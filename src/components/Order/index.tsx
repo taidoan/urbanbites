@@ -1,6 +1,5 @@
 'use client'
 
-import Button from "../Button"
 import style from "./styles.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBasketShopping, faCircleDown, faCircleUp, faBicycle, faBagShopping, faChevronDown, faChevronUp, faCircleXmark } from "@fortawesome/free-solid-svg-icons"
@@ -12,9 +11,10 @@ import MenuItemCard from "@/app/menus/components/MenuItemCard"
 import classNames from "classnames"
 import useMediaQuery from "@/hooks/useMediaQuery"
 
-const OrderBar = ({className}: {className?: string}) => {
+const OrderBar = ({className, basketItems}: {className?: string, basketItems?: any[]}) => {
   const isDesktop = useMediaQuery("(min-width: 64em");
   const [openBasket, setOpenBasket] = useState(false);
+
   const handleToggleBasket = () => {
     !isDesktop ? setOpenBasket(prev => !prev) : setOpenBasket(false);
   }
@@ -27,8 +27,8 @@ const OrderBar = ({className}: {className?: string}) => {
 
   return (
     <div className={classNames(style.orderBar, className)}>
-      <OrderBasket toggleBasket={handleToggleBasket} isOpen={openBasket} />
-      <BasketButton toggleBasket={handleToggleBasket} />
+      <OrderBasket toggleBasket={handleToggleBasket} isOpen={openBasket} basketItems={basketItems} />
+      <BasketButton toggleBasket={handleToggleBasket} basketItems={basketItems} />
     </div>
   )
 }
@@ -37,22 +37,37 @@ type OrderBasketProps = {
   className?: string,
   isOpen: boolean,
   toggleBasket?: () => void,
+  basketItems?: any[],
 }
 
-export const OrderBasket = ({className, toggleBasket, isOpen}: OrderBasketProps) => {
+export const OrderBasket = ({className, toggleBasket, isOpen, basketItems = []}: OrderBasketProps) => {
   const isDesktop = useMediaQuery("(min-width: 64em");
 
   return (
     <div className={classNames(style.orderBasket, className, { [style.orderBasketActive]: isOpen })}>
-      There are currently no items in your basket
+      {basketItems.length > 0 ? (
+        <ul>
+          {basketItems?.map((item, index) => (
+            <li key={index}>
+              {item.name} - £{Number(item.price).toFixed(2)}
+              
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Your basket is empty.</p>
+      )}
       {!isDesktop ? <FontAwesomeIcon icon={faCircleXmark} onClick={toggleBasket} /> : ''}
       {!isDesktop ? <BasketButton isOpen={isOpen} /> : ''}
     </div>
   )
 }
 
-const BasketButton = ({isOpen, toggleBasket}: {isOpen?: boolean, toggleBasket?: () => void}) => {
+const BasketButton = ({isOpen, toggleBasket, basketItems = []}: {isOpen?: boolean, toggleBasket?: () => void, basketItems?: any}) => {
   const isDesktop = useMediaQuery("(min-width: 64em");
+  const totalPrice = basketItems.reduce((total: number, item: {price: number}) => total + item.price, 0)
+  
+  const formattedPrice = Number(totalPrice).toFixed(2);
 
   return (
     <div className={style.basketButton} onClick={toggleBasket}>
@@ -60,7 +75,7 @@ const BasketButton = ({isOpen, toggleBasket}: {isOpen?: boolean, toggleBasket?: 
         <span className={style.basketLabel}>
           {isDesktop || isOpen ? 'Checkout' : 'Basket:'}
         </span>
-        <span>(£9.99)</span>
+        <span>(£{formattedPrice})</span>
       </div>
       {!isDesktop && !isOpen ? ( <span className={style.basketButtonIcon}>
         <span className={style.basketItemCount}>1</span>
@@ -161,7 +176,7 @@ const OrderMenuCategories = ({ currentCategory, onCategoryChange }: { currentCat
   )
 }
 
-export const OrderMenu = ({className}: {className?: string}) => {
+export const OrderMenu = ({className, orderButtonAction}: {className?: string, orderButtonAction?: (item: any) => void}) => {
   const [currentCategory, setCurrentCategory] = useState<string>(Categories[0].id)
 
   const menuItems = MenuItems.filter(item => item.category === currentCategory);
@@ -170,7 +185,7 @@ export const OrderMenu = ({className}: {className?: string}) => {
     <div className={className}>
       <OrderMenuCategories currentCategory={currentCategory} onCategoryChange={setCurrentCategory} />
 
-      <MenuItemCard items={menuItems} />
+      <MenuItemCard items={menuItems} basket={true} orderButtonAction={orderButtonAction} />
     </div>
 
   )

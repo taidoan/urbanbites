@@ -74,6 +74,29 @@
   }
 }
 
+.basketAddTitle {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  svg {
+    color: var(--clr-beige-500);
+    cursor: pointer;
+    margin: 0 !important;
+    transition: color var(--transition-speed);
+
+    &:hover {
+      color: var(--clr-primary-400);
+    }
+  }
+
+  & + * {
+    margin-block-start: rem(16);
+  }
+}
+
 .textCentre {
   text-align: center;
 }

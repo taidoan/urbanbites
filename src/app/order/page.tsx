@@ -3,6 +3,7 @@ import Divider from "@/components/Divider";
 import type { Metadata } from "next";
 import Filter from "@/components/Filter";
 import { Categories } from "@/content/menu";
+import OrderComponent from "./content";
 
 export const metadata: Metadata = {
   title: 'Urban Bites | Order'
@@ -22,12 +23,7 @@ const OrderPage = () => {
       
       <section className="order__body">
         <div className={`content-grid content-grid--inc-border`}>
-          <div className="order__bar" >
-            <OrderLocation className="order__location" />
-            <OrderMethod className="order__method" />
-            <OrderBar />
-          </div>
-          <OrderMenu className="order__menu" />
+          <OrderComponent />
         </div>
       </section>
     </div>
