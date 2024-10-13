@@ -69,6 +69,8 @@ const BasketButton = ({isOpen, toggleBasket, basketItems = []}: {isOpen?: boolea
   
   const formattedPrice = Number(totalPrice).toFixed(2);
 
+  const totalItems = basketItems.length
+
   return (
     <div className={style.basketButton} onClick={toggleBasket}>
       <div className={style.basketButtonText}>
@@ -78,7 +80,7 @@ const BasketButton = ({isOpen, toggleBasket, basketItems = []}: {isOpen?: boolea
         <span>(£{formattedPrice})</span>
       </div>
       {!isDesktop && !isOpen ? ( <span className={style.basketButtonIcon}>
-        <span className={style.basketItemCount}>1</span>
+        {totalItems >= 1 ? <span className={style.basketItemCount}>{totalItems}</span> : ''}
         <FontAwesomeIcon icon={faBasketShopping} />
       </span> ) : ''}
     </div>
