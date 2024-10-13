@@ -97,6 +97,7 @@
 .orderCategory {
   background-color: var(--clr-beige-500);
   border-radius: rem(16);
+  cursor: pointer;
   padding: size-clamp(rem(16), rem(20));
 
   .currentCategory {
@@ -127,6 +128,7 @@
     border: none;
     border-radius: rem(12);
     color: var(--clr-tertiary-400);
+    cursor: pointer;
     padding-block: size-clamp(rem(12), rem(16));
     padding-inline: size-clamp(rem(16), rem(20));
     text-align: left;
@@ -137,23 +139,46 @@
 .orderBar {
   background-color: var(--clr-light-400);
   bottom: 0;
+  box-shadow: 0 0 rem(15) var(--clr-secondary-500);
   left: 0;
   padding-block: rem(24);
   padding-inline: size-clamp(rem(24), rem(32));
   position: fixed;
   right: 0;
   width: 100%;
-  z-index: var(--z-index-highest);
+  z-index: var(--z-index-menu-content);
 
-  &::before {
-    box-shadow: 0 0 rem(15) var(--clr-secondary-500);
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1100;
+  @include mq("md") {
+    background-color: initial;
+    box-shadow: initial;
+    padding: initial;
+    position: static;
+    z-index: initial;
+  }
+}
+
+.orderBasket {
+  background-color: var(--clr-light-400);
+  height: 0;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  transition: height 0.5s ease-in-out, visibility 0.5s;
+  visibility: hidden;
+  width: 100%;
+
+  &.orderBasketActive {
+    background-color: palevioletred;
+    height: 100dvh;
+    visibility: visible;
+    z-index: var(--z-index-menu);
+  }
+
+  @include mq("md") {
+    height: auto;
+    position: static;
+    visibility: visible;
   }
 }
 
@@ -162,11 +187,16 @@
   background-color: var(--clr-primary-400);
   border-radius: rem(16);
   color: var(--clr-light-400);
+  cursor: pointer;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding-block: size-clamp(rem(20), rem(24));
   padding-inline: rem(24);
   width: 100%;
+
+  &:has(svg) {
+    justify-content: space-between;
+  }
 }
 
 .basketButtonText {

@@ -1,4 +1,4 @@
-import OrderBar, { OrderLocation, OrderMenu, OrderMethod } from "@/components/Order";
+import OrderBar, { OrderBasket, OrderLocation, OrderMenu, OrderMethod } from "@/components/Order";
 import Divider from "@/components/Divider";
 import type { Metadata } from "next";
 import Filter from "@/components/Filter";
@@ -22,11 +22,13 @@ const OrderPage = () => {
       
       <section className="order__body">
         <div className={`content-grid content-grid--inc-border`}>
-          <OrderLocation />
-          <OrderMethod />
-          <OrderMenu />
+          <div className="order__bar" >
+            <OrderLocation className="order__location" />
+            <OrderMethod className="order__method" />
+            <OrderBar />
+          </div>
+          <OrderMenu className="order__menu" />
         </div>
-        <OrderBar />
       </section>
     </div>
   )

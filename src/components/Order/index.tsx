@@ -3,37 +3,74 @@
 import Button from "../Button"
 import style from "./styles.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBasketShopping, faCircleDown, faCircleUp, faBicycle, faBagShopping, faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons"
+import { faBasketShopping, faCircleDown, faCircleUp, faBicycle, faBagShopping, faChevronDown, faChevronUp, faCircleXmark } from "@fortawesome/free-solid-svg-icons"
 import { Locations } from "@/content/locations"
 import { useState, useEffect } from "react"
 import { Categories, MenuItems } from "@/content/menu"
 import { capitaliseFirstLetter } from "@/utilities/letters"
 import MenuItemCard from "@/app/menus/components/MenuItemCard"
+import classNames from "classnames"
+import useMediaQuery from "@/hooks/useMediaQuery"
 
-const OrderBar = () => {
+const OrderBar = ({className}: {className?: string}) => {
+  const isDesktop = useMediaQuery("(min-width: 64em");
+  const [openBasket, setOpenBasket] = useState(false);
+  const handleToggleBasket = () => {
+    !isDesktop ? setOpenBasket(prev => !prev) : setOpenBasket(false);
+  }
+
+  useEffect(() => {
+    if (isDesktop && openBasket) {
+      setOpenBasket(false);
+    }
+  }, [isDesktop]); 
+
   return (
-    <div className={style.orderBar}>
-      <BasketButton />
+    <div className={classNames(style.orderBar, className)}>
+      <OrderBasket toggleBasket={handleToggleBasket} isOpen={openBasket} />
+      <BasketButton toggleBasket={handleToggleBasket} />
     </div>
   )
 }
 
-const BasketButton = () => {
+type OrderBasketProps = {
+  className?: string,
+  isOpen: boolean,
+  toggleBasket?: () => void,
+}
+
+export const OrderBasket = ({className, toggleBasket, isOpen}: OrderBasketProps) => {
+  const isDesktop = useMediaQuery("(min-width: 64em");
+
   return (
-    <div className={style.basketButton}>
+    <div className={classNames(style.orderBasket, className, { [style.orderBasketActive]: isOpen })}>
+      There are currently no items in your basket
+      {!isDesktop ? <FontAwesomeIcon icon={faCircleXmark} onClick={toggleBasket} /> : ''}
+      {!isDesktop ? <BasketButton isOpen={isOpen} /> : ''}
+    </div>
+  )
+}
+
+const BasketButton = ({isOpen, toggleBasket}: {isOpen?: boolean, toggleBasket?: () => void}) => {
+  const isDesktop = useMediaQuery("(min-width: 64em");
+
+  return (
+    <div className={style.basketButton} onClick={toggleBasket}>
       <div className={style.basketButtonText}>
-        <span className={style.basketLabel}>Basket:</span>
+        <span className={style.basketLabel}>
+          {isDesktop || isOpen ? 'Checkout' : 'Basket:'}
+        </span>
         <span>(£9.99)</span>
       </div>
-      <span className={style.basketButtonIcon}>
+      {!isDesktop && !isOpen ? ( <span className={style.basketButtonIcon}>
         <span className={style.basketItemCount}>1</span>
         <FontAwesomeIcon icon={faBasketShopping} />
-      </span>
+      </span> ) : ''}
     </div>
   )
 }
 
-export const OrderLocation = () => {
+export const OrderLocation = ({className}: {className?: string}) => {
   const [currentLocation, setCurrentLocation] = useState('');
   const [locationSelector, setLocationSelector] = useState(false)
 
@@ -56,7 +93,7 @@ export const OrderLocation = () => {
 
   return (
     <>
-    <div className={style.locationSelector}>
+    <div className={classNames(style.locationSelector, className)}>
       <h3>{currentLocation}</h3>
       <span className={style.locationSelectButton} onClick={handleLocationSelectorClick}>
         <FontAwesomeIcon icon={locationSelectorIcon} className={style.locationSelectIcon} />
@@ -69,7 +106,7 @@ export const OrderLocation = () => {
   )
 }
 
-export const OrderMethod = () => {
+export const OrderMethod = ({className}: {className?: string}) => {
   const [orderMethod, setOrderMethod] = useState("delivery");
 
   const handleOrderMethodChange = (method: string) => {
@@ -77,7 +114,7 @@ export const OrderMethod = () => {
   };
 
   return (
-    <div className={style.orderMethod}>
+    <div className={classNames(style.orderMethod, className)}>
       <button 
         className={`${style.orderMethodOption} ${orderMethod === 'delivery' ? style.orderMethodOptionActive : ''}`} 
         onClick={() => handleOrderMethodChange('delivery')}
@@ -95,21 +132,6 @@ export const OrderMethod = () => {
     </div>
   );
 };
-
-export const OrderMenu = () => {
-  const [currentCategory, setCurrentCategory] = useState<string>(Categories[0].id)
-
-  const menuItems = MenuItems.filter(item => item.category === currentCategory);
-
-  return (
-    <div>
-      <OrderMenuCategories currentCategory={currentCategory} onCategoryChange={setCurrentCategory} />
-
-      <MenuItemCard items={menuItems} />
-    </div>
-
-  )
-}
 
 const OrderMenuCategories = ({ currentCategory, onCategoryChange }: { currentCategory: string, onCategoryChange: (id: string) => void }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -136,6 +158,21 @@ const OrderMenuCategories = ({ currentCategory, onCategoryChange }: { currentCat
         </ul>
       }
     </div>
+  )
+}
+
+export const OrderMenu = ({className}: {className?: string}) => {
+  const [currentCategory, setCurrentCategory] = useState<string>(Categories[0].id)
+
+  const menuItems = MenuItems.filter(item => item.category === currentCategory);
+
+  return (
+    <div className={className}>
+      <OrderMenuCategories currentCategory={currentCategory} onCategoryChange={setCurrentCategory} />
+
+      <MenuItemCard items={menuItems} />
+    </div>
+
   )
 }
 
