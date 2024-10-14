@@ -2,7 +2,7 @@
 
 import style from "./styles.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBasketShopping, faCircleDown, faCircleUp, faBicycle, faBagShopping, faChevronDown, faChevronUp, faCircleXmark } from "@fortawesome/free-solid-svg-icons"
+import { faBasketShopping, faCircleDown, faCircleUp, faBicycle, faBagShopping, faChevronDown, faChevronUp, faCircleXmark, faCirclePlus, faCircleMinus } from "@fortawesome/free-solid-svg-icons"
 import { Locations } from "@/content/locations"
 import { useState, useEffect } from "react"
 import { Categories, MenuItems } from "@/content/menu"
@@ -10,14 +10,24 @@ import { capitaliseFirstLetter } from "@/utilities/letters"
 import MenuItemCard from "@/app/menus/components/MenuItemCard"
 import classNames from "classnames"
 import useMediaQuery from "@/hooks/useMediaQuery"
+import Divider from "../Divider"
 
-const OrderBar = ({className, basketItems}: {className?: string, basketItems?: any[]}) => {
-  const isDesktop = useMediaQuery("(min-width: 64em");
+const OrderBar = ({ className, basketItems, increaseQuantity, decreaseQuantity }: { className?: string; basketItems: any[]; increaseQuantity: (id: number) => void; decreaseQuantity: (id: number) => void; }) => {
+  const isDesktop = useMediaQuery("(min-width: 64em)");
   const [openBasket, setOpenBasket] = useState(false);
 
   const handleToggleBasket = () => {
-    !isDesktop ? setOpenBasket(prev => !prev) : setOpenBasket(false);
+    if (!isDesktop) {
+      setOpenBasket(prev => !prev);
+    }
   }
+
+  useEffect(() => {
+    document.body.classList.toggle('locked', openBasket);
+    return () => {
+      document.body.classList.remove('locked'); 
+    };
+  }, [openBasket]);
 
   useEffect(() => {
     if (isDesktop && openBasket) {
@@ -27,49 +37,116 @@ const OrderBar = ({className, basketItems}: {className?: string, basketItems?: a
 
   return (
     <div className={classNames(style.orderBar, className)}>
-      <OrderBasket toggleBasket={handleToggleBasket} isOpen={openBasket} basketItems={basketItems} />
+      <OrderBasket 
+        toggleBasket={handleToggleBasket} 
+        isOpen={openBasket} 
+        basketItems={basketItems} 
+        increaseQuantity={increaseQuantity} 
+        decreaseQuantity={decreaseQuantity} 
+      />
       <BasketButton toggleBasket={handleToggleBasket} basketItems={basketItems} />
     </div>
-  )
+  );
 }
+
+type BasketItem = {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+};
 
 type OrderBasketProps = {
-  className?: string,
-  isOpen: boolean,
-  toggleBasket?: () => void,
-  basketItems?: any[],
-}
+  className?: string;
+  isOpen: boolean;
+  toggleBasket?: () => void;
+  basketItems: BasketItem[];
+  increaseQuantity?: (itemId: number) => void;
+  decreaseQuantity?: (itemId: number) => void;
+};
 
-export const OrderBasket = ({className, toggleBasket, isOpen, basketItems = []}: OrderBasketProps) => {
-  const isDesktop = useMediaQuery("(min-width: 64em");
+export const OrderBasket = ({
+  className,
+  toggleBasket,
+  isOpen,
+  basketItems,
+  increaseQuantity,
+  decreaseQuantity,
+}: OrderBasketProps) => {
+  const isDesktop = useMediaQuery("(min-width: 64em)");
+  const [expandedItemId, setExpandedItemId] = useState<number | null>(null);
+
+  const totalPrice = basketItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const formattedPrice = totalPrice.toFixed(2);
+
+  const toggleItem = (itemId: number) => {
+    setExpandedItemId(prevId => (prevId === itemId ? null : itemId));
+  };
 
   return (
     <div className={classNames(style.orderBasket, className, { [style.orderBasketActive]: isOpen })}>
-      {basketItems.length > 0 ? (
-        <ul>
-          {basketItems?.map((item, index) => (
-            <li key={index}>
-              {item.name} - £{Number(item.price).toFixed(2)}
-              
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Your basket is empty.</p>
-      )}
-      {!isDesktop ? <FontAwesomeIcon icon={faCircleXmark} onClick={toggleBasket} /> : ''}
-      {!isDesktop ? <BasketButton isOpen={isOpen} /> : ''}
+      {!isDesktop ? (
+        <>
+          <div className={style.basketHeader}>
+            <h3 className={style.basketTitle}>Basket</h3>
+            <FontAwesomeIcon icon={faCircleXmark} onClick={toggleBasket} className={style.basketCloseButton} />
+          </div>
+          <Divider width="full-width" />
+        </>
+      ) : null}
+      <div className={style.basketItemContainer}>
+        {basketItems.length > 0 ? (
+          <ul>
+            {basketItems.map((item, index) => (
+              <li key={index} className={style.basketItem} onClick={() => toggleItem(item.id)}>
+                <div className={style.basketItemQuantityBlock}>
+                  {isDesktop || expandedItemId === item.id ? (
+                    <FontAwesomeIcon icon={faCircleMinus} className={style.basketItemQuantityIcon} onClick={() => decreaseQuantity(item.id)} />
+                  ) : null}
+                  <span className={style.basketItemQuantity}>
+                    {item.quantity}{!isDesktop && expandedItemId !== item.id ? ' x' : null}
+                  </span>
+                  {isDesktop || expandedItemId === item.id ? (
+                    <FontAwesomeIcon icon={faCirclePlus} className={style.basketItemQuantityIcon} onClick={() => increaseQuantity(item.id)} />
+                  ) : null}
+                </div>
+                <span className={style.basketItemName}>{item.name}</span>
+                <span className={style.basketItemPrice}>
+                  £{(item.price * item.quantity).toFixed(2)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>Your basket is empty.</p>
+        )}
+      </div>
+      {!isDesktop ? (
+        <>
+          <Divider weight="thin" width="full-width" className={style.basketTotalDivider} />
+          <div className={style.basketTotalPrice}>
+            <span>Total:</span>
+            <span><strong>£{formattedPrice}</strong></span>
+          </div>
+          <BasketButton isOpen={isOpen} basketItems={basketItems} />
+        </>
+      ) : null}
     </div>
-  )
-}
+  );
+};
 
-const BasketButton = ({isOpen, toggleBasket, basketItems = []}: {isOpen?: boolean, toggleBasket?: () => void, basketItems?: any}) => {
-  const isDesktop = useMediaQuery("(min-width: 64em");
-  const totalPrice = basketItems.reduce((total: number, item: {price: number}) => total + item.price, 0)
-  
-  const formattedPrice = Number(totalPrice).toFixed(2);
+type BasketButtonProps = {
+  isOpen?: boolean;
+  toggleBasket?: () => void;
+  basketItems?: BasketItem[];
+};
 
-  const totalItems = basketItems.length
+const BasketButton = ({ isOpen, toggleBasket, basketItems = [] }: BasketButtonProps) => {
+  const isDesktop = useMediaQuery("(min-width: 64em)");
+
+  const totalPrice = basketItems.reduce((total: number, item: BasketItem) => total + item.price * item.quantity, 0);
+  const formattedPrice = totalPrice.toFixed(2);
+  const totalItems = basketItems.reduce((count: number, item: BasketItem) => count + item.quantity, 0);
 
   return (
     <div className={style.basketButton} onClick={toggleBasket}>
@@ -79,13 +156,15 @@ const BasketButton = ({isOpen, toggleBasket, basketItems = []}: {isOpen?: boolea
         </span>
         <span>(£{formattedPrice})</span>
       </div>
-      {!isDesktop && !isOpen ? ( <span className={style.basketButtonIcon}>
-        {totalItems >= 1 ? <span className={style.basketItemCount}>{totalItems}</span> : ''}
-        <FontAwesomeIcon icon={faBasketShopping} />
-      </span> ) : ''}
+      {!isDesktop && !isOpen && (
+        <span className={style.basketButtonIcon}>
+          {totalItems > 0 && <span className={style.basketItemCount}>{totalItems}</span>}
+          <FontAwesomeIcon icon={faBasketShopping} />
+        </span>
+      )}
     </div>
-  )
-}
+  );
+};
 
 export const OrderLocation = ({className}: {className?: string}) => {
   const [currentLocation, setCurrentLocation] = useState('');

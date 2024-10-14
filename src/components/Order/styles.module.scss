@@ -158,27 +158,112 @@
 }
 
 .orderBasket {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: hsla(22, 26%, 96%, 0.9);
   background-color: var(--clr-light-400);
-  height: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
   left: 0;
   overflow: hidden;
+  padding: size-clamp(rem(24), rem(32));
   position: fixed;
   top: 0;
-  transition: height 0.5s ease-in-out, visibility 0.5s;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease-in-out, visibility 0.5s;
   visibility: hidden;
   width: 100%;
 
   &.orderBasketActive {
-    background-color: palevioletred;
-    height: 100dvh;
+    transform: translateY(0);
     visibility: visible;
     z-index: var(--z-index-menu);
   }
 
   @include mq("md") {
     height: auto;
+    padding: 0;
     position: static;
+    transform: initial;
     visibility: visible;
+  }
+
+  .basketHeader {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    .basketCloseButton {
+      color: var(--clr-beige-600);
+      cursor: pointer;
+      font-size: size-clamp(rem(32), rem(48));
+    }
+
+    .basketTitle {
+      font-size: rem(40);
+    }
+  }
+
+  .basketItemContainer {
+    flex-grow: 1;
+    overflow-y: auto;
+
+    ul {
+      height: 100%;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li.basketItem {
+      align-items: center;
+      column-gap: rem(16);
+      display: grid;
+      grid-template-columns: minmax(rem(20), auto) 1fr auto;
+      padding-block: size-clamp(rem(16), rem(24));
+    }
+
+    li + li {
+      border-top: rem(1) solid var(--clr-cream-400);
+    }
+
+    .basketItemQuantityBlock {
+      align-items: center;
+      column-gap: rem(8);
+      display: flex;
+
+      .basketItemQuantityIcon {
+        color: var(--clr-cream-400);
+        cursor: pointer;
+        font-size: size-clamp(rem(16), rem(20));
+        transition: color var(--transition-speed);
+
+        &:hover {
+          color: var(--clr-cream-500);
+        }
+      }
+    }
+
+    .basketItemName {
+      flex-grow: 1;
+      font-weight: bold;
+    }
+  }
+
+  --basketTotalMargin: #{rem(24)};
+
+  .basketTotalDivider {
+    margin-block-end: 0;
+    margin-block-start: var(--basketTotalMargin);
+  }
+
+  .basketTotalPrice {
+    display: flex;
+    justify-content: space-between;
+    margin-block: var(--basketTotalMargin);
+  }
+
+  .basketButton {
   }
 }
 
