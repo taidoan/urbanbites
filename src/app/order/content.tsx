@@ -45,7 +45,6 @@ const OrderComponent = () => {
       return prevItems.filter(item => item.id !== itemId);
     });
   };
-
   return (
     <>
       <div className="order__bar">

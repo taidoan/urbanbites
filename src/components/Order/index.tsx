@@ -12,7 +12,7 @@ import classNames from "classnames"
 import useMediaQuery from "@/hooks/useMediaQuery"
 import Divider from "../Divider"
 
-const OrderBar = ({ className, basketItems, increaseQuantity, decreaseQuantity }: { className?: string; basketItems: any[]; increaseQuantity: (id: number) => void; decreaseQuantity: (id: number) => void; }) => {
+const OrderBar = ({ className, basketItems, increaseQuantity, decreaseQuantity }: { className?: string; basketItems: BasketItem[]; increaseQuantity: (id: number) => void; decreaseQuantity: (id: number) => void; }) => {
   const isDesktop = useMediaQuery("(min-width: 64em)");
   const [openBasket, setOpenBasket] = useState(false);
 
@@ -61,8 +61,8 @@ type OrderBasketProps = {
   isOpen: boolean;
   toggleBasket?: () => void;
   basketItems: BasketItem[];
-  increaseQuantity?: (itemId: number) => void;
-  decreaseQuantity?: (itemId: number) => void;
+  increaseQuantity: (itemId: number) => void;
+  decreaseQuantity: (itemId: number) => void;
 };
 
 export const OrderBasket = ({
@@ -143,6 +143,7 @@ type BasketButtonProps = {
 
 const BasketButton = ({ isOpen, toggleBasket, basketItems = [] }: BasketButtonProps) => {
   const isDesktop = useMediaQuery("(min-width: 64em)");
+
 
   const totalPrice = basketItems.reduce((total: number, item: BasketItem) => total + item.price * item.quantity, 0);
   const formattedPrice = totalPrice.toFixed(2);
@@ -232,23 +233,42 @@ export const OrderMethod = ({className}: {className?: string}) => {
 const OrderMenuCategories = ({ currentCategory, onCategoryChange }: { currentCategory: string, onCategoryChange: (id: string) => void }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  const isDesktop = useMediaQuery("(min-width: 64em)");
+
+  
+  useEffect(() => {
+    if (isDesktop) {
+      setDropdownOpen(true)
+    } else {
+      setDropdownOpen(false)
+    }
+  }, [isDesktop]); 
+
   const handleDropdownClick = () => {
     setDropdownOpen((prev) => !prev);
+  }
+
+  const handleCatChange = () => {
+    if(isDesktop) {
+      return
+    } else {
+      setDropdownOpen(false)
+    }
   }
 
   const icon = dropdownOpen ? faChevronUp : faChevronDown;
 
   return (
     <div className={style.orderCategory}>
-      <div className={style.currentCategory} onClick={() => handleDropdownClick()}>
+      {!isDesktop && (<div className={style.currentCategory} onClick={() => handleDropdownClick()}>
         <span className={style.currentCategoryText}>{capitaliseFirstLetter(currentCategory)}</span>
         <FontAwesomeIcon icon={icon} />
-      </div>
+      </div>)}
       {dropdownOpen && 
         <ul className={style.orderCategoryList}>
           {Categories.map((cat) => (
-            <li key={cat.id}>
-              <button className={style.orderCategoryOption} onClick={() => {onCategoryChange(cat.id); setDropdownOpen(false)}}>{capitaliseFirstLetter(cat.id)}</button>
+            <li key={cat.id} className={`${style.orderCategoryOption} ${currentCategory === cat.id ? style.activeClass : ''}`} onClick={() => {onCategoryChange(cat.id); handleCatChange()}}>
+              {capitaliseFirstLetter(cat.id)}
             </li>
           ))}
         </ul>
@@ -265,8 +285,9 @@ export const OrderMenu = ({className, orderButtonAction}: {className?: string, o
   return (
     <div className={className}>
       <OrderMenuCategories currentCategory={currentCategory} onCategoryChange={setCurrentCategory} />
-
-      <MenuItemCard items={menuItems} basket={true} orderButtonAction={orderButtonAction} />
+      <div className="order__menu-items">
+        <MenuItemCard items={menuItems} basket={true} orderButtonAction={orderButtonAction} />
+      </div>
     </div>
 
   )
