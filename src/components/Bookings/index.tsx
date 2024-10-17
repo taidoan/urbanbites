@@ -97,8 +97,6 @@ const BookingsBar = ({className}: BookingsBarProps) => {
   const searchParams = useSearchParams();
   const locationId = searchParams.get('locationId');
 
-  console.log(locationId)
-
   useEffect(() => {
     if (locationId) {
       const location = Locations.find(loc => loc.id === parseInt(locationId));

@@ -12,7 +12,7 @@ const events = Events.map((event) => ({
   },
   time: event.time,
   location: event.location,
-  url: `/events?eventId=${event.id}`,
+  url: `/events#${event.name}`,
   date: event.date,
 }));
 

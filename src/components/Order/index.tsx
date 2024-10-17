@@ -11,6 +11,7 @@ import MenuItemCard from "@/app/menus/components/MenuItemCard"
 import classNames from "classnames"
 import useMediaQuery from "@/hooks/useMediaQuery"
 import Divider from "../Divider"
+import { useSearchParams } from "next/navigation"
 
 const OrderBar = ({ className, basketItems, increaseQuantity, decreaseQuantity }: { className?: string; basketItems: BasketItem[]; increaseQuantity: (id: number) => void; decreaseQuantity: (id: number) => void; }) => {
   const isDesktop = useMediaQuery("(min-width: 64em)");
@@ -89,7 +90,7 @@ export const OrderBasket = ({
         <>
           <div className={style.basketHeader}>
             <h3 className={style.basketTitle}>Basket</h3>
-            <FontAwesomeIcon icon={faCircleXmark} onClick={toggleBasket} className={style.basketCloseButton} />
+            <FontAwesomeIcon icon={faCircleXmark} onClick={toggleBasket} className={style.basketCloseButton} role="button" />
           </div>
           <Divider width="full-width" />
         </>
@@ -100,15 +101,27 @@ export const OrderBasket = ({
             {basketItems.map((item, index) => (
               <li key={index} className={style.basketItem} onClick={() => toggleItem(item.id)}>
                 <div className={style.basketItemQuantityBlock}>
+
                   {isDesktop || expandedItemId === item.id ? (
-                    <FontAwesomeIcon icon={faCircleMinus} className={style.basketItemQuantityIcon} onClick={() => decreaseQuantity(item.id)} />
+                    <FontAwesomeIcon 
+                      icon={faCircleMinus} 
+                      className={style.basketItemQuantityIcon} 
+                      onClick={() => decreaseQuantity(item.id)} 
+                      aria-label="decrease quantity" />
                   ) : null}
+
                   <span className={style.basketItemQuantity}>
                     {item.quantity}{!isDesktop && expandedItemId !== item.id ? ' x' : null}
                   </span>
+
                   {isDesktop || expandedItemId === item.id ? (
-                    <FontAwesomeIcon icon={faCirclePlus} className={style.basketItemQuantityIcon} onClick={() => increaseQuantity(item.id)} />
+                    <FontAwesomeIcon 
+                      icon={faCirclePlus} 
+                      className={style.basketItemQuantityIcon} 
+                      onClick={() => increaseQuantity(item.id)} 
+                      aria-label="increase quantity" />
                   ) : null}
+
                 </div>
                 <span className={style.basketItemName}>{item.name}</span>
                 <span className={style.basketItemPrice}>
@@ -192,7 +205,7 @@ export const OrderLocation = ({className}: {className?: string}) => {
     <>
     <div className={classNames(style.locationSelector, className)}>
       <h3>{currentLocation}</h3>
-      <span className={style.locationSelectButton} onClick={handleLocationSelectorClick}>
+      <span className={style.locationSelectButton} onClick={handleLocationSelectorClick} role="button" >
         <FontAwesomeIcon icon={locationSelectorIcon} className={style.locationSelectIcon} />
       </span>
       {locationSelector && <ul className={style.locationSelectorList}>{Locations.map(location => (
@@ -205,10 +218,19 @@ export const OrderLocation = ({className}: {className?: string}) => {
 
 export const OrderMethod = ({className}: {className?: string}) => {
   const [orderMethod, setOrderMethod] = useState("delivery");
+  const searchParams = useSearchParams()
 
   const handleOrderMethodChange = (method: string) => {
     setOrderMethod(method);
   };
+
+  const methodFromQuery = searchParams.get("method")
+
+  useEffect(() => {
+    if(methodFromQuery && methodFromQuery !== orderMethod) {
+      setOrderMethod(methodFromQuery)
+    }
+  },[searchParams])
 
   return (
     <div className={classNames(style.orderMethod, className)}>

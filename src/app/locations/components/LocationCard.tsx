@@ -16,7 +16,7 @@ type LocationCardProps = {
 
 const LocationCard = ({location, className}: LocationCardProps) => {
   return(
-    <Card id={`${location.id}`} imagePosition="left" className={className}>
+    <Card id={`${location.name}`} imagePosition="left" className={className}>
       <CardImage src={location.image} alt={location.name} />
       <CardBody className={style.body}>
         <div className={style.infoBlock}>
