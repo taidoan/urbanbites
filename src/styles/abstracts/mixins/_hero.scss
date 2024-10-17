@@ -3,6 +3,7 @@
 @use "./../functions/px-to-rem" as *;
 @use "./../functions/image-url" as *;
 @use "./../settings/shadows" as *;
+@use "./../settings/filePaths" as *;
 
 @mixin hero-section($url, $height: 100dvh) {
   --title-shadow: #{$hero-title-shadow};

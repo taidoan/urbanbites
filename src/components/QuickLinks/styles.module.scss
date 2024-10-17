@@ -50,17 +50,20 @@
   }
 
   &--locations {
-    background: url("/assets/images/home/locations.jpg") no-repeat center;
+    background: url("#{$static-path}/assets/images/home/locations.jpg")
+      no-repeat center;
     background-size: cover;
   }
 
   &--events {
-    background: url("/assets/images/home/events.jpg") no-repeat center;
+    background: url("#{$static-path}/assets/images/home/events.jpg") no-repeat
+      center;
     background-size: cover;
   }
 
   &--bookings {
-    background: url("/assets/images/home/bookings.jpg") no-repeat center;
+    background: url("#{$static-path}/assets/images/home/bookings.jpg") no-repeat
+      center;
     background-size: cover;
   }
 }

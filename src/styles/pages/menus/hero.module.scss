@@ -3,7 +3,7 @@
 .hero {
   --title-shadow: #{$hero-title-shadow};
   --body-text-shadow: #{$hero-body-shadow};
-  --dynamic-background-image: url("/assets/images/menus/carousel/1.jpg");
+  --dynamic-background-image: url("#{$static-path}/assets/images/menus/carousel/1.jpg");
   align-items: center;
   color: var(--clr-light-400);
   display: flex;

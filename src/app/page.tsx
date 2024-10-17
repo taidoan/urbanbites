@@ -37,7 +37,7 @@ export default function Home() {
             <Button variant='primary' title='Food Menu' href="/menus" />
           </div>
           </div>
-          <ExportedImage src={foodImage} alt="Food Menu" className={ft.image} />
+          <ExportedImage src={foodImage} alt="Food Menu" className={ft.image} basePath="/previews/urbanbites" />
         </div>
         <div className={ft.container}>
           <div className="content-grid content-grid--half">
@@ -48,7 +48,7 @@ export default function Home() {
             <Button variant='primary' title='Drinks Menu' href="/menus?tab=drinks" />
           </div>
           </div>
-          <ExportedImage src={drinksImage} alt="Drinks Menu" className={ft.image} />
+          <ExportedImage src={drinksImage} alt="Drinks Menu" className={ft.image} basePath="/previews/urbanbites" />
         </div>
         <div className={`${ft.container} ${ft.containerDark}`}>
           <div className="content-grid content-grid--half">
@@ -60,7 +60,7 @@ export default function Home() {
             <Button variant='primary' title='Collection' href="/order?method=collection" />
           </div>
           </div>
-          <ExportedImage src={orderImage} alt="Order" className={ft.image} />
+          <ExportedImage src={orderImage} alt="Order" className={ft.image} basePath="/previews/urbanbites" />
         </div>
       </section>
       <section className={`home__quick-links`}>
