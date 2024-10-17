@@ -1,7 +1,8 @@
 import path from "path";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // basePath: "/out",
+  basePath: "/previews/urbanbites",
+  assetPrefix: "/previews/urbanbites/",
   output: "export",
   images: {
     loader: "custom",

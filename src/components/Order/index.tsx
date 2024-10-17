@@ -34,7 +34,7 @@ const OrderBar = ({ className, basketItems, increaseQuantity, decreaseQuantity }
     if (isDesktop && openBasket) {
       setOpenBasket(false);
     }
-  }, [isDesktop]); 
+  }, [isDesktop, openBasket]); 
 
   return (
     <div className={classNames(style.orderBar, className)}>
