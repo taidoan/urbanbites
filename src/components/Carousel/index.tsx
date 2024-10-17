@@ -30,7 +30,7 @@ const Carousel = ({target, slides, children, duration}: CarouselProps) => {
     };
     const intervalId = setInterval(updateBackgroundImage, duration);
     return () => clearInterval(intervalId);
-  }, [currentImage, slides, target]);
+  }, [currentImage, slides, target, duration]);
 
   return (
     <>

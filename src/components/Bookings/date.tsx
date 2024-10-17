@@ -37,7 +37,7 @@ const DatePicker = ({ disabled, onDateChange, selectedLocation }: DatePickerProp
     } else {
       onDateChange(null);
     }
-  }, [date]);
+  }, [date, onDateChange]);
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDate(e.target.value);

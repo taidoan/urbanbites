@@ -230,7 +230,7 @@ export const OrderMethod = ({className}: {className?: string}) => {
     if(methodFromQuery && methodFromQuery !== orderMethod) {
       setOrderMethod(methodFromQuery)
     }
-  },[searchParams])
+  },[searchParams, methodFromQuery, orderMethod])
 
   return (
     <div className={classNames(style.orderMethod, className)}>
