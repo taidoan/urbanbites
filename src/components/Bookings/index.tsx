@@ -102,7 +102,7 @@ const BookingsBar = ({className}: BookingsBarProps) => {
       const location = Locations.find(loc => loc.id === parseInt(locationId));
       setSelectedLocation(location || null);
     }
-  }, [locationId]);
+  }, [searchParams, locationId]);
 
   return(
     <Card className={BookingCardClasses}>

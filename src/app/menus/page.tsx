@@ -4,6 +4,7 @@ import Carousel from "@/components/Carousel";
 import { firstImage, secondImage, thirdImage, fourthImage, fifthImage, sixthImage } from "./images";
 import Divider from "@/components/Divider";
 import MenuSection from "./menu";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: 'Urban Bites | Menus',
@@ -23,7 +24,9 @@ const MenusPage = () => {
           </div>
         </Carousel>
       </section>
-      <MenuSection />
+      <Suspense fallback={<div>Loading...</div>}>
+        <MenuSection />
+      </Suspense>
     </main>
   )
  }

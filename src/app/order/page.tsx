@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Filter from "@/components/Filter";
 import { Categories } from "@/content/menu";
 import OrderComponent from "./content";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: 'Urban Bites | Order'
@@ -23,7 +24,10 @@ const OrderPage = () => {
       
       <section className="order__body">
         <div className={`content-grid content-grid--inc-border`}>
-          <OrderComponent />
+          
+          <Suspense fallback={<div>Loading...</div>}>
+            <OrderComponent />
+          </Suspense>
         </div>
       </section>
     </div>
