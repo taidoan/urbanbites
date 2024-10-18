@@ -3,6 +3,7 @@ import path from "path";
 const nextConfig = {
   basePath: "/previews/urbanbites",
   assetPrefix: "/previews/urbanbites/",
+  exportTrailingSlash: true,
   output: "export",
   images: {
     loader: "custom",
