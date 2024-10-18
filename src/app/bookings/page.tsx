@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Divider from "@/components/Divider";
 import BookingsBar from "@/components/Bookings";
 import ContactButton from "./components/ContactButtons";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: 'Urban Bites | Bookings',
@@ -25,7 +26,9 @@ const BookingsPage = () => {
           <Divider center />
           <p>Reserve your table using the form below, or feel free to walk in. Either way, we’ve got you. We look forward to welcoming you!</p>
         </div>
-        <BookingsBar className={`bookings-bar`} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <BookingsBar className={`bookings-bar`} />
+        </Suspense>
       </div>
     </section>
     <section className={`bookings__group`}>

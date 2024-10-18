@@ -15,7 +15,7 @@ const locations = Locations.map((location) => ({
     url: location.mapLink,
     target: "_blank",
   },
-  url: `/locations/#${location.id}`,
+  url: `/locations/#${location.name}`,
 }));
 
 export default locations;

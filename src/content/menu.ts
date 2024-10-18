@@ -76,7 +76,7 @@ export const MenuItems: Item[] = [
     description:
       "Grilled chicken breast, hummus, cucumber, tomato, red onion, and feta cheese wrapped in a whole-grain tortilla.",
     calories: "500kcal",
-    price: "£9.00",
+    price: 9.0,
   },
   {
     id: 2,
@@ -85,7 +85,7 @@ export const MenuItems: Item[] = [
     description:
       "Crispy falafel patties, hummus, lettuce, tomato, cucumber, red onion, and tzatziki sauce wrapped in a soft pita bread.",
     calories: "450kcal",
-    price: "£8.00",
+    price: 8.0,
   },
   {
     id: 3,
@@ -94,7 +94,7 @@ export const MenuItems: Item[] = [
     description:
       "Sliced turkey breast, Swiss cheese, crisp lettuce, and cranberry mayo served on whole-grain bread.",
     calories: "450kcal",
-    price: "£9.00",
+    price: 9.0,
   },
   {
     id: 4,
@@ -103,7 +103,7 @@ export const MenuItems: Item[] = [
     description:
       "Fresh mozzarella, tomato, basil pesto, and balsamic glaze pressed between slices of artisanal bread.",
     calories: "350kcal",
-    price: "£9.00",
+    price: 9.0,
   },
   {
     id: 5,
@@ -112,7 +112,7 @@ export const MenuItems: Item[] = [
     description:
       "Velvety smooth and rich New York-style cheesecake with a buttery graham cracker crust, served with a dollop of whipped cream and fresh berries.",
     calories: "400kcal",
-    price: "£6.00",
+    price: 6.0,
   },
   {
     id: 6,
@@ -121,7 +121,7 @@ export const MenuItems: Item[] = [
     description:
       "Dive into a decadent chocolate lava cake with a molten chocolate center, served warm with a scoop of vanilla ice cream and a drizzle of chocolate sauce.",
     calories: "450kcal",
-    price: "£7.00",
+    price: 7.0,
   },
   {
     id: 7,
@@ -130,7 +130,7 @@ export const MenuItems: Item[] = [
     description:
       "Delight in a flaky pastry shell filled with luscious pastry cream and topped with a vibrant assortment of fresh seasonal fruits, glazed to perfection.",
     calories: "250kcal",
-    price: "£8.00",
+    price: 8.0,
   },
   {
     id: 8,
@@ -139,7 +139,7 @@ export const MenuItems: Item[] = [
     description:
       "Wild-caught salmon fillet grilled to perfection and served with a zesty lemon-dill sauce, accompanied by roasted vegetables and quinoa pilaf.",
     calories: "500kcal",
-    price: "£16.00",
+    price: 16.0,
   },
   {
     id: 9,
@@ -148,7 +148,7 @@ export const MenuItems: Item[] = [
     description:
       "Creamy Arborio rice cooked with tender locally sourced beef, earthy mushrooms, Parmesan cheese, and a touch of red wine.",
     calories: "500kcal",
-    price: "£14.00",
+    price: 14.0,
   },
   {
     id: 10,
@@ -157,7 +157,7 @@ export const MenuItems: Item[] = [
     description:
       "Fusilli pasta tossed with roasted Mediterranean vegetables such as eggplant, bell peppers, zucchini, and cherry tomatoes, in a garlic and herb-infused olive oil sauce, finished with crumbled feta cheese.",
     calories: "450kcal",
-    price: "£12.00",
+    price: 12.0,
   },
   {
     id: 11,
@@ -166,7 +166,7 @@ export const MenuItems: Item[] = [
     description:
       "Slices of breaded and baked eggplant layered with marinara sauce, melted mozzarella cheese, and Parmesan cheese, served with a side of spaghetti marinara.",
     calories: "400kcal",
-    price: "£12.00",
+    price: 12.0,
   },
   {
     id: 12,
@@ -175,7 +175,7 @@ export const MenuItems: Item[] = [
     description:
       "Succulent grilled chicken breast marinated in chimichurri sauce, served with garlic mashed potatoes and sautéed seasonal vegetables.",
     calories: "500kcal",
-    price: "£15.00",
+    price: 15.0,
   },
   {
     id: 13,
@@ -184,7 +184,7 @@ export const MenuItems: Item[] = [
     description:
       "Fragrant Thai green curry made with coconut milk, tofu, mixed vegetables, and Thai spices, served with steamed jasmine rice.",
     calories: "450kcal",
-    price: "£13.00",
+    price: 13.0,
   },
   {
     id: 14,
@@ -193,7 +193,7 @@ export const MenuItems: Item[] = [
     description:
       "A hearty breakfast featuring eggs (scrambled, fried, or poached), bacon, sausage, grilled tomatoes, baked beans, mushrooms, and toast.",
     calories: "800kcal",
-    price: "£8.00",
+    price: 8.0,
   },
   {
     id: 15,
@@ -202,7 +202,7 @@ export const MenuItems: Item[] = [
     description:
       "A satisfying vegetarian option including eggs (scrambled, fried, or poached), vegetarian sausage, grilled tomatoes, baked beans, mushrooms, and toast.",
     calories: "800kcal",
-    price: "£7.00",
+    price: 7.0,
   },
   {
     id: 16,
@@ -211,7 +211,7 @@ export const MenuItems: Item[] = [
     description:
       "Poached eggs served on toasted English muffins with Canadian bacon and hollandaise sauce.",
     calories: "450kcal",
-    price: "£8.00",
+    price: 8.0,
   },
   {
     id: 17,
@@ -220,7 +220,7 @@ export const MenuItems: Item[] = [
     description:
       "A toasted bagel topped with cream cheese, smoked salmon, sliced cucumber, and red onion.",
     calories: "450kcal",
-    price: "£7.00",
+    price: 7.0,
   },
   {
     id: 18,
@@ -229,7 +229,7 @@ export const MenuItems: Item[] = [
     description:
       "A refreshing assortment of seasonal fruits, such as berries, melon, pineapple, and grapes, served with a dollop of Greek yogurt.",
     calories: "250kcal",
-    price: "£5.00",
+    price: 5.0,
   },
   {
     id: 19,
@@ -238,7 +238,7 @@ export const MenuItems: Item[] = [
     description:
       "Fluffy pancakes served with maple syrup, fresh berries, and a dollop of whipped cream.",
     calories: "500kcal",
-    price: "£6.00",
+    price: 6.0,
   },
   {
     id: 20,
@@ -246,7 +246,7 @@ export const MenuItems: Item[] = [
     category: "breakfast",
     description: "A buttery and flaky croissant, freshly baked to perfection.",
     calories: "200kcal",
-    price: "£2.50",
+    price: 2.5,
   },
   {
     id: 21,
@@ -255,7 +255,7 @@ export const MenuItems: Item[] = [
     description:
       "Warm croissant filled with thinly sliced ham and melted Swiss cheese.",
     calories: "350kcal",
-    price: "£3.50",
+    price: 3.5,
   },
   {
     id: 22,
@@ -264,7 +264,7 @@ export const MenuItems: Item[] = [
     description:
       "A savory croissant filled with sautéed spinach and crumbled feta cheese.",
     calories: "300kcal",
-    price: "£3.50",
+    price: 3.5,
   },
   {
     id: 23,
@@ -273,7 +273,7 @@ export const MenuItems: Item[] = [
     description:
       "Sourdough bread topped with smashed avocado, cherry tomatoes, and a sprinkle of microgreens.",
     calories: "300kcal",
-    price: "£7.00",
+    price: 7.0,
   },
   {
     id: 24,
@@ -282,7 +282,7 @@ export const MenuItems: Item[] = [
     description:
       "Creamy Greek yogurt layered with homemade granola, mixed berries, and a drizzle of honey.",
     calories: "300kcal",
-    price: "£5.00",
+    price: 5.0,
   },
   {
     id: 25,
@@ -291,7 +291,7 @@ export const MenuItems: Item[] = [
     description:
       "Toasted bread topped with diced tomatoes, fresh basil, garlic, and a drizzle of balsamic glaze.",
     calories: "200kcal",
-    price: "£5.00",
+    price: 5.0,
   },
   {
     id: 26,
@@ -300,7 +300,7 @@ export const MenuItems: Item[] = [
     description:
       "Tender calamari rings lightly breaded and fried until golden brown, served with marinara sauce for dipping.",
     calories: "325kcal",
-    price: "£7.00",
+    price: 7.0,
   },
   {
     id: 27,
@@ -309,7 +309,7 @@ export const MenuItems: Item[] = [
     description:
       "Creamy hummus infused with roasted red peppers and served with warm pita bread and crunchy carrot sticks.",
     calories: "200kcal",
-    price: "£6.00",
+    price: 6.0,
   },
   {
     id: 28,
@@ -318,7 +318,7 @@ export const MenuItems: Item[] = [
     description:
       "Button mushrooms filled with a savory mixture of breadcrumbs, herbs, and cheese, baked until golden and bubbling.",
     calories: "200kcal",
-    price: "£7.00",
+    price: 7.0,
   },
   {
     id: 29,
@@ -327,7 +327,7 @@ export const MenuItems: Item[] = [
     description:
       "Crispy spring rolls filled with a mix of fresh vegetables and served with a sweet chili dipping sauce.",
     calories: "150kcal",
-    price: "£6.00",
+    price: 6.0,
   },
   {
     id: 30,
@@ -336,7 +336,7 @@ export const MenuItems: Item[] = [
     description:
       "Crisp romaine lettuce tossed with homemade Caesar dressing, crunchy croutons, and grated Parmesan cheese.",
     calories: "250kcal",
-    price: "£8.00",
+    price: 8.0,
   },
   {
     id: 31,
@@ -345,7 +345,7 @@ export const MenuItems: Item[] = [
     description:
       "A refreshing mix of lettuce, cucumbers, tomatoes, red onions, Kalamata olives, and feta cheese, tossed in a tangy Greek dressing.",
     calories: "250kcal",
-    price: "£9.00",
+    price: 9.0,
   },
   {
     id: 32,
@@ -354,7 +354,7 @@ export const MenuItems: Item[] = [
     description:
       "Nutrient-packed quinoa mixed with diced avocado, cherry tomatoes, cucumber, red onion, and fresh herbs, dressed with a zesty lemon vinaigrette.",
     calories: "350kcal",
-    price: "£10.00",
+    price: 10.0,
   },
   {
     id: 33,
@@ -363,7 +363,7 @@ export const MenuItems: Item[] = [
     description:
       "Layers of tender lasagna noodles, seasoned ground beef, rich marinara sauce, and creamy ricotta cheese, topped with melted mozzarella cheese.",
     calories: "600kcal",
-    price: "£13.00",
+    price: 13.0,
   },
   {
     id: 34,
@@ -372,7 +372,7 @@ export const MenuItems: Item[] = [
     description:
       "A refreshing mix of lettuce, cucumbers, tomatoes, red onions, Kalamata olives, and feta cheese, tossed in a tangy Greek dressing.",
     calories: "500kcal",
-    price: "£12.00",
+    price: 12.0,
   },
   {
     id: 35,
@@ -381,7 +381,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "chocolate",
     description:
       "Creamy hot cocoa made with cocoa powder, topped with whipped cream.",
-    price: "£3.00",
+    price: 3.0,
     calories: "250 kcal",
   },
   {
@@ -390,7 +390,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "chocolate",
     description: "Creamy delight of our premium White Hot Chocolate.",
-    price: "£3.00",
+    price: 3.0,
     calories: "270 kcal",
   },
   {
@@ -399,7 +399,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "tea",
     description: "A hot cup of classic black tea.",
-    price: "£2.00",
+    price: 2.0,
     calories: "2 kcal",
   },
   {
@@ -408,7 +408,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "tea",
     description: "A fragrant blend of black tea with bergamot essence.",
-    price: "£2.50",
+    price: 2.5,
     calories: "2 kcal",
   },
   {
@@ -417,7 +417,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "tea",
     description: "Hot green tea, known for its light and refreshing flavor.",
-    price: "£2.25",
+    price: 2.25,
     calories: "2 kcal",
   },
   {
@@ -426,7 +426,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "tea",
     description: "A comforting blend of spiced black tea and steamed milk.",
-    price: "£3.50",
+    price: 3.5,
     calories: "200 kcal",
   },
   {
@@ -435,7 +435,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "coffee",
     description: "A bold and concentrated shot of coffee.",
-    price: "£1.50",
+    price: 1.5,
     calories: "5 kcal",
   },
   {
@@ -444,7 +444,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "coffee",
     description: "Espresso, steamed milk, and frothy foam, perfectly balanced.",
-    price: "£2.50",
+    price: 2.5,
     calories: "120 kcal",
   },
   {
@@ -453,7 +453,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "coffee",
     description: "Creamy espresso with steamed milk.",
-    price: "£2.75",
+    price: 2.75,
     calories: "150 kcal",
   },
   {
@@ -462,7 +462,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "coffee",
     description: "Espresso and rich chocolate, topped with whipped cream.",
-    price: "£3.00",
+    price: 3.0,
     calories: "290 kcal",
   },
   {
@@ -471,7 +471,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "coffee",
     description: "Espresso diluted with hot water for a smooth taste.",
-    price: "£2.25",
+    price: 2.25,
     calories: "10 kcal",
   },
   {
@@ -480,7 +480,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "soft drinks",
     description: "A refreshing carbonated soft drink.",
-    price: "£2.00",
+    price: 2.0,
     calories: "140 kcal",
   },
   {
@@ -490,7 +490,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "soft drinks",
     description:
       "A sweet and spicy carbonated beverage with a distinctive flavor.",
-    price: "£2.00",
+    price: 2.0,
     calories: "160 kcal",
   },
   {
@@ -499,7 +499,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "soft drinks",
     description: "A classic cola beverage.",
-    price: "£2.00",
+    price: 2.0,
     calories: "150 kcal",
   },
   {
@@ -508,7 +508,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "soft drinks",
     description: "A crisp and refreshing ginger-flavored soft drink.",
-    price: "£2.00",
+    price: 2.0,
     calories: "120 kcal",
   },
   {
@@ -517,7 +517,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "soft drinks",
     description: "A lemon-lime flavored soft drink.",
-    price: "£2.00",
+    price: 2.0,
     calories: "140 kcal",
   },
   {
@@ -526,7 +526,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "soft drinks",
     description: "A refreshing blend of lemon juice, water, and sugar.",
-    price: "£2.00",
+    price: 2.0,
     calories: "130 kcal",
   },
   {
@@ -535,7 +535,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "soft drinks",
     description: "A sugar-free, low-calorie version of Coca Cola.",
-    price: "£2.00",
+    price: 2.0,
     calories: "1 kcal",
   },
   {
@@ -544,7 +544,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "soft drinks",
     description: "A cold and refreshing tea-based beverage.",
-    price: "£2.00",
+    price: 2.0,
     calories: "90 kcal",
   },
   {
@@ -553,7 +553,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "soft drinks",
     description: "A sweet and fruity beverage blend.",
-    price: "£2.00",
+    price: 2.0,
     calories: "150 kcal",
   },
   {
@@ -563,7 +563,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "fruit juice",
     description:
       "A classic favorite made from freshly squeezed oranges, bursting with vitamin C.",
-    price: "£3.00",
+    price: 3.0,
     calories: "110 kcal",
   },
   {
@@ -572,7 +572,7 @@ export const MenuItems: Item[] = [
     category: "drinks",
     drinkCategory: "fruit juice",
     description: "Invigorating and tangy taste of freshly squeezed grapefruit.",
-    price: "£3.00",
+    price: 3.0,
     calories: "100 kcal",
   },
   {
@@ -582,7 +582,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "fruit juice",
     description:
       "Enjoy the crisp and refreshing flavor of pure, freshly pressed apple juice.",
-    price: "£3.00",
+    price: 3.0,
     calories: "120 kcal",
   },
   {
@@ -592,7 +592,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "fruit juice",
     description:
       "A blend of pineapple, mango, and coconut, transporting your taste buds to the tropics.",
-    price: "£3.00",
+    price: 3.0,
     calories: "130 kcal",
   },
   {
@@ -602,7 +602,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "fruit juice",
     description:
       "A sweet and tart medley of strawberries, blueberries, raspberries, and blackberries.",
-    price: "£3.00",
+    price: 3.0,
     calories: "140 kcal",
   },
   {
@@ -612,7 +612,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "beer & cider",
     description:
       "A locally brewed Indian Pale Ale with a burst of hoppy and citrus flavors.",
-    price: "£5.50",
+    price: 5.5,
     calories: "180 kcal",
   },
   {
@@ -622,7 +622,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "beer & cider",
     description:
       "Crisp and clean classic lager, perfect for any beer enthusiast.",
-    price: "£4.75",
+    price: 4.75,
     calories: "170 kcal",
   },
   {
@@ -632,7 +632,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "beer & cider",
     description:
       "Crisp cider crafted from the finest local apples, offering a taste of the orchard.",
-    price: "£5.25",
+    price: 5.25,
     calories: "210 kcal",
   },
   {
@@ -642,7 +642,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "wine",
     description:
       "A harmonious blend of red grapes with notes of dark fruits and subtle oak.",
-    price: "£8.50",
+    price: 8.5,
     calories: "120 kcal (per glass)",
   },
   {
@@ -652,7 +652,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "wine",
     description:
       "A smooth and buttery Chardonnay with hints of green apple and vanilla.",
-    price: "£9.00",
+    price: 9.0,
     calories: "125 kcal (per glass)",
   },
   {
@@ -662,7 +662,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "smoothies",
     description:
       "A mix of strawberries, blueberries, raspberries, Greek yogurt, and a drizzle of honey.",
-    price: "£4.00",
+    price: 4.0,
     calories: "250 kcal",
   },
   {
@@ -672,7 +672,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "smoothies",
     description:
       "Apple and pear fusion with locally harvested apples, pears, vanilla yogurt, and a hint of cinnamon and honey.",
-    price: "£4.00",
+    price: 4.0,
     calories: "240 kcal",
   },
   {
@@ -682,7 +682,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "smoothies",
     description:
       "Tropical delight featuring mango, pineapple, banana, coconut milk, and a touch of honey.",
-    price: "£4.25",
+    price: 4.25,
     calories: "260 kcal",
   },
   {
@@ -692,7 +692,7 @@ export const MenuItems: Item[] = [
     drinkCategory: "smoothies",
     description:
       "Green smoothie made with locally sourced spinach, kale, banana, Greek yogurt, and a touch of honey.",
-    price: "£4.25",
+    price: 4.25,
     calories: "230 kcal",
   },
 ];

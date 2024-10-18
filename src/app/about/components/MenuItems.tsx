@@ -18,7 +18,7 @@ const MenuItem = ({title, category, image, href}: MenuItemProps) => {
             <h3 className={s.title}>{title}</h3>
           </Link>
         <div className={`${s.image}`}>
-        <ExportedImage src={image} alt={title} fill style={{objectFit: 'cover'}} placeholder="blur" sizes="33vw" />
+        <ExportedImage src={image} alt={title} fill style={{objectFit: 'cover'}} placeholder="blur" sizes="33vw"  basePath="/previews/urbanbites" />
         </div>
       </div>
   )

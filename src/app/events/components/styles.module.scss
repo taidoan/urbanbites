@@ -11,7 +11,7 @@
 .eventInfoPill {
   --margin-right: #{size-clamp(rem(8), rem(12))};
   align-items: center;
-  background-color: var(--clr-disabled-150);
+  background-color: var(--clr-cream-100);
   border-radius: rem(12);
   color: var(--clr-secondary-300);
   display: flex;
@@ -20,7 +20,7 @@
   padding-inline: size-clamp(rem(16), rem(20));
 
   .eventInfoIcon {
-    color: var(--clr-disabled-500);
+    color: var(--clr-cream-400);
     height: auto;
     margin-inline-end: var(--margin-right);
     width: rem(20);

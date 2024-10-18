@@ -34,10 +34,10 @@ export default function Home() {
             <Divider />
             <p className={ft.paragraph}>From hearty breakfasts to savory dinners, our diverse menu is crafted with care an d locally sourced ingredients. Dive into deliciousness and explore the full range of our offerings!</p>
             <div className={ft.ctaBlock}>
-            <Button variant='primary' title='Food Menu' href="/menus/food" />
+            <Button variant='primary' title='Food Menu' href="/menus" />
           </div>
           </div>
-          <ExportedImage src={foodImage} alt="Food Menu" className={ft.image} />
+          <ExportedImage src={foodImage} alt="Food Menu" className={ft.image} basePath="/previews/urbanbites" />
         </div>
         <div className={ft.container}>
           <div className="content-grid content-grid--half">
@@ -45,10 +45,10 @@ export default function Home() {
             <Divider />
             <p className={ft.paragraph}>From handcrafted coffees to refreshing smoothies and craft beers, our drink menu is designed to delight. Sip and savour the flavours of Urban Bites!</p>
             <div className={ft.ctaBlock}>
-            <Button variant='primary' title='Drinks Menu' href="/menus/drinks" />
+            <Button variant='primary' title='Drinks Menu' href="/menus?tab=drinks" />
           </div>
           </div>
-          <ExportedImage src={drinksImage} alt="Drinks Menu" className={ft.image} />
+          <ExportedImage src={drinksImage} alt="Drinks Menu" className={ft.image} basePath="/previews/urbanbites" />
         </div>
         <div className={`${ft.container} ${ft.containerDark}`}>
           <div className="content-grid content-grid--half">
@@ -56,11 +56,11 @@ export default function Home() {
             <Divider variant="tertiary" />
             <p className={ft.paragraph}>Elevate your next event with Urban Bites. Whether at home or in the office, enjoy our delicious dishes and drinks with convenient delivery or pickup options.</p>
             <div className={ft.ctaBlock}>
-            <Button variant='primary' title='Delivery' href="/order/delivery" />
-            <Button variant='primary' title='Pick Up' href="/order/pick-up" />
+            <Button variant='primary' title='Delivery' href="/order?method=delivery" />
+            <Button variant='primary' title='Collection' href="/order?method=collection" />
           </div>
           </div>
-          <ExportedImage src={orderImage} alt="Order" className={ft.image} />
+          <ExportedImage src={orderImage} alt="Order" className={ft.image} basePath="/previews/urbanbites" />
         </div>
       </section>
       <section className={`home__quick-links`}>

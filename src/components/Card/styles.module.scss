@@ -2,7 +2,8 @@
 
 .card {
   --shadow: #{$card-box-shadow};
-  background-color: #f7f6f6;
+  // background-color: #f7f6f6;
+  background-color: var(--clr-beige-200);
   border-radius: rem(16);
   box-shadow: var(--shadow);
   overflow: hidden;
@@ -71,6 +72,30 @@
     & + * {
       margin-block-start: size-clamp(rem(16), rem(24));
     }
+  }
+}
+
+.basketAddTitle {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  svg {
+    color: var(--clr-beige-500);
+    cursor: pointer;
+    font-size: size-clamp(rem(18), rem(32));
+    margin: 0 !important;
+    transition: color var(--transition-speed);
+
+    &:hover {
+      color: var(--clr-primary-400);
+    }
+  }
+
+  & + * {
+    margin-block-start: rem(16);
   }
 }
 

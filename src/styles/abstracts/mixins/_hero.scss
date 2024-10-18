@@ -3,8 +3,9 @@
 @use "./../functions/px-to-rem" as *;
 @use "./../functions/image-url" as *;
 @use "./../settings/shadows" as *;
+@use "./../settings/filePaths" as *;
 
-@mixin hero-section($url) {
+@mixin hero-section($url, $height: 100dvh) {
   --title-shadow: #{$hero-title-shadow};
   --body-text-shadow: #{$hero-body-shadow};
 
@@ -20,12 +21,12 @@
       rgba(219, 199, 189, 0.025),
       rgba(219, 199, 189, 0.025)
     ),
-    url("#{$url}") 17.5% 25% / cover no-repeat;
+    url("#{$static-path}#{$url}") 17.5% 25% / cover no-repeat;
   background-blend-mode: normal, screen, normal;
   color: var(--clr-light-400);
   display: flex;
   height: auto;
-  min-height: 100dvh;
+  min-height: $height;
   text-align: center;
 
   @include mq("base-sm") {

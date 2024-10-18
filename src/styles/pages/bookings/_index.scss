@@ -1,7 +1,7 @@
 @use "./../../abstracts/_index" as *;
 
 .bookings__hero {
-  @include hero-section("/assets/images/bookings/Hero.jpg");
+  @include hero-section("/assets/images/bookings/hero.jpg");
 }
 
 .bookings__standard {

@@ -18,7 +18,7 @@ const EventCard = ({className, entry}: EventCardProps) => {
   const eventCardClasses = classNames(style.eventCard, className);
 
   return(
-    <Card id={`${entry.id}`} event={true} className={eventCardClasses}>
+    <Card id={`${entry.name}`} event={true} className={eventCardClasses}>
       {typeof entry.date === 'object' ? (
         <CardDate day={entry.date.day} month={entry.date.monthText} />
       ) : (<></>)}
