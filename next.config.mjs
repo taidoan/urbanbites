@@ -1,8 +1,11 @@
-import path from "path";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: true,
   output: "export",
+  basePath,
+  assetPrefix: basePath,
   images: {
     loader: "custom",
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
