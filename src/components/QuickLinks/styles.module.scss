@@ -1,9 +1,9 @@
-@use "./../../styles/abstracts/_index" as *;
+@use "./../../styles/abstracts/_index" as abstracts;
 
 .card {
-  --padding-inline: #{size-clamp(
-      rem($padding-inline-base),
-      rem($padding-inline-desktop)
+  --padding-inline: #{abstracts.size-clamp(
+      abstracts.rem(abstracts.$padding-inline-base),
+      abstracts.rem(abstracts.$padding-inline-desktop)
     )};
 
   background-color: palevioletred;
@@ -14,8 +14,8 @@
   transition: 0.5s;
   z-index: 0;
 
-  @include mq("md") {
-    padding-block: rem(200);
+  @include abstracts.mq("md") {
+    padding-block: abstracts.rem(200);
     padding-inline: 0;
   }
 
@@ -69,7 +69,7 @@
 }
 
 .tagline {
-  --font-size: #{size-clamp(rem(24), rem(28))};
+  --font-size: #{abstracts.size-clamp(abstracts.rem(24), abstracts.rem(28))};
 
   color: var(--clr-primary-400);
   display: block;
@@ -78,16 +78,19 @@
   font-weight: 500;
   text-shadow: 0.0625rem 0.0625rem 0.09375rem rgba(48, 39, 33, 0.62);
   text-transform: uppercase;
-  @include text-crop($line-height: 0.85);
+  @include abstracts.text-crop($line-height: 0.85);
 }
 
 .title {
-  --font-size: #{size-clamp(rem($heading-font-base-size), rem(72))};
+  --font-size: #{abstracts.size-clamp(
+      abstracts.rem(abstracts.$heading-font-base-size),
+      abstracts.rem(72)
+    )};
 
   color: var(--clr-light-400);
   font-size: var(--font-size);
   letter-spacing: normal;
-  margin-top: rem(12);
+  margin-top: abstracts.rem(12);
 }
 
 .link {

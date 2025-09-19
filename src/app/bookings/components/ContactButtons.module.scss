@@ -1,19 +1,19 @@
-@use "./../../../styles/abstracts/_index" as *;
+@use "./../../../styles/abstracts/_index" as abstracts;
 
 .button {
   align-items: center;
   background-color: var(--clr-beige-500);
   border: none;
-  border-radius: rem(12);
+  border-radius: abstracts.rem(12);
   color: inherit;
-  column-gap: rem(8);
+  column-gap: abstracts.rem(8);
   cursor: pointer;
   display: flex;
   flex-wrap: wrap;
-  font-size: size-clamp(rem(16), rem(20));
-  padding-block: size-clamp(rem(12), rem(18));
-  padding-inline: size-clamp(rem(16), rem(24));
-  row-gap: rem(4);
+  font-size: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(20));
+  padding-block: abstracts.size-clamp(abstracts.rem(12), abstracts.rem(18));
+  padding-inline: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(24));
+  row-gap: abstracts.rem(4);
   text-decoration: none;
   transition: background-color var(--transition-speed),
     color var(--transition-speed), padding var(--transition-speed);
@@ -22,7 +22,7 @@
   svg {
     color: var(--clr-beige-700);
     transition: color var(--transition-speed);
-    width: rem(25);
+    width: abstracts.rem(25);
   }
 
   @media (hover: hover) {

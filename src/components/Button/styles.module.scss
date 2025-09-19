@@ -1,4 +1,4 @@
-@use "./../../styles/abstracts/_index" as *;
+@use "./../../styles/abstracts/_index" as abstracts;
 
 @mixin insetHover($color) {
   &:not(.backgroundHover) {
@@ -21,13 +21,25 @@
 }
 
 .btn {
-  --fs-button: #{map-get($project-typography-scale, button)};
-  --button-shadow: #{$button-hover-shadow};
+  --fs-button: #{map-get(abstracts.$project-typography-scale, button)};
+  --button-shadow: #{abstracts.$button-hover-shadow};
 
-  --btn-padding-block: #{size-clamp(rem(16), rem(18))};
-  --btn-padding-inline: #{size-clamp(rem(22), rem(24))};
-  --btn-padding-block--hover: #{size-clamp(rem(19), rem(22))};
-  --btn-padding-inline--hover: #{size-clamp(rem(25), rem(27))};
+  --btn-padding-block: #{abstracts.size-clamp(
+      abstracts.rem(16),
+      abstracts.rem(18)
+    )};
+  --btn-padding-inline: #{abstracts.size-clamp(
+      abstracts.rem(22),
+      abstracts.rem(24)
+    )};
+  --btn-padding-block--hover: #{abstracts.size-clamp(
+      abstracts.rem(19),
+      abstracts.rem(22)
+    )};
+  --btn-padding-inline--hover: #{abstracts.size-clamp(
+      abstracts.rem(25),
+      abstracts.rem(27)
+    )};
 
   align-items: center;
   border: none;

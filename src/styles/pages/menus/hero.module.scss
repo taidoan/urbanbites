@@ -1,8 +1,8 @@
-@use "./../../abstracts/_index" as *;
+@use "./../../abstracts/_index" as abstracts;
 
 .hero {
-  --title-shadow: #{$hero-title-shadow};
-  --body-text-shadow: #{$hero-body-shadow};
+  --title-shadow: #{abstracts.$hero-title-shadow};
+  --body-text-shadow: #{abstracts.$hero-body-shadow};
   --dynamic-background-image: url("#{$static-path}/assets/images/menus/carousel/1.jpg");
   align-items: center;
   color: var(--clr-light-400);
@@ -48,7 +48,7 @@
     z-index: -1;
   }
 
-  @include mq("lg-xl") {
+  @include abstracts.mq("lg-xl") {
     min-height: 85dvh;
   }
 }

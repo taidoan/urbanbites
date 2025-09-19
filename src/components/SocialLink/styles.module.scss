@@ -1,18 +1,18 @@
-@use "./../../styles/abstracts/_index" as *;
+@use "./../../styles/abstracts/_index" as abstracts;
 
 .item {
   align-items: center;
   display: grid;
-  gap: size-clamp(rem(20), rem(24));
+  gap: abstracts.size-clamp(abstracts.rem(20), abstracts.rem(24));
   grid-column: 2 / 3;
-  grid-template-columns: rem(66) 1fr;
+  grid-template-columns: abstracts.rem(66) 1fr;
 }
 
 .icon {
-  --icon-size: #{rem(66)};
+  --icon-size: #{abstracts.rem(66)};
 
-  @include mq("base-lg") {
-    --icon-size: #{rem(80)};
+  @include abstracts.mq("base-lg") {
+    --icon-size: #{abstracts.rem(80)};
   }
 
   display: block;
@@ -23,7 +23,7 @@
 .text {
   display: flex;
   flex-direction: column;
-  gap: rem(12);
+  gap: abstracts.rem(12);
   grid-column: 2 / 3;
 }
 
@@ -31,25 +31,25 @@
 .link {
   font-family: var(--ff-display);
   text-transform: uppercase;
-  @include text-crop();
+  @include abstracts.text-crop();
 }
 
 .tagline {
-  font-size: size-clamp(rem(32), rem(48));
+  font-size: abstracts.size-clamp(abstracts.rem(32), abstracts.rem(48));
   font-weight: 500;
 
-  @include mq("base-sm") {
-    font-size: size-clamp(rem(40), rem(48));
+  @include abstracts.mq("base-sm") {
+    font-size: abstracts.size-clamp(abstracts.rem(40), abstracts.rem(48));
   }
 }
 
 .link {
   color: var(--clr-primary-600);
-  font-size: size-clamp(rem(28), rem(40));
+  font-size: abstracts.size-clamp(abstracts.rem(28), abstracts.rem(40));
   font-weight: 475;
   text-decoration: none;
 
-  @include mq("base-sm") {
-    font-size: size-clamp(rem(38), rem(40));
+  @include abstracts.mq("base-sm") {
+    font-size: abstracts.size-clamp(abstracts.rem(38), abstracts.rem(40));
   }
 }

@@ -1,15 +1,15 @@
-@use "./../../abstracts/_index" as *;
+@use "./../../abstracts/_index" as abstracts;
 
 .menus__hero {
   background-color: var(--clr-tertiary-500);
-  @include mq("base-sm") {
-    @include border(12px, var(--clr-light-400));
+  @include abstracts.mq("base-sm") {
+    @include abstracts.border(12px, var(--clr-light-400));
   }
 
-  @include mq(rem(500), "max", "height", "landscape") {
+  @include abstracts.mq(abstracts.rem(500), "max", "height", "landscape") {
     min-height: auto;
     .content-grid {
-      margin-block: rem(125);
+      margin-block: abstracts.rem(125);
       padding-block: 0;
     }
   }
@@ -22,7 +22,7 @@
   h1 {
     color: var(--clr-light-400);
     font-size: var(--fs-hero-title);
-    margin-bottom: rem(24);
+    margin-bottom: abstracts.rem(24);
     text-shadow: var(--title-shadow);
   }
 
@@ -39,24 +39,24 @@
 .menus__filter {
   background-color: var(--clr-light-400);
 
-  @include mq("md", "max", "width") {
+  @include abstracts.mq("md", "max", "width") {
     > .content-grid {
       padding-block: 0;
       padding-inline: 0;
     }
   }
 
-  @include mq("md") {
-    @include border(12px, var(--clr-light-400), "no-top");
+  @include abstracts.mq("md") {
+    @include abstracts.border(12px, var(--clr-light-400), "no-top");
     > .content-grid {
-      padding-block: rem(24);
+      padding-block: abstracts.rem(24);
     }
   }
 }
 
 .menus__content {
-  @include mq("base-sm") {
-    @include border(12px, var(--clr-light-400), "no-top");
+  @include abstracts.mq("base-sm") {
+    @include abstracts.border(12px, var(--clr-light-400), "no-top");
   }
 
   background: linear-gradient(

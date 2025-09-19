@@ -1,14 +1,14 @@
-@use "./../../abstracts/_index" as *;
+@use "./../../abstracts/_index" as abstracts;
 
 .header {
   > div:last-of-type {
-    margin-top: rem(24);
+    margin-top: abstracts.rem(24);
   }
 
-  @include mq("md") {
+  @include abstracts.mq("md") {
     align-items: center;
     display: grid;
-    gap: rem(40);
+    gap: abstracts.rem(40);
     grid-template-columns: repeat(12, 1fr);
 
     > div:first-of-type {
@@ -24,7 +24,7 @@
 }
 
 .swiperBlock {
-  margin-top: size-clamp(rem(32), rem(64));
+  margin-top: abstracts.size-clamp(abstracts.rem(32), abstracts.rem(64));
 }
 
 .title {

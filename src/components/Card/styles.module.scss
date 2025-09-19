@@ -1,10 +1,10 @@
-@use "./../../styles/abstracts/_index" as *;
+@use "./../../styles/abstracts/_index" as abstracts;
 
 .card {
-  --shadow: #{$card-box-shadow};
+  --shadow: #{abstracts.$card-box-shadow};
   // background-color: #f7f6f6;
   background-color: var(--clr-beige-200);
-  border-radius: rem(16);
+  border-radius: abstracts.rem(16);
   box-shadow: var(--shadow);
   overflow: hidden;
   position: relative;
@@ -12,28 +12,34 @@
   &:not(.imageLeft):not(.imageRight) {
     &:has(.image + .body) {
       .body {
-        padding-block-start: size-clamp(rem(24), rem(32));
+        padding-block-start: abstracts.size-clamp(
+          abstracts.rem(24),
+          abstracts.rem(32)
+        );
       }
     }
 
     a:has(.image) + .body {
-      padding-block-start: size-clamp(rem(24), rem(32));
+      padding-block-start: abstracts.size-clamp(
+        abstracts.rem(24),
+        abstracts.rem(32)
+      );
     }
 
     a:has(.image) + .body:has(.titleSmall) {
-      padding-block-start: rem(24);
+      padding-block-start: abstracts.rem(24);
     }
   }
 }
 
-@include mq("md") {
+@include abstracts.mq("md") {
   .imageLeft {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     height: auto;
 
     img {
-      border-radius: rem(9) 0 0 rem(9);
+      border-radius: abstracts.rem(9) 0 0 abstracts.rem(9);
       grid-column: span 3;
       height: 100%;
       max-height: 100%;
@@ -41,36 +47,42 @@
 
     .body {
       grid-column: span 6;
-      padding: rem(40);
+      padding: abstracts.rem(40);
     }
   }
 }
 
 .softShadow {
-  --shadow: #{$card-box-shadow-soft};
+  --shadow: #{abstracts.$card-box-shadow-soft};
 }
 
 .title {
-  font-size: size-clamp(rem(40), rem(48));
+  font-size: abstracts.size-clamp(abstracts.rem(40), abstracts.rem(48));
   font-weight: 600;
 
   & + * {
-    margin-block-start: rem(16);
+    margin-block-start: abstracts.rem(16);
   }
 
   &.titleSmall {
-    font-size: size-clamp(rem(32), rem(36));
+    font-size: abstracts.size-clamp(abstracts.rem(32), abstracts.rem(36));
 
     & + * {
-      margin-block-start: size-clamp(rem(12), rem(16));
+      margin-block-start: abstracts.size-clamp(
+        abstracts.rem(12),
+        abstracts.rem(16)
+      );
     }
   }
 
   &.titleLarge {
-    font-size: size-clamp(rem(40), rem(68));
+    font-size: abstracts.size-clamp(abstracts.rem(40), abstracts.rem(68));
 
     & + * {
-      margin-block-start: size-clamp(rem(16), rem(24));
+      margin-block-start: abstracts.size-clamp(
+        abstracts.rem(16),
+        abstracts.rem(24)
+      );
     }
   }
 }
@@ -85,7 +97,7 @@
   svg {
     color: var(--clr-beige-500);
     cursor: pointer;
-    font-size: size-clamp(rem(18), rem(32));
+    font-size: abstracts.size-clamp(abstracts.rem(18), abstracts.rem(32));
     margin: 0 !important;
     transition: color var(--transition-speed);
 
@@ -95,7 +107,7 @@
   }
 
   & + * {
-    margin-block-start: rem(16);
+    margin-block-start: abstracts.rem(16);
   }
 }
 
@@ -108,8 +120,8 @@
 }
 
 .body {
-  font-size: size-clamp(rem(16), rem(20));
-  padding: size-clamp(rem(20), rem(24));
+  font-size: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(20));
+  padding: abstracts.size-clamp(abstracts.rem(20), abstracts.rem(24));
 
   a {
     text-decoration: none;
@@ -117,7 +129,7 @@
 
   a:has(.title) {
     & + * {
-      margin-top: rem(16);
+      margin-top: abstracts.rem(16);
     }
   }
 
@@ -125,63 +137,72 @@
     margin-top: 0;
 
     & + * {
-      margin-top: size-clamp(rem(12), rem(16));
+      margin-top: abstracts.size-clamp(abstracts.rem(12), abstracts.rem(16));
     }
   }
 
   .image {
-    border-radius: rem(9);
+    border-radius: abstracts.rem(9);
   }
 
   &:has(.image) {
-    padding-block-end: size-clamp(rem(20), rem(32));
-    padding-block-start: rem(20);
-    padding-inline: rem(20);
+    padding-block-end: abstracts.size-clamp(
+      abstracts.rem(20),
+      abstracts.rem(32)
+    );
+    padding-block-start: abstracts.rem(20);
+    padding-inline: abstracts.rem(20);
   }
 
   &:has(.image + *) {
     .image {
-      margin-block-end: size-clamp(rem(24), rem(32));
+      margin-block-end: abstracts.size-clamp(
+        abstracts.rem(24),
+        abstracts.rem(32)
+      );
     }
   }
 
   &:has(* + .cta) {
     *:nth-last-child(2) {
-      margin-block-end: size-clamp(rem(16), rem(24));
+      margin-block-end: abstracts.size-clamp(
+        abstracts.rem(16),
+        abstracts.rem(24)
+      );
     }
   }
 }
 
 .image {
-  border-radius: rem(9) rem(9) 0 0;
-  max-height: rem(202);
+  border-radius: abstracts.rem(9) abstracts.rem(9) 0 0;
+  max-height: abstracts.rem(202);
   object-fit: cover;
 
   &.imageLarge {
-    max-height: rem(300);
+    max-height: abstracts.rem(300);
   }
 }
 
 .eventDate {
   background-color: var(--clr-primary-400);
-  border-radius: rem(16);
+  border-radius: abstracts.rem(16);
   color: var(--clr-light-400);
   font-family: var(--ff-display);
-  font-size: size-clamp(rem(24), rem(32));
+  font-size: abstracts.size-clamp(abstracts.rem(24), abstracts.rem(32));
   font-weight: 500;
-  height: size-clamp(rem(64), rem(92));
+  height: abstracts.size-clamp(abstracts.rem(64), abstracts.rem(92));
   line-height: 1;
-  padding: size-clamp(rem(8), rem(16));
+  padding: abstracts.size-clamp(abstracts.rem(8), abstracts.rem(16));
   position: absolute;
   right: -20px;
   text-align: center;
   text-transform: uppercase;
   top: -20px;
-  width: size-clamp(rem(64), rem(92));
+  width: abstracts.size-clamp(abstracts.rem(64), abstracts.rem(92));
 }
 
 .daySuffix {
-  font-size: size-clamp(rem(16), rem(24));
+  font-size: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(24));
 }
 
 .month {
@@ -193,22 +214,34 @@
 }
 
 .meta {
-  --border-color: #{$thin-border-color};
+  --border-color: #{abstracts.$thin-border-color};
   align-items: center;
   display: flex;
-  gap: size-clamp(rem(24), rem(32));
+  gap: abstracts.size-clamp(abstracts.rem(24), abstracts.rem(32));
   line-height: 1;
-  margin-block-start: size-clamp(rem(16), rem(20));
+  margin-block-start: abstracts.size-clamp(
+    abstracts.rem(16),
+    abstracts.rem(20)
+  );
 
   &BorderTop {
     border-top: 1px solid var(--border-color);
-    padding-block-start: size-clamp(rem(16), rem(20));
+    padding-block-start: abstracts.size-clamp(
+      abstracts.rem(16),
+      abstracts.rem(20)
+    );
   }
 
   &BorderBottom {
     border-bottom: 1px solid var(--border-color);
-    margin-block-end: size-clamp(rem(16), rem(20));
-    padding-block-end: size-clamp(rem(16), rem(20));
+    margin-block-end: abstracts.size-clamp(
+      abstracts.rem(16),
+      abstracts.rem(20)
+    );
+    padding-block-end: abstracts.size-clamp(
+      abstracts.rem(16),
+      abstracts.rem(20)
+    );
   }
 
   &JustifyFlexStart {
@@ -228,11 +261,11 @@
   }
 
   &SmallText {
-    font-size: size-clamp(rem(16), rem(18));
+    font-size: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(18));
     font-weight: 300;
   }
 
   &LargeText {
-    font-size: size-clamp(rem(16), rem(20));
+    font-size: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(20));
   }
 }

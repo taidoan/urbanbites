@@ -1,9 +1,9 @@
-@use "./../../styles/abstracts/_index" as *;
+@use "./../../styles/abstracts/_index" as abstracts;
 
 .list {
   display: flex;
   flex-wrap: wrap;
-  gap: rem(16);
+  gap: abstracts.rem(16);
   justify-content: center;
   list-style-type: none;
   padding: 0;

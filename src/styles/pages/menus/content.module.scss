@@ -1,22 +1,22 @@
-@use "./../../abstracts/_index" as *;
+@use "./../../abstracts/_index" as abstracts;
 
 .menuItems {
   display: flex;
   flex-direction: column;
-  gap: rem(32);
+  gap: abstracts.rem(32);
 }
 
 .subCategory {
   display: flex;
   flex-direction: column;
-  gap: rem(32);
+  gap: abstracts.rem(32);
 
   & + & {
-    margin-top: rem(32);
+    margin-top: abstracts.rem(32);
   }
 }
 
-@include mq("md") {
+@include abstracts.mq("md") {
   .title {
     font-size: var(--fs-heading-lg);
     text-align: center;
@@ -35,7 +35,10 @@
   .menuItems {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    margin-top: size-clamp(rem($padding-block-base), rem($padding-block-md));
+    margin-top: abstracts.size-clamp(
+      abstracts.rem(abstracts.$padding-block-base),
+      abstracts.rem(abstracts.$padding-block-md)
+    );
 
     > * {
       grid-column: span 6;
@@ -56,7 +59,7 @@
       }
 
       .subCategory + .subCategory {
-        margin-top: rem(64);
+        margin-top: abstracts.rem(64);
       }
 
       .title {

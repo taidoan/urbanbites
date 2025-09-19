@@ -1,9 +1,9 @@
-@use "./../../styles/abstracts/_index" as *;
+@use "./../../styles/abstracts/_index" as abstracts;
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: rem(20);
+  gap: abstracts.rem(20);
 }
 
 .input {

@@ -1,22 +1,22 @@
-@use "./../../abstracts/_index" as *;
+@use "./../../abstracts/_index" as abstracts;
 
 .missionCard {
-  --shadow: #{$card-box-shadow};
+  --shadow: #{abstracts.$card-box-shadow};
 
   background-color: palevioletred;
   background-color: var(--clr-pale-400);
-  border-radius: rem(26);
+  border-radius: abstracts.rem(26);
   box-shadow: var(--shadow);
   color: var(--clr-tertiary-400);
-  font-size: size-clamp(rem(18), rem(32));
-  padding-block: size-clamp(rem(32), rem(64));
-  padding-inline: size-clamp(rem(32), rem(64));
+  font-size: abstracts.size-clamp(abstracts.rem(18), abstracts.rem(32));
+  padding-block: abstracts.size-clamp(abstracts.rem(32), abstracts.rem(64));
+  padding-inline: abstracts.size-clamp(abstracts.rem(32), abstracts.rem(64));
   position: relative;
   text-align: center;
 
   &::before {
-    border: rem(12) solid var(--clr-light-400);
-    border-radius: rem(26);
+    border: abstracts.rem(12) solid var(--clr-light-400);
+    border-radius: abstracts.rem(26);
     bottom: 0;
     content: "";
     left: 0;
@@ -28,12 +28,12 @@
 }
 
 .image {
-  height: rem(240);
-  max-height: rem(800);
+  height: abstracts.rem(240);
+  max-height: abstracts.rem(800);
   object-fit: cover;
   width: 100%;
 
-  @include mq("md") {
+  @include abstracts.mq("md") {
     height: auto;
   }
 }

@@ -1,7 +1,7 @@
-@use "./../../abstracts/_index" as *;
+@use "./../../abstracts/_index" as abstracts;
 
 .events__hero {
-  @include hero-section("/assets/images/events/hero.jpg");
+  @include abstracts.hero-section("/assets/images/events/hero.jpg");
 }
 
 .events__body {
@@ -9,9 +9,15 @@
 }
 
 .events__content {
-  margin-block-start: size-clamp(rem(32), rem(72));
+  margin-block-start: abstracts.size-clamp(
+    abstracts.rem(32),
+    abstracts.rem(72)
+  );
 
   .events-entry + .events-entry {
-    margin-block-start: size-clamp(rem(32), rem(72));
+    margin-block-start: abstracts.size-clamp(
+      abstracts.rem(32),
+      abstracts.rem(72)
+    );
   }
 }

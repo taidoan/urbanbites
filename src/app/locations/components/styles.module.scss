@@ -1,41 +1,41 @@
-@use "./../../../styles/abstracts/_index" as *;
+@use "./../../../styles/abstracts/_index" as abstracts;
 
 .body {
   display: flex;
   flex-direction: column;
-  row-gap: rem(24);
+  row-gap: abstracts.rem(24);
 }
 
 .infoBlock p {
-  font-size: size-clamp(rem(16), rem(24));
+  font-size: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(24));
 }
 
 .detailsBlock {
   display: flex;
   flex-direction: column;
-  row-gap: rem(18);
+  row-gap: abstracts.rem(18);
 }
 
 .ctaBlock {
-  column-gap: rem(16);
+  column-gap: abstracts.rem(16);
   display: flex;
   flex-wrap: wrap;
-  row-gap: rem(12);
+  row-gap: abstracts.rem(12);
 }
 
 .field {
   align-items: center;
-  column-gap: rem(8);
+  column-gap: abstracts.rem(8);
   display: flex;
   flex-wrap: wrap;
 
   svg {
     color: var(--clr-tertiary-400);
     opacity: 0.35;
-    width: rem(25);
+    width: abstracts.rem(25);
 
-    @include mq("md") {
-      width: rem(20);
+    @include abstracts.mq("md") {
+      width: abstracts.rem(20);
     }
   }
 
@@ -44,7 +44,7 @@
   }
 
   & + & {
-    margin-top: rem(12);
+    margin-top: abstracts.rem(12);
   }
 }
 
@@ -53,23 +53,23 @@
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  row-gap: rem(4);
+  row-gap: abstracts.rem(4);
 
   & + .field {
-    margin-block-start: rem(12);
+    margin-block-start: abstracts.rem(12);
   }
 }
 
-@include mq("base-lg") {
+@include abstracts.mq("base-lg") {
   .body {
-    row-gap: rem(32);
+    row-gap: abstracts.rem(32);
   }
 
   .detailsBlock {
-    column-gap: rem(40);
+    column-gap: abstracts.rem(40);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    row-gap: rem(24);
+    row-gap: abstracts.rem(24);
 
     .ctaBlock {
       grid-column: span 2;
@@ -77,14 +77,14 @@
   }
 }
 
-@include mq("md") {
+@include abstracts.mq("md") {
   .ctaBlock {
-    column-gap: rem(20);
+    column-gap: abstracts.rem(20);
   }
 }
 
-@include mq("md-lg") {
+@include abstracts.mq("md-lg") {
   .detailsBlock {
-    column-gap: rem(44);
+    column-gap: abstracts.rem(44);
   }
 }

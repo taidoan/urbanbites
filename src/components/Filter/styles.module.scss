@@ -1,11 +1,11 @@
-@use "./../../styles/abstracts/_index" as *;
+@use "./../../styles/abstracts/_index" as abstracts;
 
 .filter {
   list-style-type: none;
   padding: 0;
 }
 
-@include mq("md", "max", "width") {
+@include abstracts.mq("md", "max", "width") {
   .filter {
     li:nth-child(odd) .tab {
       background-color: var(--clr-light-400);
@@ -22,10 +22,10 @@
     color: var(--font-clr);
     cursor: pointer;
     display: block;
-    padding-block: rem(18);
-    padding-inline: size-clamp(
-      rem($padding-inline-base),
-      rem($padding-inline-desktop)
+    padding-block: abstracts.rem(18);
+    padding-inline: abstracts.size-clamp(
+      abstracts.rem(abstracts.$padding-inline-base),
+      abstracts.rem(abstracts.$padding-inline-desktop)
     );
     position: relative;
     text-align: left;
@@ -34,11 +34,11 @@
     &::after {
       color: var(--clr-light-500);
       content: "▸";
-      font-size: rem(24);
+      font-size: abstracts.rem(24);
       position: absolute;
-      right: size-clamp(
-        rem($padding-inline-base),
-        rem($padding-inline-desktop)
+      right: abstracts.size-clamp(
+        abstracts.rem(abstracts.$padding-inline-base),
+        abstracts.rem(abstracts.$padding-inline-desktop)
       );
       top: 50%;
       transform: translateY(-50%);
@@ -57,21 +57,21 @@
     color: var(--clr-light-400);
     cursor: pointer;
     display: block;
-    padding-block: rem(48);
-    padding-inline: size-clamp(
-      rem($padding-inline-base),
-      rem($padding-inline-desktop)
+    padding-block: abstracts.rem(48);
+    padding-inline: abstracts.size-clamp(
+      abstracts.rem(abstracts.$padding-inline-base),
+      abstracts.rem(abstracts.$padding-inline-desktop)
     );
     position: relative;
     width: 100%;
 
     &::after {
       content: "▼";
-      font-size: size-clamp(rem(16), rem(18));
+      font-size: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(18));
       position: absolute;
-      right: size-clamp(
-        rem($padding-inline-base),
-        rem($padding-inline-desktop)
+      right: abstracts.size-clamp(
+        abstracts.rem(abstracts.$padding-inline-base),
+        abstracts.rem(abstracts.$padding-inline-desktop)
       );
 
       top: 50%;
@@ -86,25 +86,25 @@
   .selectedDesc {
     display: block;
     font-weight: normal;
-    margin-top: rem(12);
+    margin-top: abstracts.rem(12);
     width: 80%;
   }
 
   .selectedLabel {
     display: block;
     font-family: var(--ff-display);
-    font-size: rem(48);
+    font-size: abstracts.rem(48);
     font-weight: 700;
     text-transform: uppercase;
-    @include text-crop();
+    @include abstracts.text-crop();
   }
 }
 
-@include mq("md") {
+@include abstracts.mq("md") {
   .filter {
     display: flex;
     flex-wrap: wrap;
-    gap: size-clamp(rem(20), rem(24));
+    gap: abstracts.size-clamp(abstracts.rem(20), abstracts.rem(24));
     justify-content: center;
     padding-inline: 0;
   }
@@ -114,17 +114,23 @@
   }
 
   .tab {
-    --background-clr: #{$tab-background-color};
+    --background-clr: #{abstracts.$tab-background-color};
     --font-clr: var(--clr-tertiary-400);
-    --fs-button: #{map-get($project-typography-scale, button)};
-    --button-shadow: #{$button-hover-shadow};
-    --btn-padding-block: #{size-clamp(rem(16), rem(18))};
-    --btn-padding-inline: #{size-clamp(rem(22), rem(24))};
+    --fs-button: #{map-get(abstracts.$project-typography-scale, button)};
+    --button-shadow: #{abstracts.$button-hover-shadow};
+    --btn-padding-block: #{abstracts.size-clamp(
+        abstracts.rem(16),
+        abstracts.rem(18)
+      )};
+    --btn-padding-inline: #{abstracts.size-clamp(
+        abstracts.rem(22),
+        abstracts.rem(24)
+      )};
 
     align-items: center;
     background: var(--background-clr);
     border: none;
-    border-radius: rem(12);
+    border-radius: abstracts.rem(12);
     color: var(--font-clr);
     cursor: pointer;
     display: flex;

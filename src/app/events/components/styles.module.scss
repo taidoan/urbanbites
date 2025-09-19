@@ -1,29 +1,29 @@
-@use "./../../../styles/abstracts/_index" as *;
+@use "./../../../styles/abstracts/_index" as abstracts;
 
 .eventInfo {
-  --gap: #{rem(8)};
+  --gap: #{abstracts.rem(8)};
   display: flex;
   flex-direction: column;
   gap: var(--gap);
-  margin-block: size-clamp(rem(16), rem(24));
+  margin-block: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(24));
 }
 
 .eventInfoPill {
-  --margin-right: #{size-clamp(rem(8), rem(12))};
+  --margin-right: #{abstracts.size-clamp(abstracts.rem(8), abstracts.rem(12))};
   align-items: center;
   background-color: var(--clr-cream-100);
-  border-radius: rem(12);
+  border-radius: abstracts.rem(12);
   color: var(--clr-secondary-300);
   display: flex;
   flex-wrap: wrap;
-  padding-block: size-clamp(rem(12), rem(16));
-  padding-inline: size-clamp(rem(16), rem(20));
+  padding-block: abstracts.size-clamp(abstracts.rem(12), abstracts.rem(16));
+  padding-inline: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(20));
 
   .eventInfoIcon {
     color: var(--clr-cream-400);
     height: auto;
     margin-inline-end: var(--margin-right);
-    width: rem(20);
+    width: abstracts.rem(20);
   }
 
   .eventInfoLabel {
@@ -32,14 +32,14 @@
   }
 }
 
-@include mq("md") {
+@include abstracts.mq("md") {
   .eventCard {
     align-items: center;
-    padding: rem(16);
+    padding: abstracts.rem(16);
   }
 
   .eventCardBody {
-    column-gap: rem(32);
+    column-gap: abstracts.rem(32);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 0 !important;
@@ -51,25 +51,25 @@
     }
 
     .eventCardContent {
-      --padding: #{rem(8)};
+      --padding: #{abstracts.rem(8)};
       display: flex;
       flex-direction: column;
       grid-column: span 2;
       justify-content: center;
       padding-block: var(--padding);
-      padding-inline-end: rem(24);
+      padding-inline-end: abstracts.rem(24);
     }
   }
 
   .eventInfo {
-    --gap: #{rem(16)};
+    --gap: #{abstracts.rem(16)};
     flex-direction: row;
-    margin-block-end: rem(12);
+    margin-block-end: abstracts.rem(12);
     margin-block-start: 0;
   }
 
   .eventInfoPill {
     flex-grow: 1;
-    row-gap: rem(4);
+    row-gap: abstracts.rem(4);
   }
 }

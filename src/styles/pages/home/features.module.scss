@@ -1,4 +1,4 @@
-@use "./../../abstracts/_index" as *;
+@use "./../../abstracts/_index" as abstracts;
 
 .container {
   background-color: var(--clr-beige-400);
@@ -15,23 +15,23 @@
 
 .ctaBlock {
   display: flex;
-  gap: size-clamp(rem(16), rem(24));
-  margin-top: size-clamp(rem(24), rem(32));
+  gap: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(24));
+  margin-top: abstracts.size-clamp(abstracts.rem(24), abstracts.rem(32));
 }
 
 .image {
-  height: rem(200);
+  height: abstracts.rem(200);
   object-fit: cover;
   width: 100%;
 }
 
-@include mq("base-lg") {
+@include abstracts.mq("base-lg") {
   .image {
     height: 100%;
   }
 }
 
-@include mq("md") {
+@include abstracts.mq("md") {
   .container {
     align-items: center;
     display: flex;

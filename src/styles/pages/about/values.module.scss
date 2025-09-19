@@ -1,7 +1,7 @@
-@use "./../../abstracts/_index" as *;
+@use "./../../abstracts/_index" as abstracts;
 
 .swiperBlock {
-  margin-top: size-clamp(rem(32), rem(64));
+  margin-top: abstracts.size-clamp(abstracts.rem(32), abstracts.rem(64));
 }
 
 .title {

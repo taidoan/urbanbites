@@ -1,13 +1,13 @@
-@use "./border" as *;
-@use "./mq" as *;
-@use "./../functions/px-to-rem" as *;
-@use "./../functions/image-url" as *;
-@use "./../settings/shadows" as *;
-@use "./../settings/filePaths" as *;
+$static-path: "" !default;
+
+@use "./border" as border;
+@use "./mq" as mq;
+@use "./../functions/px-to-rem" as unit;
+@use "./../settings/shadows" as shadow;
 
 @mixin hero-section($url, $height: 100dvh) {
-  --title-shadow: #{$hero-title-shadow};
-  --body-text-shadow: #{$hero-body-shadow};
+  --title-shadow: #{shadow.$hero-title-shadow};
+  --body-text-shadow: #{shadow.$hero-body-shadow};
 
   align-items: center;
   background: radial-gradient(
@@ -29,26 +29,26 @@
   min-height: $height;
   text-align: center;
 
-  @include mq("base-sm") {
-    @include border(12px, var(--clr-light-400));
+  @include mq.mq("base-sm") {
+    @include border.border(12px, var(--clr-light-400));
   }
 
-  @include mq(rem(500), "max", "height", "landscape") {
+  @include mq.mq(unit.rem(500), "max", "height", "landscape") {
     min-height: auto;
     .content-grid {
-      margin-block: rem(125);
+      margin-block: unit.rem(125);
       padding-block: 0;
     }
   }
 
-  @include mq("lg-xl") {
+  @include mq.mq("lg-xl") {
     min-height: 85dvh;
   }
 
   h1 {
     color: var(--clr-light-400);
     font-size: var(--fs-hero-title);
-    margin-bottom: rem(24);
+    margin-bottom: unit.rem(24);
     text-shadow: var(--title-shadow);
   }
 

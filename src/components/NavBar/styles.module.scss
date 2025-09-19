@@ -1,4 +1,4 @@
-@use "./../../styles/abstracts/_index" as *;
+@use "./../../styles/abstracts/_index" as abstracts;
 .lock {
   overflow: hidden;
 }
@@ -13,11 +13,11 @@
   --icon: var(--clr-light-400);
   cursor: pointer;
   display: flex;
-  height: rem(48);
+  height: abstracts.rem(48);
   perspective: 600px;
   position: relative;
   -webkit-tap-highlight-color: transparent;
-  width: rem(48);
+  width: abstracts.rem(48);
   z-index: var(--z-index-modal);
 
   input {
@@ -59,12 +59,12 @@
           background: var(--icon);
           border-radius: 1px;
           content: "";
-          height: rem(2);
+          height: abstracts.rem(2);
           left: 50%;
           position: absolute;
           top: 50%;
           transform: translate(-50%, -50%) rotate(var(--rotate)) translateZ(6px);
-          width: rem(20);
+          width: abstracts.rem(20);
         }
 
         &:first-child {
@@ -89,21 +89,21 @@
     }
   }
 
-  @include mq("md") {
+  @include abstracts.mq("md") {
     display: none;
   }
 }
 
 .menuOverlay {
-  --grid-padding-inline: #{size-clamp(
-      rem($padding-inline-sm),
-      rem($padding-inline-desktop)
+  --grid-padding-inline: #{abstracts.size-clamp(
+      abstracts.rem(abstracts.$padding-inline-sm),
+      abstracts.rem(abstracts.$padding-inline-desktop)
     )};
 
-  @include mq("base-sm") {
-    --grid-padding-inline: #{size-clamp(
-        rem($padding-inline-base),
-        rem($padding-inline-desktop)
+  @include abstracts.mq("base-sm") {
+    --grid-padding-inline: #{abstracts.size-clamp(
+        abstracts.rem(abstracts.$padding-inline-base),
+        abstracts.rem(abstracts.$padding-inline-desktop)
       )};
   }
 
@@ -134,17 +134,17 @@
 }
 
 .menuList {
-  --gap: #{rem(24)};
+  --gap: #{abstracts.rem(24)};
   display: flex;
   flex-direction: column;
   row-gap: var(--gap);
 }
 
-@container menu (orientation: landscape) and (max-height: #{rem(500)}) {
+@container menu (orientation: landscape) and (max-height: #{abstracts.rem(500)}) {
   .menuList {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: rem(24);
+    gap: abstracts.rem(24);
   }
 
   .menuLink {
@@ -163,14 +163,14 @@
   text-transform: uppercase;
 }
 
-@include mq("md") {
+@include abstracts.mq("md") {
   .menuDesktop {
-    --grid-padding-inline: #{size-clamp(
-        rem($padding-inline-base),
-        rem($padding-inline-desktop)
+    --grid-padding-inline: #{abstracts.size-clamp(
+        abstracts.rem(abstracts.$padding-inline-base),
+        abstracts.rem(abstracts.$padding-inline-desktop)
       )};
     width: 100%;
-    --column-gap: #{rem(40)};
+    --column-gap: #{abstracts.rem(40)};
   }
 
   .menuList {
@@ -198,7 +198,7 @@
   }
 
   .menuListActive {
-    column-gap: rem(32);
+    column-gap: abstracts.rem(32);
     justify-content: flex-end;
 
     .menuLink {
@@ -217,9 +217,13 @@
   .menuLink {
     color: var(--clr-light-400);
     font-family: var(--ff-body);
-    font-size: map-get($project-typography-scale, "navigation", "base");
+    font-size: map-get(
+      abstracts.$project-typography-scale,
+      "navigation",
+      "base"
+    );
     position: relative;
-    text-shadow: rem(2) rem(2) rem(4) #302721;
+    text-shadow: abstracts.rem(2) abstracts.rem(2) abstracts.rem(4) #302721;
 
     @media (hover: hover) {
       &::before {
@@ -242,9 +246,9 @@
   }
 }
 
-@include mq("md-lg") {
+@include abstracts.mq("md-lg") {
   .menuDesktop {
-    --column-gap: #{rem(56)};
+    --column-gap: #{abstracts.rem(56)};
   }
 
   .menuListActive {

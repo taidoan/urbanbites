@@ -1,13 +1,16 @@
-@use "./../../styles/abstracts/_index" as *;
+@use "./../../styles/abstracts/_index" as abstracts;
 
 .tooltip {
-  --background-clr: #{rgba(map-get($project-colours, "dark-chocolate"), 85%)};
+  --background-clr: #{rgba(
+      map-get(abstracts.$project-colours, "dark-chocolate"),
+      85%
+    )};
   background-color: var(--background-clr);
-  border-radius: rem(8);
+  border-radius: abstracts.rem(8);
   color: #fff;
-  font-size: rem(16);
+  font-size: abstracts.rem(16);
   opacity: 0;
-  padding: size-clamp(rem(8), rem(12));
+  padding: abstracts.size-clamp(abstracts.rem(8), abstracts.rem(12));
   position: absolute;
   transition: opacity 2s;
   width: max-content;
@@ -27,13 +30,14 @@
 
 .top {
   left: 50%;
-  top: rem(-24);
+  top: abstracts.rem(-24);
   transform: translateX(-50%);
 
   &::after {
     border-top-color: var(--background-clr);
-    border-width: rem(8) rem(8) rem(8) rem(8);
-    bottom: rem(-16);
+    border-width: abstracts.rem(8) abstracts.rem(8) abstracts.rem(8)
+      abstracts.rem(8);
+    bottom: abstracts.rem(-16);
     left: 50%;
     transform: translateX(-50%);
   }
@@ -46,9 +50,9 @@
 
   &::after {
     border-bottom-color: var(--background-clr);
-    border-width: 0 rem(8) rem(8) rem(8);
+    border-width: 0 abstracts.rem(8) abstracts.rem(8) abstracts.rem(8);
     left: 50%;
-    top: rem(-8);
+    top: abstracts.rem(-8);
     transform: translateX(-50%);
   }
 }
@@ -60,8 +64,9 @@
 
   &::after {
     border-left-color: var(--background-clr);
-    border-width: rem(8) rem(0) rem(8) rem(8);
-    right: rem(-8);
+    border-width: abstracts.rem(8) abstracts.rem(0) abstracts.rem(8)
+      abstracts.rem(8);
+    right: abstracts.rem(-8);
     top: 50%;
     transform: translateY(-50%);
   }
@@ -74,7 +79,7 @@
 
   &::after {
     border-right-color: var(--background-clr);
-    border-width: rem(8) rem(8) rem(8) 0;
+    border-width: abstracts.rem(8) abstracts.rem(8) abstracts.rem(8) 0;
     right: 100%;
     top: 50%;
     transform: translateY(-50%);

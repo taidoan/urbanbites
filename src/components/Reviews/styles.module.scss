@@ -1,4 +1,4 @@
-@use "./../../styles/abstracts/_index" as *;
+@use "./../../styles/abstracts/_index" as abstracts;
 
 .rating {
   align-items: center;
@@ -8,12 +8,12 @@
 
 .starContainer {
   display: flex;
-  gap: rem(4);
+  gap: abstracts.rem(4);
 }
 
 .star {
   color: rgba(#302721, 0.15);
-  font-size: size-clamp(rem(16), rem(20));
+  font-size: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(20));
 }
 
 .star.full {
@@ -22,7 +22,7 @@
 
 .ratingText {
   color: rgba(#302721, 0.5);
-  font-size: rem(16);
+  font-size: abstracts.rem(16);
 }
 
 .avatar {
@@ -31,11 +31,11 @@
   border-radius: 50%;
   color: var(--clr-light-400);
   display: flex;
-  font-size: size-clamp(rem(18), rem(24));
+  font-size: abstracts.size-clamp(abstracts.rem(18), abstracts.rem(24));
   font-weight: 600;
-  height: size-clamp(rem(54), rem(64));
+  height: abstracts.size-clamp(abstracts.rem(54), abstracts.rem(64));
   justify-content: center;
-  width: size-clamp(rem(54), rem(64));
+  width: abstracts.size-clamp(abstracts.rem(54), abstracts.rem(64));
 }
 
 .avatarSalmon {
@@ -77,34 +77,34 @@
 .author {
   align-items: center;
   display: flex;
-  font-size: size-clamp(rem(16), rem(18));
-  gap: rem(16);
+  font-size: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(18));
+  gap: abstracts.rem(16);
 }
 
 .reviewBody {
   display: flex;
   flex-direction: column;
-  font-size: size-clamp(rem(16), rem(20));
-  row-gap: size-clamp(rem(16), rem(24));
+  font-size: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(20));
+  row-gap: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(24));
 }
 
 .reviewPill {
-  --shadow: #{$card-box-shadow};
+  --shadow: #{abstracts.$card-box-shadow};
   align-items: center;
   background-color: #f7f6f6;
-  border-radius: rem(24);
+  border-radius: abstracts.rem(24);
   box-shadow: var(--shadow);
   color: var(--clr-tertiary-400);
   display: grid;
-  font-size: size-clamp(rem(16), rem(18));
-  gap: rem(16);
+  font-size: abstracts.size-clamp(abstracts.rem(16), abstracts.rem(18));
+  gap: abstracts.rem(16);
   grid-template-columns: auto 1fr;
-  max-width: rem(320);
-  padding-block: rem(10);
-  padding-inline: rem(16) rem(22);
+  max-width: abstracts.rem(320);
+  padding-block: abstracts.rem(10);
+  padding-inline: abstracts.rem(16) abstracts.rem(22);
 }
 
 .reviewPillLogo {
-  height: rem(32);
-  width: rem(32);
+  height: abstracts.rem(32);
+  width: abstracts.rem(32);
 }

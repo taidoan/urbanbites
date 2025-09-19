@@ -1,9 +1,8 @@
-@use "./../../abstracts/_index" as *;
-
+@use "./../../abstracts/_index" as abstracts;
 .block {
   container-type: inline-size;
 
-  @include mq("md") {
+  @include abstracts.mq("md") {
     max-width: 65ch;
   }
 }
@@ -19,7 +18,7 @@
   display: block;
   font-style: italic;
   font-weight: 700;
-  margin-top: rem(20);
+  margin-top: abstracts.rem(20);
   text-shadow: 0.0625rem 0.125rem 0 rgba(48, 39, 33, 0.32);
   text-transform: uppercase;
 }
@@ -28,11 +27,11 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: rem(24);
-  row-gap: rem(12);
+  margin-top: abstracts.rem(24);
+  row-gap: abstracts.rem(12);
 }
 
-@container (min-width: #{rem(457)}) {
+@container (min-width: #{abstracts.rem(457)}) {
   .ctaBlock {
     flex-direction: row;
     gap: 1rem;
