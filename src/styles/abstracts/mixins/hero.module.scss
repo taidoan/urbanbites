@@ -2,6 +2,7 @@
 @use "./mq" as mq;
 @use "./../functions/px-to-rem" as unit;
 @use "./../settings/shadows" as shadow;
+@use "./../settings/paths" as paths;
 
 @mixin hero-section($url, $height: 100dvh) {
   --title-shadow: #{shadow.$hero-title-shadow};
@@ -19,7 +20,7 @@
       rgba(219, 199, 189, 0.025),
       rgba(219, 199, 189, 0.025)
     ),
-    url("#{$static-path}#{$url}") 17.5% 25% / cover no-repeat;
+    url("#{paths.$static-path}#{$url}") 17.5% 25% / cover no-repeat;
   background-blend-mode: normal, screen, normal;
   color: var(--clr-light-400);
   display: flex;

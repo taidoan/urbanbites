@@ -1,5 +1,5 @@
 @use "./../../abstracts/_index" as abstracts;
-@use "./../../abstracts/mixins/hero" as hero;
+@use "./../../abstracts/mixins/hero.module.scss" as hero;
 
 .locations__hero {
   @include hero.hero-section("/assets/images/locations/hero.jpg");
