@@ -1,7 +1,8 @@
 @use "./../../abstracts/_index" as *;
+@use "./../../abstracts/mixins/hero" as hero;
 
 .home__hero {
-  @include hero-section("/assets/images/home/Hero.jpg");
+  @include hero.hero-section("/assets/images/home/Hero.jpg");
 
   @include mq("lg-xl") {
     min-height: 100dvh;

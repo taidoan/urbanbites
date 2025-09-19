@@ -1,7 +1,8 @@
 @use "./../../abstracts/_index" as *;
+@use "./../../abstracts/mixins/hero" as hero;
 
 .order__hero {
-  @include hero-section("/assets/images/order/hero.jpg", 75dvh);
+  @include hero.hero-section("/assets/images/order/hero.jpg", 75dvh);
 }
 
 .order__body {

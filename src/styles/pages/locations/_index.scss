@@ -1,7 +1,8 @@
 @use "./../../abstracts/_index" as abstracts;
+@use "./../../abstracts/mixins/hero" as hero;
 
 .locations__hero {
-  @include abstracts.hero-section("/assets/images/locations/hero.jpg");
+  @include hero.hero-section("/assets/images/locations/hero.jpg");
 }
 
 .locations__body {

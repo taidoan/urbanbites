@@ -1,4 +1,5 @@
 @use "./../../abstracts/_index" as *;
+@use "./../../abstracts/mixins/hero" as hero;
 
 .about__intro-container {
   background: linear-gradient(
@@ -19,7 +20,7 @@
 }
 
 .about__hero {
-  @include hero-section("/assets/images/about/Hero.jpg");
+  @include hero.hero-section("/assets/images/about/Hero.jpg");
   grid-column: 1 / -1;
   grid-row: hero-start / hero-end;
 }
