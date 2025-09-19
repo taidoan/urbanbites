@@ -1,9 +1,7 @@
 import path from "path";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/previews/urbanbites",
-  assetPrefix: "/previews/urbanbites/",
-  exportTrailingSlash: true,
+  trailingSlash: true,
   output: "export",
   images: {
     loader: "custom",

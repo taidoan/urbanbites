@@ -14,7 +14,7 @@ const CardImage = ({ src, alt, classes, imageSize }: CardImageProps) => {
   const imageClasses = classNames(s.image, classes || '', { [s.imageLarge]: imageSize === "large" });
   
   return (
-    <ExportedImage src={src} alt={alt} className={imageClasses} basePath="/previews/urbanbites" />
+    <ExportedImage src={src} alt={alt} className={imageClasses}  />
   );
 };
 

@@ -46,7 +46,7 @@ const AboutPage = () => {
 
             <p>From our humble beginnings, we&apos;ve grown into a beloved local gathering spot, always staying true to our roots of quality, sustainability, and community spirit. Every step of our journey has been guided by our passion for creating memorable experiences and fostering connections. </p>
           </div>
-          <ExportedImage src={journeyImage} alt="Our Journey" className={j.image} basePath="/previews/urbanbites" />
+          <ExportedImage src={journeyImage} alt="Our Journey" className={j.image}  />
         </div>
       </section>
     </section>
@@ -70,7 +70,7 @@ const AboutPage = () => {
 
           <p>We minimize waste by using compostable or recyclable packaging and strive to reduce our carbon footprint through energy-efficient operations.</p>
         </div>
-        <ExportedImage src={sustainableImage} alt="Sustainability" className={j.image} basePath="/previews/urbanbites" />
+        <ExportedImage src={sustainableImage} alt="Sustainability" className={j.image}  />
       </div>
       <div  className='about__values-grid'>
         <div className='content-grid content-grid--half'>
@@ -80,7 +80,7 @@ const AboutPage = () => {
 
           <p>We collaborate with nearby schools and organizations to support educational programs and volunteer initiatives. By sourcing ingredients from local farmers and artisans, we ensure fresh, high-quality products while also bolstering our local economy.</p>
         </div>
-        <ExportedImage src={communityImage} alt="Community" className={j.image} basePath="/previews/urbanbites" />
+        <ExportedImage src={communityImage} alt="Community" className={j.image}  />
       </div>
     </section>
     <section className='about__menu-items'>

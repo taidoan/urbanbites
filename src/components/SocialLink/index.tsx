@@ -25,7 +25,7 @@ const SocialLink = ({network, handle, tagline}: SocialLinkProps) => {
 
   return(
     <div className={s.item}>
-      <Link href={url} passHref target="_blank"><ExportedImage src={`${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/icons/${network}.svg`} width={80} height={80} alt={network} className={s.icon} /></Link>
+      <Link href={url} passHref target="_blank"><ExportedImage src={`/assets/images/icons/${network}.svg`} width={80} height={80} alt={network} className={s.icon} /></Link>
       <div className={s.text}>
         <span className={s.tagline}>{tagline}</span>
         <Link href={url} passHref className={s.link} target="_blank">
